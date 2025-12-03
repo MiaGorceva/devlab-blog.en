@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DevLab Blog – Open-Source ERP, Low-Code & Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DevLab Blog covers open-source ERP, lsFusion, low-code platforms and business automation. Articles, case studies and ideas for companies building modern digital systems." />
+  <meta name="keywords" content="open-source ERP, ERP system, lsFusion, low-code ERP, business automation, DevLab Blog, MyCompany" />
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-alt: #0d1422;
+      --accent: #48cfff;
+      --accent-soft: rgba(72, 207, 255, 0.15);
+      --accent-2: #54e54a;
+      --text-main: #f5f7ff;
+      --text-muted: #9ca3c4;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #141b2f 0, #050812 55%, #020308 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.9),
+        rgba(2, 6, 23, 0.65),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 1.25rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, #ffffff 0, transparent 40%),
+        radial-gradient(circle at 70% 70%, var(--accent-2) 0, transparent 55%),
+        radial-gradient(circle at 30% 70%, var(--accent) 0, transparent 55%);
+      box-shadow:
+        0 0 15px rgba(72, 207, 255, 0.8),
+        0 0 30px rgba(84, 229, 74, 0.7);
+      position: relative;
+    }
+
+    .nav-logo::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .nav-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .nav-meta-title {
+      font-size: 0.88rem;
+    }
+
+    .nav-meta-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition:
+        background 0.18s ease-out,
+        border-color 0.18s ease-out,
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out;
+      white-space: nowrap;
+      background: transparent;
+      color: var(--text-main);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--text-main);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 3.2rem 0 1.8rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.1fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.05rem, 3vw + 1.1rem, 2.7rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 1.15rem 1.25rem;
+      background:
+        radial-gradient(circle at top left, rgba(72, 207, 255, 0.14), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(84, 229, 74, 0.12), transparent 55%),
+        rgba(5, 10, 25, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 20% 0, rgba(72, 207, 255, 0.08), transparent 40%),
+        radial-gradient(circle at 80% 100%, rgba(84, 229, 74, 0.09), transparent 40%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      box-shadow: 0 0 10px rgba(84, 229, 74, 0.9);
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-card-text {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-link {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+    }
+
+    /* MAIN */
+
+    main {
+      flex: 1;
+      padding-bottom: 3rem;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      gap: 2.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-title {
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .section-title small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Search & filters */
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 190px;
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.4rem 0.9rem 0.4rem 2.1rem;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+    }
+
+    .search input::placeholder {
+      color: rgba(148, 163, 184, 0.7);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.7rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.8);
+      cursor: pointer;
+      transition:
+        border-color 0.12s ease-out,
+        background 0.12s ease-out,
+        color 0.12s ease-out;
+    }
+
+    .tag.active,
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    /* POST LIST */
+
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.05rem;
+    }
+
+    .post-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+      transition:
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        border-color 0.12s ease-out,
+        background 0.12s ease-out;
+      cursor: pointer;
+    }
+
+    .post-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(72, 207, 255, 0.65);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+      background: radial-gradient(circle at top, rgba(72, 207, 255, 0.09), transparent 55%), rgba(15, 23, 42, 0.96);
+    }
+
+    .post-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .post-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .post-excerpt {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .post-footer {
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .post-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .post-image {
+      border-radius: 16px;
+      background: radial-gradient(circle at 20% 0, rgba(72, 207, 255, 0.4), transparent 65%),
+                  radial-gradient(circle at 80% 100%, rgba(84, 229, 74, 0.4), transparent 65%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(226, 232, 240, 0.8);
+      text-align: center;
+      padding: 0.6rem;
+    }
+
+    .post-tag {
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 720px) {
+      .post-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* SIDEBAR */
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .sidebar-block {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem 1rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.55rem;
+    }
+
+    .sidebar-text {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.55rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text-muted);
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .field {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 0.45rem 0.85rem;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.83rem;
+    }
+
+    .field::placeholder {
+      color: rgba(148, 163, 184, 0.7);
+    }
+
+    .newsletter-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.24);
+      margin-top: 2.6rem;
+      padding: 1.4rem 0 1.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .footer-meta {
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true"></div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP & low-code notes</div>
+            </div>
+          </a>
+          <div class="nav-links">
+            <a href="#posts">Posts</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <div class="nav-cta">
+            <a href="https://lsfusion.org" class="btn btn-outline" target="_blank" rel="noopener">lsFusion.org</a>
+            <!-- TODO: поменяй ссылку на реальный сайт MyCompany -->
+            <a href="#" class="btn btn-primary">Try MyCompany ERP</a>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrapper hero-grid">
+        <div>
+          <div class="hero-kicker">Blog · Open-source ERP · Low-code</div>
+          <h1 class="hero-title">
+            Insights on <span>open-source ERP, lsFusion</span> and real-world automation.
+          </h1>
+          <p class="hero-text">
+            DevLab Blog is a space where we experiment with open-source ERP stacks,
+            low-code tools, and practical automation patterns for growing companies.
+            We write about <strong>lsFusion</strong>, <strong>MyCompany ERP</strong>,
+            integrations, and everything around digital operations.
+          </p>
+          <div class="hero-actions">
+            <a href="#posts" class="btn btn-primary">Browse latest posts</a>
+            <a href="#about" class="btn btn-outline">What is this blog?</a>
+          </div>
+          <div class="hero-meta">
+            <span>Focus: open-source ERP, low-code development, real implementation stories.</span>
+            <span>Audience: product teams, integrators, ERP consultants and tech-curious founders.</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Stack highlights</span>
+            </div>
+            <div class="hero-card-title">
+              lsFusion + open-source ecosystem as a modern ERP backbone
+            </div>
+            <p class="hero-card-text">
+              We explore how lsFusion, PostgreSQL, messaging queues and other open-source
+              components can form a flexible ERP core instead of expensive legacy suites.
+            </p>
+            <div class="hero-card-links">
+              <a class="hero-link" href="https://lsfusion.org" target="_blank" rel="noopener">Explore lsFusion.org →</a>
+              <!-- TODO: поставь реальный URL MyCompany -->
+              <a class="hero-link" href="#" target="_blank" rel="noopener">See MyCompany ERP demo →</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper main-grid">
+        <!-- BLOG COLUMN -->
+        <section id="posts">
+          <div class="section-title">
+            <span>Latest articles</span>
+            <small>Placeholders – replace with your own posts</small>
+          </div>
+
+          <div class="toolbar">
+            <div class="search">
+              <span class="search-icon">🔎</span>
+              <input id="searchInput" type="search" placeholder="Search posts (ERP, lsFusion, low-code...)" />
+            </div>
+            <div id="categories" class="pill-row">
+              <button class="tag active" data-tag="all">All</button>
+              <button class="tag" data-tag="erp">Open-source ERP</button>
+              <button class="tag" data-tag="lsfusion">lsFusion</button>
+              <button class="tag" data-tag="lowcode">Low-code</button>
+              <button class="tag" data-tag="integration">Integrations</button>
+              <button class="tag" data-tag="education">Education</button>
+            </div>
+          </div>
+
+          <div class="post-list" id="postList">
+            <!-- POST 1 -->
+            <article class="post-card" data-tags="erp lsfusion">
+              <a href="post.html" class="post-body">
+                <div class="post-meta">
+                  <span>Open-source ERP</span>
+                  <span>&middot;</span>
+                  <span>Approx. 8 min read</span>
+                </div>
+                <h2 class="post-title">
+                  Why open-source ERP with lsFusion is a real alternative to monolithic suites
+                </h2>
+                <p class="post-excerpt">
+                  A high-level look at how lsFusion, PostgreSQL and other open-source components
+                  can be combined into a flexible ERP core, and when this stack makes more sense
+                  than heavy proprietary systems...
+                </p>
+                <div class="post-footer">
+                  <div class="post-meta">
+                    <span class="post-tag">ERP</span>
+                    <span class="post-tag">lsFusion</span>
+                  </div>
+                  <span class="post-read">Read article →</span>
+                </div>
+              </a>
+              <div class="post-image">
+                Open-source ERP · lsFusion
+              </div>
+            </article>
+
+            <!-- POST 2 -->
+            <article class="post-card" data-tags="lowcode erp">
+              <a href="post.html" class="post-body">
+                <div class="post-meta">
+                  <span>Low-code & ERP</span>
+                  <span>&middot;</span>
+                  <span>Approx. 6 min read</span>
+                </div>
+                <h2 class="post-title">
+                  Low-code patterns for extending your ERP without breaking everything
+                </h2>
+                <p class="post-excerpt">
+                  We walk through a few practical patterns for adding low-code modules on top of
+                  an existing ERP – from simple workflows to side-car apps that keep the core
+                  clean but still deliver what business needs...
+                </p>
+                <div class="post-footer">
+                  <div class="post-meta">
+                    <span class="post-tag">Low-code</span>
+                    <span class="post-tag">Architecture</span>
+                  </div>
+                  <span class="post-read">Read article →</span>
+                </div>
+              </a>
+              <div class="post-image">
+                Low-code · Extensions
+              </div>
+            </article>
+
+            <!-- POST 3 -->
+            <article class="post-card" data-tags="lsfusion integration">
+              <a href="post.html" class="post-body">
+                <div class="post-meta">
+                  <span>lsFusion</span>
+                  <span>&middot;</span>
+                  <span>Approx. 7 min read</span>
+                </div>
+                <h2 class="post-title">
+                  Integrating open-source ERP with external services: APIs, queues, and common traps
+                </h2>
+                <p class="post-excerpt">
+                  A practical checklist for connecting an lsFusion-based ERP with payments, CRM,
+                  WMS or custom services using REST APIs and message queues – with a focus on
+                  stability and observability...
+                </p>
+                <div class="post-footer">
+                  <div class="post-meta">
+                    <span class="post-tag">Integrations</span>
+                    <span class="post-tag">lsFusion</span>
+                  </div>
+                  <span class="post-read">Read article →</span>
+                </div>
+              </a>
+              <div class="post-image">
+                APIs · Queues · ERP
+              </div>
+            </article>
+
+            <!-- POST 4 -->
+            <article class="post-card" data-tags="education lowcode">
+              <a href="post.html" class="post-body">
+                <div class="post-meta">
+                  <span>Education</span>
+                  <span>&middot;</span>
+                  <span>Approx. 5 min read</span>
+                </div>
+                <h2 class="post-title">
+                  Teaching open-source ERP and low-code concepts to non-developers
+                </h2>
+                <p class="post-excerpt">
+                  Drafting a simple curriculum for people who are close to operations but far from
+                  pure coding – analysts, domain experts and future citizen developers...
+                </p>
+                <div class="post-footer">
+                  <div class="post-meta">
+                    <span class="post-tag">Education</span>
+                    <span class="post-tag">Workshops</span>
+                  </div>
+                  <span class="post-read">Read article →</span>
+                </div>
+              </a>
+              <div class="post-image">
+                Training · Workshops
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <section id="about" class="sidebar-block">
+            <h3 class="sidebar-title">About this blog</h3>
+            <p class="sidebar-text">
+              DevLab Blog is a lightweight publication about
+              <strong>open-source ERP</strong>, <strong>lsFusion</strong>, low-code
+              tools and the messy, practical reality of automating businesses.
+              We write for teams who’d rather understand the stack than buy a black box.
+            </p>
+            <div class="badge-row">
+              <span class="badge">Open-source ERP</span>
+              <span class="badge">lsFusion</span>
+              <span class="badge">Low-code</span>
+              <span class="badge">Architecture</span>
+            </div>
+          </section>
+
+          <section class="sidebar-block">
+            <h3 class="sidebar-title">Newsletter</h3>
+            <p class="sidebar-text">
+              No spam, just occasional notes on ERP design, lsFusion experiments and new posts.
+            </p>
+            <form class="newsletter-form">
+              <input type="email" class="field" placeholder="Your email address" />
+              <button class="btn btn-primary" type="button">Subscribe</button>
+              <p class="newsletter-note">
+                TODO: connect to your email provider (Button currently does nothing).
+              </p>
+            </form>
+          </section>
+
+          <section class="sidebar-block">
+            <h3 class="sidebar-title">Featured resources</h3>
+            <p class="sidebar-text">
+              A few starting points if you want to dive deeper into open-source ERP stacks:
+            </p>
+            <ul style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-muted); padding-left:1.1rem; list-style:disc;">
+              <li><a href="https://lsfusion.org" target="_blank" rel="noopener">lsFusion official site</a></li>
+              <!-- TODO: поменяй ссылку на настоящий сайт MyCompany -->
+              <li><a href="#" target="_blank" rel="noopener">MyCompany ERP overview</a></li>
+              <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="#posts">Posts</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            <a href="https://lsfusion.org" target="_blank" rel="noopener">lsFusion.org</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog experiments with open-source ERP, lsFusion and low-code approaches.
+            Content is opinionated, practical and sometimes rough around the edges – just like
+            real implementations.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>Made by DevLab. Hosted on GitHub Pages.</p>
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple in-page search + tag filter
+    const searchInput = document.getElementById("searchInput");
+    const posts = Array.from(document.querySelectorAll(".post-card"));
+    const tagButtons = Array.from(document.querySelectorAll(".tag"));
+
+    let activeTag = "all";
+
+    function applyFilters() {
+      const query = (searchInput.value || "").toLowerCase().trim();
+
+      posts.forEach(post => {
+        const text = post.textContent.toLowerCase();
+        const tags = (post.getAttribute("data-tags") || "").split(" ");
+        const matchesText = !query || text.includes(query);
+        const matchesTag = activeTag === "all" || tags.includes(activeTag);
+        post.style.display = (matchesText && matchesTag) ? "" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", applyFilters);
+
+    tagButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tagButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeTag = btn.getAttribute("data-tag");
+        applyFilters();
+      });
+    });
+  </script>
+</body>
+</html>
