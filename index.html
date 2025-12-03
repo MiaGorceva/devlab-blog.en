@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>DevLab Blog – Open-Source ERP, Low-Code & Automation</title>
+  <title>DevLab Blog – Open-Source ERP, Modular Systems & Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="DevLab Blog covers open-source ERP, lsFusion, low-code platforms and business automation. Articles, case studies and ideas for companies building modern digital systems." />
-  <meta name="keywords" content="open-source ERP, ERP system, lsFusion, low-code ERP, business automation, DevLab Blog, MyCompany" />
+  <meta
+    name="description"
+    content="DevLab Blog – insights on open-source ERP, modular architectures, low-code automation and flexible business systems. Practical notes and experiments for teams building modern corporate solutions without vendor lock-in."
+  />
+  <meta
+    name="keywords"
+    content="open-source ERP, modular ERP, low-code ERP, business automation, declarative logic, ERP architecture, vendor lock-in alternatives, open business systems"
+  />
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "DevLab Blog",
+    "description": "Articles about open-source ERP, modular business systems, automation and low-code approaches.",
+    "url": "https://blog.devlab.blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab"
+    }
+  }
+  </script>
 
   <style>
     :root {
@@ -130,6 +151,12 @@
       color: var(--text-muted);
     }
 
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -161,6 +188,26 @@
 
     .nav-links a:hover::after {
       width: 100%;
+    }
+
+    .nav-lang {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-lang a {
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-lang a.active {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+      background: rgba(15, 23, 42, 0.8);
     }
 
     .nav-cta {
@@ -220,15 +267,13 @@
       cursor: pointer;
     }
 
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
+    @media (max-width: 900px) {
       .nav-cta {
         display: none;
       }
-
+      .nav-group {
+        display: none;
+      }
       .nav-toggle {
         display: block;
       }
@@ -550,9 +595,10 @@
 
     .post-image {
       border-radius: 16px;
-      background: radial-gradient(circle at 20% 0, rgba(72, 207, 255, 0.4), transparent 65%),
-                  radial-gradient(circle at 80% 100%, rgba(84, 229, 74, 0.4), transparent 65%),
-                  #020617;
+      background:
+        radial-gradient(circle at 20% 0, rgba(72, 207, 255, 0.4), transparent 65%),
+        radial-gradient(circle at 80% 100%, rgba(84, 229, 74, 0.4), transparent 65%),
+        #020617;
       border: 1px solid rgba(148, 163, 184, 0.25);
       position: relative;
       overflow: hidden;
@@ -699,20 +745,28 @@
             <div class="nav-logo" aria-hidden="true"></div>
             <div class="nav-meta">
               <div class="nav-meta-title">DevLab Blog</div>
-              <div class="nav-meta-sub">Open-source ERP & low-code notes</div>
+              <div class="nav-meta-sub">Open-source ERP & automation notes</div>
             </div>
           </a>
-          <div class="nav-links">
-            <a href="#posts">Posts</a>
-            <a href="#categories">Categories</a>
-            <a href="#about">About</a>
-            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="#posts">Posts</a>
+              <a href="#categories">Categories</a>
+              <a href="#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="/" class="active">EN</a>
+              <a href="/ua/">UA</a>
+            </div>
           </div>
+
           <div class="nav-cta">
-            <a href="https://lsfusion.org" class="btn btn-outline" target="_blank" rel="noopener">lsFusion.org</a>
-            <!-- TODO: поменяй ссылку на реальный сайт MyCompany -->
-            <a href="#" class="btn btn-primary">Try MyCompany ERP</a>
+            <a href="#posts" class="btn btn-outline">Browse posts</a>
+            <a href="#about" class="btn btn-primary">What is this?</a>
           </div>
+
           <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </nav>
       </div>
@@ -724,20 +778,20 @@
         <div>
           <div class="hero-kicker">Blog · Open-source ERP · Low-code</div>
           <h1 class="hero-title">
-            Insights on <span>open-source ERP, lsFusion</span> and real-world automation.
+            Insights on <span>open-source ERP, modular architectures</span> and real-world automation.
           </h1>
           <p class="hero-text">
-            DevLab Blog is a space where we experiment with open-source ERP stacks,
-            low-code tools, and practical automation patterns for growing companies.
-            We write about <strong>lsFusion</strong>, <strong>MyCompany ERP</strong>,
-            integrations, and everything around digital operations.
+            DevLab Blog explores how modern companies design flexible, extensible ERP systems using
+            open technologies, declarative business logic and low-code approaches. Practical notes,
+            experiments and implementation patterns for teams that want to avoid vendor lock-in and
+            build systems that actually fit their business.
           </p>
           <div class="hero-actions">
             <a href="#posts" class="btn btn-primary">Browse latest posts</a>
-            <a href="#about" class="btn btn-outline">What is this blog?</a>
+            <a href="#about" class="btn btn-outline">About the blog</a>
           </div>
           <div class="hero-meta">
-            <span>Focus: open-source ERP, low-code development, real implementation stories.</span>
+            <span>Focus: open-source ERP stacks, modular business systems and automation patterns.</span>
             <span>Audience: product teams, integrators, ERP consultants and tech-curious founders.</span>
           </div>
         </div>
@@ -746,19 +800,18 @@
           <div class="hero-card-inner">
             <div class="hero-pill">
               <span class="hero-pill-dot"></span>
-              <span>Stack highlights</span>
+              <span>Stack thinking</span>
             </div>
             <div class="hero-card-title">
-              lsFusion + open-source ecosystem as a modern ERP backbone
+              Open-source ERP stacks as an alternative to monolithic enterprise suites
             </div>
             <p class="hero-card-text">
-              We explore how lsFusion, PostgreSQL, messaging queues and other open-source
-              components can form a flexible ERP core instead of expensive legacy suites.
+              We explore how modular data models, declarative business rules and open integration
+              protocols can form a flexible ERP backbone – faster to adapt, easier to maintain and
+              free from traditional vendor lock-in.
             </p>
             <div class="hero-card-links">
-              <a class="hero-link" href="https://lsfusion.org" target="_blank" rel="noopener">Explore lsFusion.org →</a>
-              <!-- TODO: поставь реальный URL MyCompany -->
-              <a class="hero-link" href="#" target="_blank" rel="noopener">See MyCompany ERP demo →</a>
+              <span class="hero-link">Topics: architecture, automation, integrations →</span>
             </div>
           </div>
         </aside>
@@ -778,21 +831,26 @@
           <div class="toolbar">
             <div class="search">
               <span class="search-icon">🔎</span>
-              <input id="searchInput" type="search" placeholder="Search posts (ERP, lsFusion, low-code...)" />
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search posts (ERP, modular systems, automation...)"
+              />
             </div>
             <div id="categories" class="pill-row">
               <button class="tag active" data-tag="all">All</button>
               <button class="tag" data-tag="erp">Open-source ERP</button>
-              <button class="tag" data-tag="lsfusion">lsFusion</button>
-              <button class="tag" data-tag="lowcode">Low-code</button>
+              <button class="tag" data-tag="architecture">Modular Architecture</button>
+              <button class="tag" data-tag="automation">Business Automation</button>
+              <button class="tag" data-tag="lowcode">Low-code Development</button>
               <button class="tag" data-tag="integration">Integrations</button>
-              <button class="tag" data-tag="education">Education</button>
+              <button class="tag" data-tag="scaling">Scaling & Performance</button>
             </div>
           </div>
 
           <div class="post-list" id="postList">
             <!-- POST 1 -->
-            <article class="post-card" data-tags="erp lsfusion">
+            <article class="post-card" data-tags="erp architecture">
               <a href="post.html" class="post-body">
                 <div class="post-meta">
                   <span>Open-source ERP</span>
@@ -800,28 +858,28 @@
                   <span>Approx. 8 min read</span>
                 </div>
                 <h2 class="post-title">
-                  Why open-source ERP with lsFusion is a real alternative to monolithic suites
+                  Why open-source ERP stacks are becoming a real alternative to traditional enterprise systems
                 </h2>
                 <p class="post-excerpt">
-                  A high-level look at how lsFusion, PostgreSQL and other open-source components
-                  can be combined into a flexible ERP core, and when this stack makes more sense
-                  than heavy proprietary systems...
+                  A look at how modular architectures, declarative logic and open data models
+                  help businesses escape rigid monolithic ERP suites – gaining flexibility
+                  without losing stability.
                 </p>
                 <div class="post-footer">
                   <div class="post-meta">
                     <span class="post-tag">ERP</span>
-                    <span class="post-tag">lsFusion</span>
+                    <span class="post-tag">Architecture</span>
                   </div>
                   <span class="post-read">Read article →</span>
                 </div>
               </a>
               <div class="post-image">
-                Open-source ERP · lsFusion
+                Open-source ERP · Modular core
               </div>
             </article>
 
             <!-- POST 2 -->
-            <article class="post-card" data-tags="lowcode erp">
+            <article class="post-card" data-tags="lowcode automation erp">
               <a href="post.html" class="post-body">
                 <div class="post-meta">
                   <span>Low-code & ERP</span>
@@ -829,46 +887,46 @@
                   <span>Approx. 6 min read</span>
                 </div>
                 <h2 class="post-title">
-                  Low-code patterns for extending your ERP without breaking everything
+                  Low-code patterns for extending an ERP without breaking the core
                 </h2>
                 <p class="post-excerpt">
-                  We walk through a few practical patterns for adding low-code modules on top of
-                  an existing ERP – from simple workflows to side-car apps that keep the core
-                  clean but still deliver what business needs...
+                  A few practical patterns for adding low-code modules on top of an existing ERP –
+                  from small workflows to side-car apps that keep the core clean but still deliver
+                  what business needs.
                 </p>
                 <div class="post-footer">
                   <div class="post-meta">
                     <span class="post-tag">Low-code</span>
-                    <span class="post-tag">Architecture</span>
+                    <span class="post-tag">Extensions</span>
                   </div>
                   <span class="post-read">Read article →</span>
                 </div>
               </a>
               <div class="post-image">
-                Low-code · Extensions
+                Low-code · Side-car apps
               </div>
             </article>
 
             <!-- POST 3 -->
-            <article class="post-card" data-tags="lsfusion integration">
+            <article class="post-card" data-tags="integration erp">
               <a href="post.html" class="post-body">
                 <div class="post-meta">
-                  <span>lsFusion</span>
+                  <span>Integrations</span>
                   <span>&middot;</span>
                   <span>Approx. 7 min read</span>
                 </div>
                 <h2 class="post-title">
-                  Integrating open-source ERP with external services: APIs, queues, and common traps
+                  Connecting ERP with external services: APIs, queues and common integration traps
                 </h2>
                 <p class="post-excerpt">
-                  A practical checklist for connecting an lsFusion-based ERP with payments, CRM,
-                  WMS or custom services using REST APIs and message queues – with a focus on
-                  stability and observability...
+                  A practical checklist for linking an ERP core with payments, CRM, WMS or custom
+                  services using REST APIs and message queues – with a focus on reliability and
+                  observability.
                 </p>
                 <div class="post-footer">
                   <div class="post-meta">
                     <span class="post-tag">Integrations</span>
-                    <span class="post-tag">lsFusion</span>
+                    <span class="post-tag">APIs & Queues</span>
                   </div>
                   <span class="post-read">Read article →</span>
                 </div>
@@ -887,11 +945,11 @@
                   <span>Approx. 5 min read</span>
                 </div>
                 <h2 class="post-title">
-                  Teaching open-source ERP and low-code concepts to non-developers
+                  Teaching open-source ERP and automation concepts to non-developers
                 </h2>
                 <p class="post-excerpt">
-                  Drafting a simple curriculum for people who are close to operations but far from
-                  pure coding – analysts, domain experts and future citizen developers...
+                  A simple curriculum for people close to operations but far from pure coding –
+                  analysts, domain experts and future “citizen developers” who help shape the ERP.
                 </p>
                 <div class="post-footer">
                   <div class="post-meta">
@@ -913,43 +971,42 @@
           <section id="about" class="sidebar-block">
             <h3 class="sidebar-title">About this blog</h3>
             <p class="sidebar-text">
-              DevLab Blog is a lightweight publication about
-              <strong>open-source ERP</strong>, <strong>lsFusion</strong>, low-code
-              tools and the messy, practical reality of automating businesses.
-              We write for teams who’d rather understand the stack than buy a black box.
+              DevLab Blog focuses on open-source ERP concepts, modular business systems and
+              low-code automation. We write about architectural patterns, integration strategies,
+              performance challenges and everything needed to build fast, flexible corporate
+              systems without depending on monolithic vendors.
             </p>
             <div class="badge-row">
               <span class="badge">Open-source ERP</span>
-              <span class="badge">lsFusion</span>
+              <span class="badge">Modular systems</span>
               <span class="badge">Low-code</span>
-              <span class="badge">Architecture</span>
+              <span class="badge">Automation</span>
             </div>
           </section>
 
           <section class="sidebar-block">
             <h3 class="sidebar-title">Newsletter</h3>
             <p class="sidebar-text">
-              No spam, just occasional notes on ERP design, lsFusion experiments and new posts.
+              No spam – just occasional notes on ERP design, automation experiments and new posts.
             </p>
             <form class="newsletter-form">
               <input type="email" class="field" placeholder="Your email address" />
               <button class="btn btn-primary" type="button">Subscribe</button>
               <p class="newsletter-note">
-                TODO: connect to your email provider (Button currently does nothing).
+                TODO: connect this form to your email provider. Right now the button does nothing.
               </p>
             </form>
           </section>
 
           <section class="sidebar-block">
-            <h3 class="sidebar-title">Featured resources</h3>
+            <h3 class="sidebar-title">Featured topics</h3>
             <p class="sidebar-text">
-              A few starting points if you want to dive deeper into open-source ERP stacks:
+              If you’re exploring alternatives to classic ERP suites, you might be interested in:
             </p>
             <ul style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-muted); padding-left:1.1rem; list-style:disc;">
-              <li><a href="https://lsfusion.org" target="_blank" rel="noopener">lsFusion official site</a></li>
-              <!-- TODO: поменяй ссылку на настоящий сайт MyCompany -->
-              <li><a href="#" target="_blank" rel="noopener">MyCompany ERP overview</a></li>
-              <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              <li>Designing modular ERP cores instead of one giant monolith</li>
+              <li>Using declarative logic to describe business rules</li>
+              <li>Combining open-source components into a coherent stack</li>
             </ul>
           </section>
         </aside>
@@ -965,12 +1022,11 @@
             <a href="#categories">Categories</a>
             <a href="#about">About</a>
             <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
-            <a href="https://lsfusion.org" target="_blank" rel="noopener">lsFusion.org</a>
           </div>
           <p class="footer-meta">
-            DevLab Blog experiments with open-source ERP, lsFusion and low-code approaches.
-            Content is opinionated, practical and sometimes rough around the edges – just like
-            real implementations.
+            DevLab Blog experiments with open-source ERP, modular architectures and low-code
+            approaches to automation. Content is practical and opinionated – based on real-world
+            implementation experience.
           </p>
         </div>
         <div class="footer-meta">
@@ -1004,7 +1060,9 @@
       });
     }
 
-    searchInput.addEventListener("input", applyFilters);
+    if (searchInput) {
+      searchInput.addEventListener("input", applyFilters);
+    }
 
     tagButtons.forEach(btn => {
       btn.addEventListener("click", () => {
