@@ -989,11 +989,13 @@
             <p class="sidebar-text">
               No spam – just occasional notes on ERP design, automation experiments and new posts.
             </p>
-            <form class="newsletter-form">
-              <input type="email" class="field" placeholder="Your email address" />
-              <button class="btn btn-primary" type="button">Subscribe</button>
+            <form class="newsletter-form"
+              action="https://formsubmit.co/info@devlab.blog"
+              method="POST" >
+              <input type="email" name="email" class="field" placeholder="Your email address" required />
+              <button class="btn btn-primary" type="submit">Subscribe</button>
               <p class="newsletter-note">
-                TODO: connect this form to your email provider. Right now the button does nothing.
+                Form powered by an external service. Replace action URL with your own.
               </p>
             </form>
           </section>
