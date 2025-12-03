@@ -990,14 +990,27 @@
               No spam – just occasional notes on ERP design, automation experiments and new posts.
             </p>
             <form class="newsletter-form"
-              action="https://formsubmit.co/info@devlab.blog"
-              method="POST" >
-              <input type="email" name="email" class="field" placeholder="Your email address" required />
-              <button class="btn btn-primary" type="submit">Subscribe</button>
-              <p class="newsletter-note">
-                Form powered by an external service. Replace action URL with your own.
-              </p>
-            </form>
+                  action="https://formsubmit.co/info@devlab.blog"
+                  method="POST">
+                  <!-- Enable redirect after success -->
+                  <input type="hidden" name="_next" value="https://blog.devlab.blog/thank-you.html">
+                
+                  <!-- Disable captcha (optional) -->
+                  <input type="hidden" name="_captcha" value="false">
+                
+                  <!-- Honeypot field to block bots -->
+                  <input type="text" name="_honey" style="display:none">
+                
+                  <input type="email" name="email" class="field" placeholder="Your email address" required />
+                
+                  <button class="btn btn-primary" type="submit">Subscribe</button>
+                
+                  <p class="newsletter-note">
+                    You will receive a confirmation email.  
+                    Powered securely via FormSubmit.
+                  </p>
+                </form>
+
           </section>
 
           <section class="sidebar-block">
