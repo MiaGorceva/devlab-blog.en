@@ -287,27 +287,19 @@
             <p class="sidebar-text">
               No spam – just occasional notes on ERP design, automation experiments and new posts.
             </p>
-            <form class="newsletter-form"
-                  action="https://formsubmit.co/info@devlab.blog"
-                  method="POST">
-                  <!-- Enable redirect after success -->
-                  <input type="hidden" name="_next" value="https://blog.devlab.blog/thank-you.html">
-                
-                  <!-- Disable captcha (optional) -->
-                  <input type="hidden" name="_captcha" value="false">
-                
-                  <!-- Honeypot field to block bots -->
-                  <input type="text" name="_honey" style="display:none">
-                
-                  <input type="email" name="email" class="field" placeholder="Your email address" required />
-                
-                  <button class="btn btn-primary" type="submit">Subscribe</button>
-                
-                  <p class="newsletter-note">
-                    You will receive a confirmation email.  
-                    Powered securely via FormSubmit.
-                  </p>
-                </form>
+             <form class="newsletter-form"
+                action="https://formspree.io/f/xdkqdkzk"
+                method="POST">
+            <input type="hidden" name="_next" value="https://uk.devlab.blog/thank-you.html">
+            <input type="text" name="_honey" style="display:none">
+            <input type="email" name="email" class="field" placeholder="Your email address" required />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+            <p class="newsletter-note">
+              You will receive a confirmation email. Form is powered via Formspree.
+            </p>
+          </form>
+
+
 
           </section>
 
@@ -349,42 +341,5 @@
       </div>
     </footer>
   </div>
-
-  <script>
-    // Year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Simple in-page search + tag filter
-    const searchInput = document.getElementById("searchInput");
-    const posts = Array.from(document.querySelectorAll(".post-card"));
-    const tagButtons = Array.from(document.querySelectorAll(".tag"));
-
-    let activeTag = "all";
-
-    function applyFilters() {
-      const query = (searchInput.value || "").toLowerCase().trim();
-
-      posts.forEach(post => {
-        const text = post.textContent.toLowerCase();
-        const tags = (post.getAttribute("data-tags") || "").split(" ");
-        const matchesText = !query || text.includes(query);
-        const matchesTag = activeTag === "all" || tags.includes(activeTag);
-        post.style.display = (matchesText && matchesTag) ? "" : "none";
-      });
-    }
-
-    if (searchInput) {
-      searchInput.addEventListener("input", applyFilters);
-    }
-
-    tagButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        tagButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        activeTag = btn.getAttribute("data-tag");
-        applyFilters();
-      });
-    });
-  </script>
 </body>
 </html>
