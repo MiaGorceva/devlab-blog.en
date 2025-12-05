@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A New Stage in Software Development – Why Low-Code Is Accelerating in 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="How low-code is changing software development: market growth, low-code vs no-code, how low-code development works, key advantages and what kinds of applications you can build."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post5.A New Stage in Software Development.html"
+    },
+    "headline": "A New Stage in Software Development – Why Low-Code Is Accelerating in 2025",
+    "description": "Market growth of low-code, differences between low-code and no-code, how low-code development works, key advantages and examples of real applications.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2025-01-20",
+    "dateModified": "2025-01-20"
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper" style="padding-top:2.6rem; padding-bottom:3rem;">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article>
+            <div class="section-title">
+              <span>Article</span>
+              <small><a href="/" style="text-decoration:underline;">← Back to all posts</a></small>
+            </div>
+
+            <header style="margin-bottom:1.4rem;">
+              <div class="post-meta">
+                <span>Low-code Development</span>
+                <span>&middot;</span>
+                <span>Approx. 8–9 min read</span>
+                <span>&middot;</span>
+                <span>2025 insight</span>
+              </div>
+
+              <h1 class="hero-title" style="font-size:1.9rem; margin-top:0.5rem;">
+                A New Stage in Software Development: Why Low-Code Is Accelerating in 2025
+              </h1>
+
+              <p class="hero-text" style="margin-top:0.5rem;">
+                The low-code market is growing rapidly, changing how software is planned, built and maintained.
+                This article explains what low-code really is, how it differs from no-code, how the development
+                process works and why so many companies are moving in this direction.
+              </p>
+
+              <!-- HERO IMAGE -->
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post5.post5.A New Stage in SW Development.webp"
+                  alt="Illustration of low-code development as a new stage in software engineering"
+                  style="width:100%; max-width:760px; border-radius:18px;"
+                >
+              </figure>
+            </header>
+
+            <!-- ARTICLE BODY -->
+            <section style="font-size:0.95rem; color:var(--text-main); display:flex; flex-direction:column; gap:1rem;">
+
+              <h2>A New Stage in Software Development</h2>
+              <p>
+                The low-code development market reached <strong>$22.5 billion</strong> in 2022 and is expected to
+                grow to almost <strong>$94 billion</strong> by 2028. Already, around <strong>60% of new applications</strong>
+                are being created outside traditional IT departments, and according to Gartner, by 2026 over
+                <strong>80% of developers</strong> will actively use low-code platforms.
+              </p>
+              <p>
+                Companies like Canva are receiving billion-dollar investments thanks to tools that simplify business
+                automation and make software development more accessible.
+              </p>
+
+              <h2>Low-code vs No-code: What’s the Difference?</h2>
+              <p>
+                <strong>No-code</strong> platforms allow users to create simple applications without writing any code at all.
+                They are ideal for “citizen developers” — people without formal technical education. However, such
+                platforms are limited when it comes to deep customisation, complex integrations or performance tuning.
+              </p>
+              <p>
+                <strong>Low-code</strong>, in contrast, combines a visual development environment (drag-and-drop, wizards,
+                templates) with the ability to extend and customise behaviour using code. This makes low-code useful
+                both for non-technical users and for experienced engineers who want to speed up delivery without losing
+                flexibility.
+              </p>
+
+              <h2>How Low-code Development Works</h2>
+              <p>
+                Low-code does not replace programmers. Instead, it automates routine tasks and reduces the amount of
+                boilerplate work, freeing engineers to focus on design, architecture and complex business logic.
+              </p>
+              <p>
+                Compared to traditional development, low-code significantly reduces time-to-market and the volume of
+                manual work required at each stage.
+              </p>
+
+              <h3>The typical low-code development lifecycle includes:</h3>
+              <ul>
+                <li>Defining system requirements and user scenarios</li>
+                <li>Selecting third-party APIs and services</li>
+                <li>Creating interfaces, data models and workflows using visual tools</li>
+                <li>Integrating APIs and external systems</li>
+                <li>Customising behaviour using code where necessary</li>
+                <li>Testing and gathering user feedback</li>
+                <li>Deploying to production (often via cloud pipelines)</li>
+                <li>Ongoing maintenance and updates</li>
+              </ul>
+              <p>
+                Traditional development usually requires more stages, more manual configuration and the involvement
+                of a full development team at every step.
+              </p>
+
+              <h2>Key Advantages of Low-code Platforms</h2>
+
+              <h3>1. Fast Results</h3>
+              <p>
+                Many low-code applications are delivered in less than <strong>three months</strong>. In traditional models,
+                projects with similar scope can easily take from six months to a year. For startups and rapidly changing
+                markets, this time difference can determine the success or failure of a product.
+              </p>
+
+              <h3>2. Easier Integration</h3>
+              <p>
+                Low-code solutions are designed to integrate with existing company systems — databases, ERP, CRM,
+                authentication providers and more. Pre-built connectors and integration patterns reduce the load on IT
+                teams and help keep operations stable.
+              </p>
+
+              <h3>3. Significant Cost Savings</h3>
+              <p>
+                Even when professional developers are involved, the time and effort required to build applications
+                are noticeably reduced. Analysts report that <strong>ROI can exceed 200%</strong> for well-chosen
+                low-code initiatives.
+              </p>
+
+              <h3>4. Access to Modern Technologies</h3>
+              <p>
+                Many low-code platforms are built on top of modern stacks: containers, microservices, cloud-native
+                architectures. This allows companies to benefit from scalability and resilience without having to design
+                everything from scratch.
+              </p>
+
+              <h3>5. Improved User Experience</h3>
+              <p>
+                Most platforms provide ready-made UI components and templates with intuitive navigation. This makes it
+                easier to deliver consistent, user-friendly interfaces even when there is no dedicated UX team on the
+                project.
+              </p>
+
+              <h2>What Applications Can Be Built with Low-code?</h2>
+              <ul>
+                <li>
+                  <strong>Internal corporate solutions:</strong> task and project management, document workflows, resource
+                  and personnel management systems.
+                </li>
+                <li>
+                  <strong>Client-facing services:</strong> customer portals, loyalty programmes, self-service tools and
+                  interactive applications.
+                </li>
+                <li>
+                  <strong>Legacy system modernisation:</strong> updating ERP, CRM or HR platforms step by step, without
+                  replacing the entire core at once.
+                </li>
+              </ul>
+
+              <h2>The Future of Low-code Development</h2>
+              <p>
+                Low-code is not just another method of building applications. It represents a broader shift in how
+                organisations think about software: from scarce IT resources and long projects to collaborative,
+                iterative and accessible development.
+              </p>
+              <p>
+                It opens the door to the <strong>democratisation of technology</strong>, where people from different
+                departments can actively participate in creating internal tools and automation scenarios.
+              </p>
+              <p>
+                In the coming years, this trend is likely to strengthen. Businesses will continue to seek ways to deliver
+                solutions faster, simpler and cheaper — and low-code development is exactly the kind of approach that
+                supports this direction.
+              </p>
+
+            </section>
+
+            <footer style="margin-top:1.6rem;">
+              <div class="post-meta">
+                <span class="post-tag">Low-code</span>
+                <span class="post-tag">Software development</span>
+                <span class="post-tag">ROI</span>
+                <span class="post-tag">Digital transformation</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog explores open-source ERP, modular architectures and low-code automation –
+                focusing on practical, real-world implementations.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts or browse by category:
+              </p>
+              <ul style="margin-top:0.5rem; font-size:0.8rem; color:var(--text-muted); padding-left:1.1rem; list-style:disc;">
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
