@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Low-Code Development: Trends and Predictions for 2026 – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="How low-code development is evolving by 2026: AI-assisted development, intelligent automation, better UI/UX, citizen developers and stronger security and governance."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/devlab-favicon-180.png">
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="/style/devlab-style.css">
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/post-low-code-2026.html"
+    },
+    "headline": "Low-Code Development: Trends and Predictions for 2026",
+    "description": "How low-code development is evolving by 2026: AI-assisted development, intelligent automation, better UI/UX, citizen developers and stronger security and governance.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://en.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01"
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://ua.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper" style="padding-top:2.6rem; padding-bottom:3rem;">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article>
+            <div class="section-title">
+              <span>Article</span>
+              <small><a href="/" style="text-decoration:underline;">← Back to all posts</a></small>
+            </div>
+
+            <header style="margin-bottom:1.4rem;">
+              <div class="post-meta">
+                <span>Low-code Development</span>
+                <span>&middot;</span>
+                <span>Approx. 8 min read</span>
+                <span>&middot;</span>
+                <span><!-- TODO: date -->2026 trends</span>
+              </div>
+
+              <h1 class="hero-title" style="font-size:1.9rem; margin-top:0.5rem;">
+                Low-Code Development: Trends and Predictions for 2026
+              </h1>
+
+              <p class="hero-text" style="margin-top:0.5rem;">
+                AI-assisted development, intelligent automation, improved UI/UX and the rise of citizen
+                developers – a look at how low-code will reshape business systems in the next few years and
+                what organisations can do to prepare.
+              </p>
+
+              <!-- HERO IMAGE (optional, remove if не нужно) -->
+              <figure class="post-hero" style="margin-top:1.6rem; margin-bottom:0;">
+                <!-- TODO: заменить путь на свою картинку -->
+                <img
+                  src="/img/post-low-code-2026.png"
+                  alt="Low-code trends 2026 – AI, automation &amp; UX evolution"
+                  style="width:100%; max-width:760px; border-radius:18px;"
+                >
+              </figure>
+            </header>
+
+            <!-- ARTICLE BODY -->
+            <section
+              style="font-size:0.95rem; color:var(--text-main); display:flex; flex-direction:column; gap:1rem;"
+            >
+              <h2>1. AI and Machine Learning Become Native Low-Code Features</h2>
+              <p>
+                Low-code platforms are increasingly integrating AI tooling to automate and accelerate
+                application development. AI now assists with generating code snippets, suggesting business
+                logic, detecting performance bottlenecks and optimising workflows.
+              </p>
+              <p>
+                As a result, companies can build smart applications that adapt to user behaviour, deliver
+                personalised experiences and support automated decision-making – without having to implement
+                complex ML pipelines from scratch.
+              </p>
+
+              <h2>2. Expanded Process Automation</h2>
+              <p>
+                The next evolution of low-code is <strong>intelligent automation</strong>. Modern platforms
+                enable the creation of complex business workflows with zero manual coding – from data
+                processing to customer communication.
+              </p>
+              <p>
+                A key component of this shift is integration with
+                <strong>RPA (Robotic Process Automation)</strong>, allowing businesses to automate repetitive
+                operational actions at scale and connect UI-level robots with backend services.
+              </p>
+
+              <h2>3. Improved UI/UX Capabilities</h2>
+              <p>
+                Low-code no longer means “simple” or “restricted”. Modern systems provide:
+              </p>
+              <ul>
+                <li>polished UI libraries and templates,</li>
+                <li>advanced layout and theme customisation,</li>
+                <li>AI-assisted design tools,</li>
+                <li>built-in cross-platform responsiveness.</li>
+              </ul>
+              <p>
+                Applications built on these platforms can now work consistently well across mobile, tablet
+                and desktop – without maintaining separate codebases for each environment.
+              </p>
+
+              <h2>What to Expect in the Next Few Years</h2>
+
+              <h3>Low-code expands into new industries</h3>
+              <p>
+                Initially used in finance, healthcare and retail, low-code is rapidly entering manufacturing,
+                logistics and public administration. This helps organisations reduce dependency on overloaded
+                IT departments and build internal solutions on their own.
+              </p>
+
+              <h3>Rise of citizen developers</h3>
+              <p>
+                People without a formal technical background are increasingly involved in the development
+                process. Analysts, domain experts and power users are turning into “citizen developers”,
+                which democratises innovation and helps businesses solve practical problems faster.
+              </p>
+
+              <h3>Greater focus on security and governance</h3>
+              <p>
+                As adoption grows, low-code platforms add enterprise-grade capabilities: fine-grained access
+                control, encryption, audit logs and compliance tooling for regulations such as GDPR or
+                ISO-based standards. This makes low-code a realistic option even for regulated industries.
+              </p>
+
+              <h2>How to Prepare for the Low-Code Era</h2>
+
+              <h3>1. Invest in training</h3>
+              <p>
+                Prepare both technical and non-technical staff. Even a basic understanding of low-code
+                concepts and business-logic modelling opens the door to internal tools and prototypes.
+              </p>
+
+              <h3>2. Start with small projects</h3>
+              <p>
+                Pilot initiatives help refine workflows and collaboration models between IT and business
+                before scaling low-code solutions across the whole organisation.
+              </p>
+
+              <h3>3. Make low-code part of your digital transformation strategy</h3>
+              <p>
+                Low-code is not just another development tool. Used deliberately, it becomes a way to make
+                your organisation faster, more adaptable and more efficient – especially when combined with
+                open-source components and modular architectures.
+              </p>
+            </section>
+
+            <footer style="margin-top:1.6rem;">
+              <div class="post-meta">
+                <span class="post-tag">Low-code</span>
+                <span class="post-tag">Automation</span>
+                <span class="post-tag">Future of work</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
+                automation. We write about architectural patterns, integration strategies and real-world
+                implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul
+                style="
+                  margin-top:0.5rem;
+                  font-size:0.8rem;
+                  color:var(--text-muted);
+                  padding-left:1.1rem;
+                  list-style:disc;
+                "
+              >
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
