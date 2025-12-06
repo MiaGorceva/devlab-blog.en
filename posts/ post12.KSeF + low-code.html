@@ -117,7 +117,6 @@
                 <img
                   src="https://uk.devlab.blog/img/post12.KSeF + low-code.webp"
                   alt="KSeF and low-code transition visual"
-                  style="width:100%; max-width:760px; border-radius:18px;"
                 >
               </figure>
             </header>
@@ -283,7 +282,86 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
+        <footer class="post-footer-extended">
+        <!-- Tags + meta -->
+        <div class="post-footer-meta">
+            <div class="post-meta-tags">
+            <span class="post-tag">Low-code</span>
+            <span class="post-tag">Platforms</span>
+            <span class="post-tag">Digital transformation</span>
+            <span class="post-tag">Future trends</span>
+            </div>
+            <div class="post-meta-secondary">
+            <span>Published: 25 Jan 2025</span>
+            <span>&middot;</span>
+            <span>Approx. 8–9 min read</span>
+            <span>&middot;</span>
+            <span>Views: —</span> <!-- можно заменить на реальный счётчик позже -->
+            </div>
+        </div>
+
+        <!-- Share links -->
+        <div class="post-share">
+            <span class="post-share-label">Share:</span>
+            <a
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https://en.devlab.blog/post-low-code-principles-benefits.html"
+            target="_blank" rel="noopener"
+            >LinkedIn</a>
+            <span>·</span>
+            <a
+            href="https://twitter.com/intent/tweet?url=https://en.devlab.blog/post-low-code-principles-benefits.html&text=Low-Code%20Platforms%3A%20Principles%2C%20Benefits%20and%20Future%20Trends"
+            target="_blank" rel="noopener"
+            >X/Twitter</a>
+        </div>
+
+        <!-- Comments -->
+        <section class="post-comments" id="comments">
+            <h3 class="post-comments-title">Leave a comment</h3>
+            <p class="post-comments-note">
+            Your email will not be published. Required fields are marked with *.
+            </p>
+
+            <form
+            class="comments-form"
+            action="https://formsubmit.co/info@devlab.blog"
+            method="POST"
+            >
+            <!-- Redirect after success -->
+            <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+            <!-- Disable captcha -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Honeypot -->
+            <input type="text" name="_honey" style="display:none">
+            <!-- Identify post in email -->
+            <input type="hidden" name="post" value="Low-Code Platforms: Principles, Benefits and Future Trends">
+
+            <div class="form-row">
+                <label>
+                Name *
+                <input type="text" name="name" required />
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                Email *
+                <input type="email" name="email" required />
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                Comment *
+                <textarea name="comment" rows="4" required></textarea>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Submit comment
+            </button>
+            </form>
+        </section>
+
       <div class="wrapper footer-grid">
         <div>
           <div class="footer-links">
