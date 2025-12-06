@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Why Open-source ERP Stacks Are Becoming a Real Alternative – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="How modular architectures, declarative logic and open data models reshape enterprise systems and offer a flexible alternative to traditional monolithic ERP suites." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why open-source ERP stacks are becoming a real alternative",
+    "description": "Modular architectures, declarative logic and open data models help companies escape rigid monolithic ERP suites and gain flexibility without losing stability.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "mainEntityOfPage": "https://en.devlab.blog/post8.Open-Source ERP — Modular Architecture.html",
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-01-01"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP & automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://ua.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper" style="padding-top:2.6rem; padding-bottom:3rem;">
+        <div class="main-grid">
+
+          <!-- ARTICLE CONTENT -->
+          <article>
+            <div class="section-title">
+              <span>Article</span>
+              <small><a href="/" style="text-decoration:underline;">← Back to all posts</a></small>
+            </div>
+
+            <header style="margin-bottom:1.4rem;">
+              <div class="post-meta">
+                <span>Open-source ERP</span>
+                <span>&middot;</span>
+                <span>Approx. 8 min read</span>
+              </div>
+
+              <h1 class="hero-title">Why open-source ERP stacks are becoming a real alternative to traditional enterprise systems</h1>
+
+              <p class="hero-text">
+                Modular architectures, declarative logic and open data models are reshaping the ERP landscape —
+                helping companies escape rigid monolithic suites and move toward flexible, API-driven 
+                platforms built for real-world automation.
+              </p>
+
+              <!-- HERO IMAGE -->
+              <figure class="post-hero">
+                <img src="https://uk.devlab.blog/img/post8.Open-Source ERP — Modular Architecture.png"
+                     alt="Open-source ERP modular architecture visual"
+                     style="width:100%; max-width:760px; border-radius:18px;">
+              </figure>
+            </header>
+
+            <!-- ARTICLE BODY -->
+            <section class="post-content">
+
+              <h2>1. The shift away from monolithic ERP</h2>
+              <p>
+                For decades, organisations relied on large, tightly coupled ERP suites with rigid workflows,
+                high customisation costs and slow innovation cycles. As reported in multiple enterprise 
+                migration studies, monolithic ERP systems struggle to keep pace with real-world business 
+                processes — especially in automation-heavy or distributed environments.
+              </p>
+
+              <h2>2. Modular architectures in modern open-source ERP</h2>
+              <p>
+                Open-source ERP platforms embrace modularity: each capability is a standalone module communicating
+                through APIs, shared metadata and event-driven logic.
+              </p>
+
+              <h3>Examples from public GitHub projects</h3>
+              <ul>
+                <li><strong>ERPNext</strong> – DocTypes, API-first, event-driven scripting</li>
+                <li><strong>Odoo</strong> – thousands of community modules</li>
+                <li><strong>Tryton</strong> – strict domain modelling, stability-first</li>
+                <li><strong>Dolibarr</strong> – lightweight SMB-focused architecture</li>
+                <li><strong>Declarative ERP platforms</strong> – metadata-driven logic and automatic UI generation</li>
+              </ul>
+
+              <h2>3. Declarative logic: why it matters</h2>
+              <p>
+                Declarative business logic makes ERP systems predictable, maintainable and fast to implement.
+                Behaviour is defined by rules, not imperative scripts, leading to easier debugging and consistent execution.
+              </p>
+
+<pre><code>FORM Orders
+  FILTER status = 'Pending';
+  GROUP BY customer;
+  CALCULATE total = SUM(amount);
+</code></pre>
+
+              <h2>4. Why companies choose open-source ERP</h2>
+              <ul>
+                <li>Transparent cost and predictable TCO</li>
+                <li>Full data ownership</li>
+                <li>Open integrations (REST, GraphQL, events)</li>
+                <li>Modifiability and long-term sustainability</li>
+                <li>Community-driven innovation</li>
+              </ul>
+
+              <h2>5. Real-world adoption</h2>
+              <p>
+                Open-source ERP is favoured when workflows require flexibility, automation is crucial,
+                or integration with WMS/MES/IoT systems is required. Public case studies show reduced TCO,
+                faster delivery cycles and architectures that evolve with the organisation.
+              </p>
+
+              <h2>Conclusion</h2>
+              <p>
+                Open-source ERP is no longer experimental — it is a structural shift. Modular, declarative,
+                API-driven architectures provide the flexibility and transparency businesses require today.
+              </p>
+
+            </section>
+
+            <footer style="margin-top:1.6rem;">
+              <div class="post-meta">
+                <span class="post-tag">ERP</span>
+                <span class="post-tag">Architecture</span>
+                <span class="post-tag">Open-source</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog explores open-source ERP architectures, declarative models,
+                automation patterns and real-world implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <ul class="sidebar-list">
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog">Main site</a>
+          </div>
+          <p class="footer-meta">DevLab Blog — notes on open-source ERP and automation.</p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

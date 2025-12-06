@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A New Stage in Software Development – Why Low-Code Is Accelerating in 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="How low-code is changing software development: market growth, low-code vs no-code, how low-code development works, key advantages and what kinds of applications you can build."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post5.A New Stage in Software Development.html"
+    },
+    "headline": "A New Stage in Software Development – Why Low-Code Is Accelerating in 2025",
+    "description": "Market growth of low-code, differences between low-code and no-code, how low-code development works, key advantages and examples of real applications.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2025-01-20",
+    "dateModified": "2025-01-20"
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper" style="padding-top:2.6rem; padding-bottom:3rem;">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+           <article>
+            <div class="section-title">
+                <span>Article</span>
+                <small><a href="/" style="text-decoration:underline;">← Back to all posts</a></small>
+            </div>
+
+            <header style="margin-bottom:1.4rem;">
+                <div class="post-meta">
+                <span>Low-code & ERP</span>
+                <span>&middot;</span>
+                <span>Approx. 6 min read</span>
+                <span>&middot;</span>
+                <span>Patterns &amp; architecture</span>
+                </div>
+
+                <h1 class="hero-title" style="font-size:1.9rem; margin-top:0.5rem;">
+                Low-code patterns for extending an ERP without breaking the core
+                </h1>
+
+                <p class="hero-text" style="margin-top:0.5rem;">
+                Most ERP systems were not designed for continuous experimentation. At the same time, business
+                teams constantly ask for new workflows, integrations and small apps. Low-code extensions let
+                you deliver those changes without turning the ERP core into an unmaintainable patchwork.
+                This article outlines several practical patterns that work well in open-source and
+                declarative stacks, including platforms like lsFusion.
+                </p>
+
+                <figure class="post-hero">
+                <img
+                    src="https://uk.devlab.blog/img/post-lowcode-erp-extensions.webp"
+                    alt="Low-code modules surrounding an ERP core"
+                    style="width:100%; max-width:760px; border-radius:18px;"
+                >
+                </figure>
+            </header>
+
+            <section class="post-content">
+
+                <h2>1. Why extend with low-code instead of customising the core</h2>
+                <p>
+                Directly changing the ERP core often leads to upgrade pain, vendor lock-in and fragile
+                business logic that nobody wants to touch. Low-code extensions offer an alternative: keep
+                the ERP responsible for authoritative data and core accounting rules, and move
+                experimentation and fast-changing processes into a more flexible layer around it.
+                </p>
+
+                <p>Typical goals for low-code extensions:</p>
+                <ul>
+                <li>add new workflows without modifying core tables or transactions,</li>
+                <li>experiment with UX and side processes safely,</li>
+                <li>integrate external services without wiring them directly into the ERP engine,</li>
+                <li>let “citizen developers” build tools under clear guardrails.</li>
+                </ul>
+
+                <h2>2. Pattern #1 – Workflow layer on top of ERP</h2>
+                <p>
+                The simplest pattern: keep the ERP as the system of record, but orchestrate approvals and
+                extra steps in a low-code workflow engine. The workflow calls ERP APIs to read or update
+                data and may store only minimal state of its own.
+                </p>
+
+                <p>Good candidates:</p>
+                <ul>
+                <li>purchase request approvals before a purchase order appears in ERP,</li>
+                <li>exception handling around credit limits, pricing overrides or discounts,</li>
+                <li>manual checks for compliance, quality, or risk.</li>
+                </ul>
+
+                <p>
+                Declarative platforms like <strong>lsFusion</strong> fit well here: they allow you to define
+                forms, states and rules declaratively while calling ERP APIs or stored procedures when a
+                workflow step completes.
+                </p>
+
+                <h2>3. Pattern #2 – Side-car apps for complex processes</h2>
+                <p>
+                Sometimes a process is too domain-specific or fast-changing to live comfortably inside the
+                ERP. In that case, you can build a separate low-code application — a <strong>side-car</strong>
+                — that uses ERP as a data source and sink.
+                </p>
+
+                <p>Typical examples:</p>
+                <ul>
+                <li>production dispatching and shop-floor UIs,</li>
+                <li>specialised project or service management tools,</li>
+                <li>configurators for complex products.</li>
+                </ul>
+
+                <p>
+                The side-car app reads reference data from ERP (customers, products, prices) and writes back
+                only final transactions (orders, time sheets, production results). This keeps the ERP schema
+                clean while allowing the side-car to evolve quickly.
+                </p>
+
+                <h2>4. Pattern #3 – Event-driven micro-extensions</h2>
+                <p>
+                In an event-driven architecture, the ERP emits events such as <code>order.created</code>,
+                <code>invoice.posted</code> or <code>inventory.below_threshold</code>. Low-code components
+                subscribe to these events and execute small, well-defined actions.
+                </p>
+
+                <p>Examples of micro-extensions:</p>
+                <ul>
+                <li>sending notifications to chat tools or email,</li>
+                <li>creating follow-up tasks in a ticketing system,</li>
+                <li>pushing aggregated data into analytics or dashboards,</li>
+                <li>triggering automated document generation.</li>
+                </ul>
+
+                <p>
+                In declarative platforms you typically describe such reactions as rules:
+                </p>
+
+            <pre><code>EVENT orderCreated WHEN Orders.status = 'Approved' DO
+            createShipment(Orders);
+            notifySales(Orders.customer);
+            </code></pre>
+
+                <p>
+                This keeps the extension logic readable and easier to audit than ad-hoc scripts glued on
+                top of the ERP.
+                </p>
+
+                <h2>5. Pattern #4 – Low-code reporting and “operational BI”</h2>
+                <p>
+                Many ERP users need quick ad-hoc reports with filters, groupings and calculated fields.
+                Instead of building every report in the ERP core, you can expose read-only views and let a
+                low-code reporting layer handle visualisation and slicing.
+                </p>
+
+                <p>Benefits:</p>
+                <ul>
+                <li>business users can iterate on reports without deployments,</li>
+                <li>read-only access reduces the risk of accidental data changes,</li>
+                <li>aggregation logic can evolve faster than the ERP schema.</li>
+                </ul>
+
+                <h2>6. Guardrails: how not to break the ERP</h2>
+                <p>Low-code power comes with responsibility. A few rules help keep the core safe:</p>
+                <ul>
+                <li><strong>Single source of truth.</strong> core financial and inventory data live only in ERP.</li>
+                <li><strong>Clear ownership.</strong> each workflow knows which system is responsible for which part.</li>
+                <li><strong>Versioning.</strong> low-code apps should be versioned and tested just like code.</li>
+                <li><strong>Access control.</strong> reuse ERP roles and permissions where possible.</li>
+                <li><strong>Monitoring.</strong> log and trace low-code actions that touch ERP data.</li>
+                </ul>
+
+                <h2>7. Where low-code is a bad idea</h2>
+                <p>
+                Some areas still belong strictly to the ERP core or to traditional development:
+                </p>
+                <ul>
+                <li>posting logic for accounting and tax,</li>
+                <li>regulatory reports with strict formats,</li>
+                <li>performance-critical batch processes over huge datasets,</li>
+                <li>security-sensitive modules handling secrets or compliance-critical data.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>
+                Low-code is not a replacement for ERP — it is a way to extend and protect it at the same
+                time. By using workflow layers, side-car apps, event-driven micro-extensions and
+                low-code reporting, organisations can experiment and iterate quickly while keeping the ERP
+                core stable, upgradeable and clean.
+                </p>
+            </section>
+            </article>
+
+             <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
+                automation. We write about architectural patterns, integration strategies and real-world
+                implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul
+                style="
+                  margin-top:0.5rem;
+                  font-size:0.8rem;
+                  color:var(--text-muted);
+                  padding-left:1.1rem;
+                  list-style:disc;
+                "
+              >
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
