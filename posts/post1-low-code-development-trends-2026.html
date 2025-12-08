@@ -44,8 +44,10 @@
     "dateModified": "2025-01-01"
   }
   </script>
-</head>
-<body>
+  <link rel="canonical" href="https://en.devlab.blog/posts/post1-low-code-development-trends-2026.html">
+  <link rel="canonical" href="https://en.devlab.blog/posts/post1-low-code-development-trends-2026.html">
+    </head>
+<body class="post-page">
   <div class="page">
     <!-- HEADER -->
     <header>
@@ -91,7 +93,7 @@
       <div class="wrapper" >
         <div class="main-grid">
           <!-- ARTICLE -->
-          <article>
+          <article id="">
             <div class="section-title">
               <span>Article</span>
               <small><a class="back" href="/">← Back to all posts</a></small>
@@ -120,7 +122,7 @@
               <figure class="post-hero">
                 <!-- TODO: заменить путь на свою картинку -->
                 <img
-                  src="https://uk.devlab.blog/img/post1.low-code trends 2026.png"
+                  src="https://uk.devlab.blog/img/post1-low-code-trends-2026.webp"
                   alt="Low-code trends 2026 – AI, automation &amp; UX evolution"
                 >
               </figure>
@@ -219,6 +221,61 @@
                 <span class="post-tag">Future of work</span>
               </div>
             </footer>
+
+
+  <section class="post-comments" id="comments">
+    <h2 class="post-comments-title">Leave a comment</h2>
+    <p class="post-comments-note">
+      Your email address will not be published. Required fields are marked *
+    </p>
+
+    <form class="comments-form"
+          action="https://formsubmit.co/info@devlab.blog"
+          method="POST">
+
+      <!-- Redirect after success -->
+      <input type="hidden" name="_next" value="https://blog.devlab.blog/thank-you.html">
+      <!-- Disable captcha (optional) -->
+      <input type="hidden" name="_captcha" value="false">
+      <!-- Email subject -->
+      <input type="hidden" name="_subject" value="New comment on DevLab Blog">
+      <!-- Pretty HTML email -->
+      <input type="hidden" name="_template" value="table">
+      <!-- Honeypot (anti-spam) -->
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-row">
+        <label>
+          Comment *
+          <textarea name="comment" rows="4" required></textarea>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Name *
+          <input type="text" name="name" required>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Email *
+          <input type="email" name="email" required>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Website
+          <input type="url" name="website" placeholder="https://">
+        </label>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit comment</button>
+    </form>
+  </section>
+
           </article>
 
           <!-- SIDEBAR -->

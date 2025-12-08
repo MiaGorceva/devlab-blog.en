@@ -39,8 +39,10 @@
     "dateModified": "2025-01-20"
   }
   </script>
-</head>
-<body>
+  <link rel="canonical" href="https://en.devlab.blog/posts/post11-low-code-patterns-extending-erp.html">
+  <link rel="canonical" href="https://en.devlab.blog/posts/post11-low-code-patterns-extending-erp.html">
+    </head>
+<body class="post-page">
   <div class="page">
     <!-- HEADER -->
     <header>
@@ -83,16 +85,16 @@
 
     <!-- MAIN -->
     <main>
-      <div class="wrapper" style="padding-top:2.6rem; padding-bottom:3rem;">
+      <div class="wrapper">
         <div class="main-grid">
           <!-- ARTICLE -->
-           <article>
+           <article id="">
             <div class="section-title">
                 <span>Article</span>
-                <small><a href="/" style="text-decoration:underline;">← Back to all posts</a></small>
+                <small><a href="/">← Back to all posts</a></small>
             </div>
 
-            <header style="margin-bottom:1.4rem;">
+            <header>
                 <div class="post-meta">
                 <span>Low-code & ERP</span>
                 <span>&middot;</span>
@@ -101,11 +103,11 @@
                 <span>Patterns &amp; architecture</span>
                 </div>
 
-                <h1 class="hero-title" style="font-size:1.9rem; margin-top:0.5rem;">
+                <h1 class="hero-title">
                 Low-code patterns for extending an ERP without breaking the core
                 </h1>
 
-                <p class="hero-text" style="margin-top:0.5rem;">
+                <p class="hero-text">
                 Most ERP systems were not designed for continuous experimentation. At the same time, business
                 teams constantly ask for new workflows, integrations and small apps. Low-code extensions let
                 you deliver those changes without turning the ERP core into an unmaintainable patchwork.
@@ -270,13 +272,7 @@
                 Go back to the main page to see other posts, or browse by category:
               </p>
               <ul
-                style="
-                  margin-top:0.5rem;
-                  font-size:0.8rem;
-                  color:var(--text-muted);
-                  padding-left:1.1rem;
-                  list-style:disc;
-                "
+               
               >
                 <li><a href="/">All blog posts</a></li>
                 <li><a href="/#categories">Browse by category</a></li>
@@ -307,6 +303,61 @@
         </div>
       </div>
     </footer>
+
+
+  <section class="post-comments" id="comments">
+    <h2 class="post-comments-title">Leave a comment</h2>
+    <p class="post-comments-note">
+      Your email address will not be published. Required fields are marked *
+    </p>
+
+    <form class="comments-form"
+          action="https://formsubmit.co/info@devlab.blog"
+          method="POST">
+
+      <!-- Redirect after success -->
+      <input type="hidden" name="_next" value="https://blog.devlab.blog/thank-you.html">
+      <!-- Disable captcha (optional) -->
+      <input type="hidden" name="_captcha" value="false">
+      <!-- Email subject -->
+      <input type="hidden" name="_subject" value="New comment on DevLab Blog">
+      <!-- Pretty HTML email -->
+      <input type="hidden" name="_template" value="table">
+      <!-- Honeypot (anti-spam) -->
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-row">
+        <label>
+          Comment *
+          <textarea name="comment" rows="4" required></textarea>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Name *
+          <input type="text" name="name" required>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Email *
+          <input type="email" name="email" required>
+        </label>
+      </div>
+
+      <div class="form-row">
+        <label>
+          Website
+          <input type="url" name="website" placeholder="https://">
+        </label>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Submit comment</button>
+    </form>
+  </section>
+
   </div>
 
   <script>
