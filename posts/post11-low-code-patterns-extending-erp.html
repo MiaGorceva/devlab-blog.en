@@ -307,58 +307,26 @@
     </footer>
 
 
-  <section class="post-comments" id="comments">
-    <h2 class="post-comments-title">Leave a comment</h2>
-    <p class="post-comments-note">
-      Your email address will not be published. Required fields are marked *
-    </p>
+  <section class="sidebar-block">
+            <p class="sidebar-text">
+              No spam – just occasional notes on ERP design, automation experiments and new posts.
+            </p>
+            <form class="newsletter-form"
+                  action="https://formsubmit.co/info@devlab.blog"
+                  method="POST">
+              <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
 
-    <form class="comments-form"
-          action="https://formsubmit.co/info@devlab.blog"
-          method="POST">
+              <input type="email" name="email" class="field" placeholder="Your email address" required>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
 
-      <!-- Redirect after success -->
-      <input type="hidden" name="_next" value="https://blog.devlab.blog/thank-you.html">
-      <!-- Disable captcha (optional) -->
-      <input type="hidden" name="_captcha" value="false">
-      <!-- Email subject -->
-      <input type="hidden" name="_subject" value="New comment on DevLab Blog">
-      <!-- Pretty HTML email -->
-      <input type="hidden" name="_template" value="table">
-      <!-- Honeypot (anti-spam) -->
-      <input type="text" name="_honey" style="display:none">
-
-      <div class="form-row">
-        <label>
-          Comment *
-          <textarea name="comment" rows="4" required></textarea>
-        </label>
-      </div>
-
-      <div class="form-row">
-        <label>
-          Name *
-          <input type="text" name="name" required>
-        </label>
-      </div>
-
-      <div class="form-row">
-        <label>
-          Email *
-          <input type="email" name="email" required>
-        </label>
-      </div>
-
-      <div class="form-row">
-        <label>
-          Website
-          <input type="url" name="website" placeholder="https://">
-        </label>
-      </div>
-
-      <button class="btn btn-primary" type="submit">Submit comment</button>
-    </form>
-  </section>
+              <p class="newsletter-note">
+                You will receive a confirmation email.<br>
+                Powered securely via FormSubmit.
+              </p>
+            </form>
+          </section>
 
   </div>
 
