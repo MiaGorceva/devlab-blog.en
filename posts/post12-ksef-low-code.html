@@ -17,7 +17,7 @@
   <!-- Main blog styles -->
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
 
-  <script src="https://uk.devlab.blog/js/scripts.js" defer></script>
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -38,7 +38,7 @@
         "url": "https://uk.devlab.blog/img/devlab-logo.svg"
       }
     },
-    "mainEntityOfPage": "https://en.devlab.blog/posts/post12.KSeF + low-code.html",
+    "mainEntityOfPage": "https://en.devlab.blog/posts/post12-ksef-low-code.html",
     "datePublished": "2025-01-02",
     "dateModified": "2025-01-02"
   }
@@ -304,7 +304,7 @@
             </div>
         </div>
 
-        <!-- Share links -->
+        <!-- Share links 
         <div class="post-share">
             <span class="post-share-label">Share:</span>
             <a
@@ -316,55 +316,29 @@
             href="https://twitter.com/intent/tweet?url=https://en.devlab.blog/post-low-code-principles-benefits.html&text=Low-Code%20Platforms%3A%20Principles%2C%20Benefits%20and%20Future%20Trends"
             target="_blank" rel="noopener"
             >X/Twitter</a>
-        </div>
+        </div>-->
 
-        <!-- Comments -->
-        <section class="post-comments" id="comments">
-            <h3 class="post-comments-title">Leave a comment</h3>
-            <p class="post-comments-note">
-            Your email will not be published. Required fields are marked with *.
+       <section class="sidebar-block">
+            <p class="sidebar-text">
+              No spam – just occasional notes on ERP design, automation experiments and new posts.
             </p>
+            <form class="newsletter-form"
+                  action="https://formsubmit.co/info@devlab.blog"
+                  method="POST">
+              <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
 
-            <form
-            class="comments-form"
-            action="https://formsubmit.co/info@devlab.blog"
-            method="POST"
-            >
-            <!-- Redirect after success -->
-            <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
-            <!-- Disable captcha -->
-            <input type="hidden" name="_captcha" value="false">
-            <!-- Honeypot -->
-            <input type="text" name="_honey">
-            <!-- Identify post in email -->
-            <input type="hidden" name="post" value="Low-Code Platforms: Principles, Benefits and Future Trends">
+              <input type="email" name="email" class="field" placeholder="Your email address" required>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
 
-            <div class="form-row">
-                <label>
-                Name *
-                <input type="text" name="name" required />
-                </label>
-            </div>
-
-            <div class="form-row">
-                <label>
-                Email *
-                <input type="email" name="email" required />
-                </label>
-            </div>
-
-            <div class="form-row">
-                <label>
-                Comment *
-                <textarea name="comment" rows="4" required></textarea>
-                </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-                Submit comment
-            </button>
+              <p class="newsletter-note">
+                You will receive a confirmation email.<br>
+                Powered securely via FormSubmit.
+              </p>
             </form>
         </section>
+
 
       <div class="wrapper footer-grid">
         <div>
