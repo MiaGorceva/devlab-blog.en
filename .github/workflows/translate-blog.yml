@@ -28,6 +28,7 @@ jobs:
           pip install requests
 
       - name: Translate and push to language repos
+              - name: Translate and push to language repos
         env:
           GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -36,6 +37,7 @@ jobs:
           REPO_PL: "MiaGorceva/devlab-blog.pl"
           REPO_RU: "MiaGorceva/devlab-blog.ru"
 
-          OPENAI_MODEL: "gpt-4.1-mini"
+          # было: OPENAI_MODEL: "gpt-4.1-mini"
+          OPENAI_MODEL: "gpt-4o-mini"
         run: |
           python .github/scripts/translate_and_push.py
