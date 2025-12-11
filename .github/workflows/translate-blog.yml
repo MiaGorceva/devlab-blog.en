@@ -27,10 +27,10 @@ jobs:
         run: |
           pip install requests
 
-      - name: Translate and push to language repos
-        env:
-          GH_BOT_TOKEN: ${{ secrets.DEVLAB }}          
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+            - name: Translate and push to language repos
+              env:
+                GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+                OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
           REPO_UK: "MiaGorceva/devlab-blog"
           REPO_PL: "MiaGorceva/devlab-blog.pl"
