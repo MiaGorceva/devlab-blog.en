@@ -29,7 +29,7 @@ jobs:
 
       - name: Translate and push to language repos
         env:
-          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GH_BOT_TOKEN: ${{ secrets.DEVLAB }}          
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
           REPO_UK: "MiaGorceva/devlab-blog"
