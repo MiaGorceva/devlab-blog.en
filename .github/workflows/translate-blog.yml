@@ -6,6 +6,7 @@ on:
     paths:
       - "index.html"
       - "posts/**"
+  # можно запустить руками для полной пересборки
   workflow_dispatch: {}
 
 jobs:
@@ -32,10 +33,203 @@ jobs:
           GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-          REPO_UK: "MiaGorceva/devlab-blog"
-          REPO_PL: "MiaGorceva/devlab-blog.pl"
-          REPO_RU: "MiaGorceva/devlab-blog.ru"
+          # Укажи ТВОИ реальные репозитории
+          REPO_UK: "MiaGorceva/devlab-blog"      # укр основная
+          REPO_PL: "MiaGorceva/devlab-blog.pl"   # польская
+          REPO_RU: "MiaGorceva/devlab-blog.ru"   # русская
 
+          # Модель можно поменять (gpt-4.1, gpt-4.1-mini и т.п.)
           OPENAI_MODEL: "gpt-4.1-mini"
         run: |
+          mkdir -p .github/scripts
+          cat > .github/scripts/translate_and_push.py << 'EOF'
+import os
+import subprocess
+from pathlib import Path
+import shutil
+import json
+import requests
+
+# --- Конфиг ---
+
+SOURCE_INDEX = Path("index.html")
+SOURCE_POSTS_DIR = Path("posts")
+
+LANGS = {
+    "uk": {
+        "repo": os.environ["REPO_UK"],
+        "label": "Ukrainian",
+    },
+    "pl": {
+        "repo": os.environ["REPO_PL"],
+        "label": "Polish",
+    },
+    "ru": {
+        "repo": os.environ["REPO_RU"],
+        "label": "Russian",
+    },
+}
+
+TERMS_TO_KEEP = [
+    "lsf", "lsF", "lsFusion", "lsfusion",
+    "MITE", "mite", "DevLab", "devlab",
+]
+
+GH_TOKEN = os.environ["GH_BOT_TOKEN"]
+OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+
+
+def run(cmd, cwd=None, check=True):
+    print(f"$ {' '.join(cmd)}")
+    result = subprocess.run(cmd, cwd=cwd, check=check)
+    return result
+
+
+def clone_repo(lang: str, repo_full_name: str) -> Path:
+    tmp_dir = Path(f"/tmp/devlab-blog-{lang}")
+    if tmp_dir.exists():
+        shutil.rmtree(tmp_dir)
+
+    url = f"https://x-access-token:{GH_TOKEN}@github.com/{repo_full_name}.git"
+    run(["git", "clone", "--depth", "1", url, str(tmp_dir)])
+    return tmp_dir
+
+
+def openai_translate_html(html: str, target_lang_label: str) -> str:
+    """
+    Перевод через OpenAI Chat API.
+    Сохраняем HTML, не трогаем специальные термины.
+    """
+    system_prompt = f"""
+You are a professional translator.
+Translate the user content into {target_lang_label}.
+
+Rules:
+- Preserve all HTML tags, attributes, structure, indentation and line breaks.
+- Translate only visible text content between tags.
+- Do not translate code inside <code>, <pre>, or fenced code blocks.
+- Do not translate brand or product names.
+- Keep the following terms exactly as in the original (do NOT translate or change them):
+{', '.join(TERMS_TO_KEEP)}
+
+Output:
+Return ONLY the translated HTML, no explanations, no extra text.
+""".strip()
+
+    payload = {
+        "model": OPENAI_MODEL,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": html},
+        ],
+        "temperature": 0.2,
+    }
+
+    headers = {
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    resp = requests.post(
+        "https://api.openai.com/v1/chat/completions",
+        headers=headers,
+        data=json.dumps(payload),
+        timeout=120,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    return data["choices"][0]["message"]["content"]
+
+
+def collect_source_files():
+    files = []
+    if SOURCE_INDEX.is_file():
+        files.append(SOURCE_INDEX)
+    if SOURCE_POSTS_DIR.is_dir():
+        for p in SOURCE_POSTS_DIR.rglob("*"):
+            if p.is_file():
+                files.append(p)
+    return files
+
+
+def relative_from_root(path: Path) -> Path:
+    # В целевых репо структура такая же: index.html, posts/...
+    return path
+
+
+def main():
+    source_files = collect_source_files()
+    if not source_files:
+        print("No source files (index.html or posts/*) found, nothing to do.")
+        return
+
+    # Клонируем все языковые репо
+    repos = {}
+    for lang, cfg in LANGS.items():
+        repo_name = cfg["repo"]
+        print(f"Cloning {lang} repo: {repo_name}")
+        repos[lang] = clone_repo(lang, repo_name)
+
+    changes_made = {lang: False for lang in LANGS.keys()}
+
+    for src in source_files:
+        rel = relative_from_root(src)
+        html = src.read_text(encoding="utf-8")
+
+        for lang, cfg in LANGS.items():
+            repo_dir = repos[lang]
+            target_lang_label = cfg["label"]
+
+            print(f"Translating {rel} -> {lang} ({target_lang_label})")
+
+            try:
+                translated = openai_translate_html(html, target_lang_label)
+            except Exception as e:
+                print(f"ERROR translating {rel} to {lang}: {e}")
+                continue
+
+            target_path = repo_dir / rel
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+
+            old_content = None
+            if target_path.exists():
+                old_content = target_path.read_text(encoding="utf-8")
+
+            if old_content == translated:
+                print(f"No changes for {lang}:{rel}")
+                continue
+
+            target_path.write_text(translated, encoding="utf-8")
+            changes_made[lang] = True
+
+            # Стадируем файл
+            run(["git", "add", str(rel)], cwd=repo_dir, check=True)
+
+    # Коммиты и push
+    for lang, repo_dir in repos.items():
+        if not changes_made[lang]:
+            print(f"No changes for language {lang}, skipping commit.")
+            continue
+
+        print(f"Committing and pushing changes for {lang}")
+        try:
+            run(["git", "config", "user.name", "devlab-translation-bot"], cwd=repo_dir)
+            run(["git", "config", "user.email", "bot@devlab.blog"], cwd=repo_dir)
+
+            commit_msg = "Auto-translation sync from devlab-blog.en"
+            # Если вдруг нечего коммитить — не падаем
+            try:
+                run(["git", "commit", "-m", commit_msg], cwd=repo_dir, check=True)
+            except subprocess.CalledProcessError:
+                print(f"No changes to commit for {lang}, probably all identical.")
+                continue
+
+            run(["git", "push", "origin", "HEAD:main"], cwd=repo_dir, check=True)
+        except Exception as e:
+            print(f"ERROR pushing for {lang}: {e}")
+
+if __name__ == "__main__":
+    main()
+EOF
           python .github/scripts/translate_and_push.py
