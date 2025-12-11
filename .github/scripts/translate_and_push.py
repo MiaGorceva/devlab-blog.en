@@ -32,7 +32,7 @@ TERMS_TO_KEEP = [
 
 GH_TOKEN = os.environ["GH_BOT_TOKEN"]
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")  # <-- новая модель
 
 
 def run(cmd, cwd=None, check=True):
@@ -57,13 +57,13 @@ Translate the content into {target_lang_label}.
 
 Rules:
 - Keep ALL HTML tags and structure unchanged.
-- Translate only text content, not HTML tags or attributes.
+- Translate only human-visible text content, not tag names or attributes.
 - Do NOT translate code inside <code>, <pre>, or fenced code blocks.
 - Do NOT translate brand/product names.
 - Keep these terms exactly as-is:
 {', '.join(TERMS_TO_KEEP)}
 
-Output ONLY the translated HTML without commentary.
+Output ONLY the translated HTML without any comments or explanations.
 """.strip()
 
     payload = {
@@ -87,7 +87,8 @@ Output ONLY the translated HTML without commentary.
         timeout=120,
     )
     resp.raise_for_status()
-    return resp.json()["choices"][0]["message"]["content"]
+    data = resp.json()
+    return data["choices"][0]["message"]["content"]
 
 
 def collect_source_files():
@@ -160,6 +161,7 @@ def main():
             run(["git", "push", "origin", "HEAD:main"], cwd=repo_dir)
         except Exception as e:
             print(f"Push error for {lang}: {e}")
+            # оставляем job зелёным, но показываем ошибку в логе
 
 
 if __name__ == "__main__":
