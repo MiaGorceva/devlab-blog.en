@@ -34,8 +34,8 @@ jobs:
 
       - name: Translate and push to language repos
         env:
-          # твой PAT, который имеет доступ к devlab-blog / pl / ru
-          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}   # твой PAT для пушей
+          GITHUB_TOKEN: ${{ github.token }}           # токен для GitHub Models
 
           REPO_UK: "MiaGorceva/devlab-blog"
           REPO_PL: "MiaGorceva/devlab-blog.pl"
