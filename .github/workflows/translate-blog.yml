@@ -1,21 +1,15 @@
-name: Translate blog to uk/pl/ru
+name: Translate blog to ru (test on index)
 
 on:
   push:
     branches: [ main ]
     paths:
       - "index.html"
-      - "posts/**"
   workflow_dispatch: {}
 
 jobs:
   translate-and-sync:
     runs-on: ubuntu-latest
-
-    # GITHUB_TOKEN будет использоваться только для GitHub Models (перевод),
-    # а для пуша в другие репы используем твой GH_BOT_TOKEN (PAT).
-    permissions:
-      contents: read   # нужно для GitHub Models
 
     steps:
       - name: Checkout English source repo
@@ -32,13 +26,15 @@ jobs:
         run: |
           pip install requests
 
-      - name: Translate and push to language repos
+      - name: Translate index.html to Russian and push
         env:
-          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}   # твой PAT для пушей
-          GITHUB_TOKEN: ${{ github.token }}           # токен для GitHub Models
+          # GitHub PAT с доступом к devlab-blog* репозиториям
+          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
 
-          REPO_UK: "MiaGorceva/devlab-blog"
-          REPO_PL: "MiaGorceva/devlab-blog.pl"
+          # Ключ DeepSeek, который ты создала
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+
+          # Пока тестируем только русский репозиторий
           REPO_RU: "MiaGorceva/devlab-blog.ru"
         run: |
           python .github/scripts/translate_and_push.py
