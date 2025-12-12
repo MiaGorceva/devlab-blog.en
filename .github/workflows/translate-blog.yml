@@ -12,6 +12,11 @@ jobs:
   translate-and-sync:
     runs-on: ubuntu-latest
 
+    # GITHUB_TOKEN будет использоваться только для GitHub Models (перевод),
+    # а для пуша в другие репы используем твой GH_BOT_TOKEN (PAT).
+    permissions:
+      contents: read   # нужно для GitHub Models
+
     steps:
       - name: Checkout English source repo
         uses: actions/checkout@v4
@@ -29,15 +34,11 @@ jobs:
 
       - name: Translate and push to language repos
         env:
+          # твой PAT, который имеет доступ к devlab-blog / pl / ru
           GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
 
           REPO_UK: "MiaGorceva/devlab-blog"
           REPO_PL: "MiaGorceva/devlab-blog.pl"
           REPO_RU: "MiaGorceva/devlab-blog.ru"
-
-          OPENAI_MODEL: "gpt-4o-mini"
-
         run: |
           python .github/scripts/translate_and_push.py
