@@ -29,8 +29,9 @@ jobs:
 
       - name: Translate and push to language repos
         env:
-          GH_BOT_TOKEN: ${{ secrets.DEVLAB }}          # твой токен
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}  # ключ OpenAI
+          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
 
           REPO_UK: "MiaGorceva/devlab-blog"
           REPO_PL: "MiaGorceva/devlab-blog.pl"
