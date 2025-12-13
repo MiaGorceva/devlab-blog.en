@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>The Open-Source ERP Stack of 2032 — Why Only Declarative Systems Survived</title>
+
+<meta name="description" content="A human-centric, future-facing look at how ERP stacks evolved by 2032 — and why only modular, declarative, AI-readable architectures remain viable. A practical guide with real examples from ERPNext, Odoo, metasfresh, low-code frameworks, and declarative platforms.">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="The Open-Source ERP Stack of 2032 — Why Only Declarative Systems Survived">
+<meta property="og:description" content="A future-facing, human-written exploration of ERP-core + low-code + declarative logic + AI architectures. With examples from ERPNext, Odoo CE, metasfresh, ToolJet, Appsmith, and model-driven platforms.">
+<meta property="og:image" content="https://yourdomain.com/erp-future-cover.png">
+<meta property="og:type" content="article">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Open-Source ERP Stack of 2032 — Why Only Declarative Systems Survived">
+<meta name="twitter:description" content="A practical article from the near future about ERP stacks, low-code, declarative rules, and AI-native architectures.">
+<meta name="twitter:image" content="https://yourdomain.com/erp-future-cover.png">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "headline": "The Open-Source ERP Stack of 2032 — Why Only Declarative Systems Survived",
+  "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/{{POST_SLUG}}.html"
+    },
+    "headline": "The Open-Source ERP Stack of 2032 — Why Only Declarative Systems Survived",
+    "description": "A future-facing exploration of ERP stacks, low-code, declarative logic and AI-native business systems.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2025-01-02",
+    "dateModified": "2025-01-02"
+  }
+</script>
+
+</head>
+
+<body class="page post-page">
+
+<header>
+  <div class="wrapper nav">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo"><img src="/logo.png" alt=""></div>
+      <div class="nav-meta">
+        <div class="nav-meta-title">MITE Insights</div>
+        <div class="nav-meta-sub">Tech · Architecture · AI</div>
+      </div>
+    </a>
+
+    <button class="nav-toggle" onclick="document.body.classList.toggle('nav-open')">☰</button>
+
+    <div class="nav-group">
+      <div class="nav-links">
+        <a href="/blog">Blog</a>
+        <a href="/cases">Cases</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrapper">
+
+<section class="hero post-hero">
+  <h1 class="hero-title">The Open-Source ERP Stack of 2032:<br>Why Only Declarative Systems Survived</h1>
+  <p class="hero-text">
+    В 2020-х мы ещё спорили о том, какую ERP выбрать.<br>
+    В 2032-м спорят уже о другом — «Понимает ли её ИИ?»
+  </p>
+
+  <div class="post-meta-secondary">
+    <span>Published: 20 Jan 2032</span>
+    <span>·</span>
+    <span>Approx. 8–9 min read</span>
+    <span>·</span>
+    <span class="post-views">Views: <span class="count">—</span></span>
+  </div>
+</section>
+
+<article class="post-content">
+
+<h2>Почему классические ERP перестали работать</h2>
+<p>
+Когда процессы менялись раз в год — ERP ещё справлялась.<br>
+Когда процессы стали меняться <em>каждый квартал</em> — ERP начала хромать.<br>
+Когда процессы стали меняться <em>каждый месяц</em> — ERP перестала поспевать.
+</p>
+
+<p>
+И это не «плохой софт». Это просто несовместимость темпов:  
+монолит живёт в годах, бизнес — в неделях.
+</p>
+
+<ul>
+<li>Императивная логика разрасталась быстрее документации.</li>
+<li>UI, логика и данные жили в трёх разных вселенных.</li>
+<li>AI пытался читать ERP-код и… тактично отказывался.</li>
+</ul>
+
+<p><strong>Решение нашлось между мирами:</strong> ERP становится ядром, а вокруг неё появляется гибкая, формальная архитектура.</p>
+
+<hr>
+
+<h2>Как выглядит ERP-стек образца 2032 года</h2>
+<p>Это уже не «система». Это организм.</p>
+
+<pre class="diagram">
+┌─────────────────────────────────────────────┐
+│ AI Layer (agents, optimizers, copilots)     │
+└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ Declarative Logic / Rules Layer             │
+└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ Low-code Workflows & UI                     │
+└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ ERP Core (Data, Transactions, Audit)        │
+└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ Integrations, Events, Connectors            │
+└─────────────────────────────────────────────┘
+</pre>
+
+<h3>ERP-ядро</h3>
+<p>
+Используются зрелые open-source проекты:  
+<strong>ERPNext</strong>, <strong>Odoo CE</strong>, <strong>Dolibarr</strong>, <strong>metasfresh</strong>.
+<br>
+Они дают стабильность, транзакции, бухгалтерию, склад, базовые процессы.
+</p>
+
+<h3>Low-code слой</h3>
+<p>
+ToolJet, Appsmith, NocoBase, Budibase — стали рабочим инструментом продуктовых команд.
+</p>
+
+<h3>Декларативный слой</h3>
+<p>
+Самый неожиданный победитель.  
+Правила, модели и UI описываются <em>формально</em>, так что AI может:
+</p>
+
+<ul>
+<li>читать логику;</li>
+<li>объяснять её;</li>
+<li>исправлять ошибки;</li>
+<li>предлагать оптимизации;</li>
+<li>строить новые процессы.</li>
+</ul>
+
+<p>
+Некоторые платформы начали делать это ещё в 2020-х — и выглядели странными.  
+В 2032-м — выглядят гениальными.
+</p>
+
+<hr>
+
+<h2>Почему AI изменил архитектуру навсегда</h2>
+
+<p>
+ИИ стал не «ассистентом разработчика», а участником архитектуры.  
+И он сразу навёл порядок — просто потому что <strong>не смог работать с хаосом</strong>.
+</p>
+
+<p>Типичный диалог 2032 года:</p>
+
+<pre class="diagram">
+Engineer: "AI, why is the inventory counter off by 2?"
+AI: "I can’t say. There are 47 scattered conditions in 12 modules."
+Engineer: "…Rewrite it?"
+AI: "Gladly."
+</pre>
+
+<p>
+Системы, где логика была декларативной, стали «AI-native».  
+Все остальные — «legacy с ускорением».
+</p>
+
+<hr>
+
+<h2>Реальные примеры из 2025–2032</h2>
+
+<h3>ERPNext</h3>
+<p>Использовалось как прочное ядро, но сложные процессы выносили в декларативные надстройки.</p>
+
+<h3>Odoo CE</h3>
+<p>Модульная экосистема процветала, но AI-сопровождение оказалось возможно только после введения формального слоя правил.</p>
+
+<h3>NocoBase + ERPNext</h3>
+<p>Типичная связка для проектов, где UI должен меняться быстрее, чем ERP успевает адаптироваться.</p>
+
+<h3>Декларативные модели</h3>
+<p>
+Именно они стали точкой, где AI смог объяснять систему.  
+Компании неожиданно обнаружили, что если правила описаны формально — можно строить архитектуры, которые живут десятилетиями.
+</p>
+
+<hr>
+
+<h2>Как выбрать стек, который переживёт 2030-е</h2>
+
+<ol>
+<li><strong>Определите доменное ядро.</strong> Что должно быть формальным и строгим?</li>
+<li><strong>Выберите ERP-ядро.</strong> Open-source, активное, прозрачная модель данных.</li>
+<li><strong>Добавьте low-code.</strong> Интерфейсы, рабочие места, быстрые процессы.</li>
+<li><strong>Добавьте декларативный слой.</strong> Это не роскошь — это AI-гигиена.</li>
+<li><strong>Проведите AI-аудит.</strong>  
+Пусть агент попробует прочитать систему.  
+Если он сдаётся — система обречена.</li>
+<li><strong>Оцените скорость изменений, а не скорость разработки.</strong></li>
+</ol>
+
+<hr>
+
+<h2>Итог: системы будущего строятся не только для людей. Они строятся вместе с AI.</h2>
+
+<p>
+ERP — это фундамент.  
+Low-code — гибкость.  
+Декларативный слой — структура и ясность.  
+AI — эволюция.
+</p>
+
+<p>
+И выживают только те архитектуры, которые прозрачны, формальны и понятны — и человеку, и машине.
+</p>
+
+</article>
+
+</main>
+
+<script>
+// simple JSONP loader for views counter
+(function() {
+  const el = document.querySelector(".post-views .count");
+  if (!el) return;
+
+  const postId = location.pathname.replace(/\/$/, "");
+  window._viewsLoaded = function(data) {
+    el.textContent = data.views;
+  };
+
+  const s = document.createElement("script");
+  s.src = "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec?callback=_viewsLoaded&post=" + encodeURIComponent(postId);
+  document.body.appendChild(s);
+})();
+</script>
+
+</body>
+</html>
