@@ -500,55 +500,5 @@
       </div>
     </footer>
   </div>
-
-  <script>
-    // year fallback
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
-  <script>
-    // Mobile menu: burger -> X, close on ESC / outside click / link click
-    (function () {
-      const btn = document.querySelector(".nav-toggle");
-      const nav = document.querySelector(".nav");
-      const body = document.body;
-
-      if (!btn || !nav) return;
-
-      const setState = (open) => {
-        body.classList.toggle("nav-open", open);
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.textContent = open ? "✕" : "☰";
-      };
-
-      btn.addEventListener("click", () => setState(!body.classList.contains("nav-open")));
-
-      // close on esc
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") setState(false);
-      });
-
-      // close when clicking outside nav (mobile)
-      document.addEventListener("click", (e) => {
-        const open = body.classList.contains("nav-open");
-        if (!open) return;
-        const clickedInside = nav.contains(e.target);
-        if (!clickedInside) setState(false);
-      });
-
-      // close after clicking any nav link (mobile)
-      nav.addEventListener("click", (e) => {
-        const a = e.target.closest("a");
-        if (!a) return;
-        if (body.classList.contains("nav-open")) setState(false);
-      });
-
-      // if resized to desktop, ensure button resets
-      const mq = window.matchMedia("(min-width: 901px)");
-      mq.addEventListener?.("change", (ev) => {
-        if (ev.matches) setState(false);
-      });
-    })();
-  </script>
 </body>
 </html>
