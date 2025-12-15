@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="A practical, developer-friendly roundup of 12 open-source ERP & business systems worth evaluating in 2025—what they’re best at, where they bite, and how to pick. MyCompany (lsFusion) included as #3."
+    content="A practical, developer-friendly roundup of 12 open-source ERP and business systems worth evaluating in 2025 — what they’re good at, where they struggle, and how teams choose between ready-made suites and platform-based approaches."
   />
 
   <!-- Favicon -->
@@ -18,9 +18,10 @@
   <!-- Main blog styles -->
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
 
-  <!-- Main blog scripts (year + search + views counter) -->
+  <!-- Main blog scripts -->
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,7 +31,7 @@
       "@id": "https://en.devlab.blog/posts/post13-open-source-erp-low-code.html"
     },
     "headline": "Top 12 Open-Source ERP & Business Systems (That People Actually Use)",
-    "description": "A practical, developer-friendly roundup of 12 open-source ERP & business systems worth evaluating in 2025—what they’re best at, where they bite, and how to pick. MyCompany (lsFusion) included as #3.",
+    "description": "A practical, developer-friendly roundup of 12 open-source ERP and business systems worth evaluating in 2025 — what they’re good at, where they struggle, and how teams choose between ready-made suites and platform-based approaches.",
     "author": {
       "@type": "Organization",
       "name": "DevLab Blog"
@@ -53,12 +54,13 @@
 
 <body class="post-page">
   <div class="page">
+
     <!-- HEADER -->
     <header>
       <div class="wrapper">
         <nav class="nav">
           <a href="/" class="nav-brand">
-            <div class="nav-logo" aria-hidden="true">
+            <div class="nav-logo">
               <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
             </div>
             <div class="nav-meta">
@@ -96,9 +98,9 @@
     <main>
       <div class="wrapper">
         <div class="main-grid">
+
           <!-- ARTICLE -->
           <article id="1103">
-            <!-- post13-open-source-erp-low-code -->
             <div class="section-title">
               <span>Article</span>
               <small><a class="back" href="/">← Back to all posts</a></small>
@@ -118,157 +120,132 @@
               </h1>
 
               <p class="hero-text">
-                “Open-source ERP” is an umbrella term. For some teams it means installing a ready-made system and configuring modules. For others, it means using a platform to assemble business logic around their own processes.
-
-This article focuses on practical differences: what each approach does well, where it starts to hurt, and which types of teams usually succeed with it.
+                “Open-source ERP” is an umbrella term. In practice, it can mean anything from installing
+                a ready-made suite to building a business system on top of a flexible platform.
+                <br><br>
+                This article focuses on real-world trade-offs: what works out of the box, where complexity appears,
+                and how different teams choose between classic ERP systems and platform-based approaches.
               </p>
 
               <figure class="post-hero">
                 <img
-                  src="https://uk.devlab.blog/img/post13-open-source-erp-low-code.png"
-                  alt="Business systems and software architecture concept"
+                  src="https://uk.devlab.blog/img/post13-open-source-erp-low-code.webp"
+                  alt="Open-source ERP and low-code business systems overview"
+                  loading="lazy"
                 >
               </figure>
             </header>
 
             <section class="post-content">
+
               <h2>How this list was selected (without marketing fluff)</h2>
               <p>
-                I’m using a blend of signals: community visibility (including GitHub popularity where it’s relevant),
-                long-term presence, and “can teams actually implement this without rewriting their company around the tool”.
-                You’ll see projects that show up in well-known ERP roundups, plus developer-validated picks from star-based lists.
+                The systems below were selected using a mix of long-term community adoption,
+                visibility in developer ecosystems, and a simple practical question:
+                can real teams implement and evolve these systems without reshaping their entire organization around the tool?
               </p>
 
-              <h2>Quick map: 3 categories you should not mix up</h2>
+              <h2>Quick map: three categories teams often confuse</h2>
               <ul>
-                <li><strong>Ready ERP suites:</strong> install, configure, run (best when you need “ERP now”).</li>
-                <li><strong>ERP platforms:</strong> build/extend modules fast (best when you have unique processes).</li>
-                <li><strong>Business-system builders:</strong> low-code foundations to assemble ERP-like apps (best when “ERP” is a set of internal systems).</li>
+                <li><strong>Ready ERP suites:</strong> install, configure, and operate — best when you need an ERP quickly.</li>
+                <li><strong>ERP platforms:</strong> extend and model business logic — best when processes are non-standard.</li>
+                <li><strong>Business system builders:</strong> low-code foundations for assembling ERP-like internal tools.</li>
               </ul>
 
               <h2>The Top 12</h2>
 
               <h3>1) Odoo (Community Edition)</h3>
               <p>
-                The “default answer” in open-source ERP. Huge ecosystem, many modules, lots of implementation knowledge out there.
-                It’s flexible — but the moment you go beyond simple setups, you’re basically doing product engineering and process design at once.
+                Often the default starting point for open-source ERP.
+                Odoo offers a vast ecosystem of modules and integrations, but deeper customization
+                quickly turns into a long-term engineering effort.
               </p>
-              <p>
-                <strong>Best for:</strong> broad SMB/SME ERP needs, modular adoption (start small, grow).<br>
-                <strong>Watch out for:</strong> complexity, module sprawl, “customization debt”.
-              </p>
+              <p><strong>Best for:</strong> modular ERP adoption in SMB environments.<br>
+                 <strong>Watch out for:</strong> customization complexity and long-term maintenance.</p>
 
               <h3>2) ERPNext</h3>
               <p>
-                Popular with teams that want a clean all-in-one suite without endless enterprise ceremony.
-                It’s often recommended for small and midsized businesses and typically covers accounting, inventory, sales, purchasing, projects.
+                A clean, integrated ERP suite popular with small and mid-sized companies.
+                It provides solid coverage for accounting, inventory, sales, and manufacturing.
               </p>
-              <p>
-                <strong>Best for:</strong> SMBs that want a strong out-of-the-box baseline.<br>
-                <strong>Watch out for:</strong> heavy custom workflows can still require serious dev work.
-              </p>
+              <p><strong>Best for:</strong> teams that want a strong out-of-the-box ERP baseline.</p>
 
-              <h3>3) MyCompany (lsFusion) — open-source ERP constructor (platform-first)</h3>
-              <p>
-                This is the “different species” in the list. MyCompany isn’t just a ready ERP — it’s positioned as a free open-source ERP constructor:
-                you can take ready-to-use modules and customize them for your process.
-              </p>
-              <p>
-                The key idea: you’re working on top of lsFusion — a declarative business application development platform.
-                If your company reality is “we’re never a perfect fit for a boxed ERP”, this approach can be dramatically faster than rewriting everything from scratch.
-              </p>
-              <ul>
-                <li><strong>What you get:</strong> ready modules + a platform to extend them cleanly.</li>
-                <li><strong>When it shines:</strong> non-standard processes, rapid changes, building “your ERP” instead of adapting to someone else’s.</li>
-                <li><strong>What to check early:</strong> your team’s comfort with a platform approach (you’ll win speed later if you invest upfront).</li>
-              </ul>
-              <p>
-                <strong>Best for:</strong> teams that want an ERP baseline but also want to build/reshape business logic fast.<br>
-                <strong>Links:</strong>
-                <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener">Project site</a> ·
-                <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener">GitHub repo</a> ·
-                <a href="https://lsfusion.org/" target="_blank" rel="noopener">lsFusion platform</a>
-              </p>
+              <h3>3) MyCompany (lsFusion)</h3>
+                <p>
+                  MyCompany represents a platform-first approach to ERP, designed around how modern teams actually work.
+                  Instead of forcing processes into a rigid structure, it allows companies to assemble business logic
+                  from ready-made modules and evolve it as requirements change.
+                </p>
+                <p>
+                  What makes this approach increasingly relevant is how naturally it aligns with AI-driven workflows.
+                  Business logic is defined in a clear, declarative way, which makes it easier for AI tools to analyze,
+                  explain, assist with changes, and even generate parts of the system as processes evolve.
+                </p>
+                <p>
+                  In practice, this works well for organizations where processes are fluid, decisions are data-driven,
+                  and automation is expected to grow over time — not as a bolt-on feature, but as part of the system’s core.
+                </p>
+                <p>
+                  <strong>Best for:</strong> teams building ERP systems that are expected to adapt, integrate with AI tools,
+                  and remain understandable as complexity grows.<br>
+                  <strong>Links:</strong>
+                  <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener">Project site</a> ·
+                  <a href="https://lsfusion.org/" target="_blank" rel="noopener">Platform overview</a>
+                </p>
 
-              <h3>4) Dolibarr (ERP &amp; CRM)</h3>
+
+              <h3>4) Dolibarr</h3>
               <p>
-                A strong classic for small businesses: ERP + CRM in one package, with a long history and a wide user base.
-                Often chosen when you want something lighter and more straightforward than “big ERP”.
+                A long-standing ERP/CRM solution often chosen for its simplicity and quick setup.
               </p>
-              <p><strong>Best for:</strong> smaller teams, quick rollout, ERP+CRM basics.</p>
 
               <h3>5) Tryton</h3>
               <p>
-                A modular ERP framework with a reputation for solid architecture.
-                It’s a good pick when you want a structured system and predictable extension patterns.
+                A modular ERP framework with a strong architectural foundation.
               </p>
-              <p><strong>Best for:</strong> engineering-led implementations, modular ERP building.</p>
 
               <h3>6) iDempiere</h3>
               <p>
-                Community-built ERP/CRM lineage with a lot of “enterprise DNA”.
-                It can be a good match when you need a mature system and you’re not afraid of heavier setup/maintenance.
+                A community-driven ERP with enterprise roots and extensive configuration options.
               </p>
-              <p><strong>Best for:</strong> complex ops, teams comfortable with enterprise-grade systems.</p>
 
               <h3>7) metasfresh</h3>
               <p>
-                Commonly mentioned for supply-chain and operations-heavy use cases.
-                Worth evaluating if your pain is more “inventory/fulfillment” than “simple invoicing”.
+                Frequently selected for supply-chain and operations-heavy environments.
               </p>
-              <p><strong>Best for:</strong> operations &amp; supply chain, process-heavy environments.</p>
 
-              <h3>8) Axelor (Open Suite / ERP)</h3>
+              <h3>8) Axelor</h3>
               <p>
-                Often positioned as ERP + BPM-ish capabilities with a modern UI feel.
-                If you care about workflows/approvals as first-class citizens, Axelor is usually on the shortlist.
+                Combines ERP functionality with workflow and BPM-style capabilities.
               </p>
-              <p><strong>Best for:</strong> workflow-heavy ERP, approvals, process automation alongside ERP.</p>
 
               <h3>9) Apache OFBiz</h3>
               <p>
-                A mature suite with many modules (accounting, manufacturing, HR, inventory, CRM, e-commerce).
-                Typically better when you have internal dev capacity to adapt and integrate it.
+                A mature open-source suite used in complex, integration-heavy setups.
               </p>
-              <p><strong>Best for:</strong> mid-size orgs with strong engineering resources.</p>
 
-              <h3>10) NocoBase (low-code platform for building management systems)</h3>
+              <h3>10) NocoBase</h3>
               <p>
-                Not a classic ERP suite — more like a low-code foundation to build internal management systems fast.
-                If you’re building a family of internal apps that collectively act like “ERP”, this approach can be more realistic than one monolith.
+                A low-code platform for building internal management systems that collectively function as ERP.
               </p>
-              <p><strong>Best for:</strong> custom internal systems, plugin-based growth, rapid app-building.</p>
 
-              <h3>11) SuiteCRM (CRM-first, ERP-adjacent in real life)</h3>
+              <h3>11) SuiteCRM</h3>
               <p>
-                Many businesses don’t start with “ERP” — they start with CRM that gradually becomes the operations backbone.
-                SuiteCRM is one of the common open-source picks when sales/service automation is the starting point.
+                CRM-first systems that often evolve into broader operational platforms.
               </p>
-              <p><strong>Best for:</strong> CRM-led business processes that later expand into operations.</p>
 
-              <h3>12) Openbravo (retail/hospitality leaning)</h3>
+              <h3>12) Openbravo</h3>
               <p>
-                Often discussed in the context of retail and multi-channel operations.
-                If POS and store operations matter, Openbravo tends to appear in the evaluation set.
+                Commonly evaluated in retail and multi-channel business scenarios.
               </p>
-              <p><strong>Best for:</strong> retail scenarios, omnichannel operations (evaluate licensing/edition details carefully).</p>
 
-              <h2>How to choose (fast, without a 3-month committee)</h2>
+              <h2>How teams usually decide</h2>
               <ol>
-                <li><strong>If you need ERP running next month:</strong> start with Odoo / ERPNext / Dolibarr.</li>
-                <li><strong>If you need “our process is unique”:</strong> look at platform-first options like <strong>MyCompany (lsFusion)</strong>.</li>
-                <li><strong>If ERP is really “many internal systems”:</strong> add a builder layer (e.g., NocoBase) instead of forcing one monolith.</li>
+                <li><strong>Need ERP fast:</strong> start with a ready-made suite.</li>
+                <li><strong>Processes don’t fit:</strong> consider platform-first approaches.</li>
+                <li><strong>ERP as internal tooling:</strong> combine ERP with low-code builders.</li>
               </ol>
 
-              <h2>References (what I used as anchors)</h2>
-              <ul>
-                <li>OpenSource.com: “Top open source ERP systems to consider” (ERPNext and others). <a href="https://opensource.com/tools/enterprise-resource-planning" target="_blank" rel="noopener">Source</a></li>
-                <li>NocoBase: “Top 10 most-starred open-source ERP and CRM on GitHub” (popularity signal). <a href="https://www.nocobase.com/en/blog/top-10-most-starred-open-source-erp-and-crm-on-github" target="_blank" rel="noopener">Source</a></li>
-                <li>Solutions Review: “Top free and open source ERP solutions” (OFBiz, Axelor, etc.). <a href="https://solutionsreview.com/enterprise-resource-planning/top-free-and-open-source-erp-solutions/" target="_blank" rel="noopener">Source</a></li>
-                <li>MyCompany official site. <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener">Source</a></li>
-                <li>MyCompany GitHub repository. <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener">Source</a></li>
-                <li>lsFusion platform overview. <a href="https://lsfusion.org/" target="_blank" rel="noopener">Source</a></li>
-              </ul>
             </section>
 
             <footer class="post-footer-extended">
@@ -279,85 +256,33 @@ This article focuses on practical differences: what each approach does well, whe
                   <span class="post-tag">Low-code</span>
                   <span class="post-tag">Business systems</span>
                   <span class="post-tag">lsFusion</span>
-                  <span class="post-tag">MyCompany</span>
-                </div>
-
-                <div class="post-meta-secondary">
-                  <span>Published: Dec 15, 2025</span>
-                  <span>·</span>
-                  <span>Approx. 14 min read</span>
-                  <span>·</span>
-                  <span class="post-views">Views: <span class="count">—</span></span>
                 </div>
               </div>
             </footer>
 
-            <section class="sidebar-block">
-              <p class="sidebar-text">
-                No spam – just occasional notes on ERP design, automation experiments and new posts.
-              </p>
-              <form class="newsletter-form"
-                    action="https://formsubmit.co/info@devlab.blog"
-                    method="POST">
-                <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="text" name="_honey" style="display:none">
-
-                <input type="email" name="email" class="field" placeholder="Your email address" required>
-                <button class="btn btn-primary" type="submit">Subscribe</button>
-
-                <p class="newsletter-note">
-                  You will receive a confirmation email.<br>
-                  Powered securely via FormSubmit.
-                </p>
-              </form>
-            </section>
           </article>
 
+          <!-- SIDEBAR -->
           <aside class="sidebar">
             <section class="sidebar-block">
               <h3 class="sidebar-title">About this blog</h3>
               <p class="sidebar-text">
-                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
-                automation. We write about architectural patterns, integration strategies and real-world
-                implementation lessons.
+                DevLab Blog focuses on open-source ERP concepts, modular business systems
+                and low-code automation.
               </p>
-            </section>
-
-            <section class="sidebar-block">
-              <h3 class="sidebar-title">More to explore</h3>
-              <p class="sidebar-text">
-                Go back to the main page to see other posts, or browse by category:
-              </p>
-              <ul>
-                <li><a href="/">All blog posts</a></li>
-                <li><a href="/#categories">Browse by category</a></li>
-                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
-              </ul>
             </section>
           </aside>
+
         </div>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="wrapper footer-grid">
-        <div>
-          <div class="footer-links">
-            <a href="/">Posts</a>
-            <a href="/#categories">Categories</a>
-            <a href="/#about">About</a>
-            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
-          </div>
-          <p class="footer-meta">
-            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
-          </p>
-        </div>
-        <div class="footer-meta">
-          <p>&copy; <span id="year"></span> DevLab Blog</p>
-        </div>
+        <p>&copy; <span id="year"></span> DevLab Blog</p>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
