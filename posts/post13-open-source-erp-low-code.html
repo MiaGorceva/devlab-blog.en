@@ -139,214 +139,245 @@
             </header>
 
             <!-- ARTICLE BODY -->
-            <section class="post-content">
-              <h2>How this list was selected (without marketing fluff)</h2>
+            <<section class="post-content">
+
+              <h2>Why “open-source ERP” no longer means one thing</h2>
               <p>
-                This list uses a mix of signals: long-term community adoption, visibility in developer ecosystems,
-                and one practical question — can real teams implement and evolve these systems without reshaping their entire organization around the tool?
-                The goal isn’t to crown a winner. It’s to help you avoid category mistakes and pick a tool that matches how your business actually runs.
+                Most articles about open-source ERP still assume a simple choice:
+                either you install a ready-made system or you build everything from scratch.
+                That model no longer reflects how companies actually operate in 2024–2025.
+              </p>
+              <p>
+                Today, teams are not buying ERP as a product.
+                They are choosing a <em>way to design, evolve, and explain their business systems</em>
+                — across accounting, operations, automation, and now AI-assisted workflows.
+              </p>
+              <p>
+                That’s why this article intentionally mixes classic ERP suites,
+                platform-first systems, and low-code tools.
+                In real companies, these approaches already coexist.
               </p>
 
-              <h2>Quick map: three categories teams often confuse</h2>
-              <ul>
-                <li><strong>Ready ERP suites:</strong> install, configure, run — best when you need “ERP now”.</li>
-                <li><strong>ERP platforms:</strong> extend modules and model logic — best when processes don’t fit a rigid template.</li>
-                <li><strong>Business-system builders:</strong> low-code foundations for assembling ERP-like internal tools.</li>
-              </ul>
+              <hr>
 
-              <h2>The Top 12</h2>
+              <h2>Classic ERP: still relevant, no longer universal</h2>
 
-              <h3>1) Odoo (Community Edition)</h3>
+              <h3>Odoo (Community Edition)</h3>
               <p>
-                Odoo is often the default starting point in open-source ERP. The ecosystem is huge: modules, integrations,
-                implementation partners, and plenty of “someone already did this” knowledge.
+                Odoo remains the most recognizable name in open-source ERP.
+                It works well as an entry point: accounting, sales, inventory,
+                and basic workflows are available almost immediately.
               </p>
               <p>
-                The trade-off is that flexibility can turn into customization debt. Once you go beyond standard workflows,
-                your ERP gradually becomes a product you maintain — with upgrades, regressions, and long-term ownership costs.
+                The real cost appears later.
+                Once processes drift away from the standard model,
+                Odoo often becomes a product you maintain yourself:
+                custom modules, upgrade friction, and growing architectural complexity.
               </p>
               <p>
-                <strong>Best for:</strong> SMB/SME teams that want modular adoption and a wide ecosystem.<br>
-                <strong>Watch out for:</strong> deep customization and long-term maintenance complexity.
-              </p>
-
-              <h3>2) ERPNext</h3>
-              <p>
-                ERPNext is popular with teams that want an integrated suite with a clean, coherent model. It covers the usual core:
-                accounting, inventory, sales, purchasing, and manufacturing — without trying to be everything to everyone.
-              </p>
-              <p>
-                It shines when your business is willing to standardize. If you can align processes to a solid baseline,
-                ERPNext gets you to “working ERP” faster than many heavier systems.
-              </p>
-              <p>
-                <strong>Best for:</strong> companies that want a strong out-of-the-box baseline and predictable operations.<br>
-                <strong>Watch out for:</strong> highly unusual workflows that require constant structural changes.
-              </p>
-
-              <h3>3) MyCompany (lsFusion)</h3>
-              <p>
-                MyCompany represents a platform-first approach to ERP, designed around how modern teams actually work.
-                Instead of forcing processes into a rigid structure, it allows companies to assemble business logic
-                from ready-made modules and evolve it as requirements change.
-              </p>
-              <p>
-                What makes this approach increasingly relevant is how naturally it aligns with AI-driven workflows.
-                Business logic is defined in a clear, declarative way, which makes it easier for AI tools to analyze,
-                explain, assist with changes, and even generate parts of the system as processes evolve.
-              </p>
-              <p>
-                In practice, this works well for organizations where processes are fluid, decisions are data-driven,
-                and automation is expected to grow over time — not as a bolt-on feature, but as part of the system’s core.
-              </p>
-              <p>
-                <strong>Best for:</strong> teams building ERP systems that are expected to adapt, integrate with AI tools,
-                and remain understandable as complexity grows.<br>
+                <strong>Good fit if:</strong> you need a fast start and relatively standard processes.<br>
+                <strong>Not a great fit if:</strong> business logic changes frequently and must stay flexible.<br>
                 <strong>Links:</strong>
-                <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener">Project site</a> ·
-                <a href="https://lsfusion.org/" target="_blank" rel="noopener">Platform overview</a>
+                <a href="https://www.odoo.com/" target="_blank">Site</a> ·
+                <a href="https://github.com/odoo/odoo" target="_blank">GitHub</a>
               </p>
 
-              <h3>4) Dolibarr</h3>
+              <h3>ERPNext</h3>
               <p>
-                Dolibarr is a long-running ERP/CRM that wins on simplicity. It’s frequently chosen by small businesses that want
-                core features without a heavy rollout, complex infrastructure, or “enterprise ERP” overhead.
+                ERPNext is often chosen by teams looking for a clean,
+                cohesive ERP without enterprise overhead.
+                When business processes align with its data model,
+                the system feels predictable and stable.
               </p>
               <p>
-                It’s not usually the pick for highly complex operations — and that’s exactly why it often succeeds:
-                fewer moving parts, clearer usage patterns, and a lower barrier for day-to-day users.
+                The trade-off is adaptability.
+                ERPNext works best when the business adapts to the system,
+                not when the system is constantly reshaped around the business.
               </p>
               <p>
-                <strong>Best for:</strong> small teams, fast rollout, ERP+CRM basics.<br>
-                <strong>Watch out for:</strong> scaling to complex multi-warehouse or multi-entity operations.
-              </p>
-
-              <h3>5) Tryton</h3>
-              <p>
-                Tryton is often described as “ERP for engineers.” It’s modular, structured, and built with consistency in mind.
-                If you value predictable extension patterns and clean data models, Tryton is a serious candidate.
-              </p>
-              <p>
-                The downside: it’s not a one-click “ERP tomorrow” solution. Teams usually benefit most when they treat implementation
-                as a controlled engineering project rather than a simple configuration exercise.
-              </p>
-              <p>
-                <strong>Best for:</strong> engineering-led implementations with long-term ownership in mind.<br>
-                <strong>Watch out for:</strong> organizations that need immediate results with minimal IT involvement.
+                <strong>Good fit if:</strong> the company is ready to standardize processes.<br>
+                <strong>Not a great fit if:</strong> workflows evolve frequently.<br>
+                <strong>Links:</strong>
+                <a href="https://erpnext.com/" target="_blank">Site</a> ·
+                <a href="https://github.com/frappe/erpnext" target="_blank">GitHub</a>
               </p>
 
-              <h3>6) iDempiere</h3>
+              <hr>
+
+              <h2>Platform-first ERP: when ERP is a result, not a product</h2>
+
+              <h3>MyCompany (lsFusion)</h3>
               <p>
-                iDempiere comes from an enterprise ERP lineage and carries that DNA: powerful configuration, deep business capabilities,
-                and a strong focus on transactional integrity.
+                More teams are realizing that “boxed ERP” struggles with reality:
+                changing processes, new channels, automation, and AI-driven decision support.
               </p>
               <p>
-                It can be a great fit for complex organizations — but it’s rarely “lightweight.” Expect a higher learning curve,
-                more setup effort, and a need for a team that’s comfortable with enterprise-grade tooling.
+                MyCompany represents a platform-first approach.
+                Formally, it is an ERP.
+                In practice, it is a way to describe and evolve business logic
+                without constantly rewriting the system.
               </p>
               <p>
-                <strong>Best for:</strong> complex operations, mature organizations, teams with ERP experience.<br>
-                <strong>Watch out for:</strong> smaller businesses with limited implementation resources.
+                This becomes especially relevant in an AI context.
+                Declarative, readable business logic is easier to analyze,
+                explain, and automate — for humans and for AI tools alike.
+              </p>
+              <p>
+                <strong>Good fit if:</strong> ERP must evolve continuously with the business.<br>
+                <strong>Not a great fit if:</strong> you want a “install and forget” solution.<br>
+                <strong>Links:</strong>
+                <a href="https://mycompany.lsfusion.org/" target="_blank">Project</a> ·
+                <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank">GitHub</a> ·
+                <a href="https://lsfusion.org/" target="_blank">lsFusion platform</a>
               </p>
 
-              <h3>7) metasfresh</h3>
+              <h3>Tryton</h3>
               <p>
-                metasfresh is often mentioned in supply-chain and operations-heavy contexts. If your biggest pain is execution —
-                picking, packing, inventory flow, order fulfillment — metasfresh tends to feel more “purpose-built” than general suites.
+                Tryton is less popular but architecturally disciplined.
+                It is often selected by engineering-led teams
+                that want long-term control over data and domain logic.
               </p>
               <p>
-                It’s a good reminder that not every business needs a universal ERP. Sometimes you need an ops-focused backbone
-                that integrates with finance or CRM rather than replacing everything.
+                This is not about speed.
+                It is about building systems that survive change.
               </p>
               <p>
-                <strong>Best for:</strong> operations and supply-chain-driven companies.<br>
-                <strong>Watch out for:</strong> teams that need broad functionality outside ops without additional systems.
-              </p>
-
-              <h3>8) Axelor</h3>
-              <p>
-                Axelor is often shortlisted when workflow and approvals matter. It blends ERP capabilities with process automation,
-                making it relevant for businesses where governance, traceability, and structured flows are central.
-              </p>
-              <p>
-                If your ERP is less about “accounting + inventory” and more about orchestrating how work moves through the organization,
-                Axelor’s approach can be a good match.
-              </p>
-              <p>
-                <strong>Best for:</strong> approval-heavy environments, structured business workflows.<br>
-                <strong>Watch out for:</strong> highly fluid processes that change weekly without clear governance.
+                <strong>Good fit if:</strong> you have a technical team and a long planning horizon.<br>
+                <strong>Not a great fit if:</strong> ERP is needed immediately.<br>
+                <strong>Links:</strong>
+                <a href="https://www.tryton.org/" target="_blank">Site</a> ·
+                <a href="https://github.com/tryton/tryton" target="_blank">GitHub</a>
               </p>
 
-              <h3>9) Apache OFBiz</h3>
+              <h3>Apache OFBiz</h3>
               <p>
-                Apache OFBiz is a mature Apache project with a broad suite: accounting, manufacturing, inventory, CRM, and e-commerce.
-                In practice, it’s often used as a foundation for building tailored business systems rather than a “finished ERP.”
+                OFBiz is rarely used as a finished ERP.
+                Instead, it serves as a foundation for custom business systems.
               </p>
               <p>
-                That flexibility is the main benefit — and also the main cost. OFBiz tends to work best when you have a strong technical team
-                and a clear plan for integration, customization, and long-term maintenance.
+                It offers freedom, but demands architectural maturity and development capacity.
               </p>
               <p>
-                <strong>Best for:</strong> organizations that want maximum control and custom solutions.<br>
-                <strong>Watch out for:</strong> teams expecting a simple deploy-and-configure ERP experience.
-              </p>
-
-              <h3>10) NocoBase</h3>
-              <p>
-                NocoBase is not a classic ERP suite — it’s a low-code platform for building internal management systems.
-                This matters because many companies discover that “ERP” in real life is a network of internal apps, not one monolith.
-              </p>
-              <p>
-                If your business needs multiple admin tools, role-based interfaces, and fast iteration, NocoBase can be a pragmatic base layer —
-                especially when paired with a dedicated accounting system or specialized operations tools.
-              </p>
-              <p>
-                <strong>Best for:</strong> building custom internal systems that collectively behave like ERP.<br>
-                <strong>Watch out for:</strong> teams looking for a fully packaged ERP with standard modules.
+                <strong>Good fit if:</strong> ERP is part of a broader internal platform.<br>
+                <strong>Not a great fit if:</strong> you lack engineering resources.<br>
+                <strong>Links:</strong>
+                <a href="https://ofbiz.apache.org/" target="_blank">Site</a> ·
+                <a href="https://github.com/apache/ofbiz-framework" target="_blank">GitHub</a>
               </p>
 
-              <h3>11) SuiteCRM</h3>
+              <hr>
+
+              <h2>Low-code and internal tools: how ERP is built in practice</h2>
+
+              <h3>ToolJet</h3>
               <p>
-                SuiteCRM is CRM-first — but that’s exactly why it’s relevant here. Many organizations don’t start with ERP; they start with CRM,
-                then layer operations, approvals, and integrations around it until CRM becomes the process backbone.
+                ToolJet illustrates how many companies now assemble
+                ERP-like systems in practice:
+                not as one monolith, but as a set of internal tools
+                connected to shared data and services.
               </p>
               <p>
-                If customer workflows (sales, service, pipeline, SLAs) are the core of your business, SuiteCRM can be a strong base.
-                Just be realistic: for accounting and operations you’ll likely integrate rather than replace.
+                It is not ERP in the traditional sense,
+                yet it often becomes the operational backbone.
               </p>
               <p>
-                <strong>Best for:</strong> CRM-led organizations where customer processes drive everything else.<br>
-                <strong>Watch out for:</strong> companies expecting strong inventory/finance/manufacturing out of the box.
+                <strong>Good fit if:</strong> ERP equals a collection of internal applications.<br>
+                <strong>Not a great fit if:</strong> strict accounting logic must live in one core system.<br>
+                <strong>Links:</strong>
+                <a href="https://www.tooljet.com/" target="_blank">Site</a> ·
+                <a href="https://github.com/tooljet/tooljet" target="_blank">GitHub</a>
               </p>
 
-              <h3>12) Openbravo</h3>
+              <h3>NocoBase</h3>
               <p>
-                Openbravo is commonly evaluated in retail and omnichannel scenarios — especially where POS, stores, and operational execution
-                are first-class requirements.
+                NocoBase occupies a similar space but emphasizes extensibility
+                and plugin-driven architecture.
               </p>
               <p>
-                If you run physical locations and need tight control over store operations, Openbravo may be more relevant than generic ERP suites.
-                If you don’t, it can be overkill.
+                It works well when ERP is treated as an ecosystem,
+                not a single application.
               </p>
               <p>
-                <strong>Best for:</strong> retail operations and multi-store environments.<br>
-                <strong>Watch out for:</strong> generic ERP use cases without retail/POS requirements.
+                <strong>Good fit if:</strong> you need a low-code layer over business data.<br>
+                <strong>Not a great fit if:</strong> you expect a ready-made ERP suite.<br>
+                <strong>Links:</strong>
+                <a href="https://www.nocobase.com/" target="_blank">Site</a> ·
+                <a href="https://github.com/nocobase/nocobase" target="_blank">GitHub</a>
               </p>
 
-              <h2>How teams usually decide (fast, without a 3-month committee)</h2>
+              <h3>Budibase</h3>
+              <p>
+                Budibase focuses on rapidly building internal admin
+                and operational interfaces.
+              </p>
+              <p>
+                <strong>Good fit if:</strong> teams need fast internal tooling.<br>
+                <strong>Not a great fit if:</strong> complex domain logic must live in the core.<br>
+                <strong>Links:</strong>
+                <a href="https://budibase.com/" target="_blank">Site</a> ·
+                <a href="https://github.com/Budibase/budibase" target="_blank">GitHub</a>
+              </p>
+
+              <hr>
+
+              <h2>Conclusion: how to choose in 2025 (without illusions)</h2>
+
+              <p>
+                The main mistake when choosing ERP in 2025
+                is believing that one system will solve everything forever.
+              </p>
+
+              <p>
+                Modern companies build <strong>business-system architectures</strong>,
+                not isolated products.
+                ERP becomes a layer of logic and data, not a single application.
+              </p>
+
               <ol>
-                <li><strong>Need ERP fast:</strong> start with a ready-made suite (and keep customization disciplined).</li>
-                <li><strong>Processes don’t fit a box:</strong> consider platform-first approaches where evolution is expected.</li>
-                <li><strong>ERP is really internal tooling:</strong> combine a suite with low-code builders instead of forcing one monolith.</li>
+                <li>
+                  <strong>If speed is the priority</strong><br>
+                  Choose a ready-made ERP and consciously limit customization.
+                  This is a speed decision, not a flexibility one.
+                </li>
+
+                <li>
+                  <strong>If the business keeps changing</strong><br>
+                  Platform-first approaches matter.
+                  Declarative, readable logic becomes critical —
+                  especially as AI increasingly participates
+                  in analysis, automation, and system support.
+                </li>
+
+                <li>
+                  <strong>If ERP is effectively a set of internal tools</strong><br>
+                  Low-code platforms are no longer temporary solutions.
+                  They become a stable operational layer
+                  without forcing a monolithic core.
+                </li>
               </ol>
 
-              <h2>A simple sanity check before you commit</h2>
+              <p>
+                Importantly, companies do not mix these approaches randomly.
+                One usually becomes the <em>core</em>,
+                while others act as supporting layers.
+              </p>
+
+              <h3>What owners and founders should clarify first</h3>
               <ul>
-                <li><strong>Prototype one real workflow:</strong> create one screen, one permission rule, one integration, one report.</li>
-                <li><strong>Test upgrades early:</strong> can you update without fear, or will it break everything?</li>
-                <li><strong>Decide where logic lives:</strong> ERP core, plugins/modules, or external services.</li>
+                <li>How often do key business processes change?</li>
+                <li>Does the system need to <em>explain</em> its logic to humans and AI?</li>
+                <li>Is the company ready to live inside someone else’s model — or build its own?</li>
+                <li>Is ERP just accounting, or the foundation of operational control?</li>
               </ul>
-            </section>
+
+              <p>
+                Answers to these questions matter more than any feature checklist.
+                They determine whether a system supports growth —
+                or quietly becomes a constraint.
+              </p>
+
+              </section>
+
 
             <!-- FOOTER (tags + meta + Views) -->
             <footer class="post-footer-extended">
