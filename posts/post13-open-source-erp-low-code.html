@@ -53,6 +53,14 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://en.devlab.blog/posts/post13-open-source-erp-low-code.html">
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PR3METHHBR">
     </script>
@@ -149,244 +157,264 @@
               </figure>
             </header>
 
-            <!-- ARTICLE BODY -->
-            <section class="post-content">
+            <!-- ARTICLE BODY --> 
+             <section class="post-content">
+              <h2>Why “open-source ERP” no longer means one single thing</h2>
+                <p>
+                If you read most articles about open-source ERP, it may seem that the world is still divided
+                into “off-the-shelf systems” and “custom development”.
+                In practice, by 2024–2025 almost nobody thinks this way anymore.
+                </p>
+                <p>
+                Companies are no longer looking for an ERP as a product.  
+                They are looking for <em>a way to assemble and maintain their business systems</em>
+                in an environment of constant change: processes, teams, integrations — and now AI.
+                </p>
+                <p>
+                That’s why this list deliberately mixes ERPs, platforms, and low-code tools —
+                this is exactly how they coexist in real companies today.
+                </p>
 
-              <h2>Why “open-source ERP” no longer means one thing</h2>
-              <p>
-                Most articles about open-source ERP still assume a simple choice:
-                either you install a ready-made system or you build everything from scratch.
-                That model no longer reflects how companies actually operate in 2024–2025.
-              </p>
-              <p>
-                Today, teams are not buying ERP as a product.
-                They are choosing a <em>way to design, evolve, and explain their business systems</em>
-                — across accounting, operations, automation, and now AI-assisted workflows.
-              </p>
-              <p>
-                That’s why this article intentionally mixes classic ERP suites,
-                platform-first systems, and low-code tools.
-                In real companies, these approaches already coexist.
-              </p>
+                <hr>
 
-              <hr>
+                <h2>Classic ERPs: still alive, but no longer universal</h2>
 
-              <h2>Classic ERP: still relevant, no longer universal</h2>
-
-              <h3>Odoo (Community Edition)</h3>
-              <p>
-                Odoo remains the most recognizable name in open-source ERP.
-                It works well as an entry point: accounting, sales, inventory,
-                and basic workflows are available almost immediately.
-              </p>
-              <p>
-                The real cost appears later.
-                Once processes drift away from the standard model,
-                Odoo often becomes a product you maintain yourself:
-                custom modules, upgrade friction, and growing architectural complexity.
-              </p>
-              <p>
+                <h3>Odoo (Community Edition)</h3>
+                <p>
+                Odoo remains the most recognizable open-source ERP platform.
+                It still works very well as an “entry point”:
+                accounting, sales, inventory, basic workflows — everything is available out of the box.
+                </p>
+                <p>
+                The problems usually start not at launch, but one or two years later.
+                When the business outgrows standard scenarios, Odoo becomes
+                a product you effectively maintain yourself:
+                custom modules, complex upgrades, and dependency on the ecosystem.
+                </p>
+                <p>
                 <strong>Good fit if:</strong> you need a fast start and relatively standard processes.<br>
-                <strong>Not a great fit if:</strong> business logic changes frequently and must stay flexible.<br>
+                <strong>Poor fit if:</strong> business logic changes frequently and ERP must evolve rather than freeze.<br>
                 <strong>Links:</strong>
                 <a href="https://www.odoo.com/" target="_blank">Site</a> ·
                 <a href="https://github.com/odoo/odoo" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <h3>ERPNext</h3>
-              <p>
-                ERPNext is often chosen by teams looking for a clean,
-                cohesive ERP without enterprise overhead.
-                When business processes align with its data model,
-                the system feels predictable and stable.
-              </p>
-              <p>
-                The trade-off is adaptability.
-                ERPNext works best when the business adapts to the system,
-                not when the system is constantly reshaped around the business.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> the company is ready to standardize processes.<br>
-                <strong>Not a great fit if:</strong> workflows evolve frequently.<br>
+                <h3>ERPNext</h3>
+                <p>
+                ERPNext is often chosen by teams looking for a coherent,
+                well-structured ERP without enterprise-level excess.
+                It enforces discipline: if your processes fit the model,
+                the system behaves predictably and reliably.
+                </p>
+                <p>
+                The price of that predictability is flexibility.
+                ERPNext does not like being constantly bent to new operating models.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> the business is ready to standardize.<br>
+                <strong>Poor fit if:</strong> processes are unstable and change frequently.<br>
                 <strong>Links:</strong>
                 <a href="https://erpnext.com/" target="_blank">Site</a> ·
                 <a href="https://github.com/frappe/erpnext" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <hr>
+                <hr>
 
-              <h2>Platform-first ERP: when ERP is a result, not a product</h2>
+                <h2>Platform-first ERP: when ERP is the result, not the product</h2>
 
-              <h3>MyCompany (lsFusion)</h3>
-              <p>
-                More teams are realizing that “boxed ERP” struggles with reality:
-                changing processes, new channels, automation, and AI-driven decision support.
-              </p>
-              <p>
-                MyCompany represents a platform-first approach.
-                Formally, it is an ERP.
-                In practice, it is a way to describe and evolve business logic
-                without constantly rewriting the system.
-              </p>
-              <p>
-                This becomes especially relevant in an AI context.
-                Declarative, readable business logic is easier to analyze,
-                explain, and automate — for humans and for AI tools alike.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> ERP must evolve continuously with the business.<br>
-                <strong>Not a great fit if:</strong> you want a “install and forget” solution.<br>
+                <h3>MyCompany (lsFusion)</h3>
+                <p>
+                More and more teams are realizing that ERP as a “boxed product”
+                does not survive real life very well: changing processes, new channels,
+                automation, and AI.
+                </p>
+                <p>
+                MyCompany is an example of a platform-first approach.
+                Formally it is an ERP, but in essence it is a way to describe business logic
+                so that it can evolve without rewriting the system.
+                </p>
+                <p>
+                This becomes especially important in an AI-driven context.
+                Declarative, transparent logic is easier to analyze,
+                explain, and automate — both for humans and AI tools.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> ERP must grow and transform together with the business.<br>
+                <strong>Poor fit if:</strong> you want a “set it and forget it” ERP.<br>
                 <strong>Links:</strong>
                 <a href="https://mycompany.lsfusion.org/" target="_blank">Project</a> ·
                 <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank">GitHub</a> ·
-                <a href="https://lsfusion.org/" target="_blank">lsFusion platform</a>
-              </p>
+                <a href="https://lsfusion.org/" target="_blank">lsFusion</a>
+                </p>
 
-              <h3>Tryton</h3>
-              <p>
-                Tryton is less popular but architecturally disciplined.
-                It is often selected by engineering-led teams
-                that want long-term control over data and domain logic.
-              </p>
-              <p>
-                This is not about speed.
-                It is about building systems that survive change.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> you have a technical team and a long planning horizon.<br>
-                <strong>Not a great fit if:</strong> ERP is needed immediately.<br>
+                <h3>Tryton</h3>
+                <p>
+                Tryton is less popular, but architecturally very clean.
+                It is often chosen by teams that want full control over the data model
+                and are not afraid to write code.
+                </p>
+                <p>
+                It is not a fast start, but a solid foundation for long-lived systems.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> you have an engineering team and a long-term horizon.<br>
+                <strong>Poor fit if:</strong> you need ERP “yesterday”.<br>
                 <strong>Links:</strong>
                 <a href="https://www.tryton.org/" target="_blank">Site</a> ·
                 <a href="https://github.com/tryton/tryton" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <h3>Apache OFBiz</h3>
-              <p>
-                OFBiz is rarely used as a finished ERP.
-                Instead, it serves as a foundation for custom business systems.
-              </p>
-              <p>
-                It offers freedom, but demands architectural maturity and development capacity.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> ERP is part of a broader internal platform.<br>
-                <strong>Not a great fit if:</strong> you lack engineering resources.<br>
+                <h3>Apache OFBiz</h3>
+                <p>
+                OFBiz is rarely used as a ready-made ERP.
+                More often it serves as a foundation for building custom business systems.
+                </p>
+                <p>
+                It offers freedom, but requires a mature team and architectural discipline.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> ERP is part of your own internal platform.<br>
+                <strong>Poor fit if:</strong> you lack development resources.<br>
                 <strong>Links:</strong>
                 <a href="https://ofbiz.apache.org/" target="_blank">Site</a> ·
                 <a href="https://github.com/apache/ofbiz-framework" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <hr>
+                <hr>
 
-              <h2>Low-code and internal tools: how ERP is built in practice</h2>
+                <h2>Low-code and internal tools: how ERP is built in practice</h2>
 
-              <h3>ToolJet</h3>
-              <p>
-                ToolJet illustrates how many companies now assemble
-                ERP-like systems in practice:
-                not as one monolith, but as a set of internal tools
-                connected to shared data and services.
-              </p>
-              <p>
-                It is not ERP in the traditional sense,
-                yet it often becomes the operational backbone.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> ERP equals a collection of internal applications.<br>
-                <strong>Not a great fit if:</strong> strict accounting logic must live in one core system.<br>
+                <h3>ToolJet</h3>
+                <p>
+                ToolJet is a good example of how companies actually build
+                “ERP-like” systems today.
+                Not a single monolith, but a set of internal interfaces
+                connected to data and services.
+                </p>
+                <p>
+                It is not ERP in the classical sense,
+                but this is often what a modern business operating system looks like.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> ERP is a collection of internal tools.<br>
+                <strong>Poor fit if:</strong> you need a single monolithic accounting core.<br>
                 <strong>Links:</strong>
                 <a href="https://www.tooljet.com/" target="_blank">Site</a> ·
                 <a href="https://github.com/tooljet/tooljet" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <h3>NocoBase</h3>
-              <p>
-                NocoBase occupies a similar space but emphasizes extensibility
-                and plugin-driven architecture.
-              </p>
-              <p>
-                It works well when ERP is treated as an ecosystem,
-                not a single application.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> you need a low-code layer over business data.<br>
-                <strong>Not a great fit if:</strong> you expect a ready-made ERP suite.<br>
+                <h3>NocoBase</h3>
+                <p>
+                NocoBase appears in similar scenarios to ToolJet,
+                but with a stronger focus on extensibility and plugins.
+                </p>
+                <p>
+                It is chosen when ERP is an ecosystem of internal applications,
+                not a single system.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> you need a low-code layer on top of data.<br>
+                <strong>Poor fit if:</strong> you are looking for a ready-made ERP suite.<br>
                 <strong>Links:</strong>
                 <a href="https://www.nocobase.com/" target="_blank">Site</a> ·
                 <a href="https://github.com/nocobase/nocobase" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <h3>Budibase</h3>
-              <p>
-                Budibase focuses on rapidly building internal admin
-                and operational interfaces.
-              </p>
-              <p>
-                <strong>Good fit if:</strong> teams need fast internal tooling.<br>
-                <strong>Not a great fit if:</strong> complex domain logic must live in the core.<br>
+                <h3>Budibase</h3>
+                <p>
+                Budibase occupies a similar niche — rapid creation
+                of internal admin panels and operational interfaces.
+                </p>
+                <p>
+                <strong>Good fit if:</strong> you need to build interfaces for teams quickly.<br>
+                <strong>Poor fit if:</strong> complex business logic must live in the core.<br>
                 <strong>Links:</strong>
                 <a href="https://budibase.com/" target="_blank">Site</a> ·
                 <a href="https://github.com/Budibase/budibase" target="_blank">GitHub</a>
-              </p>
+                </p>
 
-              <hr>
+                <hr>
 
-              <h2>Conclusion: how to choose in 2025 (without illusions)</h2>
+                <h2>Conclusion: How choices were made in 2025</h2>
+                <ol>
+                <li><strong>If you need fast results:</strong> a ready-made ERP.</li>
+                <li><strong>If ERP is a living organism:</strong> a platform-first approach.</li>
+                <li><strong>If ERP is a toolbox:</strong> low-code and internal tools.</li>
+                </ol>
 
-              <p>
-                The main mistake when choosing ERP in 2025
-                is believing that one system will solve everything forever.
-              </p>
+                <p>
+                In reality, many companies use a <em>combination</em> of all three.
+                And this is the main trend of recent years.
+                </p>
 
-              <p>
-                Modern companies build <strong>business-system architectures</strong>,
-                not isolated products.
-                ERP becomes a layer of logic and data, not a single application.
-              </p>
+                <hr>
 
-              <ol>
+                <h2>Conclusion: how to choose in 2026 (without illusions)</h2>
+
+                <p>
+                The key mistake when choosing ERP in 2025
+                was believing that there is one “correct” system
+                that will solve everything once and for all.
+                </p>
+
+                <p>
+                Reality is different: modern companies build
+                <strong>a business systems architecture</strong>,
+                where ERP is not a product, but a layer of logic and data.
+                </p>
+
+                <ol>
                 <li>
-                  <strong>If speed is the priority</strong><br>
-                  Choose a ready-made ERP and consciously limit customization.
-                  This is a speed decision, not a flexibility one.
+                <strong>If you need fast results right now</strong><br>
+                Choose a ready-made ERP and <em>consciously limit customization</em>.
+                This is a decision about speed, not perfect process alignment.
                 </li>
 
                 <li>
-                  <strong>If the business keeps changing</strong><br>
-                  Platform-first approaches matter.
-                  Declarative, readable logic becomes critical —
-                  especially as AI increasingly participates
-                  in analysis, automation, and system support.
+                <strong>If the business changes constantly</strong><br>
+                Look for a platform-first approach.
+                It is critical that business logic is
+                <em>declarative, readable, and explainable</em> —
+                not only for developers, but also for AI tools,
+                which increasingly participate in analysis, automation, and system support.
                 </li>
 
                 <li>
-                  <strong>If ERP is effectively a set of internal tools</strong><br>
-                  Low-code platforms are no longer temporary solutions.
-                  They become a stable operational layer
-                  without forcing a monolithic core.
+                <strong>If ERP in practice is a set of internal tools</strong><br>
+                Low-code and internal tools are no longer “temporary solutions”,
+                but a full-fledged operational layer.
+                They allow new needs to be addressed quickly
+                without rewriting the system core.
                 </li>
-              </ol>
+                </ol>
 
-              <p>
-                Importantly, companies do not mix these approaches randomly.
-                One usually becomes the <em>core</em>,
-                while others act as supporting layers.
-              </p>
+                <p>
+                Important: companies <strong>do not use all three approaches chaotically</strong>.
+                Usually one becomes the <em>core</em>,
+                while the others serve as supporting layers.
+                </p>
 
-              <h3>What owners and founders should clarify first</h3>
-              <ul>
+                <p>
+                This is why more attention is paid to
+                <strong>readability and formalization of business logic</strong>.
+                What cannot be clearly described
+                cannot be reliably automated —
+                neither manually nor with AI.
+                </p>
+
+                <h3>What an owner should understand before choosing</h3>
+                <ul>
                 <li>How often do key business processes change?</li>
-                <li>Does the system need to <em>explain</em> its logic to humans and AI?</li>
-                <li>Is the company ready to live inside someone else’s model — or build its own?</li>
-                <li>Is ERP just accounting, or the foundation of operational control?</li>
-              </ul>
+                <li>Should the system <em>explain</em> its decisions to humans and AI?</li>
+                <li>Is the business ready to live inside someone else’s model — or develop its own?</li>
+                <li>Is ERP just an accounting tool, or the foundation of operational management?</li>
+                </ul>
 
-              <p>
-                Answers to these questions matter more than any feature checklist.
-                They determine whether a system supports growth —
-                or quietly becomes a constraint.
-              </p>
-
+                <p>
+                The answers to these questions matter more than any feature list.
+                They determine whether the system
+                will support business growth — or slow it down.
+                </p>
               </section>
 
 
