@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Top 12 Open-Source ERP &amp; Business Systems (That People Actually Use) – DevLab Blog</title>
+  <title>Top 12 Open-Source ERP &amp; Business Systems (That Teams Actually Use) – Trade-offs, Mistakes &amp; 2026 Readiness | DevLab Blog</title>
+
+<meta name="description"
+  content="A practical roundup of 12 open-source ERP and business systems worth evaluating in 2025–2026 — what teams realize too late, where complexity appears, and how to choose between ERP suites, platforms, and low-code approaches."/>
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="A practical, developer-friendly roundup of 12 open-source ERP and business systems worth evaluating in 2025 — what they’re good at, where they struggle, and how teams choose between ready-made suites and platform-based approaches."
-  />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
@@ -31,7 +31,7 @@
       "@id": "https://en.devlab.blog/posts/post13-open-source-erp-low-code.html"
     },
     "headline": "Top 12 Open-Source ERP & Business Systems (That People Actually Use)",
-    "description": "A practical, developer-friendly roundup of 12 open-source ERP and business systems worth evaluating in 2025 — what they’re good at, where they struggle, and how teams choose between ready-made suites and platform-based approaches.",
+    "description": "A practical roundup of 12 open-source ERP and business systems worth evaluating in 2025–2026 — what teams realize too late, where complexity appears, and how to choose between ERP suites, platforms, and low-code approaches.",
     "author": {
       "@type": "Organization",
       "name": "DevLab Blog"
@@ -89,7 +89,7 @@
               <a href="/#posts">Posts</a>
               <a href="/#categories">Categories</a>
               <a href="/#about">About</a>
-              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
             </div>
             <div class="nav-lang">
               <a href="https://en.devlab.blog/" class="active">EN</a>
@@ -135,12 +135,26 @@
               </h1>
 
               <p class="hero-text">
-                “Open-source ERP” is an umbrella term. In practice, it can mean anything from installing a ready-made suite
-                to building a business system on top of a flexible platform.
+                “Open-source ERP” is an umbrella term — and that’s exactly where teams get trapped.
+                Many choose by feature lists and license costs… and only later realize the real price is paid in upgrades,
+                customization debt, and analytics/AI readiness.
                 <br><br>
-                This article focuses on real-world trade-offs: what works out of the box, where complexity appears,
-                and how different teams choose between classic ERP systems and platform-based approaches.
+                This roundup focuses on real-world trade-offs: what works out of the box, where complexity appears,
+                and how teams choose between classic ERP suites, platform-first approaches, and low-code internal tools.
               </p>
+
+              <div class="post-toc" aria-label="Article overview">
+                <div class="post-toc__title">In this article</div>
+                <ul class="post-toc__list">
+                  <li>Why “free ERP” often becomes expensive later (maintenance, upgrades, customization)</li>
+                  <li>What teams realize too late — and how to avoid it</li>
+                  <li>When a classic ERP suite works, and when it becomes a constraint</li>
+                  <li>Platform-first ERP: ERP as a result, not a product</li>
+                  <li>Low-code/internal tools: how modern “ERP stacks” are built in practice</li>
+                  <li>How to choose in 2026 without illusions</li>
+                </ul>
+              </div>
+
 
               <figure class="post-hero">
                 <img
@@ -170,6 +184,16 @@
                 this is exactly how they coexist in real companies today.
                 </p>
 
+                <div class="post-quick" role="note">
+                  <div class="post-quick__title">Short on time?</div>
+                  <p class="post-quick__text">
+                    If you tell me your context (SMB vs enterprise, stable vs fast-changing processes, in-house dev team or not),
+                    I’ll point you to the 2–3 options from this list that usually fit best.
+                  </p>
+                </div>
+
+
+
                 <hr>
 
                 <h2>Classic ERPs: still alive, but no longer universal</h2>
@@ -190,8 +214,8 @@
                 <strong>Good fit if:</strong> you need a fast start and relatively standard processes.<br>
                 <strong>Poor fit if:</strong> business logic changes frequently and ERP must evolve rather than freeze.<br>
                 <strong>Links:</strong>
-                <a href="https://www.odoo.com/" target="_blank">Site</a> ·
-                <a href="https://github.com/odoo/odoo" target="_blank">GitHub</a>
+                <a href="https://www.odoo.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/odoo/odoo" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <h3>ERPNext</h3>
@@ -209,8 +233,8 @@
                 <strong>Good fit if:</strong> the business is ready to standardize.<br>
                 <strong>Poor fit if:</strong> processes are unstable and change frequently.<br>
                 <strong>Links:</strong>
-                <a href="https://erpnext.com/" target="_blank">Site</a> ·
-                <a href="https://github.com/frappe/erpnext" target="_blank">GitHub</a>
+                <a href="https://erpnext.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/frappe/erpnext" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <hr>
@@ -237,9 +261,9 @@
                 <strong>Good fit if:</strong> ERP must grow and transform together with the business.<br>
                 <strong>Poor fit if:</strong> you want a “set it and forget it” ERP.<br>
                 <strong>Links:</strong>
-                <a href="https://mycompany.lsfusion.org/" target="_blank">Project</a> ·
-                <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank">GitHub</a> ·
-                <a href="https://lsfusion.org/" target="_blank">lsFusion</a>
+                <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener noreferrer">Project</a> ·
+                <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+                <a href="https://lsfusion.org/" target="_blank" rel="noopener noreferrer">lsFusion</a>
                 </p>
 
                 <h3>Tryton</h3>
@@ -255,8 +279,8 @@
                 <strong>Good fit if:</strong> you have an engineering team and a long-term horizon.<br>
                 <strong>Poor fit if:</strong> you need ERP “yesterday”.<br>
                 <strong>Links:</strong>
-                <a href="https://www.tryton.org/" target="_blank">Site</a> ·
-                <a href="https://github.com/tryton/tryton" target="_blank">GitHub</a>
+                <a href="https://www.tryton.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/tryton/tryton" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <h3>Apache OFBiz</h3>
@@ -271,8 +295,8 @@
                 <strong>Good fit if:</strong> ERP is part of your own internal platform.<br>
                 <strong>Poor fit if:</strong> you lack development resources.<br>
                 <strong>Links:</strong>
-                <a href="https://ofbiz.apache.org/" target="_blank">Site</a> ·
-                <a href="https://github.com/apache/ofbiz-framework" target="_blank">GitHub</a>
+                <a href="https://ofbiz.apache.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/apache/ofbiz-framework" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <hr>
@@ -294,8 +318,8 @@
                 <strong>Good fit if:</strong> ERP is a collection of internal tools.<br>
                 <strong>Poor fit if:</strong> you need a single monolithic accounting core.<br>
                 <strong>Links:</strong>
-                <a href="https://www.tooljet.com/" target="_blank">Site</a> ·
-                <a href="https://github.com/tooljet/tooljet" target="_blank">GitHub</a>
+                <a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <h3>NocoBase</h3>
@@ -311,8 +335,8 @@
                 <strong>Good fit if:</strong> you need a low-code layer on top of data.<br>
                 <strong>Poor fit if:</strong> you are looking for a ready-made ERP suite.<br>
                 <strong>Links:</strong>
-                <a href="https://www.nocobase.com/" target="_blank">Site</a> ·
-                <a href="https://github.com/nocobase/nocobase" target="_blank">GitHub</a>
+                <a href="https://www.nocobase.com/" target="_blank"rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <h3>Budibase</h3>
@@ -324,8 +348,8 @@
                 <strong>Good fit if:</strong> you need to build interfaces for teams quickly.<br>
                 <strong>Poor fit if:</strong> complex business logic must live in the core.<br>
                 <strong>Links:</strong>
-                <a href="https://budibase.com/" target="_blank">Site</a> ·
-                <a href="https://github.com/Budibase/budibase" target="_blank">GitHub</a>
+                <a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
                 <hr>
@@ -437,8 +461,9 @@
             <!-- Inline newsletter (optional) -->
             <section class="sidebar-block">
               <p class="sidebar-text">
-                No spam – just occasional notes on ERP design, automation experiments and new posts.
+                No spam — just occasional notes on ERP architecture, platform-first systems, and low-code trade-offs teams usually discover too late.
               </p>
+
               <form class="newsletter-form"
                     action="https://formsubmit.co/info@devlab.blog"
                     method="POST">
@@ -450,9 +475,10 @@
                 <button class="btn btn-primary" type="submit">Subscribe</button>
 
                 <p class="newsletter-note">
-                  You will receive a confirmation email.<br>
+                  Occasional emails, no fluff.<br>
                   Powered securely via FormSubmit.
                 </p>
+
               </form>
             </section>
           </article>
@@ -486,7 +512,7 @@
               <ul>
                 <li><a href="/">All blog posts</a></li>
                 <li><a href="/#categories">Browse by category</a></li>
-                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
               </ul>
             </section>
           </aside>
@@ -502,7 +528,7 @@
             <a href="/">Posts</a>
             <a href="/#categories">Categories</a>
             <a href="/#about">About</a>
-            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
           </div>
           <p class="footer-meta">
             DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
