@@ -132,7 +132,10 @@
               </div>
 
               <h1 class="hero-title">
-                Top 12 Open-Source ERP &amp; Business Systems (That Teams Actually Use) – Trade-offs, Mistakes &amp; 2026 Readiness | DevLab Blog
+                Top 12 Open-Source ERP & Business Systems<br>
+                <span class="hero-subtitle">
+                  Trade-offs, Mistakes & 2026 Readiness
+                </span>
               </h1>
 
               <p class="hero-text">
@@ -185,15 +188,76 @@
                 this is exactly how they coexist in real companies today.
                 </p>
 
-                <div class="post-quick" role="note">
-                  <div class="post-quick__title">Short on time?</div>
-                  <p class="post-quick__text">
-                    If you tell me your context (SMB vs enterprise, stable vs fast-changing processes, in-house dev team or not),
-                    I’ll point you to the 2–3 options from this list that usually fit best.
+    
+
+                <!-- Quick Fit Block (EN/RU/PL/UA) -->
+              <section class="quick-fit post-quick" aria-labelledby="quick-fit-title" role="note">
+                <header class="quick-fit__header">
+                  <h3 class="quick-fit__title post-quick__title" id="quick-fit-title" data-i18n="title">Short on time?</h3>
+                  <p class="quick-fit__lead post-quick__text" data-i18n="lead">
+                    Most teams don’t evaluate all options equally. They narrow the list down by context:
                   </p>
-                </div>
+                </header>
 
+                <form class="quick-fit__form" aria-describedby="quick-fit-hint">
+                  <fieldset class="quick-fit__fieldset">
+                    <legend class="quick-fit__legend" data-i18n="legend">Pick what sounds closest:</legend>
 
+                    <label class="quick-fit__option">
+                      <input type="radio" name="quickFit" value="smb_stable_no_dev" />
+                      <span data-i18n="opt1">SMB · stable processes · no in-house dev</span>
+                    </label>
+
+                    <label class="quick-fit__option">
+                      <input type="radio" name="quickFit" value="smb_change_small_dev" />
+                      <span data-i18n="opt2">SMB · changing processes · small dev team</span>
+                    </label>
+
+                    <label class="quick-fit__option">
+                      <input type="radio" name="quickFit" value="ent_standardized" />
+                      <span data-i18n="opt3">Enterprise · standardized processes</span>
+                    </label>
+
+                    <label class="quick-fit__option">
+                      <input type="radio" name="quickFit" value="ent_platform" />
+                      <span data-i18n="opt4">Enterprise · evolving logic · platform-first approach</span>
+                    </label>
+                  </fieldset>
+
+                  <p class="quick-fit__hint" id="quick-fit-hint" data-i18n="hint">
+                    If you recognize yourself in one of these, only a small subset of systems in this article usually applies.
+                  </p>
+
+                  <div class="quick-fit__map" role="group" aria-label="Quick map">
+                    <p class="quick-fit__map-title" data-i18n="mapTitle">Quick map:</p>
+                    <ul class="quick-fit__map-list">
+                      <!-- Put real anchors here (see JS mapping below). -->
+                      <li>
+                        <a class="quick-fit__link" href="#classic-erps" data-section="classic" data-i18n="map1">
+                          Classic ERPs → sections 1–2
+                        </a>
+                      </li>
+                      <li>
+                        <a class="quick-fit__link" href="#platform-first" data-section="platform" data-i18n="map2">
+                          Platform-first systems → section 3
+                        </a>
+                      </li>
+                      <li>
+                        <a class="quick-fit__link" href="#internal-tools" data-section="tools" data-i18n="map3">
+                          Low-code & internal tools → section 4
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="quick-fit__recommend" aria-live="polite">
+                    <p class="quick-fit__recommend-title" data-i18n="recTitle">What to focus on:</p>
+                    <p class="quick-fit__recommend-text" data-i18n="recDefault">
+                      Choose an option above — I’ll highlight the most relevant section(s).
+                    </p>
+                  </div>
+                </form>
+              </section>
 
                 <hr>
 
