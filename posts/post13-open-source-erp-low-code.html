@@ -190,8 +190,8 @@
 
     
 
-                <!-- Quick Fit Block (EN/RU/PL/UA) -->
-              <section class="quick-fit post-quick" aria-labelledby="quick-fit-title" role="note">
+              <!-- Quick Fit Block (EN/RU/PL/UA) -->
+              <section class="quick-fit post-quick" aria-labelledby="quick-fit-title" role="note" data-quick-fit>
                 <header class="quick-fit__header">
                   <h3 class="quick-fit__title post-quick__title" id="quick-fit-title" data-i18n="title">Short on time?</h3>
                   <p class="quick-fit__lead post-quick__text" data-i18n="lead">
@@ -204,25 +204,60 @@
                     <legend class="quick-fit__legend" data-i18n="legend">Pick what sounds closest:</legend>
 
                     <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="smb_stable_no_dev" />
+                      <input type="radio" name="quickFit" value="smb-stable-no-dev" />
                       <span data-i18n="opt1">SMB · stable processes · no in-house dev</span>
                     </label>
 
                     <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="smb_change_small_dev" />
+                      <input type="radio" name="quickFit" value="smb-changing-small-dev" />
                       <span data-i18n="opt2">SMB · changing processes · small dev team</span>
                     </label>
 
                     <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="ent_standardized" />
+                      <input type="radio" name="quickFit" value="enterprise-standardized" />
                       <span data-i18n="opt3">Enterprise · standardized processes</span>
                     </label>
 
                     <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="ent_platform" />
+                      <input type="radio" name="quickFit" value="enterprise-evolving-platform" />
                       <span data-i18n="opt4">Enterprise · evolving logic · platform-first approach</span>
                     </label>
                   </fieldset>
+
+                  <p class="quick-fit__hint" id="quick-fit-hint" data-i18n="hint">
+                    If you recognize yourself in one of these, only a small subset of systems in this article usually applies.
+                  </p>
+
+                  <div class="quick-fit__map" role="group" aria-label="Quick map">
+                    <p class="quick-fit__map-title" data-i18n="mapTitle">Jump to:</p>
+                    <ul class="quick-fit__map-list">
+                      <li>
+                        <a class="quick-fit__link" href="#classic-erps" data-map="classic" data-i18n="map1">
+                          Classic ERPs (Odoo, ERPNext)
+                        </a>
+                      </li>
+                      <li>
+                        <a class="quick-fit__link" href="#platform-first" data-map="platform" data-i18n="map2">
+                          Platform-first (lsFusion, Tryton, OFBiz)
+                        </a>
+                      </li>
+                      <li>
+                        <a class="quick-fit__link" href="#internal-tools" data-map="tools" data-i18n="map3">
+                          Low-code & internal tools (ToolJet, NocoBase, Budibase)
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="quick-fit__recommend" aria-live="polite">
+                    <p class="quick-fit__recommend-title" data-i18n="recTitle">What to focus on:</p>
+                    <p class="quick-fit__recommend-text" data-i18n="recDefault">
+                      Choose an option above — I’ll highlight the most relevant systems.
+                    </p>
+                  </div>
+                </form>
+              </section>
+
 
                   <p class="quick-fit__hint" id="quick-fit-hint" data-i18n="hint">
                     If you recognize yourself in one of these, only a small subset of systems in this article usually applies.
@@ -259,11 +294,8 @@
                 </form>
               </section>
 
-                <hr>
-
-                <h2>Classic ERPs: still alive, but no longer universal</h2>
-
-                <h3>Odoo (Community Edition)</h3>
+              <h2 id="classic-erps">Classic ERPs: still alive, but no longer universal</h2>
+                <h3 data-erp="odoo">Odoo (Community Edition)</h3>
                 <p>
                 Odoo remains the most recognizable open-source ERP platform.
                 It still works very well as an “entry point”:
@@ -283,7 +315,7 @@
                 <a href="https://github.com/odoo/odoo" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
-                <h3>ERPNext</h3>
+                <h3 data-erp="erpnext">ERPNext</h3>
                 <p>
                 ERPNext is often chosen by teams looking for a coherent,
                 well-structured ERP without enterprise-level excess.
@@ -304,9 +336,9 @@
 
                 <hr>
 
-                <h2>Platform-first ERP: when ERP is the result, not the product</h2>
+                <h2 id="platform-first">Platform-first ERP: when ERP is the result, not the product</h2>
+                <h3 data-erp="mycompany-lsfusion">MyCompany (lsFusion)</h3>
 
-                <h3>MyCompany (lsFusion)</h3>
                 <p>
                 More and more teams are realizing that ERP as a “boxed product”
                 does not survive real life very well: changing processes, new channels,
@@ -331,7 +363,7 @@
                 <a href="https://lsfusion.org/" target="_blank" rel="noopener noreferrer">lsFusion</a>
                 </p>
 
-                <h3>Tryton</h3>
+                <h3 data-erp="tryton">Tryton</h3>
                 <p>
                 Tryton is less popular, but architecturally very clean.
                 It is often chosen by teams that want full control over the data model
@@ -348,7 +380,7 @@
                 <a href="https://github.com/tryton/tryton" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
-                <h3>Apache OFBiz</h3>
+               <h3 data-erp="ofbiz">Apache OFBiz</h3>
                 <p>
                 OFBiz is rarely used as a ready-made ERP.
                 More often it serves as a foundation for building custom business systems.
@@ -366,9 +398,9 @@
 
                 <hr>
 
-                <h2>Low-code and internal tools: how ERP is built in practice</h2>
+                <h2 id="internal-tools">Low-code and internal tools: how ERP is built in practice</h2>
 
-                <h3>ToolJet</h3>
+                <h3 data-erp="tooljet">ToolJet</h3>
                 <p>
                 ToolJet is a good example of how companies actually build
                 “ERP-like” systems today.
@@ -387,7 +419,7 @@
                 <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
-                <h3>NocoBase</h3>
+                <h3 data-erp="nocobase">NocoBase</h3>
                 <p>
                 NocoBase appears in similar scenarios to ToolJet,
                 but with a stronger focus on extensibility and plugins.
@@ -404,7 +436,7 @@
                 <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
 
-                <h3>Budibase</h3>
+                <h3 data-erp="budibase">Budibase</h3>
                 <p>
                 Budibase occupies a similar niche — rapid creation
                 of internal admin panels and operational interfaces.
