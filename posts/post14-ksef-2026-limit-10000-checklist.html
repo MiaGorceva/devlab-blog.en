@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KSeF in 2026: deadlines, the 10,000 PLN threshold and a practical checklist – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A practical guide to KSeF in 2026: key deadlines, how the 10,000 PLN monthly exception works until the end of 2026, typical post-go-live issues, and a preparation checklist (processes, data, ERP/integrations)."
+  />
+
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post14-ksef-2026-limit-10000-checklist.html"
+    },
+    "headline": "KSeF in 2026: deadlines, the 10,000 PLN threshold and a practical checklist",
+    "description": "A practical guide to KSeF in 2026: key deadlines, how the 10,000 PLN monthly exception works until the end of 2026, typical post-go-live issues, and a preparation checklist (processes, data, ERP/integrations).",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2026-01-06",
+    "dateModified": "2026-01-06"
+  }
+  </script>
+
+  <link rel="canonical" href="https://en.devlab.blog/posts/post14-ksef-2026-limit-10000-checklist.html">
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+</head>
+
+<body class="post-page">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+
+          <article id="post14-ksef-2026-limit-10000-checklist">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Poland / KSeF</span>
+                <span>&middot;</span>
+                <span>Approx. 10 min read</span>
+                <span>&middot;</span>
+                <span>Fresh: Jan 6, 2026</span>
+              </div>
+
+              <h1 class="hero-title">
+                KSeF in 2026: deadlines, the 10,000 PLN threshold and a practical checklist
+              </h1>
+
+              <p class="hero-text">
+                Straight to the point: what changes in 2026, how the 10,000 PLN monthly exception works until the end of 2026,
+                and what to prepare in your processes and data so KSeF doesn’t turn into manual chaos after a couple of months.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post14-ksef-2026-limit-10000-checklist.webp"
+                  alt="KSeF 2026: deadlines, 10,000 PLN threshold, preparation checklist"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+
+
+                  <h2 id="intro">Introduction</h2>
+
+                  <p>
+                    <strong>KSeF (Krajowy System e-Faktur)</strong> is not just a “new electronic invoice format”.
+                    From 2026 it becomes a mandatory invoicing backbone in Poland — changing processes, roles, and data requirements.
+                  </p>
+
+                  <p>
+                    Most issues don’t appear on day one. They show up a few months later —
+                    when it turns out the data is incomplete, processes are fragmented, and manual exceptions stop working.
+                  </p>
+
+                  <p>
+                    This article is a practical explanation of what changes in 2026, who must connect to KSeF and when,
+                    how the 10,000 PLN threshold works, and what you actually need to prepare — without marketing fluff.
+                  </p>
+
+                  <div class="post-toc" aria-label="Table of contents">
+                    <div class="post-toc__title">In this article</div>
+                    <ul class="post-toc__list">
+                      <li><a href="#deadlines">When KSeF becomes mandatory: key dates</a></li>
+                      <li><a href="#limit-10000">10,000 PLN exception until the end of 2026: how it works</a></li>
+                      <li><a href="#ksef-20">KSeF 2.0: what teams often miss</a></li>
+                      <li><a href="#checklist">Practical preparation checklist</a></li>
+                      <li><a href="#mistakes">Typical mistakes after go-live</a></li>
+                      <li><a href="#plan-30-60-90">30 / 60 / 90 day implementation plan</a></li>
+                      <li><a href="#automation">Automation around KSeF: free / open-source options</a></li>
+                      <li><a href="#conclusion">Conclusion</a></li>
+                      <li><a href="#sources">Official sources</a></li>
+                    </ul>
+                  </div>
+
+                  <hr>
+
+                  <h2 id="deadlines">When KSeF becomes mandatory: key dates</h2>
+
+                  <p>
+                    Mandatory KSeF adoption is introduced in phases:
+                  </p>
+
+                  <ul>
+                    <li><strong>from 1 February 2026</strong> — companies whose 2024 turnover exceeded <strong>200 million PLN</strong> (incl. VAT)</li>
+                    <li><strong>from 1 April 2026</strong> — all other VAT taxpayers</li>
+                  </ul>
+
+                  <p>
+                    In practice: even if your “go-live” is April, you still need to prepare earlier —
+                    because you will have to <em>receive</em> and process invoices from counterparties who start using KSeF before you.
+                  </p>
+
+                  <hr>
+
+                  <h2 id="limit-10000">10,000 PLN exception until the end of 2026 — how it really works</h2>
+
+                  <p>
+                    Until <strong>31 December 2026</strong>, it is allowed to issue invoices outside KSeF (paper or “regular” electronic),
+                    if the total amount of such invoices <strong>in a given month</strong> does not exceed <strong>10,000 PLN incl. VAT</strong>.
+                  </p>
+
+                  <p><strong>What’s important:</strong></p>
+                  <ul>
+                    <li>the limit is calculated <strong>monthly</strong>, not annually;</li>
+                    <li>once the monthly threshold is exceeded, further issuance outside KSeF becomes problematic (you must switch to KSeF);</li>
+                    <li>the exception applies to <strong>issuing</strong>, but it does <strong>not</strong> remove the need to understand how to <strong>receive</strong> and process documents.</li>
+                  </ul>
+
+                  <p>
+                    Practical takeaway: even smaller companies benefit from defining access, roles, and handling scenarios early —
+                    otherwise the “relief” turns into fragile manual workarounds that don’t scale.
+                  </p>
+
+                  <hr>
+
+                  <h2 id="ksef-20">KSeF 2.0: what teams often miss</h2>
+
+                  <h3 id="ksef-not-only-api">1) It’s not only about API integration</h3>
+                  <p>
+                    Alongside KSeF come governance rules: access and permissions, accountability for errors,
+                    handling rejections, corrections, data controls, and links to reporting (e.g., JPK).
+                    Many teams implement “technical sending” but don’t answer the real question:
+                    <em>who owns the end-to-end process</em>.
+                  </p>
+
+                  <h3 id="ksef-attachments">2) Invoices with attachments are a separate process</h3>
+                  <p>
+                    If invoices have attachments (specs, calculations, technical files),
+                    plan this as a separate scenario: timelines, rules, storage, and operational handling.
+                    Otherwise a “small detail” starts breaking invoice deadlines and internal SLAs.
+                  </p>
+
+                  <hr>
+
+                  <h2 id="checklist">Practical preparation checklist for KSeF</h2>
+
+                  <h3 id="checklist-process">Processes and responsibilities (finance / accounting)</h3>
+                  <ul>
+                    <li>Which invoice types do you actually use (B2B, B2C, corrections, advances)?</li>
+                    <li>At what point is an invoice considered legally issued?</li>
+                    <li>Who owns access, roles, signing/sending, and handling rejected invoices?</li>
+                    <li>How many real-world exceptions exist (not “as per policy”)?</li>
+                  </ul>
+
+                  <h3 id="checklist-data">Data and systems (ERP / IT / integrations)</h3>
+                  <ul>
+                    <li>How complete and consistent is your master data: NIP, addresses, payment terms, VAT rates?</li>
+                    <li>How many systems actually generate invoices?</li>
+                    <li>Do you have an outbound queue, retries, logging, and status monitoring?</li>
+                    <li>How will you handle attachments (if any)?</li>
+                  </ul>
+
+                  <hr>
+
+                  <h2 id="mistakes">Typical mistakes that show up after go-live</h2>
+                  <ul>
+                    <li>“Everything is in the ERP” — but some invoices turn out to be manual.</li>
+                    <li>No end-to-end process owner (errors get lost “between departments”).</li>
+                    <li>Corrections and exceptions were not tested.</li>
+                    <li>Focus only on sending; receiving and handling incoming documents is postponed.</li>
+                  </ul>
+
+                  <hr>
+
+                  <h2 id="plan-30-60-90">30 / 60 / 90 day implementation plan</h2>
+
+                  <h3 id="plan-0-30">0–30 days — see the real picture</h3>
+                  <ul>
+                    <li>Complete list of invoice sources</li>
+                    <li>Audit of data and master records</li>
+                    <li>Assign an end-to-end process owner</li>
+                  </ul>
+
+                  <h3 id="plan-31-60">31–60 days — build a working skeleton</h3>
+                  <ul>
+                    <li>Basic KSeF integration</li>
+                    <li>Configure roles and access</li>
+                    <li>Test non-standard scenarios</li>
+                  </ul>
+
+                  <h3 id="plan-61-90">61–90 days — stabilization</h3>
+                  <ul>
+                    <li>Procedures for errors and rejections</li>
+                    <li>Metrics for rejections and delays</li>
+                    <li>Readiness for attachments and peak loads</li>
+                  </ul>
+
+                  <hr>
+
+                  <h2 id="automation">Automation around KSeF: free / open-source options</h2>
+
+                  <p>
+                    KSeF covers the legal e-invoicing channel, but it does not solve operational tasks:
+                    data validation, outbound queues, retry logic, monitoring, internal UIs for manual review,
+                    role-based routing, and exception control.
+                  </p>
+
+                  <p>
+                    That’s why teams often use low-code / internal tools platforms — to quickly build an “operational layer” around KSeF
+                    without expensive custom development.
+                  </p>
+
+                  <h3 id="automation-open-source">Open-source / free options suitable for the “operational layer”</h3>
+                  <ul>
+                    <li>
+                      <strong>Appsmith (open-source)</strong> — internal dashboards, manual error handling, status control.
+                      <br>
+                      <a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                      <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li>
+                      <strong>ToolJet (open-source)</strong> — quick internal UIs over API/DB, great for monitoring and operations.
+                      <br>
+                      <a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                      <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li>
+                      <strong>Budibase (community/open-source)</strong> — admin tools, internal apps, simple workflows.
+                      <br>
+                      <a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                      <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li>
+                      <strong>NocoBase (open-source)</strong> — extensible low-code with plugins, CRUD apps + processes.
+                      <br>
+                      <a href="https://www.nocobase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+                      <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </li>
+                    <li>
+                      <strong>MyCompany (lsFusion) (open-source)</strong> — platform-first approach with declarative business logic,
+                      useful when processes evolve and change control matters.
+                      <br>
+                      <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener noreferrer">Project</a> ·
+                      <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+                      <a href="https://lsfusion.org/" target="_blank" rel="noopener noreferrer">lsFusion</a>
+                    </li>
+                  </ul>
+
+                  <p>
+                    These tools don’t “replace KSeF”, but they make the process resilient:
+                    fewer manual exceptions, more transparency, faster reaction to errors and changing requirements.
+                  </p>
+
+                  <hr>
+
+                  <h2 id="conclusion">Conclusion</h2>
+
+                  <p>
+                    KSeF is an operational project, not an “XML format”. The smoothest transitions happen when companies prepare early:
+                    clean up data, assign responsibility, and build an end-to-end invoice handling process.
+                  </p>
+
+                  <p><strong>Why automation is actually necessary (even with “low volumes”)</strong></p>
+                  <ul>
+                    <li>
+                      <strong>Because exceptions multiply.</strong> The first weeks may look fine, then “non-standard” cases appear:
+                      corrections, advances, mixed data sources, invoices with attachments, manual invoices, returns, VAT mismatches.
+                      Without an operational layer this becomes chat + Excel + “ask accounting”.
+                    </li>
+                    <li>
+                      <strong>Because you need visibility, not guesswork.</strong> You must know what was sent, accepted, rejected,
+                      where it’s stuck, who should react, and how long it takes. Monitoring + queue + alerts usually create more value
+                      than “another integration”.
+                    </li>
+                    <li>
+                      <strong>Because it reduces late risk and compliance exposure.</strong> Failures are often about data and process, not APIs:
+                      wrong counterparty, incomplete address, inconsistent masters, duplicate documents.
+                      Pre-send validations and predictable error handling cut operational risk dramatically.
+                    </li>
+                    <li>
+                      <strong>Because it lets you scale without hiring people for manual control.</strong> Growth, a new branch,
+                      a new ERP module, or a new document type breaks manual schemes first.
+                      Automation is about resilience and controlled change.
+                    </li>
+                  </ul>
+
+                  <p>
+                    Practical rule: <strong>don’t mix three approaches at once</strong> (manual handling, “full custom build”, and a low-code operational layer).
+                    Pick one as the <em>core</em>, and use the others only as supporting layers.
+                  </p>
+
+                  <p>
+                    Also: <strong>pay attention to the readability and formalization of business logic</strong>.
+                    What cannot be described clearly cannot be automated reliably — manually, in code, or with AI.
+                  </p>
+
+                  <hr>
+
+                  <h2 id="sources">Official sources</h2>
+                  <ul>
+                    <li>
+                      <a href="https://ksef.podatki.gov.pl/" target="_blank" rel="noopener noreferrer">KSeF on podatki.gov.pl</a>
+                    </li>
+                    <li>
+                      <a href="https://www.gov.pl/web/finanse/krajowy-system-e-faktur-ksef" target="_blank" rel="noopener noreferrer">
+                        KSeF on gov.pl (Ministry of Finance)
+                      </a>
+                    </li>
+                  </ul>
+                  </section>

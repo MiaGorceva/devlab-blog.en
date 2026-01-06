@@ -285,66 +285,106 @@
           </section>
 
             </article>
-            <!-- SIDEBAR -->
-        <aside class="sidebar">
-          <section class="sidebar-block">
-            <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
-            <p class="sidebar-text">
-              Have a question or an idea for a future article?
-              <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
-                Send us an email →
-              </a>
-            </p>
-          </section>
-            <section class="sidebar-block">
-              <h3 class="sidebar-title">About this blog</h3>
-              <p class="sidebar-text">
-                DevLab Blog explores open-source ERP, modular architectures and low-code automation –
-                with a focus on practical, real-world implementations.
-              </p>
-            </section>
+ <footer class="post-footer-extended">
+  <div class="post-footer-meta">
+    <div class="post-meta-tags">
+      <span class="post-tag">KSeF</span>
+      <span class="post-tag">Poland</span>
+      <span class="post-tag">VAT</span>
+      <span class="post-tag">E-invoicing</span>
+      <span class="post-tag">Automation</span>
+    </div>
 
-            <section class="sidebar-block">
-              <h3 class="sidebar-title">More to explore</h3>
-              <p class="sidebar-text">
-                Go back to the main page to see other posts or browse by category:
-              </p>
-              <ul>
-                <li><a href="/">All blog posts</a></li>
-                <li><a href="/#categories">Browse by category</a></li>
-                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
-              </ul>
-            </section>
-          </aside>
-        </div>
-      </div>
-    </main>
+    <div class="post-meta-secondary">
+      <span>Published: Jan 6, 2026</span>
+      <span>·</span>
+      <span>Approx. 10 min read</span>
+      <span>·</span>
+      <span class="post-views">Views: <span class="count">—</span></span>
+    </div>
+  </div>
+</footer>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="wrapper footer-grid">
-        <div>
-          <div class="footer-links">
-            <a href="/">Posts</a>
-            <a href="/#categories">Categories</a>
-            <a href="/#about">About</a>
-            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
-          </div>
-          <p class="footer-meta">
-            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
-          </p>
+<section class="sidebar-block">
+  <p class="sidebar-text">
+    No spam — just occasional notes on ERP design, automation experiments, and new posts.
+  </p>
+  <form class="newsletter-form"
+        action="https://formsubmit.co/info@devlab.blog"
+        method="POST">
+    <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
+
+    <input type="email" name="email" class="field" placeholder="Your email address" required>
+    <button class="btn btn-primary" type="submit">Subscribe</button>
+
+    <p class="newsletter-note">
+      You will receive a confirmation email.<br>
+      Powered securely via FormSubmit.
+    </p>
+  </form>
+</section>
+
+</article>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <section class="sidebar-block">
+      <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+      <p class="sidebar-text">
+        Have a question or an idea for a future article?
+        <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+          Send us an email →
+        </a>
+      </p>
+    </section>
+
+    <section class="sidebar-block">
+      <h3 class="sidebar-title">About this blog</h3>
+      <p class="sidebar-text">
+        DevLab Blog explores open-source ERP, modular architectures and low-code automation —
+        with a focus on practical, real-world implementations.
+      </p>
+    </section>
+
+    <section class="sidebar-block">
+      <h3 class="sidebar-title">More to explore</h3>
+      <p class="sidebar-text">
+        Go back to the main page to see other posts or browse by category:
+      </p>
+      <ul>
+        <li><a href="/">All blog posts</a></li>
+        <li><a href="/#categories">Browse by category</a></li>
+        <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
+      </ul>
+    </section>
+  </aside>
+  </div>
+  </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrapper footer-grid">
+      <div>
+        <div class="footer-links">
+          <a href="/">Posts</a>
+          <a href="/#categories">Categories</a>
+          <a href="/#about">About</a>
+          <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
         </div>
-        <div class="footer-meta">
-          <p>&copy; <span id="year"></span> DevLab Blog</p>
-        </div>
+        <p class="footer-meta">
+          DevLab Blog — notes on open-source ERP, modular architectures and automation experiments.
+        </p>
       </div>
-    </footer>
+      <div class="footer-meta">
+        <p>&copy; <span id="year"></span> DevLab Blog</p>
+      </div>
+    </div>
+  </footer>
 
   </div>
+  </body>
+  </html>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
 
