@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KSeF after go-live: 15 issues after 2–3 months + 30/60/90 plan – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="KSeF doesn’t fail on day one — real issues surface weeks later. 15 common KSeF problems after go-live + a 30/60/90-day plan: rejections, retries, corrections, ERP data validation, roles, monitoring and dashboards."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts (year + search + views counter) -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- 2026-01-14-ksef-after-go-live-15-issues
+       post_id: 2026-01-14-ksef-after-go-live-15-issues -->
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post15-ksef-after-go-live-15-issues.html"
+    },
+    "headline": "KSeF after go-live: 15 issues that show up after 2–3 months (and how to avoid invoicing chaos)",
+    "description": "KSeF doesn’t fail on day one — real issues surface weeks later. 15 common KSeF problems after go-live + a 30/60/90-day plan: rejections, retries, corrections, ERP data validation, roles, monitoring and dashboards.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2026-01-14",
+    "dateModified": "2026-01-14"
+  }
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://en.devlab.blog/posts/post15-ksef-after-go-live-15-issues.html">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article id="post15-ksef-after-go-live-15-issues">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a class="back" href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Compliance &amp; Integrations</span>
+                <span>&middot;</span>
+                <span>Approx. 10–12 min read</span>
+                <span>&middot;</span>
+                <span>KSeF / e-Invoicing</span>
+              </div>
+
+              <h1 class="hero-title">
+                KSeF after go-live: 15 issues that show up after 2–3 months (and how to avoid invoicing chaos)
+              </h1>
+
+              <p class="hero-text">
+                KSeF rarely “breaks” on day one. The real operational pain appears weeks later — with rejections,
+                corrections, drifting ERP data and manual workarounds. Here’s a practical checklist and a 30/60/90-day
+                stabilization plan: retries, dashboards, validation, roles and monitoring.
+              </p>
+
+              <!-- HERO IMAGE (optional) -->
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post15-ksef-after-go-live-15-issues.webp"
+                  alt="KSeF operational layer: retries, invoice status dashboard, monitoring and corrections workflow"
+                >
+              </figure>
+            </header>
+
+            <!-- ARTICLE BODY -->
+            <section class="post-content">
+              <p>
+                Many companies treat <strong>KSeF implementation</strong> like a technical checkbox:
+                <em>“We’ll build the integration and invoicing will work.”</em>
+                In reality, <strong>KSeF</strong> rarely fails on day one — the real problems show up after a few weeks,
+                typically <strong>2–3 months after go-live</strong>.
+              </p>
+
+              <!-- Quick summary / SEO-friendly + your CSS -->
+              <div class="post-quick">
+                <div class="post-quick__title">Short on time?</div>
+                <p class="post-quick__text">
+                  If you launched KSeF and it “works”, focus next on: <a href="#ksef-rejections">rejection handling</a>,
+                  <a href="#ksef-retry-queue">retry &amp; queue</a>, <a href="#ksef-status-dashboard">invoice status visibility</a>,
+                  <a href="#ksef-corrections">corrections</a>, and <a href="#ksef-metrics-monitoring">monitoring &amp; metrics</a>.
+                  That’s how you avoid the “Excel + phone calls” phase.
+                </p>
+              </div>
+
+              <!-- TOC / In-this-article -->
+              <nav class="post-toc in-this-article" aria-label="In this article">
+                <div class="post-toc__title">In this article</div>
+                <ol class="post-toc__list">
+                  <li><a href="#why-ksef-fails-later">Why KSeF breaks later (not on day one)</a></li>
+                  <li><a href="#ksef-15-issues">15 issues that surface after KSeF go-live</a></li>
+                  <li><a href="#ksef-30-60-90">30/60/90-day plan after go-live</a></li>
+                  <li><a href="#ksef-operational-layer">Minimal operational layer around KSeF</a></li>
+                  <li><a href="#ksef-fast-implementation">How to implement it fast (without a big project)</a></li>
+                  <li><a href="#ksef-faq">FAQ</a></li>
+                </ol>
+              </nav>
+
+              <h2 id="why-ksef-fails-later">Why KSeF doesn’t “explode” on day one — it fails later</h2>
+              <p>
+                In the first days after launch, invoice volumes are low, edge cases are rare, and the project team is watching
+                everything closely. The process looks stable.
+              </p>
+              <p>
+                Then reality arrives: more exceptions, more <a href="#ksef-corrections"><strong>KSeF corrections</strong></a>,
+                master-data drift between ERP and adjacent tools, staff rotation, vacations, and the inevitable “we’ll do this one
+                manually”. That’s when <strong>KSeF integration</strong> stops being a connector and becomes an
+                <strong>end-to-end operational process</strong>.
+              </p>
+
+              <div class="callout">
+                <strong>SEO note:</strong>
+                <p>
+                  This guide targets the KSeF cluster: <em>KSeF integration, KSeF invoice rejections, KSeF retry, KSeF corrections,
+                  KSeF monitoring, KSeF dashboard, ERP data validation</em>. Use the anchors below for internal cross-links.
+                </p>
+              </div>
+
+              <h2 id="ksef-15-issues">15 problems that almost always appear after KSeF go-live</h2>
+
+              <h3 id="ksef-process-owner">1) “Not our problem” — no end-to-end process owner</h3>
+              <p>
+                The classic: IT delivers the integration, then finance is told to “handle the rest”. Nobody owns the full lifecycle:
+                invoice creation → submission → <a href="#ksef-status-dashboard">KSeF status</a> → correction → closure.
+              </p>
+              <p>
+                <strong>What to do:</strong> assign one owner of the <em>process</em> (not the system) and a second person as backup.
+              </p>
+
+              <h3 id="ksef-rejections">2) No scenario for “what do we do when KSeF rejects an invoice?”</h3>
+              <p>
+                <strong>KSeF invoice rejection</strong> happens. The operational failure is not having a procedure:
+                who gets notified, who fixes the data, where the error lives, how quickly you retry, and how you confirm closure.
+              </p>
+              <p>
+                <strong>What to do:</strong> implement a minimal workflow:
+                <strong>Alert → Analyze → Fix → Retry → Close</strong>.
+                Then connect it to <a href="#ksef-metrics-monitoring">metrics</a> so it doesn’t silently degrade.
+              </p>
+
+              <h3 id="ksef-retry-queue">3) Retry is manual (or doesn’t exist)</h3>
+              <p>
+                Without queueing and automatic retries, teams fall into “try again” mode — and exceptions pile up.
+                The longer it runs, the more time you lose to manual resubmissions.
+              </p>
+              <p>
+                <strong>What to do:</strong> add a sending queue with retry policies (e.g., 3 attempts + backoff)
+                and a controlled <strong>force retry</strong> option.
+              </p>
+
+              <h3 id="ksef-status-dashboard">4) Invoice statuses are invisible to the business</h3>
+              <p>
+                If the KSeF status is visible only in IT logs, the process will break. Finance and sales need a simple view:
+                <strong>Sent / Accepted / Rejected / Pending</strong> + timestamp + reason + next action.
+              </p>
+              <p>
+                <strong>What to do:</strong> create a <strong>KSeF invoice status dashboard</strong> for finance.
+                Link it with <a href="#ksef-rejections">rejection handling</a> and <a href="#ksef-audit-log">audit logs</a>.
+              </p>
+
+              <h3 id="ksef-corrections">5) Corrections blow up the process</h3>
+              <p>
+                The first weeks may look smooth until “real life” appears:
+                <strong>KSeF corrections</strong>, cancellations, consolidated invoices, advance invoices.
+              </p>
+              <p>
+                <strong>What to do:</strong> maintain a corrections checklist and test it using real samples.
+                Make it explicit: what triggers resubmission, what changes in status tracking, and who approves edge cases.
+              </p>
+
+              <h3 id="ksef-master-data">6) Contractor data is “almost OK”</h3>
+              <p>
+                KSeF exposes master-data quality issues brutally: incomplete addresses, inconsistent NIP formats, missing mandatory
+                fields, mismatched VAT dictionaries between systems.
+              </p>
+              <p>
+                <strong>What to do:</strong> run a contractor data audit + validation rules
+                <strong>before sending</strong> (not after rejection).
+                If you fix data only after rejection, you’re building a permanent queue of manual work.
+              </p>
+
+              <h3 id="ksef-multi-source">7) Invoices originate in multiple systems</h3>
+              <p>
+                ERP may be the “main system”, but invoices often come from sales tools, service modules, e-commerce, and manual flows.
+                That’s how you get duplicated sends, missing statuses, and mismatched corrections.
+              </p>
+              <p>
+                <strong>What to do:</strong> map all invoice sources and define one control point for
+                <a href="#ksef-status-dashboard">status visibility</a> and <a href="#ksef-retry-queue">retries</a>.
+              </p>
+
+              <h3 id="ksef-bypass">8) People start bypassing the system</h3>
+              <p>
+                If the process blocks work, informal channels appear: “send it by email”, “we’ll fix it later”, “this one is special”.
+                The longer it continues, the harder it is to recover control.
+              </p>
+              <p>
+                <strong>What to do:</strong> define exceptions officially:
+                when manual steps are allowed, who approves them, and how they are logged (see <a href="#ksef-audit-log">audit</a>).
+              </p>
+
+              <h3 id="ksef-audit-log">9) No audit trail: who did what and when</h3>
+              <p>
+                Every KSeF issue returns. Without audit logs, you get “not me” conflicts across departments.
+              </p>
+              <p>
+                <strong>What to do:</strong> log at minimum: user, timestamp, action, and result.
+                Make logs searchable for the process owner.
+              </p>
+
+              <h3 id="ksef-rules-limits">10) No company-level controls for business rules and limits</h3>
+              <p>
+                Company thresholds and rules need consistent enforcement. Otherwise, exceptions become random and hard to explain
+                during audits.
+              </p>
+              <p>
+                <strong>What to do:</strong> add reporting + alerts: approaching a threshold → decision required → logged outcome.
+              </p>
+
+              <h3 id="ksef-attachments">11) Attachments turn out to be “not so simple”</h3>
+              <p>
+                If your invoicing relies on attachments (specs, protocols, technical files), you need an operational flow:
+                ownership, SLA, archiving, and retrieval.
+              </p>
+              <p>
+                <strong>What to do:</strong> define a separate attachment workflow and connect it to
+                <a href="#ksef-status-dashboard">invoice status</a> so finance sees the whole picture.
+              </p>
+
+              <h3 id="ksef-roles-permissions">12) Roles and permissions were never designed</h3>
+              <p>
+                Everything works under one account until someone takes leave — and invoicing stops.
+                This is common after go-live when access management isn’t treated as part of the process.
+              </p>
+              <p>
+                <strong>What to do:</strong> define roles: sending / corrections / monitoring / admin,
+                with at least two people per critical role.
+              </p>
+
+              <h3 id="ksef-regression">13) No test environment and no regression tests</h3>
+              <p>
+                The first ERP update arrives and the integration starts “behaving strangely”.
+                Not because KSeF changed — because you have no controlled regression.
+              </p>
+              <p>
+                <strong>What to do:</strong> maintain regression tests for at least 10 invoice types,
+                including <a href="#ksef-corrections">corrections</a> and edge cases.
+              </p>
+
+              <h3 id="ksef-metrics-monitoring">14) No metrics = no control</h3>
+              <p>
+                Without process metrics, you won’t notice degradation until it’s already painful.
+                Metrics also turn “opinions” into facts when departments disagree.
+              </p>
+              <p><strong>Measure:</strong></p>
+              <ul>
+                <li>rejection rate (%)</li>
+                <li>time to fix</li>
+                <li>time to retry / resubmit</li>
+                <li>manual exception count</li>
+                <li>top 5 rejection reasons</li>
+              </ul>
+              <p>
+                <strong>What to do:</strong> connect metrics to alerting:
+                spikes in rejections or time-to-fix should trigger action, not silent suffering.
+              </p>
+
+              <h3 id="ksef-integration-vs-process">15) “Integration sends invoices” ≠ “the process works”</h3>
+              <p>
+                This is the core point: a technically correct connector can still create operational pain if
+                ownership, visibility, retries, validation, and monitoring are missing.
+              </p>
+              <p>
+                <strong>What to do:</strong> treat KSeF as an operational process, not just a file format.
+                Build the <a href="#ksef-operational-layer">operational layer</a> around it.
+              </p>
+
+              <hr>
+
+              <h2 id="ksef-30-60-90">KSeF 30/60/90-day plan after go-live</h2>
+
+              <h3 id="ksef-plan-0-30">0–30 days: stabilize the basics</h3>
+              <ul>
+                <li>Build a clear list of exceptions and edge cases (<a href="#ksef-bypass">prevent bypasses</a>)</li>
+                <li>Enable structured logging for rejections (<a href="#ksef-rejections">workflow</a>)</li>
+                <li>Assign an end-to-end process owner (<a href="#ksef-process-owner">ownership</a>)</li>
+                <li>Launch a simple status dashboard for finance (<a href="#ksef-status-dashboard">visibility</a>)</li>
+              </ul>
+
+              <h3 id="ksef-plan-31-60">31–60 days: automate error handling</h3>
+              <ul>
+                <li>Queue + retry policy (<a href="#ksef-retry-queue">retry</a>)</li>
+                <li>Alerts + responsibility mapping (who acts on what)</li>
+                <li>Data validation rules before sending (<a href="#ksef-master-data">master data</a>)</li>
+                <li>Correction scenario tests on real samples (<a href="#ksef-corrections">corrections</a>)</li>
+              </ul>
+
+              <h3 id="ksef-plan-61-90">61–90 days: resilience and scaling</h3>
+              <ul>
+                <li>Metrics + internal SLAs (<a href="#ksef-metrics-monitoring">monitoring</a>)</li>
+                <li>Attachment workflow + archiving (<a href="#ksef-attachments">attachments</a>)</li>
+                <li>Exception controls &amp; thresholds (<a href="#ksef-rules-limits">rules</a>)</li>
+                <li>Access &amp; roles security review (<a href="#ksef-roles-permissions">permissions</a>)</li>
+              </ul>
+
+              <h2 id="ksef-operational-layer">Minimal operational layer that makes KSeF stable</h2>
+              <p>
+                You don’t need a massive IT project. You need a small operational layer around KSeF:
+              </p>
+              <ul>
+                <li>a sending queue with retry</li>
+                <li>a business-facing status dashboard</li>
+                <li>error reporting (top reasons, volumes, trends)</li>
+                <li>audit logs for accountability</li>
+                <li>a clear workflow: who fixes what</li>
+              </ul>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  Operational workflow (minimal)
+                  <span class="diagram-hint">copy/paste into your internal SOP</span>
+                </div>
+                <p class="mono" style="margin:0; color: var(--text-muted);">
+                  Alert → Triage → Fix data → Resubmit (retry) → Confirm KSeF status → Close + Audit
+                </p>
+              </div>
+
+              <h2 id="ksef-fast-implementation">If you want to implement this fast (without a big IT project)</h2>
+              <p>
+                If you want KSeF to remain stable after go-live, you need a layer where you can quickly build:
+                status dashboards, data validation rules, exception handling, and visibility for finance and sales —
+                above ERP and integrations.
+              </p>
+
+              <p>
+                <strong>MyCompany (lsFusion)</strong> is a free open-source example of a system where you can build such
+                “operational layers” quickly — without vendor lock-in.
+              </p>
+
+              <div class="callout">
+                <strong>Want to discuss your KSeF scenario?</strong>
+                <p style="margin-bottom:0;">
+                  Email us with your context (ERP, invoice sources, typical corrections):
+                  <a class="post-read" href="mailto:info@devlab.blog?subject=KSeF%20operational%20layer%20%E2%80%93%20question%20from%20DevLab%20Blog">
+                    info@devlab.blog →
+                  </a>
+                </p>
+              </div>
+
+              <h2 id="ksef-faq">FAQ</h2>
+
+              <h3 id="faq-ksef-rejection">How should we handle a rejected invoice in KSeF?</h3>
+              <p>
+                Treat rejection as a normal operational path. Use:
+                <a href="#ksef-rejections">Alert → Analyze → Fix → Retry → Close</a>,
+                log every step (<a href="#ksef-audit-log">audit trail</a>), and keep finance updated via a
+                <a href="#ksef-status-dashboard">status dashboard</a>.
+              </p>
+
+              <h3 id="faq-ksef-retry">Do we really need retries in KSeF integration?</h3>
+              <p>
+                Yes. Without <a href="#ksef-retry-queue">queueing and retries</a>, rejections and temporary outages turn into manual work,
+                creating backlogs, delayed payments, and internal confusion.
+              </p>
+
+              <h3 id="faq-ksef-why-2-3-months">Why do KSeF problems appear after 2–3 months?</h3>
+              <p>
+                Because that’s when complexity scales: more <a href="#ksef-corrections">corrections</a>, more invoice sources,
+                more data drift (<a href="#ksef-master-data">master data</a>), fewer “project eyes” watching the process, and more
+                cross-team handoffs. Weak operational layers start breaking.
+              </p>
+
+              <hr>
+
+              <h2 id="ksef-summary">Summary</h2>
+              <p>
+                KSeF is rarely difficult on launch day. It becomes difficult when the company starts living in the new process.
+                If you build <a href="#ksef-process-owner">process ownership</a>,
+                <a href="#ksef-retry-queue">retries</a>,
+                <a href="#ksef-status-dashboard">status visibility</a>,
+                <a href="#ksef-bypass">controlled exceptions</a>,
+                and <a href="#ksef-metrics-monitoring">monitoring</a> now — you won’t wake up in manual invoicing chaos in 2–3 months.
+              </p>
+
+              <p>
+                <a href="#ksef-15-issues">Back to the checklist ↑</a>
+              </p>
+
+            </section>
+
+
+            <!-- FOOTER (tags + meta + Views) -->
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">KSeF</span>
+                  <span class="post-tag">e-Invoicing</span>
+                  <span class="post-tag">ERP integration</span>
+                  <span class="post-tag">Process automation</span>
+                  <span class="post-tag">Compliance</span>
+                  <span class="post-tag">Monitoring</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Published: Jan 14, 2026</span>
+                  <span>·</span>
+                  <span>Approx. 10–12 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <!-- Inline newsletter (optional) -->
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                No spam – just occasional notes on ERP design, automation experiments and new posts.
+              </p>
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Your email address" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                <p class="newsletter-note">
+                  You will receive a confirmation email.<br>
+                  Powered securely via FormSubmit.
+                </p>
+              </form>
+            </section>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+                  Write to us →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
+                automation. We write about architectural patterns, integration strategies and real-world
+                implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
