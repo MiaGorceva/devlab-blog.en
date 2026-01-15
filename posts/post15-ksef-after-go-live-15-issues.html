@@ -149,329 +149,385 @@
             </header>
 
             <!-- ARTICLE BODY -->
-            <section class="post-content">
-              <p>
-                Many companies treat <strong>KSeF implementation</strong> like a technical checkbox:
-                <em>“We’ll build the integration and invoicing will work.”</em>
-                In reality, <strong>KSeF</strong> rarely fails on day one — the real problems show up after a few weeks,
-                typically <strong>2–3 months after go-live</strong>.
-              </p>
+           <section class="post-content">
+            <p>
+              Many companies treat <strong>KSeF implementation</strong> like a technical checkbox:
+              <em>“We’ll build the integration and invoicing will work.”</em>
+              In reality, <strong>KSeF</strong> rarely fails on day one — the real problems show up after a few weeks,
+              typically <strong>2–3 months after go-live</strong>.
+            </p>
 
-              <!-- Quick summary / SEO-friendly + your CSS -->
-              <div class="post-quick">
-                <div class="post-quick__title">Short on time?</div>
-                <p class="post-quick__text">
-                  If you launched KSeF and it “works”, focus next on: <a href="#ksef-rejections">rejection handling</a>,
-                  <a href="#ksef-retry-queue">retry &amp; queue</a>, <a href="#ksef-status-dashboard">invoice status visibility</a>,
-                  <a href="#ksef-corrections">corrections</a>, and <a href="#ksef-metrics-monitoring">monitoring &amp; metrics</a>.
-                  That’s how you avoid the “Excel + phone calls” phase.
-                </p>
+            <!-- Quick summary / SEO-friendly + your CSS -->
+            <div class="post-quick">
+              <div class="post-quick__title">Short on time?</div>
+              <p class="post-quick__text">
+                If you launched KSeF and it “works”, focus next on:
+                <a href="#ksef-rejections">rejection handling</a>,
+                <a href="#ksef-retry-queue">retry &amp; queue</a>,
+                <a href="#ksef-status-layer">invoice status visibility</a>,
+                <a href="#ksef-corrections">corrections</a>,
+                and <a href="#ksef-metrics-monitoring">monitoring &amp; metrics</a>.
+                That’s how you avoid the “Excel + phone calls” phase.
+              </p>
+            </div>
+
+            <!-- TOC / In-this-article -->
+            <nav class="post-toc in-this-article" aria-label="In this article">
+              <div class="post-toc__title">In this article</div>
+              <ol class="post-toc__list">
+                <li><a href="#why-ksef-fails-later">Why KSeF breaks later (not on day one)</a></li>
+                <li><a href="#ksef-15-issues">15 issues that surface after KSeF go-live</a></li>
+                <li><a href="#ksef-30-60-90">30/60/90-day plan after go-live</a></li>
+                <li><a href="#ksef-operational-layer">Minimal operational layer around KSeF</a></li>
+                <li><a href="#ksef-fast-implementation">How to implement it fast (without a big project)</a></li>
+                <li><a href="#ksef-faq">FAQ</a></li>
+              </ol>
+            </nav>
+
+            <h2 id="why-ksef-fails-later">Why KSeF doesn’t “explode” on day one — it fails later</h2>
+            <p>
+              In the first days after launch, invoice volumes are low, edge cases are rare, and the project team is watching
+              everything closely. The process looks stable.
+            </p>
+            <p>
+              Then reality arrives: more exceptions, more <a href="#ksef-corrections"><strong>KSeF corrections</strong></a>,
+              master-data drift between ERP and adjacent tools, staff rotation, vacations, and the inevitable
+              <em>“we’ll do this one manually”</em>.
+              That’s when <strong>KSeF integration</strong> stops being a connector and becomes an
+              <strong>end-to-end operational process</strong>.
+            </p>
+
+            <div class="callout">
+              <strong>Reality check:</strong>
+              <p>
+                “Invoices are being sent” doesn’t mean the process works.
+                The real test starts when rejections and corrections become routine.
+              </p>
+            </div>
+
+            <h2 id="ksef-15-issues">15 problems that almost always appear after KSeF go-live</h2>
+
+            <h3 id="ksef-process-owner">1) “Not our problem” — no end-to-end process owner</h3>
+            <p>
+              The classic: IT delivers the integration, then finance is told to “handle the rest”.
+              Nobody owns the full lifecycle:
+              invoice creation → submission → <a href="#ksef-status-layer">status visibility</a> → correction → closure.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              assign one owner of the <em>process</em> (not the system) and a second person as backup.
+              Make this role responsible for outcomes: exception handling, SLA, escalation, visibility across teams.
+            </p>
+
+            <h3 id="ksef-rejections">2) No scenario for “what do we do when KSeF rejects an invoice?”</h3>
+            <p>
+              <strong>KSeF invoice rejection</strong> happens.
+              The operational failure is not having a procedure:
+              who gets notified, who fixes the data, where the error lives, how quickly you retry,
+              and how you confirm closure.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              implement a minimal workflow:
+              <strong>Alert → Analyze → Fix → Retry → Close</strong>.
+              Then connect it to <a href="#ksef-metrics-monitoring">metrics</a> so it doesn’t silently degrade.
+            </p>
+
+            <h3 id="ksef-retry-queue">3) Retry is manual (or doesn’t exist)</h3>
+            <p>
+              Without queueing and automatic retries, teams fall into “try again” mode — and exceptions pile up.
+              The longer it runs, the more time you lose to manual resubmissions and “did it go through?” conversations.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              add a sending queue with retry policies (e.g., 3 attempts + backoff)
+              and a controlled <strong>force retry</strong> option for safe reprocessing.
+            </p>
+
+            <h3 id="ksef-status-layer">4) Status is not visible to the business (no register + no dashboard)</h3>
+            <p>
+              If the KSeF status is visible only in IT logs, the process will break.
+              Finance and sales need a simple view:
+              <strong>Sent / Accepted / Rejected / Pending</strong> + timestamp + reason + next action.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              build a small <strong>status layer</strong> with two parts:
+            </p>
+            <ul>
+              <li>
+                <strong>KSeF register (list view)</strong> — a searchable table for finance to filter invoices by state,
+                open details, see rejection reasons and confirm next actions.
+              </li>
+              <li>
+                <strong>KSeF dashboard</strong> (optional but powerful) — trends and KPIs:
+                rejection rate, backlog, time-to-fix, top reasons.
+              </li>
+            </ul>
+            <p>
+              This separation is practical: invoice creation &amp; sending happens in the invoice form,
+              while the KSeF register is where operational control lives.
+              The dashboard is the “management layer” that tells you whether the process is healthy.
+            </p>
+
+            <h3 id="ksef-corrections">5) Corrections blow up the process</h3>
+            <p>
+              The first weeks may look smooth until “real life” appears:
+              <strong>KSeF corrections</strong>, cancellations, consolidated invoices, advance invoices.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              maintain a corrections checklist and test it using real samples.
+              Make it explicit: what triggers resubmission, what changes in status tracking,
+              and who approves edge cases.
+            </p>
+
+            <h3 id="ksef-master-data">6) Contractor data is “almost OK”</h3>
+            <p>
+              KSeF exposes master-data quality issues brutally:
+              incomplete addresses, inconsistent NIP formats, missing mandatory fields,
+              mismatched VAT dictionaries between systems.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              run a contractor data audit + validation rules
+              <strong>before sending</strong> (not after rejection).
+              If you fix data only after rejection, you’re building a permanent queue of manual work.
+            </p>
+
+            <h3 id="ksef-multi-source">7) Invoices originate in multiple systems</h3>
+            <p>
+              ERP may be the “main system”, but invoices often come from sales tools, service modules,
+              e-commerce, and manual flows.
+              That’s how you get duplicated sends, missing statuses, and mismatched corrections.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              map all invoice sources and define one control point for
+              <a href="#ksef-status-layer">a single status register + dashboard</a>
+              and <a href="#ksef-retry-queue">retries</a>.
+            </p>
+
+            <h3 id="ksef-bypass">8) People start bypassing the system</h3>
+            <p>
+              If the process blocks work, informal channels appear:
+              “send it by email”, “we’ll fix it later”, “this one is special”.
+              The longer it continues, the harder it is to recover control.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              define exceptions officially:
+              when manual steps are allowed, who approves them,
+              and how they are logged (see <a href="#ksef-audit-log">audit</a>).
+            </p>
+
+            <h3 id="ksef-audit-log">9) No audit trail: who did what and when</h3>
+            <p>
+              Every KSeF issue returns.
+              Without audit logs, you get “not me” conflicts across departments
+              and nobody can confirm what actually happened.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              log at minimum: user, timestamp, action, and result.
+              Make logs searchable and visible to the process owner.
+            </p>
+
+            <h3 id="ksef-rules-limits">10) No company-level controls for business rules and limits</h3>
+            <p>
+              Company thresholds and rules need consistent enforcement.
+              Otherwise, exceptions become random and hard to explain during audits.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              add reporting + alerts:
+              approaching a threshold → decision required → logged outcome.
+            </p>
+
+            <h3 id="ksef-attachments">11) Attachments turn out to be “not so simple”</h3>
+            <p>
+              If your invoicing relies on attachments (specs, protocols, technical files),
+              you need an operational flow: ownership, SLA, archiving, and retrieval.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              define a separate attachment workflow and connect it to
+              <a href="#ksef-status-layer">status visibility</a>
+              so finance sees the whole picture.
+            </p>
+
+            <h3 id="ksef-roles-permissions">12) Roles and permissions were never designed</h3>
+            <p>
+              Everything works under one account until someone takes leave — and invoicing stops.
+              This is common after go-live when access management isn’t treated as part of the process.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              define roles: sending / corrections / monitoring / admin,
+              with at least two people per critical role.
+            </p>
+
+            <h3 id="ksef-regression">13) No test environment and no regression tests</h3>
+            <p>
+              The first ERP update arrives and the integration starts “behaving strangely”.
+              Not because KSeF changed — because you have no controlled regression.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              maintain regression tests for at least 10 invoice types,
+              including <a href="#ksef-corrections">corrections</a> and edge cases.
+            </p>
+
+            <h3 id="ksef-metrics-monitoring">14) No metrics = no control</h3>
+            <p>
+              Without process metrics, you won’t notice degradation until it’s already painful.
+              Metrics also turn “opinions” into facts when departments disagree.
+            </p>
+            <p><strong>Measure:</strong></p>
+            <ul>
+              <li>rejection rate (%)</li>
+              <li>time to fix</li>
+              <li>time to retry / resubmit</li>
+              <li>manual exception count</li>
+              <li>top 5 rejection reasons</li>
+            </ul>
+            <p>
+              <strong>What to do:</strong>
+              connect metrics to alerting:
+              spikes in rejections or time-to-fix should trigger action, not silent suffering.
+              If you already have a KSeF dashboard, this becomes obvious.
+              If you don’t — you’ll feel the chaos before you see it.
+            </p>
+
+            <h3 id="ksef-integration-vs-process">15) “Integration sends invoices” ≠ “the process works”</h3>
+            <p>
+              This is the core point: a technically correct connector can still create operational pain if
+              ownership, visibility, retries, validation, and monitoring are missing.
+            </p>
+            <p>
+              <strong>What to do:</strong>
+              treat KSeF as an operational process, not just a file format.
+              Build the <a href="#ksef-operational-layer">operational layer</a> around it.
+            </p>
+
+            <hr>
+
+            <h2 id="ksef-30-60-90">KSeF 30/60/90-day plan after go-live</h2>
+
+            <h3 id="ksef-plan-0-30">0–30 days: stabilize the basics</h3>
+            <ul>
+              <li>Build a clear list of exceptions and edge cases (<a href="#ksef-bypass">prevent bypasses</a>)</li>
+              <li>Enable structured logging for rejections (<a href="#ksef-rejections">workflow</a>)</li>
+              <li>Assign an end-to-end process owner (<a href="#ksef-process-owner">ownership</a>)</li>
+              <li>Launch a simple KSeF register for finance (<a href="#ksef-status-layer">status visibility</a>)</li>
+            </ul>
+
+            <h3 id="ksef-plan-31-60">31–60 days: automate error handling</h3>
+            <ul>
+              <li>Queue + retry policy (<a href="#ksef-retry-queue">retry</a>)</li>
+              <li>Alerts + responsibility mapping (who acts on what)</li>
+              <li>Data validation rules before sending (<a href="#ksef-master-data">master data</a>)</li>
+              <li>Correction scenario tests on real samples (<a href="#ksef-corrections">corrections</a>)</li>
+            </ul>
+
+            <h3 id="ksef-plan-61-90">61–90 days: resilience and scaling</h3>
+            <ul>
+              <li>Metrics + internal SLAs (<a href="#ksef-metrics-monitoring">monitoring</a>)</li>
+              <li>Attachment workflow + archiving (<a href="#ksef-attachments">attachments</a>)</li>
+              <li>Exception controls &amp; thresholds (<a href="#ksef-rules-limits">rules</a>)</li>
+              <li>Access &amp; roles security review (<a href="#ksef-roles-permissions">permissions</a>)</li>
+            </ul>
+
+            <h2 id="ksef-operational-layer">Minimal operational layer that makes KSeF stable</h2>
+            <p>
+              You don’t need a massive IT project. You need a small operational layer around KSeF:
+            </p>
+            <ul>
+              <li>a sending queue with retry</li>
+              <li>a business-facing KSeF register (status visibility for finance)</li>
+              <li>a dashboard (optional) for trends, KPIs and early warning signals</li>
+              <li>error reporting (top reasons, volumes, trends)</li>
+              <li>audit logs for accountability</li>
+              <li>a clear workflow: who fixes what</li>
+            </ul>
+
+            <div class="diagram-card">
+              <div class="diagram-title">
+                Operational workflow (minimal)
+                <span class="diagram-hint">copy/paste into your internal SOP</span>
               </div>
+              <p class="mono">
+                Alert → Triage → Fix data → Resubmit (retry) → Confirm KSeF status → Close + Audit
+              </p>
+            </div>
 
-              <!-- TOC / In-this-article -->
-              <nav class="post-toc in-this-article" aria-label="In this article">
-                <div class="post-toc__title">In this article</div>
-                <ol class="post-toc__list">
-                  <li><a href="#why-ksef-fails-later">Why KSeF breaks later (not on day one)</a></li>
-                  <li><a href="#ksef-15-issues">15 issues that surface after KSeF go-live</a></li>
-                  <li><a href="#ksef-30-60-90">30/60/90-day plan after go-live</a></li>
-                  <li><a href="#ksef-operational-layer">Minimal operational layer around KSeF</a></li>
-                  <li><a href="#ksef-fast-implementation">How to implement it fast (without a big project)</a></li>
-                  <li><a href="#ksef-faq">FAQ</a></li>
-                </ol>
-              </nav>
+            <h2 id="ksef-fast-implementation">If you want to implement this fast (without a big IT project)</h2>
+            <p>
+              If you want KSeF to remain stable after go-live, you need a layer where you can quickly build:
+              a KSeF register, status dashboards, data validation rules, exception handling,
+              and visibility for finance and sales — above ERP and integrations.
+            </p>
 
-              <h2 id="why-ksef-fails-later">Why KSeF doesn’t “explode” on day one — it fails later</h2>
-              <p>
-                In the first days after launch, invoice volumes are low, edge cases are rare, and the project team is watching
-                everything closely. The process looks stable.
-              </p>
-              <p>
-                Then reality arrives: more exceptions, more <a href="#ksef-corrections"><strong>KSeF corrections</strong></a>,
-                master-data drift between ERP and adjacent tools, staff rotation, vacations, and the inevitable “we’ll do this one
-                manually”. That’s when <strong>KSeF integration</strong> stops being a connector and becomes an
-                <strong>end-to-end operational process</strong>.
-              </p>
+            <p>
+              If you want a free reference implementation, you can explore how KSeF workflows are handled in the
+              MyCompany (lsFusion) documentation — including sending invoices, tracking statuses in a dedicated register,
+              and downloading KSeF invoices:
+              <a href="https://mycompany-docs.lsfusion.org/pl/invoicing/ksef/" target="_blank" rel="noopener">
+                mycompany-docs.lsfusion.org ↗
+              </a>
+            </p>
 
-              <div class="callout">
-                <strong>Reality check:</strong>
-                <p>
-                  “Invoices are being sent” doesn’t mean the process works.
-                  The real test starts when rejections and corrections become routine.
-                </p>
-              </div>
+            <div class="callout">
+              <strong>Got a tricky KSeF edge case?</strong>
+              <p>
+                Email us your scenario (ERP, invoice sources, corrections, typical rejections). We may suggest a few free,
+                vendor-neutral ideas — and if the case is interesting, we’ll cover it in a dedicated article.
+                <a class="post-read" href="mailto:info@devlab.blog?subject=KSeF%20case%20(question)%20%E2%80%93%20DevLab%20Blog">
+                  info@devlab.blog <span class="arrow">↗</span>
+                </a>
+              </p>
+            </div>
 
-              <h2 id="ksef-15-issues">15 problems that almost always appear after KSeF go-live</h2>
+            <h2 id="ksef-faq">FAQ</h2>
 
-              <h3 id="ksef-process-owner">1) “Not our problem” — no end-to-end process owner</h3>
-              <p>
-                The classic: IT delivers the integration, then finance is told to “handle the rest”. Nobody owns the full lifecycle:
-                invoice creation → submission → <a href="#ksef-status-dashboard">KSeF status</a> → correction → closure.
-              </p>
-              <p>
-                <strong>What to do:</strong> assign one owner of the <em>process</em> (not the system) and a second person as backup.
-              </p>
+            <h3 id="faq-ksef-rejection">How should we handle a rejected invoice in KSeF?</h3>
+            <p>
+              Treat rejection as a normal operational path. Use:
+              <a href="#ksef-rejections">Alert → Analyze → Fix → Retry → Close</a>,
+              log every step (<a href="#ksef-audit-log">audit trail</a>), and keep finance updated via a
+              <a href="#ksef-status-layer">KSeF register (and optionally a dashboard)</a>.
+            </p>
 
-              <h3 id="ksef-rejections">2) No scenario for “what do we do when KSeF rejects an invoice?”</h3>
-              <p>
-                <strong>KSeF invoice rejection</strong> happens. The operational failure is not having a procedure:
-                who gets notified, who fixes the data, where the error lives, how quickly you retry, and how you confirm closure.
-              </p>
-              <p>
-                <strong>What to do:</strong> implement a minimal workflow:
-                <strong>Alert → Analyze → Fix → Retry → Close</strong>.
-                Then connect it to <a href="#ksef-metrics-monitoring">metrics</a> so it doesn’t silently degrade.
-              </p>
+            <h3 id="faq-ksef-retry">Do we really need retries in KSeF integration?</h3>
+            <p>
+              Yes. Without <a href="#ksef-retry-queue">queueing and retries</a>, rejections and temporary outages turn into manual work,
+              creating backlogs, delayed payments, and internal confusion.
+            </p>
 
-              <h3 id="ksef-retry-queue">3) Retry is manual (or doesn’t exist)</h3>
-              <p>
-                Without queueing and automatic retries, teams fall into “try again” mode — and exceptions pile up.
-                The longer it runs, the more time you lose to manual resubmissions.
-              </p>
-              <p>
-                <strong>What to do:</strong> add a sending queue with retry policies (e.g., 3 attempts + backoff)
-                and a controlled <strong>force retry</strong> option.
-              </p>
+            <h3 id="faq-ksef-why-2-3-months">Why do KSeF problems appear after 2–3 months?</h3>
+            <p>
+              Because that’s when complexity scales: more <a href="#ksef-corrections">corrections</a>, more invoice sources,
+              more data drift (<a href="#ksef-master-data">master data</a>), fewer “project eyes” watching the process,
+              and more cross-team handoffs. Weak operational layers start breaking.
+            </p>
 
-              <h3 id="ksef-status-dashboard">4) Invoice statuses are invisible to the business</h3>
-              <p>
-                If the KSeF status is visible only in IT logs, the process will break. Finance and sales need a simple view:
-                <strong>Sent / Accepted / Rejected / Pending</strong> + timestamp + reason + next action.
-              </p>
-              <p>
-                <strong>What to do:</strong> create a <strong>KSeF invoice status dashboard</strong> for finance.
-                Link it with <a href="#ksef-rejections">rejection handling</a> and <a href="#ksef-audit-log">audit logs</a>.
-              </p>
+            <hr>
 
-              <h3 id="ksef-corrections">5) Corrections blow up the process</h3>
-              <p>
-                The first weeks may look smooth until “real life” appears:
-                <strong>KSeF corrections</strong>, cancellations, consolidated invoices, advance invoices.
-              </p>
-              <p>
-                <strong>What to do:</strong> maintain a corrections checklist and test it using real samples.
-                Make it explicit: what triggers resubmission, what changes in status tracking, and who approves edge cases.
-              </p>
+            <h2 id="ksef-summary">Summary</h2>
+            <p>
+              KSeF is rarely difficult on launch day. It becomes difficult when the company starts living in the new process.
+              If you build <a href="#ksef-process-owner">process ownership</a>,
+              <a href="#ksef-retry-queue">retries</a>,
+              <a href="#ksef-status-layer">status visibility</a>,
+              <a href="#ksef-bypass">controlled exceptions</a>,
+              and <a href="#ksef-metrics-monitoring">monitoring</a> now — you won’t wake up in manual invoicing chaos in 2–3 months.
+            </p>
 
-              <h3 id="ksef-master-data">6) Contractor data is “almost OK”</h3>
-              <p>
-                KSeF exposes master-data quality issues brutally: incomplete addresses, inconsistent NIP formats, missing mandatory
-                fields, mismatched VAT dictionaries between systems.
-              </p>
-              <p>
-                <strong>What to do:</strong> run a contractor data audit + validation rules
-                <strong>before sending</strong> (not after rejection).
-                If you fix data only after rejection, you’re building a permanent queue of manual work.
-              </p>
+            <p>
+              <a href="#ksef-15-issues">Back to the checklist ↑</a>
+            </p>
 
-              <h3 id="ksef-multi-source">7) Invoices originate in multiple systems</h3>
-              <p>
-                ERP may be the “main system”, but invoices often come from sales tools, service modules, e-commerce, and manual flows.
-                That’s how you get duplicated sends, missing statuses, and mismatched corrections.
-              </p>
-              <p>
-                <strong>What to do:</strong> map all invoice sources and define one control point for
-                <a href="#ksef-status-dashboard">status visibility</a> and <a href="#ksef-retry-queue">retries</a>.
-              </p>
-
-              <h3 id="ksef-bypass">8) People start bypassing the system</h3>
-              <p>
-                If the process blocks work, informal channels appear: “send it by email”, “we’ll fix it later”, “this one is special”.
-                The longer it continues, the harder it is to recover control.
-              </p>
-              <p>
-                <strong>What to do:</strong> define exceptions officially:
-                when manual steps are allowed, who approves them, and how they are logged (see <a href="#ksef-audit-log">audit</a>).
-              </p>
-
-              <h3 id="ksef-audit-log">9) No audit trail: who did what and when</h3>
-              <p>
-                Every KSeF issue returns. Without audit logs, you get “not me” conflicts across departments.
-              </p>
-              <p>
-                <strong>What to do:</strong> log at minimum: user, timestamp, action, and result.
-                Make logs searchable for the process owner.
-              </p>
-
-              <h3 id="ksef-rules-limits">10) No company-level controls for business rules and limits</h3>
-              <p>
-                Company thresholds and rules need consistent enforcement. Otherwise, exceptions become random and hard to explain
-                during audits.
-              </p>
-              <p>
-                <strong>What to do:</strong> add reporting + alerts: approaching a threshold → decision required → logged outcome.
-              </p>
-
-              <h3 id="ksef-attachments">11) Attachments turn out to be “not so simple”</h3>
-              <p>
-                If your invoicing relies on attachments (specs, protocols, technical files), you need an operational flow:
-                ownership, SLA, archiving, and retrieval.
-              </p>
-              <p>
-                <strong>What to do:</strong> define a separate attachment workflow and connect it to
-                <a href="#ksef-status-dashboard">invoice status</a> so finance sees the whole picture.
-              </p>
-
-              <h3 id="ksef-roles-permissions">12) Roles and permissions were never designed</h3>
-              <p>
-                Everything works under one account until someone takes leave — and invoicing stops.
-                This is common after go-live when access management isn’t treated as part of the process.
-              </p>
-              <p>
-                <strong>What to do:</strong> define roles: sending / corrections / monitoring / admin,
-                with at least two people per critical role.
-              </p>
-
-              <h3 id="ksef-regression">13) No test environment and no regression tests</h3>
-              <p>
-                The first ERP update arrives and the integration starts “behaving strangely”.
-                Not because KSeF changed — because you have no controlled regression.
-              </p>
-              <p>
-                <strong>What to do:</strong> maintain regression tests for at least 10 invoice types,
-                including <a href="#ksef-corrections">corrections</a> and edge cases.
-              </p>
-
-              <h3 id="ksef-metrics-monitoring">14) No metrics = no control</h3>
-              <p>
-                Without process metrics, you won’t notice degradation until it’s already painful.
-                Metrics also turn “opinions” into facts when departments disagree.
-              </p>
-              <p><strong>Measure:</strong></p>
-              <ul>
-                <li>rejection rate (%)</li>
-                <li>time to fix</li>
-                <li>time to retry / resubmit</li>
-                <li>manual exception count</li>
-                <li>top 5 rejection reasons</li>
-              </ul>
-              <p>
-                <strong>What to do:</strong> connect metrics to alerting:
-                spikes in rejections or time-to-fix should trigger action, not silent suffering.
-              </p>
-
-              <h3 id="ksef-integration-vs-process">15) “Integration sends invoices” ≠ “the process works”</h3>
-              <p>
-                This is the core point: a technically correct connector can still create operational pain if
-                ownership, visibility, retries, validation, and monitoring are missing.
-              </p>
-              <p>
-                <strong>What to do:</strong> treat KSeF as an operational process, not just a file format.
-                Build the <a href="#ksef-operational-layer">operational layer</a> around it.
-              </p>
-
-              <hr>
-
-              <h2 id="ksef-30-60-90">KSeF 30/60/90-day plan after go-live</h2>
-
-              <h3 id="ksef-plan-0-30">0–30 days: stabilize the basics</h3>
-              <ul>
-                <li>Build a clear list of exceptions and edge cases (<a href="#ksef-bypass">prevent bypasses</a>)</li>
-                <li>Enable structured logging for rejections (<a href="#ksef-rejections">workflow</a>)</li>
-                <li>Assign an end-to-end process owner (<a href="#ksef-process-owner">ownership</a>)</li>
-                <li>Launch a simple status dashboard for finance (<a href="#ksef-status-dashboard">visibility</a>)</li>
-              </ul>
-
-              <h3 id="ksef-plan-31-60">31–60 days: automate error handling</h3>
-              <ul>
-                <li>Queue + retry policy (<a href="#ksef-retry-queue">retry</a>)</li>
-                <li>Alerts + responsibility mapping (who acts on what)</li>
-                <li>Data validation rules before sending (<a href="#ksef-master-data">master data</a>)</li>
-                <li>Correction scenario tests on real samples (<a href="#ksef-corrections">corrections</a>)</li>
-              </ul>
-
-              <h3 id="ksef-plan-61-90">61–90 days: resilience and scaling</h3>
-              <ul>
-                <li>Metrics + internal SLAs (<a href="#ksef-metrics-monitoring">monitoring</a>)</li>
-                <li>Attachment workflow + archiving (<a href="#ksef-attachments">attachments</a>)</li>
-                <li>Exception controls &amp; thresholds (<a href="#ksef-rules-limits">rules</a>)</li>
-                <li>Access &amp; roles security review (<a href="#ksef-roles-permissions">permissions</a>)</li>
-              </ul>
-
-              <h2 id="ksef-operational-layer">Minimal operational layer that makes KSeF stable</h2>
-              <p>
-                You don’t need a massive IT project. You need a small operational layer around KSeF:
-              </p>
-              <ul>
-                <li>a sending queue with retry</li>
-                <li>a business-facing status dashboard</li>
-                <li>error reporting (top reasons, volumes, trends)</li>
-                <li>audit logs for accountability</li>
-                <li>a clear workflow: who fixes what</li>
-              </ul>
-
-              <div class="diagram-card">
-                <div class="diagram-title">
-                  Operational workflow (minimal)
-                  <span class="diagram-hint">copy/paste into your internal SOP</span>
-                </div>
-                <p class="mono">
-                  Alert → Triage → Fix data → Resubmit (retry) → Confirm KSeF status → Close + Audit
-                </p>
-              </div>
-
-              <h2 id="ksef-fast-implementation">If you want to implement this fast (without a big IT project)</h2>
-              <p>
-                If you want KSeF to remain stable after go-live, you need a layer where you can quickly build:
-                status dashboards, data validation rules, exception handling, and visibility for finance and sales —
-                above ERP and integrations.
-              </p>
-
-              <p>
-                <strong>MyCompany (lsFusion)</strong> is a free open-source example of a system where you can build such
-                “operational layers” quickly — without vendor lock-in.
-              </p>
-
-              <div class="callout">
-                <strong>Want to discuss your KSeF scenario?</strong>
-                <p>
-                  Email us your scenario (ERP, invoice sources, corrections, typical rejections). We may suggest a few free, vendor-neutral ideas — and if the topic is interesting, we’ll cover it in a dedicated article.
-                  <a href="mailto:info@devlab.blog?subject=KSeF%20operational%20layer%20%E2%80%93%20question%20from%20DevLab%20Blog">
-                    info@devlab.blog ↗
-                  </a>
-                </p>
-              </div>
-
-              <h2 id="ksef-faq">FAQ</h2>
-
-              <h3 id="faq-ksef-rejection">How should we handle a rejected invoice in KSeF?</h3>
-              <p>
-                Treat rejection as a normal operational path. Use:
-                <a href="#ksef-rejections">Alert → Analyze → Fix → Retry → Close</a>,
-                log every step (<a href="#ksef-audit-log">audit trail</a>), and keep finance updated via a
-                <a href="#ksef-status-dashboard">status dashboard</a>.
-              </p>
-
-              <h3 id="faq-ksef-retry">Do we really need retries in KSeF integration?</h3>
-              <p>
-                Yes. Without <a href="#ksef-retry-queue">queueing and retries</a>, rejections and temporary outages turn into manual work,
-                creating backlogs, delayed payments, and internal confusion.
-              </p>
-
-              <h3 id="faq-ksef-why-2-3-months">Why do KSeF problems appear after 2–3 months?</h3>
-              <p>
-                Because that’s when complexity scales: more <a href="#ksef-corrections">corrections</a>, more invoice sources,
-                more data drift (<a href="#ksef-master-data">master data</a>), fewer “project eyes” watching the process, and more
-                cross-team handoffs. Weak operational layers start breaking.
-              </p>
-
-              <hr>
-
-              <h2 id="ksef-summary">Summary</h2>
-              <p>
-                KSeF is rarely difficult on launch day. It becomes difficult when the company starts living in the new process.
-                If you build <a href="#ksef-process-owner">process ownership</a>,
-                <a href="#ksef-retry-queue">retries</a>,
-                <a href="#ksef-status-dashboard">status visibility</a>,
-                <a href="#ksef-bypass">controlled exceptions</a>,
-                and <a href="#ksef-metrics-monitoring">monitoring</a> now — you won’t wake up in manual invoicing chaos in 2–3 months.
-              </p>
-
-              <p>
-                <a href="#ksef-15-issues">Back to the checklist ↑</a>
-              </p>
-
-            </section>
+          </section>
 
 
             <!-- FOOTER (tags + meta + Views) -->
