@@ -861,11 +861,20 @@
     </footer>
   </div>
 
-<div id="dl-cookie" role="dialog" aria-live="polite">
-  <div class="dl-inner">
-    <div class="dl-row">
-      <p class="dl-text" id="dl-cookie-text"></p>
-      <button id="dl-cookie-analytics"></button>
+<div id="dl-consent-overlay" role="dialog" aria-live="polite" aria-modal="true">
+  <div id="dl-consent-modal">
+    <div class="inner">
+      <h4 id="dl-c-title"></h4>
+      <p id="dl-c-text"></p>
+
+      <div class="actions">
+        <button class="primary" id="dl-c-analytics"></button>
+        <button class="reject" id="dl-c-reject"></button>
+      </div>
+
+      <div class="linkrow">
+        <a href="/privacy.html" id="dl-c-privacy" rel="nofollow"></a>
+      </div>
     </div>
   </div>
 </div>
