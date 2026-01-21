@@ -20,6 +20,22 @@
   <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
 
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Default: analytics OFF until user accepts
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
+
+
   <!-- Structured data for search engines -->
   <script type="application/ld+json">
   {
@@ -34,6 +50,7 @@
     }
   }
   </script>
+  
 
   <link rel="alternate" hreflang="en" href="https://en.devlab.blog">
 <link rel="alternate" hreflang="pl" href="https://pl.devlab.blog">
@@ -843,5 +860,57 @@
       </div>
     </footer>
   </div>
+
+  <div id="dl-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="inner">
+    <div class="top">
+      <div>
+        <h4>Cookies & analytics</h4>
+        <p>
+          We use analytics to understand which articles and outbound links are useful.
+          No forms of personalization are required for this. You can accept analytics or reject.
+        </p>
+      </div>
+
+      <div class="actions">
+        <button class="dl-btn" id="dl-reject">Reject</button>
+        <button class="dl-btn cyan" id="dl-analytics">Analytics only</button>
+        <button class="dl-btn primary" id="dl-accept">Accept</button>
+      </div>
+    </div>
+
+    <div class="dl-links">
+      <span style="color:rgba(255,255,255,.45)">Optional:</span>
+      <a href="/privacy.html" rel="nofollow">Privacy</a>
+      <a href="#" id="dl-open-settings" rel="nofollow">Change later</a>
+    </div>
+  </div>
+</div>
+
+<div id="dl-cookie" role="dialog" aria-live="polite">
+  <div class="dl-inner">
+    <div class="dl-top">
+      <div>
+        <p class="dl-title">Analytics (no personal data)</p>
+        <p class="dl-text">
+          We use anonymous analytics to understand which articles and outbound links are useful.
+          You can allow analytics or reject.
+        </p>
+
+        <div class="dl-links">
+          <a href="/privacy.html" rel="nofollow">Privacy</a>
+          &nbsp;·&nbsp;
+          <a href="#" id="dl-cookie-open" rel="nofollow">Change later</a>
+        </div>
+      </div>
+
+      <div class="dl-actions">
+        <button id="dl-cookie-reject">Reject</button>
+        <button class="dl-primary" id="dl-cookie-analytics">Analytics only</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

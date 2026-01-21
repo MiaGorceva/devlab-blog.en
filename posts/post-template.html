@@ -21,6 +21,21 @@
   <!-- Main blog scripts (year + search + views counter) -->
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Default: analytics OFF until user accepts
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
+
 
    <!-- {{POST_SLUG}} → post№-____-_____-______-______
             {{POST_ID}} → тот же, совпадающий со столбцом post_id в таблице Views) -->

@@ -20,6 +20,21 @@
   <!-- Main blog scripts (year + search + views counter) -->
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Default: analytics OFF until user accepts
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
+
   <!-- Structured data for search engines -->
   <script type="application/ld+json">
   {
