@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ERP That Doesn’t Break When Business Changes: Architecture Review (vs 1C / SAP / Dynamics / Odoo) – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Independent architecture review: why ERP systems become expensive after 12–24 months, how to avoid vendor lock-in, and how change-friendly design compares across 1C, SAP, Microsoft Dynamics and Odoo. Includes practical mini-cases and a founder-oriented checklist."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <!-- Consent Mode (set BEFORE GTM) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    // Default: analytics OFF until user accepts
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts (year + search + views counter) -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html"
+    },
+    "headline": "ERP That Doesn’t Break When Business Changes: Architecture Review (vs 1C / SAP / Dynamics / Odoo)",
+    "description": "Independent architecture review: why ERP systems become expensive after 12–24 months, how to avoid vendor lock-in, and how change-friendly design compares across 1C, SAP, Microsoft Dynamics and Odoo. Includes practical mini-cases and a founder-oriented checklist.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2026-01-22",
+    "dateModified": "2026-01-22"
+  }
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://en.devlab.blog/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article id="post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a class="back" href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>ERP Architecture</span>
+                <span>&middot;</span>
+                <span>Approx. 12 min read</span>
+                <span>&middot;</span>
+                <span>Founder-friendly, practical</span>
+              </div>
+
+              <h1 class="hero-title">
+                ERP That Doesn’t Break When Business Changes: Architecture Review (vs 1C / SAP / Dynamics / Odoo)
+              </h1>
+
+              <p class="hero-text">
+                An independent, founder-oriented review of why ERP projects become expensive after 12–24 months, where vendor lock-in really comes from,
+                and what change-friendly ERP design looks like in practice — with mini-cases, a comparison table, and a short checklist you can use before
+                choosing any system or integrator.
+              </p>
+
+              <!-- HERO IMAGE -->
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.webp"
+                  alt="Change-friendly ERP architecture: rules, data, and automation without vendor lock-in"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </figure>
+            </header>
+
+            <!-- ARTICLE BODY -->
+            <section class="post-content">
+              <h2 id="why-erp-breaks">Why ERP gets expensive later (not at go-live)</h2>
+              <p>
+                Most ERP projects don’t fail on day one. They fail quietly after go-live — when the business starts changing faster than the system can follow.
+                The first year looks fine: documents exist, roles are set, reporting “kind of” works. Then reality arrives:
+                new discount logic, new sales channels, new approval routes, new contract types, new profitability views, new operational constraints.
+              </p>
+              <p>
+                The uncomfortable pattern is simple: in many ERP setups, <strong>every meaningful business change becomes a software project</strong>.
+                And if a change requires a project, it also requires timeline, budget, testing cycles, and someone “who knows how it works”.
+                That’s the real cost driver — not the license line.
+              </p>
+
+              <h2 id="definition">What “ERP that doesn’t break when business changes” actually means</h2>
+              <p>
+                Founders don’t need buzzwords — they need predictability. A change-friendly ERP is not a prettier UI.
+                It’s an ERP where <strong>business rules live as rules</strong> (clear dependencies, constraints, calculations),
+                not as scattered custom code, hidden processing steps, and fragile report formulas.
+              </p>
+
+              <ul>
+                <li><strong>Bad ERP experience:</strong> change a rule → break three reports → patch integrations → discover edge cases → repeat.</li>
+                <li><strong>Good ERP experience:</strong> change a rule → the system recalculates consistently → reporting stays aligned.</li>
+              </ul>
+
+              <h2 id="comparison-table">Comparison: what typically happens in 1C / SAP / Dynamics / Odoo</h2>
+              <p>
+                This is not a “best ERP” ranking. It’s a reality check: what often happens <em>after 12–24 months</em> in real projects,
+                once customizations accumulate and “business-as-usual change” becomes routine.
+              </p>
+
+              <div class="callout">
+                <strong>Quick note on SAP:</strong> yes, SAP has been moving towards extension models (BTP, side-by-side, modern UI layers).
+                But in practice, many real landscapes still depend heavily on legacy customization patterns — and the cost of change remains a core management issue.
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Criteria</th>
+                    <th>1C (typical)</th>
+                    <th>SAP (classic)</th>
+                    <th>Dynamics (typical)</th>
+                    <th>Odoo / open-source ERP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Time-to-start</td>
+                    <td>Fast</td>
+                    <td>Slow</td>
+                    <td>Medium</td>
+                    <td>Fast / Medium</td>
+                  </tr>
+                  <tr>
+                    <td>Cost of entry</td>
+                    <td>Low / Medium</td>
+                    <td>High</td>
+                    <td>High</td>
+                    <td>Low / Medium</td>
+                  </tr>
+                  <tr>
+                    <td>Where business logic ends up</td>
+                    <td>Custom modules &amp; “processing” layers</td>
+                    <td>Config + custom extensions</td>
+                    <td>Configuration + extensions</td>
+                    <td>Custom modules</td>
+                  </tr>
+                  <tr>
+                    <td>Change cost after 2 years</td>
+                    <td>Often rising quickly</td>
+                    <td>Often high</td>
+                    <td>Often high</td>
+                    <td>Depends: upgrades can be painful</td>
+                  </tr>
+                  <tr>
+                    <td>Vendor / team lock-in risk</td>
+                    <td>High (key people)</td>
+                    <td>Very high (ecosystem + cost)</td>
+                    <td>High</td>
+                    <td>High (custom code owners)</td>
+                  </tr>
+                  <tr>
+                    <td>Can “AI as a junior” help maintain it?</td>
+                    <td>Hard if logic is scattered</td>
+                    <td>Hard without deep context</td>
+                    <td>Medium</td>
+                    <td>Medium (if modular discipline exists)</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h2 id="mini-cases">Mini-cases: the changes that look small but cost real money</h2>
+
+              <h3 id="case-discounts">Case 1 — discounts with 5 conditions (and they change weekly)</h3>
+              <p>
+                The business asks for pricing rules based on client tier, region, product group, volume, payment terms — and exceptions.
+                In many ERP setups, this turns into a chain of special cases. Reports drift. Managers “work around” the system.
+              </p>
+              <p>
+                A change-friendly design keeps pricing as <strong>explicit rule logic</strong> — consistent across documents, calculations, and reporting.
+              </p>
+
+              <h3 id="case-approvals">Case 2 — approvals that reflect real management (not the UI)</h3>
+              <p>
+                “If amount &gt; X → CFO approval. If the client is new → risk review. If overdue &gt; N days → accounting approval.”
+                These are normal operational rules. Yet many systems implement approvals as UI workflows disconnected from data and constraints.
+                Result: stuck statuses, unclear responsibility, invisible bottlenecks.
+              </p>
+              <p>
+                Robust design treats approvals as <strong>policy rules</strong> tied to data conditions — not a fragile layer of buttons.
+              </p>
+
+              <h3 id="case-profitability">Case 3 — profitability that matches reality (not just reports)</h3>
+              <p>
+                This is the founder moment: “Why does the report show profit but cash says otherwise?”
+                The root cause is usually scattered logic: partial cost allocation, inconsistent discount handling, logistic costs applied elsewhere,
+                retroactive adjustments, or “re-post to fix”.
+              </p>
+              <p>
+                If core calculations are consistent and derived from the same rules, profitability becomes explainable — and fixable.
+              </p>
+
+              <h3 id="case-new-entity">Case 4 — adding a new entity (subscription / service contract / bundle)</h3>
+              <p>
+                “Just add a new document type” sounds easy. In practice, a new entity must participate in reporting, pricing, approvals, KPIs,
+                constraints, and audit logic. If logic is scattered, every new entity triggers a cascade of changes.
+              </p>
+
+              <h2 id="ai-angle">The AI angle founders actually care about</h2>
+              <p>
+                Not “a chatbot in ERP”. The useful AI story is simpler: <strong>business logic should be readable enough</strong>
+                that an analyst — assisted by AI (acting like a junior engineer) — can implement and validate many changes without becoming hostage to a single developer
+                or integrator.
+              </p>
+
+              <div class="callout">
+                <strong>Reality check:</strong> AI can’t reliably help when your ERP rules are scattered across custom code, hidden processing steps,
+                one-off report formulas, and undocumented “special cases”. AI becomes useful when logic is structured as explicit rules and dependencies.
+              </div>
+
+              <h2 id="risk-checklist">Founder checklist: are you already in the danger zone?</h2>
+              <p>Tick what matches your situation:</p>
+              <ul>
+                <li>Meaningful changes take 2–6 weeks “for some reason”.</li>
+                <li>Numbers differ across reports, exports, and dashboards.</li>
+                <li>The team avoids touching rules (“it might break something”).</li>
+                <li>1–2 people “know everything” and become a bottleneck.</li>
+                <li>Changes require full-cycle retesting across unrelated areas.</li>
+                <li>Integrations duplicate logic and create data drift.</li>
+                <li>Part of operations works outside ERP because it’s faster.</li>
+                <li>New business ideas quickly turn into “not possible”.</li>
+              </ul>
+
+              <p>
+                If you have <strong>4+</strong> items: you don’t have a “bad ERP”.
+                You have a system where <strong>the cost of change is becoming your hidden tax</strong>.
+              </p>
+
+              <h2 id="what-to-do">What to do (without buzzwords)</h2>
+              <h3>1) Evaluate ERP by the cost of change, not by feature lists</h3>
+              <p>
+                The right question isn’t “does it support feature X”. It’s:
+                <strong>how fast can we change business rules safely in six months?</strong>
+              </p>
+
+              <h3>2) Ask for three live demos of “hard changes”</h3>
+              <ol>
+                <li>Add a new discount rule with a new condition.</li>
+                <li>Change an approval route based on policy logic.</li>
+                <li>Add a new entity that must appear in reports and KPIs.</li>
+              </ol>
+              <p>
+                If the answer is always “we need a separate project / discovery / a developer for that” — treat that as a real signal.
+              </p>
+
+              <h3>3) Avoid lock-in by demanding explicit business logic</h3>
+              <p>
+                Ask: where do rules live? How are dependencies tracked? How do we ensure reports and calculations remain aligned?
+                If nobody can explain it simply, you’re buying opacity.
+              </p>
+
+              <hr>
+
+              <h2 id="sources">Sources &amp; further reading</h2>
+              <ul>
+                <li>
+                  The article that sparked this review (Habr):
+                  <a href="https://habr.com/ru/companies/lsfusion/articles/544982/" target="_blank" rel="noopener noreferrer">
+                    habr.com/ru/companies/lsfusion/articles/544982/ ↗
+                  </a>
+                </li>
+                <li>
+                  Related DevLab post (EN):
+                  <a href="https://en.devlab.blog/posts/post13-open-source-erp-low-code.html" target="_blank" rel="noopener noreferrer">
+                    Open-source ERP &amp; low-code: systems companies actually implement ↗
+                  </a>
+                </li>
+              </ul>
+
+              <h2 id="related-posts">Related posts</h2>
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>
+                  More practical notes about ERP architecture, modular systems, and change-friendly automation.
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://en.devlab.blog/posts/post13-open-source-erp-low-code.html">
+                      Open-source ERP &amp; low-code: systems companies actually implement ↗
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://habr.com/ru/companies/lsfusion/articles/544982/" target="_blank" rel="noopener noreferrer">
+                      Original article on Habr ↗
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </section>
+
+            <!-- FOOTER (tags + meta + Views) -->
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">ERP</span>
+                  <span class="post-tag">ERP architecture</span>
+                  <span class="post-tag">Vendor lock-in</span>
+                  <span class="post-tag">Change management</span>
+                  <span class="post-tag">1C</span>
+                  <span class="post-tag">SAP</span>
+                  <span class="post-tag">Dynamics</span>
+                  <span class="post-tag">Odoo</span>
+                  <span class="post-tag">Low-code</span>
+                  <span class="post-tag">Business automation</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Published: Jan 22, 2026</span>
+                  <span>·</span>
+                  <span>Approx. 12 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <!-- Inline newsletter (optional) -->
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                No spam – just occasional notes on ERP design, automation experiments and new posts.
+              </p>
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Your email address" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                <p class="newsletter-note">
+                  You will receive a confirmation email.<br>
+                  Powered securely via FormSubmit.
+                </p>
+              </form>
+
+              <h2 id="feedback">Quick feedback</h2>
+              <div class="callout">
+                <strong>Was this useful?</strong>
+                <p>
+                  A quick signal helps us prioritize follow-ups.
+                </p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Helpful <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Not really <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">
+                  No comments, no accounts.
+                </p>
+              </div>
+            </section>
+
+            <h2 id="related-posts">Related posts</h2>
+
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>
+                  More practical notes about ERP architecture, low-code and modular business systems.
+                </p>
+
+                <ul>
+                  <li>
+                    <a href="/posts/post15-erp-change-friendly-architecture.html">
+                      ERP that survives change: architecture patterns that don’t collapse after every new requirement ↗
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="https://en.devlab.blog/posts/post13-open-source-erp-low-code.html">
+                      Open-source ERP + low-code: what actually works (and what is marketing fluff) ↗
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>
+              <a class="back" href="/#categories" style="margin-right: 0;"> Browse all categories →</a>
+            </div>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+                  Send us an email →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
+                automation. We write about architectural patterns, integration strategies and real-world
+                implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
