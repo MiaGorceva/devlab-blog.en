@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>ERPNext vs MyCompany (lsFusion) for SMB: Unique processes, code, and the real cost of change – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Both ERPNext and MyCompany (lsFusion) are free to start. For SMB, the real difference is not license cost, but how expensive it is to change unique business processes over 2 years. A practical comparison with code and numbers."
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('consent','default',{
+    analytics_storage:'denied',
+    ad_storage:'denied',
+    ad_user_data:'denied',
+    ad_personalization:'denied',
+    functionality_storage:'granted',
+    security_storage:'granted'
+  });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts (year + search + views counter) -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- post_slug → post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco
+       post_id   → post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco -->
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://ru.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html"
+    },
+    "headline": "ERPNext vs MyCompany (lsFusion) for SMB: Unique processes, code, and the real cost of change",
+    "description": "Both ERPNext and MyCompany (lsFusion) are free to start. For SMB, the real difference is not license cost, but how expensive it is to change unique business processes over 2 years. A practical comparison with code and numbers.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2026-02-06",
+    "dateModified": "2026-02-06"
+  }
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ru.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/" class="active">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <!-- ARTICLE -->
+          <article id="post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a class="back" href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>ERP / Architecture</span>
+                <span>&middot;</span>
+                <span>Approx. 12 min read</span>
+                <span>&middot;</span>
+                <span>TCO</span>
+              </div>
+
+              <h1 class="hero-title">
+                ERPNext vs MyCompany (lsFusion) for SMB: Unique processes, code, and the real cost of change
+              </h1>
+
+              <p class="hero-text">
+                Both systems are free to start. The real difference for SMB is how much it costs to evolve unique processes over 2 years — with concrete numbers and code.
+              </p>
+
+              <!-- HERO IMAGE (optional) -->
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/placeholder-hero.jpg"
+                  alt="Abstract illustration for ERP architecture and cost of change"
+                >
+              </figure>
+            </header>
+
+            <!-- ARTICLE BODY -->
+            <section class="post-content">
+
+              <h2>Who this article is for</h2>
+              <ul>
+                <li>SMB owners and CTOs</li>
+                <li>technical directors</li>
+                <li>business systems architects</li>
+                <li>anyone choosing ERP not for “right now”, but for the next 2–3 years</li>
+              </ul>
+
+              <h2>1. Key premise: both systems are free to start</h2>
+              <p>Let’s start with what’s often missed.</p>
+              <ul>
+                <li><strong>ERPNext</strong> — open source, free.</li>
+                <li><strong>MyCompany (lsFusion)</strong> — open source, free.</li>
+              </ul>
+
+              <p><strong>In both cases:</strong></p>
+              <ul>
+                <li>no license fees</li>
+                <li>no per-user pricing</li>
+                <li>an SMB can deploy the system, start using it,</li>
+                <li>and only then decide what to customize</li>
+              </ul>
+
+              <p>So the question is not “what’s cheaper to start”.<br>
+              The question is <strong>what happens next</strong>.</p>
+
+              <h2>2. Why unique processes matter for SMB</h2>
+              <p>In small and mid-sized businesses, processes are almost always:</p>
+              <ul>
+                <li>non-standard</li>
+                <li>changing frequently</li>
+                <li>full of deliberate “rule exceptions”</li>
+              </ul>
+
+              <p>Typical reality:</p>
+              <ul>
+                <li>pricing is situational</li>
+                <li>reservation can be soft</li>
+                <li>margin can be negative — intentionally</li>
+                <li>managers must see consequences, not just get blocked</li>
+              </ul>
+
+              <p><strong>If ERP doesn’t support this natively, the business either breaks the system — or breaks itself.</strong></p>
+
+              <h2>3. A realistic baseline process (same for both)</h2>
+              <p><strong>Process:</strong></p>
+              <p><strong>Order → Pricing → Reserve → Ship</strong></p>
+
+              <p><strong>Conditions (what makes the business unique):</strong></p>
+              <ul>
+                <li><strong>Price</strong> depends on:
+                  <ul>
+                    <li>customer</li>
+                    <li>urgency</li>
+                    <li>current stock</li>
+                  </ul>
+                </li>
+                <li><strong>Reservation</strong>:
+                  <ul>
+                    <li>soft (can be overridden / reallocated)</li>
+                  </ul>
+                </li>
+                <li><strong>Manager</strong>:
+                  <ul>
+                    <li>sees margin and risk</li>
+                    <li>can confirm an “at-risk order”</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <p>This is not exotic — it’s normal SMB reality.</p>
+
+              <h2>4. ERPNext: how this process is implemented</h2>
+
+              <h3>4.1 Architecture model</h3>
+              <p>ERPNext is built around:</p>
+              <ul>
+                <li>documents (DocType)</li>
+                <li>document lifecycle</li>
+                <li>event handlers (<code>validate</code>, <code>on_submit</code>, …)</li>
+              </ul>
+
+              <p><strong>Uniqueness = code around documents.</strong></p>
+
+              <h3>4.2 Pricing logic (code example)</h3>
+              <p><code># Server Script / Hook: Sales Order validate</code></p>
+              <pre><code class="language-python">def validate(doc, method):
+    for it in doc.items:
+        rate = it.base_rate
+
+        if doc.is_urgent:
+            rate *= 1.2
+
+        stock = get_stock(it.item_code, it.warehouse)
+        if stock &lt; it.qty:
+            rate *= 1.15
+
+        it.rate = rate
+</code></pre>
+
+              <h3>4.3 Margin warnings</h3>
+              <ul>
+                <li>computed in Python</li>
+                <li>surfaced via <code>frappe.msgprint()</code> or JS form scripts</li>
+              </ul>
+
+              <pre><code class="language-python">if it.rate - it.cost_rate &lt; 0:
+    frappe.msgprint(
+        f"Negative margin for item {it.item_code}",
+        alert=True
+    )
+</code></pre>
+
+              <h3>4.4 Soft reservation</h3>
+              <p>ERPNext does not have a first-class concept of “soft reservation”.</p>
+              <p>Common implementation:</p>
+              <ul>
+                <li>a custom DocType <strong>Stock Reservation</strong></li>
+                <li>extra checks in hooks</li>
+                <li>“allow if possible” logic</li>
+              </ul>
+
+              <h3>4.5 How many changes does this cost?</h3>
+              <p>Over 2 years (real SMB):</p>
+              <p><strong>8 business-logic changes:</strong></p>
+              <ul>
+                <li>new pricing formula</li>
+                <li>new reservation type</li>
+                <li>VIP exceptions</li>
+                <li>new warnings</li>
+              </ul>
+
+              <p><strong>Average one change in ERPNext:</strong></p>
+              <ul>
+                <li>Python: 12–16 h</li>
+                <li>JS form: 6–8 h</li>
+                <li>testing: 8–12 h</li>
+              </ul>
+              <p><strong>≈ 44 hours per change</strong></p>
+
+              <h2>5. MyCompany (lsFusion): same process</h2>
+
+              <h3>5.1 Architecture idea</h3>
+              <p><strong>lsFusion is a model, not event glue.</strong></p>
+              <p>You describe:</p>
+              <ul>
+                <li>what price is</li>
+                <li>what risk is</li>
+                <li>what reservation is</li>
+              </ul>
+              <p>not:</p>
+              <ul>
+                <li>where to catch an event</li>
+              </ul>
+
+              <h3>5.2 Price as a property (code)</h3>
+              <pre><code class="language-lsf">price(order, line) =
+    basePrice(line)
+    * urgencyFactor(order)
+    * stockFactor(line);
+</code></pre>
+
+              <h3>5.3 Margin and risk are properties too</h3>
+              <pre><code class="language-lsf">margin(order, line) = price(order,line) - cost(line);
+risk(order, line) = margin(order,line) &lt; 0;
+</code></pre>
+
+              <h3>5.4 Soft reservation is part of the model</h3>
+              <pre><code class="language-lsf">reservedQty(order, item) =
+    IF softReserve(order)
+    THEN requestedQty(order, item)
+    ELSE 0;
+</code></pre>
+
+              <h3>5.5 UI follows the model</h3>
+              <p>The form naturally:</p>
+              <ul>
+                <li>shows margin</li>
+                <li>highlights risk</li>
+                <li>offers a “Confirm with risk” action</li>
+              </ul>
+
+              <pre><code class="language-lsf">ACTION confirmWithRisk(order) {
+    IF EXISTS line WHERE risk(order, line) THEN
+        MESSAGE 'Order confirmed with risk';
+}
+</code></pre>
+
+              <h3>5.6 How many changes does this cost?</h3>
+              <p><strong>One change typically includes:</strong></p>
+              <ul>
+                <li>property edits: 2–4 h</li>
+                <li>form updates (if needed): 2–4 h</li>
+                <li>testing: 4–6 h</li>
+              </ul>
+              <p><strong>≈ 18 hours per change</strong></p>
+
+              <h2>6. Numbers: 2-year comparison</h2>
+
+              <h3>Assumptions</h3>
+              <ul>
+                <li>rate: €50/hour</li>
+                <li>8 process changes</li>
+                <li>both systems are free</li>
+                <li>deployment done by the client</li>
+              </ul>
+
+              <h3>6.1 Implementation (initial stage)</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Stage</th>
+                      <th>ERPNext</th>
+                      <th>MyCompany</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Deployment</td><td>16 h</td><td>16 h</td></tr>
+                    <tr><td>Basic setup</td><td>32 h</td><td>28 h</td></tr>
+                    <tr><td>Unique process</td><td>120 h</td><td>72 h</td></tr>
+                    <tr><td><strong>Total hours</strong></td><td><strong>168</strong></td><td><strong>116</strong></td></tr>
+                    <tr><td><strong>Cost</strong></td><td><strong>€8,400</strong></td><td><strong>€5,800</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>6.2 Process changes (2 years)</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Metric</th>
+                      <th>ERPNext</th>
+                      <th>MyCompany</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Changes</td><td>8</td><td>8</td></tr>
+                    <tr><td>Hours per change</td><td>44</td><td>18</td></tr>
+                    <tr><td>Total hours</td><td>352</td><td>144</td></tr>
+                    <tr><td><strong>Cost</strong></td><td><strong>€17,600</strong></td><td><strong>€7,200</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>6.3 Maintenance</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Metric</th>
+                      <th>ERPNext</th>
+                      <th>MyCompany</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Hours per month</td><td>12</td><td>6</td></tr>
+                    <tr><td>24 months total</td><td>288</td><td>144</td></tr>
+                    <tr><td><strong>Cost</strong></td><td><strong>€14,400</strong></td><td><strong>€7,200</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>7. TCO (2 years)</h2>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Cost item</th>
+                      <th>ERPNext</th>
+                      <th>MyCompany</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Implementation</td><td>€8,400</td><td>€5,800</td></tr>
+                    <tr><td>Changes</td><td>€17,600</td><td>€7,200</td></tr>
+                    <tr><td>Maintenance</td><td>€14,400</td><td>€7,200</td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>€40,400</strong></td><td><strong>€20,200</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p><strong>Result: ~2× difference — even though both systems are free.</strong></p>
+
+            </section>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">ERP</span>
+                  <span class="post-tag">Architecture</span>
+                  <span class="post-tag">SMB</span>
+                  <span class="post-tag">TCO</span>
+                  <span class="post-tag">Open-source</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Published: February 6, 2026</span>
+                  <span>·</span>
+                  <span>Approx. 12 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                No spam – just occasional notes on ERP design, automation experiments and new posts.
+              </p>
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Your email address" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                <p class="newsletter-note">
+                  You will receive a confirmation email.<br>
+                  Powered securely via FormSubmit.
+                </p>
+              </form>
+            </section>
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=DevLab%20Blog%20topic%20idea">
+                  Email us →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
+                automation. We write about architectural patterns, integration strategies and real-world
+                implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
