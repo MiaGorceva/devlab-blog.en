@@ -48,7 +48,7 @@
       "@id": "https://ru.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html"
     },
     "headline": "ERPNext vs MyCompany (lsFusion) for SMB: Unique processes, code, and the real cost of change",
-    "description": "Both ERPNext and MyCompany (lsFusion) are free to start. For SMB, the real difference is not license cost, but how expensive it is to change unique business processes over 2 years. A practical comparison with code and numbers.",
+    "description": "Both ERPNext and MyCompany (lsFusion) are free to start. A deep architectural comparison of ERPNext and MyCompany (lsFusion) through a real retail replenishment process. Lines of code, design philosophy and long-term implications for CTOs.",
     "author": {
       "@type": "Organization",
       "name": "DevLab Blog"
@@ -77,59 +77,29 @@
   })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
   <!-- End Google Tag Manager -->
 </head>
-
 <body class="post-page">
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <div class="page">
-    <!-- HEADER -->
     <header>
       <div class="wrapper">
         <nav class="nav">
           <a href="/" class="nav-brand">
-            <div class="nav-logo" aria-hidden="true">
+            <div class="nav-logo">
               <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
             </div>
             <div class="nav-meta">
               <div class="nav-meta-title">DevLab Blog</div>
-              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+              <div class="nav-meta-sub">Open-source ERP & automation notes</div>
             </div>
           </a>
-
-          <div class="nav-group">
-            <div class="nav-links">
-              <a href="/#posts">Posts</a>
-              <a href="/#categories">Categories</a>
-              <a href="/#about">About</a>
-              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
-            </div>
-            <div class="nav-lang">
-              <a href="https://en.devlab.blog/">EN</a>
-              <a href="https://pl.devlab.blog/">PL</a>
-              <a href="https://ru.devlab.blog/" class="active">RU</a>
-              <a href="https://uk.devlab.blog/">UA</a>
-            </div>
-          </div>
-
-          <div class="nav-cta">
-            <a href="/#posts" class="btn btn-outline">Browse posts</a>
-            <a href="/#about" class="btn btn-primary">What is this?</a>
-          </div>
-
-          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         </nav>
       </div>
     </header>
 
-    <!-- MAIN -->
     <main>
       <div class="wrapper">
         <div class="main-grid">
-          <!-- ARTICLE -->
-          <article id="post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco">
+          <article id="post-erpnext-vs-mycompany-real-life">
+
             <div class="section-title">
               <span>Article</span>
               <small><a class="back" href="/">← Back to all posts</a></small>
@@ -137,360 +107,472 @@
 
             <header>
               <div class="post-meta">
-                <span>ERP / Architecture</span>
+                <span>Architecture</span>
                 <span>&middot;</span>
-                <span>Approx. 12 min read</span>
+                <span>Approx. 18 min read</span>
                 <span>&middot;</span>
-                <span>TCO</span>
+                <span>Deep dive</span>
               </div>
 
               <h1 class="hero-title">
-                ERPNext vs MyCompany (lsFusion) for SMB: Unique processes, code, and the real cost of change
+                A Real-World Comparison: ERPNext vs MyCompany in Retail Replenishment
               </h1>
 
               <p class="hero-text">
-                Both systems are free to start. The real difference for SMB is how much it costs to evolve unique processes over 2 years — with concrete numbers and code.
+                A neutral architectural deep dive comparing ERPNext and MyCompany (lsFusion) using a realistic retail replenishment process and real code structure.
               </p>
-
-              <!-- HERO IMAGE (optional) -->
-              <figure class="post-hero">
-                <img
-                  src="https://uk.devlab.blog/img/placeholder-hero.jpg"
-                  alt="Abstract illustration for ERP architecture and cost of change"
-                >
-              </figure>
             </header>
 
-            <!-- ARTICLE BODY -->
-            <section class="post-content">
+           <section class="post-content">
 
-              <h2>Who this article is for</h2>
-              <ul>
-                <li>SMB owners and CTOs</li>
-                <li>technical directors</li>
-                <li>business systems architects</li>
-                <li>anyone choosing ERP not for “right now”, but for the next 2–3 years</li>
-              </ul>
+<h2>1. Why Retail Replenishment Is a Proper ERP Stress Test</h2>
 
-              <h2>1. Key premise: both systems are free to start</h2>
-              <p>Let’s start with what’s often missed.</p>
-              <ul>
-                <li><strong>ERPNext</strong> — open source, free.</li>
-                <li><strong>MyCompany (lsFusion)</strong> — open source, free.</li>
-              </ul>
+<p>
+ERP demos are easy. Real operations are not.
+</p>
 
-              <p><strong>In both cases:</strong></p>
-              <ul>
-                <li>no license fees</li>
-                <li>no per-user pricing</li>
-                <li>an SMB can deploy the system, start using it,</li>
-                <li>and only then decide what to customize</li>
-              </ul>
+<p>
+Retail replenishment is one of the first processes where ERP systems stop being “forms and documents” and start being <strong>decision engines</strong>. It forces the platform to handle:
+</p>
 
-              <p>So the question is not “what’s cheaper to start”.<br>
-              The question is <strong>what happens next</strong>.</p>
+<ul>
+<li>Time-series sales data</li>
+<li>Forecast adjustments (seasonality, promotions)</li>
+<li>Supplier constraints (lead time, MOQ, pack size)</li>
+<li>Multi-warehouse logic</li>
+<li>Automatic document generation</li>
+<li>Human approval workflows</li>
+<li>Explainability of system decisions</li>
+</ul>
 
-              <h2>2. Why unique processes matter for SMB</h2>
-              <p>In small and mid-sized businesses, processes are almost always:</p>
-              <ul>
-                <li>non-standard</li>
-                <li>changing frequently</li>
-                <li>full of deliberate “rule exceptions”</li>
-              </ul>
+<p>
+This makes it an ideal comparison case for ERPNext and MyCompany (built on the lsFusion platform).
+</p>
 
-              <p>Typical reality:</p>
-              <ul>
-                <li>pricing is situational</li>
-                <li>reservation can be soft</li>
-                <li>margin can be negative — intentionally</li>
-                <li>managers must see consequences, not just get blocked</li>
-              </ul>
+<p>
+The goal of this article is not marketing.
+It is to answer a practical CTO-level question:
+</p>
 
-              <p><strong>If ERP doesn’t support this natively, the business either breaks the system — or breaks itself.</strong></p>
+<blockquote>
+How much real engineering effort does it take to implement a non-trivial retail process?
+</blockquote>
 
-              <h2>3. A realistic baseline process (same for both)</h2>
-              <p><strong>Process:</strong></p>
-              <p><strong>Order → Pricing → Reserve → Ship</strong></p>
+<p>
+And yes — we will count lines of code.
+</p>
 
-              <p><strong>Conditions (what makes the business unique):</strong></p>
-              <ul>
-                <li><strong>Price</strong> depends on:
-                  <ul>
-                    <li>customer</li>
-                    <li>urgency</li>
-                    <li>current stock</li>
-                  </ul>
-                </li>
-                <li><strong>Reservation</strong>:
-                  <ul>
-                    <li>soft (can be overridden / reallocated)</li>
-                  </ul>
-                </li>
-                <li><strong>Manager</strong>:
-                  <ul>
-                    <li>sees margin and risk</li>
-                    <li>can confirm an “at-risk order”</li>
-                  </ul>
-                </li>
-              </ul>
+<figure>
+  <img src="/img/posts/erpnext-vs-mycompany/retail-replenishment-overview.webp" alt="Retail replenishment process overview diagram" loading="lazy">
+</figure>
 
-              <p>This is not exotic — it’s normal SMB reality.</p>
+<hr>
 
-              <h2>4. ERPNext: how this process is implemented</h2>
+<h2>2. Business Specification (Realistic, Not a Toy)</h2>
 
-              <h3>4.1 Architecture model</h3>
-              <p>ERPNext is built around:</p>
-              <ul>
-                <li>documents (DocType)</li>
-                <li>document lifecycle</li>
-                <li>event handlers (<code>validate</code>, <code>on_submit</code>, …)</li>
-              </ul>
+<h3>Scenario</h3>
 
-              <p><strong>Uniqueness = code around documents.</strong></p>
+<ul>
+<li>15 retail stores</li>
+<li>1 central warehouse</li>
+<li>4 main suppliers</li>
+<li>Daily POS sales</li>
+<li>Weekly promotions</li>
+<li>Mixed transfer / purchase strategy</li>
+</ul>
 
-              <h3>4.2 Pricing logic (code example)</h3>
-              <p><code># Server Script / Hook: Sales Order validate</code></p>
-              <pre><code class="language-python">def validate(doc, method):
-    for it in doc.items:
-        rate = it.base_rate
+<h3>Requirements</h3>
 
-        if doc.is_urgent:
-            rate *= 1.2
+<p>Every night (02:00 AM):</p>
 
-        stock = get_stock(it.item_code, it.warehouse)
-        if stock &lt; it.qty:
-            rate *= 1.15
+<p>For each SKU per store:</p>
 
-        it.rate = rate
+<ol>
+<li>Calculate average daily sales (last 28 days)</li>
+<li>Adjust with promotion factor (if active)</li>
+<li>Multiply by supplier lead time</li>
+<li>Subtract:
+  <ul>
+    <li>Current stock</li>
+    <li>Incoming purchase orders</li>
+    <li>Incoming transfers</li>
+  </ul>
+</li>
+<li>Apply:
+  <ul>
+    <li>MOQ (minimum order quantity)</li>
+    <li>Pack size rounding</li>
+  </ul>
+</li>
+<li>If deficit:
+  <ul>
+    <li>Prefer transfer from warehouse if available</li>
+    <li>Otherwise suggest Purchase Order</li>
+  </ul>
+</li>
+<li>Create draft documents</li>
+<li>Log explanation</li>
+<li>Provide UI screen:
+  <ul>
+    <li>View suggestions</li>
+    <li>Approve</li>
+    <li>Reject</li>
+    <li>Recalculate</li>
+  </ul>
+</li>
+</ol>
+
+<p><strong>Explainability example:</strong></p>
+
+<blockquote>
+“Calculated need: 94 units (ADS 4.7 × 14 days – 32 stock – 40 incoming). Rounded to 96 due to pack size 12.”
+</blockquote>
+
+<hr>
+
+<h2>3. ERPNext Implementation</h2>
+
+<figure>
+  <img src="/img/posts/erpnext-vs-mycompany/erpnext-architecture.webp" alt="ERPNext architecture and customization flow" loading="lazy">
+</figure>
+
+<p>
+ERPNext is built on the Frappe Framework (Python backend, JS frontend).
+</p>
+
+<p>
+It already supports:
+</p>
+
+<ul>
+<li>Stock</li>
+<li>Reorder level</li>
+<li>Material Requests</li>
+<li>Purchase Orders</li>
+<li>Stock Transfers</li>
+</ul>
+
+<p>
+But the required business logic exceeds built-in reorder functionality.
+</p>
+
+<h3>3.1 Architectural Approach</h3>
+
+<p>Typical implementation:</p>
+
+<ul>
+<li>Custom DocType: Replenishment Rule</li>
+<li>Scheduled Python job</li>
+<li>Custom server-side report</li>
+<li>Client Script for UI actions</li>
+<li>Hooks for automation</li>
+</ul>
+
+<h3>3.2 Data Model Extension</h3>
+
+<pre><code>{
+  "doctype": "Replenishment Rule",
+  "fields": [
+    {"fieldname": "item", "fieldtype": "Link", "options": "Item"},
+    {"fieldname": "warehouse", "fieldtype": "Link", "options": "Warehouse"},
+    {"fieldname": "lead_time_days", "fieldtype": "Int"},
+    {"fieldname": "promotion_factor", "fieldtype": "Float"},
+    {"fieldname": "moq", "fieldtype": "Int"},
+    {"fieldname": "pack_size", "fieldtype": "Int"}
+  ]
+}</code></pre>
+
+<p>
+~120–180 LOC including metadata.
+</p>
+
+<h3>3.3 Scheduled Job (Core Logic)</h3>
+
+<pre><code># app/replenishment/scheduler.py
+
+import frappe
+from frappe.utils import nowdate, add_days
+
+def nightly_replenishment():
+    rules = frappe.get_all("Replenishment Rule", fields="*")
+
+    for rule in rules:
+        avg_sales = calculate_average_sales(rule.item, rule.warehouse)
+        adjusted_sales = avg_sales * (rule.promotion_factor or 1)
+
+        required_qty = adjusted_sales * rule.lead_time_days
+
+        current_stock = get_stock(rule.item, rule.warehouse)
+        incoming = get_incoming(rule.item, rule.warehouse)
+
+        deficit = required_qty - current_stock - incoming
+
+        if deficit > 0:
+            rounded_qty = round_to_pack(deficit, rule.pack_size, rule.moq)
+            create_suggestion(rule, rounded_qty)
 </code></pre>
 
-              <h3>4.3 Margin warnings</h3>
-              <ul>
-                <li>computed in Python</li>
-                <li>surfaced via <code>frappe.msgprint()</code> or JS form scripts</li>
-              </ul>
+<p>
+Helper functions (stock queries, SQL joins, report generation, rounding, document creation) add another ~180–300 LOC.
+</p>
 
-              <pre><code class="language-python">if it.rate - it.cost_rate &lt; 0:
-    frappe.msgprint(
-        f"Negative margin for item {it.item_code}",
-        alert=True
+<h3>3.4 Suggestion Report</h3>
+
+<pre><code>def execute(filters=None):
+    columns = [...]
+    data = frappe.db.sql("""
+        SELECT item, warehouse, suggested_qty, explanation
+        FROM `tabReplenishment Suggestion`
+        WHERE status = 'Draft'
+    """, as_dict=True)
+    return columns, data
+</code></pre>
+
+<p>
+~70–120 LOC.
+</p>
+
+<h3>3.5 Client-Side Approve Action</h3>
+
+<pre><code>frappe.ui.form.on('Replenishment Suggestion', {
+    approve: function(frm) {
+        frappe.call({
+            method: "app.replenishment.approve",
+            args: { name: frm.doc.name },
+            callback: function(r) {
+                frm.reload_doc();
+            }
+        });
+    }
+});
+</code></pre>
+
+<p>
+~40–80 LOC.
+</p>
+
+<h3>3.6 ERPNext LOC Summary</h3>
+
+<table>
+<tr><th>Component</th><th>LOC (approx)</th></tr>
+<tr><td>Python core logic</td><td>250–400</td></tr>
+<tr><td>Reports</td><td>70–120</td></tr>
+<tr><td>Client JS</td><td>40–80</td></tr>
+<tr><td>Metadata JSON</td><td>120–200</td></tr>
+<tr><td><strong>Total (repo LOC)</strong></td><td><strong>480–800</strong></td></tr>
+</table>
+
+<p><strong>Logic-only LOC:</strong> ~320–600</p>
+
+<hr>
+
+<h2>4. MyCompany (lsFusion) Implementation</h2>
+
+<figure>
+  <img src="/img/posts/erpnext-vs-mycompany/lsfusion-logic.webp" alt="Declarative business logic in lsFusion" loading="lazy">
+</figure>
+
+<p>
+MyCompany is built on lsFusion, a declarative business logic platform.
+</p>
+
+<p>
+Instead of writing procedural jobs, you define:
+</p>
+
+<ul>
+<li>Data properties</li>
+<li>Calculated expressions</li>
+<li>Actions</li>
+<li>Forms</li>
+</ul>
+
+<h3>4.1 Data Definition</h3>
+
+<pre><code>CLASS Item;
+CLASS Warehouse;
+CLASS Rule;
+
+item = DATA Item (Rule);
+warehouse = DATA Warehouse (Rule);
+leadTime = DATA INTEGER (Rule);
+promotionFactor = DATA NUMERIC[10,2] (Rule);
+moq = DATA INTEGER (Rule);
+packSize = DATA INTEGER (Rule);
+</code></pre>
+
+<h3>4.2 Calculated Properties</h3>
+
+<pre><code>avgSales(Item i, Warehouse w) =
+    SUM quantity(Sale s)
+    WHERE s.item = i AND s.warehouse = w
+    AND s.date >= currentDate() - 28
+    / 28;
+
+requiredQty(Rule r) =
+    avgSales(item(r), warehouse(r))
+    * promotionFactor(r)
+    * leadTime(r);
+
+deficit(Rule r) =
+    requiredQty(r)
+    - currentStock(item(r), warehouse(r))
+    - incoming(item(r), warehouse(r));
+</code></pre>
+
+<h3>4.3 Rounding Logic</h3>
+
+<pre><code>roundedQty(Rule r) =
+    MAX(moq(r),
+        CEIL(deficit(r) / packSize(r)) * packSize(r)
     )
+    IF deficit(r) > 0;
 </code></pre>
 
-              <h3>4.4 Soft reservation</h3>
-              <p>ERPNext does not have a first-class concept of “soft reservation”.</p>
-              <p>Common implementation:</p>
-              <ul>
-                <li>a custom DocType <strong>Stock Reservation</strong></li>
-                <li>extra checks in hooks</li>
-                <li>“allow if possible” logic</li>
-              </ul>
+<h3>4.4 Action</h3>
 
-              <h3>4.5 How many changes does this cost?</h3>
-              <p>Over 2 years (real SMB):</p>
-              <p><strong>8 business-logic changes:</strong></p>
-              <ul>
-                <li>new pricing formula</li>
-                <li>new reservation type</li>
-                <li>VIP exceptions</li>
-                <li>new warnings</li>
-              </ul>
-
-              <p><strong>Average one change in ERPNext:</strong></p>
-              <ul>
-                <li>Python: 12–16 h</li>
-                <li>JS form: 6–8 h</li>
-                <li>testing: 8–12 h</li>
-              </ul>
-              <p><strong>≈ 44 hours per change</strong></p>
-
-              <h2>5. MyCompany (lsFusion): same process</h2>
-
-              <h3>5.1 Architecture idea</h3>
-              <p><strong>lsFusion is a model, not event glue.</strong></p>
-              <p>You describe:</p>
-              <ul>
-                <li>what price is</li>
-                <li>what risk is</li>
-                <li>what reservation is</li>
-              </ul>
-              <p>not:</p>
-              <ul>
-                <li>where to catch an event</li>
-              </ul>
-
-              <h3>5.2 Price as a property (code)</h3>
-              <pre><code class="language-lsf">price(order, line) =
-    basePrice(line)
-    * urgencyFactor(order)
-    * stockFactor(line);
-</code></pre>
-
-              <h3>5.3 Margin and risk are properties too</h3>
-              <pre><code class="language-lsf">margin(order, line) = price(order,line) - cost(line);
-risk(order, line) = margin(order,line) &lt; 0;
-</code></pre>
-
-              <h3>5.4 Soft reservation is part of the model</h3>
-              <pre><code class="language-lsf">reservedQty(order, item) =
-    IF softReserve(order)
-    THEN requestedQty(order, item)
-    ELSE 0;
-</code></pre>
-
-              <h3>5.5 UI follows the model</h3>
-              <p>The form naturally:</p>
-              <ul>
-                <li>shows margin</li>
-                <li>highlights risk</li>
-                <li>offers a “Confirm with risk” action</li>
-              </ul>
-
-              <pre><code class="language-lsf">ACTION confirmWithRisk(order) {
-    IF EXISTS line WHERE risk(order, line) THEN
-        MESSAGE 'Order confirmed with risk';
+<pre><code>generateSuggestions() {
+    FOR r IN Rule DO {
+        IF deficit(r) > 0 THEN
+            NEW Suggestion {
+                rule = r;
+                quantity = roundedQty(r);
+                explanation =
+                    'ADS × LT – stock – incoming = ' + deficit(r);
+            };
+    }
 }
 </code></pre>
 
-              <h3>5.6 How many changes does this cost?</h3>
-              <p><strong>One change typically includes:</strong></p>
-              <ul>
-                <li>property edits: 2–4 h</li>
-                <li>form updates (if needed): 2–4 h</li>
-                <li>testing: 4–6 h</li>
-              </ul>
-              <p><strong>≈ 18 hours per change</strong></p>
+<h3>4.5 UI</h3>
 
-              <h2>6. Numbers: 2-year comparison</h2>
+<pre><code>FORM suggestions
+    OBJECTS s = Suggestion
+    PROPERTIES s.rule, s.quantity, s.explanation;
+</code></pre>
 
-              <h3>Assumptions</h3>
-              <ul>
-                <li>rate: €50/hour</li>
-                <li>8 process changes</li>
-                <li>both systems are free</li>
-                <li>deployment done by the client</li>
-              </ul>
+<h3>4.6 MyCompany LOC Summary</h3>
 
-              <h3>6.1 Implementation (initial stage)</h3>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Stage</th>
-                      <th>ERPNext</th>
-                      <th>MyCompany</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Deployment</td><td>16 h</td><td>16 h</td></tr>
-                    <tr><td>Basic setup</td><td>32 h</td><td>28 h</td></tr>
-                    <tr><td>Unique process</td><td>120 h</td><td>72 h</td></tr>
-                    <tr><td><strong>Total hours</strong></td><td><strong>168</strong></td><td><strong>116</strong></td></tr>
-                    <tr><td><strong>Cost</strong></td><td><strong>€8,400</strong></td><td><strong>€5,800</strong></td></tr>
-                  </tbody>
-                </table>
-              </div>
+<table>
+<tr><th>Component</th><th>LOC (approx)</th></tr>
+<tr><td>Data definitions</td><td>25</td></tr>
+<tr><td>Business logic</td><td>60–90</td></tr>
+<tr><td>Rounding</td><td>10</td></tr>
+<tr><td>Actions</td><td>30–40</td></tr>
+<tr><td>UI</td><td>20–30</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>145–195</strong></td></tr>
+</table>
 
-              <h3>6.2 Process changes (2 years)</h3>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Metric</th>
-                      <th>ERPNext</th>
-                      <th>MyCompany</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Changes</td><td>8</td><td>8</td></tr>
-                    <tr><td>Hours per change</td><td>44</td><td>18</td></tr>
-                    <tr><td>Total hours</td><td>352</td><td>144</td></tr>
-                    <tr><td><strong>Cost</strong></td><td><strong>€17,600</strong></td><td><strong>€7,200</strong></td></tr>
-                  </tbody>
-                </table>
-              </div>
+<hr>
 
-              <h3>6.3 Maintenance</h3>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Metric</th>
-                      <th>ERPNext</th>
-                      <th>MyCompany</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Hours per month</td><td>12</td><td>6</td></tr>
-                    <tr><td>24 months total</td><td>288</td><td>144</td></tr>
-                    <tr><td><strong>Cost</strong></td><td><strong>€14,400</strong></td><td><strong>€7,200</strong></td></tr>
-                  </tbody>
-                </table>
-              </div>
+<h2>5. Side-by-Side Comparison</h2>
 
-              <h2>7. TCO (2 years)</h2>
-              <div class="table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Cost item</th>
-                      <th>ERPNext</th>
-                      <th>MyCompany</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>Implementation</td><td>€8,400</td><td>€5,800</td></tr>
-                    <tr><td>Changes</td><td>€17,600</td><td>€7,200</td></tr>
-                    <tr><td>Maintenance</td><td>€14,400</td><td>€7,200</td></tr>
-                    <tr><td><strong>Total</strong></td><td><strong>€40,400</strong></td><td><strong>€20,200</strong></td></tr>
-                  </tbody>
-                </table>
-              </div>
+<table>
+<tr><th>Metric</th><th>ERPNext</th><th>MyCompany</th></tr>
+<tr><td>Logic paradigm</td><td>Procedural (Python)</td><td>Declarative</td></tr>
+<tr><td>Job scheduling</td><td>Explicit</td><td>Built-in action</td></tr>
+<tr><td>UI wiring</td><td>JS required</td><td>Declarative</td></tr>
+<tr><td>LOC (logic-only)</td><td>320–600</td><td>100–150</td></tr>
+<tr><td>LOC (full repo)</td><td>480–800</td><td>145–200</td></tr>
+</table>
 
-              <p><strong>Result: ~2× difference — even though both systems are free.</strong></p>
+<hr>
 
-            </section>
+<h2>6. Architectural Implications</h2>
 
-            <footer class="post-footer-extended">
-              <div class="post-footer-meta">
-                <div class="post-meta-tags">
-                  <span class="post-tag">ERP</span>
-                  <span class="post-tag">Architecture</span>
-                  <span class="post-tag">SMB</span>
-                  <span class="post-tag">TCO</span>
-                  <span class="post-tag">Open-source</span>
-                </div>
+<p>
+ERPNext spreads logic across Python, JS and metadata.
+MyCompany centralizes rules declaratively.
+</p>
 
-                <div class="post-meta-secondary">
-                  <span>Published: February 6, 2026</span>
-                  <span>·</span>
-                  <span>Approx. 12 min read</span>
-                  <span>·</span>
-                  <span class="post-views">Views: <span class="count">—</span></span>
-                </div>
-              </div>
-            </footer>
+<p>
+More lines of code typically mean:
+</p>
 
-            <section class="sidebar-block">
-              <p class="sidebar-text">
-                No spam – just occasional notes on ERP design, automation experiments and new posts.
-              </p>
-              <form class="newsletter-form"
-                    action="https://formsubmit.co/info@devlab.blog"
-                    method="POST">
-                <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="text" name="_honey" style="display:none">
+<ul>
+<li>Higher cognitive load</li>
+<li>More integration glue</li>
+<li>More surface for regression</li>
+</ul>
 
-                <input type="email" name="email" class="field" placeholder="Your email address" required>
-                <button class="btn btn-primary" type="submit">Subscribe</button>
+<hr>
 
-                <p class="newsletter-note">
-                  You will receive a confirmation email.<br>
-                  Powered securely via FormSubmit.
-                </p>
-              </form>
-            </section>
+<h2>7. When Each Platform Wins</h2>
+
+<p><strong>Choose ERPNext if:</strong></p>
+<ul>
+<li>You need full ERP immediately</li>
+<li>Your logic is relatively standard</li>
+<li>You want ecosystem over elegance</li>
+</ul>
+
+<p><strong>Choose MyCompany if:</strong></p>
+<ul>
+<li>Your competitive advantage is in custom logic</li>
+<li>You expect frequent rule changes</li>
+<li>You want ERP as a constructor, not a product</li>
+</ul>
+
+<hr>
+
+<h2>8. Conclusion</h2>
+
+<p>
+Counting lines of code is not everything.
+</p>
+
+<p>
+But in complex business processes:
+</p>
+
+<blockquote>
+LOC correlates with cognitive load.  
+Cognitive load correlates with long-term maintenance cost.
+</blockquote>
+
+<p>
+In this replenishment scenario:
+</p>
+
+<ul>
+<li>ERPNext required ~2–4× more code.</li>
+<li>MyCompany expressed business rules more compactly.</li>
+</ul>
+
+<p>
+The difference is not about Python vs another language.
+It is about procedural extension vs declarative modeling.
+</p>
+
+<p>
+There is also a modern dimension that cannot be ignored:
+the amount and structure of code directly influence how efficiently AI tools can learn,
+assist, refactor and generate extensions. Larger procedural surfaces increase AI training
+cost, context complexity and long-term operational expense.
+More compact declarative logic reduces both human and AI maintenance overhead.
+</p>
+
+<p>
+For CTOs and architects, the question is simple:
+</p>
+
+<blockquote>
+Are you extending an ERP?  
+Or are you modeling a business system?
+</blockquote>
+
+<p>
+That decision determines how your next five years of maintenance — and AI-assisted evolution — will feel.
+</p>
+
+</section>
+          </article>
+          </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all articles</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Categories →</a>
+            </div>
           </article>
 
           <!-- SIDEBAR -->
@@ -498,31 +580,30 @@ risk(order, line) = margin(order,line) &lt; 0;
             <section class="sidebar-block">
               <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
               <p class="sidebar-text">
-                Have a question or an idea for a future article?
-                <a class="post-read" href="mailto:info@devlab.blog?subject=DevLab%20Blog%20topic%20idea">
-                  Email us →
+                Have a question or an idea for the next post?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Идея%20или%20вопрос%20для%20DevLab%20Blog">
+                  Write to us →
                 </a>
               </p>
             </section>
 
             <section class="sidebar-block">
-              <h3 class="sidebar-title">About this blog</h3>
+              <h3 class="sidebar-title">About the blog</h3>
               <p class="sidebar-text">
-                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code
-                automation. We write about architectural patterns, integration strategies and real-world
-                implementation lessons.
+                DevLab Blog — notes on open-source ERP, modular approaches, integrations, and automation practice.
+                We write about what breaks in real implementations and how to make tech decisions without “religion”.
               </p>
             </section>
 
             <section class="sidebar-block">
-              <h3 class="sidebar-title">More to explore</h3>
+              <h3 class="sidebar-title">More</h3>
               <p class="sidebar-text">
-                Go back to the main page to see other posts, or browse by category:
+                Return to the home page or pick a category:
               </p>
               <ul>
-                <li><a href="/">All blog posts</a></li>
-                <li><a href="/#categories">Browse by category</a></li>
-                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+                <li><a href="/">All articles</a></li>
+                <li><a href="/#categories">Categories</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
               </ul>
             </section>
           </aside>
@@ -535,13 +616,13 @@ risk(order, line) = margin(order,line) &lt; 0;
       <div class="wrapper footer-grid">
         <div>
           <div class="footer-links">
-            <a href="/">Posts</a>
+            <a href="/">Articles</a>
             <a href="/#categories">Categories</a>
             <a href="/#about">About</a>
-            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
           </div>
           <p class="footer-meta">
-            DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
+            DevLab Blog – notes on open-source ERP, modular architectures, and automation.
           </p>
         </div>
         <div class="footer-meta">
