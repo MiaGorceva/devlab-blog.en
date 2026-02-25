@@ -185,17 +185,45 @@
 
               <div class="post-toc" aria-label="Article overview">
                 <div class="post-toc__title">In this article</div>
-                <ul class="post-toc__list">
-                  <li>Why “free ERP” often becomes expensive later (maintenance, upgrades, customization)</li>
-                  <li>What teams realize too late — and how to avoid it</li>
-                  <li>When a classic ERP suite works, and when it becomes a constraint</li>
-                  <li>Platform-first ERP: ERP as a result, not a product</li>
-                  <li>Low-code/internal tools: how modern “ERP stacks” are built in practice</li>
-                  <li>How to choose in 2026 without illusions</li>
-                </ul>
+
+                <ol>
+                  <li>
+                    <a class="post-read" href="#toc-open-source-meaning">
+                      Why “open-source ERP” no longer means one single thing
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="post-read" href="#classic-erps">
+                      Classic ERPs: still alive, but no longer universal
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="post-read" href="#platform-first">
+                      Platform-first ERP: when ERP is the result, not the product
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="post-read" href="#internal-tools">
+                      Low-code and internal tools: how ERP is built in practice
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="post-read" href="#toc-choices-2025">
+                      How choices were made in 2025
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="post-read" href="#toc-conclusion-2026">
+                      Conclusion: how to choose in 2026 (without illusions)
+                    </a>
+                  </li>
+                </ol>
               </div>
-
-
               <figure class="post-hero">
                 <img
                   src="https://uk.devlab.blog/img/post13-open-source-erp-low-code.webp"
@@ -204,478 +232,342 @@
                   decoding="async"
                 >
               </figure>
-            </header>
-
-            <!-- ARTICLE BODY --> 
-             <section class="post-content">
-              <h2>Why “open-source ERP” no longer means one single thing</h2>
-                <p>
-                If you read most articles about open-source ERP, it may seem that the world is still divided
-                into “off-the-shelf systems” and “custom development”.
-                In practice, by 2024–2025 almost nobody thinks this way anymore.
-                </p>
-                <p>
-                Companies are no longer looking for an ERP as a product.  
-                They are looking for <em>a way to assemble and maintain their business systems</em>
-                in an environment of constant change: processes, teams, integrations — and now AI.
-                </p>
-                <p>
-                That’s why this list deliberately mixes ERPs, platforms, and low-code tools —
-                this is exactly how they coexist in real companies today.
-                </p>
-
-    
-
-              <!-- Quick Fit Block (EN/RU/PL/UA) -->
-            <!-- <section class="quick-fit post-quick" aria-labelledby="quick-fit-title" role="note" data-quick-fit>
-                <header class="quick-fit__header">
-                  <h3 class="quick-fit__title post-quick__title" id="quick-fit-title" data-i18n="title">Short on time?</h3>
-                  <p class="quick-fit__lead post-quick__text" data-i18n="lead">
-                    Most teams don’t evaluate all options equally. They narrow the list down by context:
-                  </p>
-                </header>
-
-                <form class="quick-fit__form" aria-describedby="quick-fit-hint">
-                  <fieldset class="quick-fit__fieldset">
-                    <legend class="quick-fit__legend" data-i18n="legend">Pick what sounds closest:</legend>
-
-                    <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="smb-stable-no-dev" />
-                      <span data-i18n="opt1">SMB · stable processes · no in-house dev</span>
-                    </label>
-
-                    <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="smb-changing-small-dev" />
-                      <span data-i18n="opt2">SMB · changing processes · small dev team</span>
-                    </label>
-
-                    <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="enterprise-standardized" />
-                      <span data-i18n="opt3">Enterprise · standardized processes</span>
-                    </label>
-
-                    <label class="quick-fit__option">
-                      <input type="radio" name="quickFit" value="enterprise-evolving-platform" />
-                      <span data-i18n="opt4">Enterprise · evolving logic · platform-first approach</span>
-                    </label>
-                  </fieldset>
-
-                  <p class="quick-fit__hint" id="quick-fit-hint" data-i18n="hint">
-                    If you recognize yourself in one of these, only a small subset of systems in this article usually applies.
-                  </p>
-
-                  <div class="quick-fit__map" role="group" aria-label="Quick map">
-                    <p class="quick-fit__map-title" data-i18n="mapTitle">Jump to:</p>
-                    <ul class="quick-fit__map-list">
-                      <li>
-                        <a class="quick-fit__link" href="#classic-erps" data-map="classic" data-i18n="map1">
-                          Classic ERPs (Odoo, ERPNext, Dolibarr, metasfresh)
-                        </a>
-                      </li>
-                      <li>
-                        <a class="quick-fit__link" href="#platform-first" data-map="platform" data-i18n="map2">
-                          Platform-first (lsFusion, Tryton, OFBiz, Openbravo)
-                        </a>
-                      </li>
-                      <li>
-                        <a class="quick-fit__link" href="#internal-tools" data-map="tools" data-i18n="map3">
-                          Low-code & internal tools (ToolJet, NocoBase, Budibase, Retool)
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="quick-fit__recommend" aria-live="polite">
-                    <p class="quick-fit__recommend-title" data-i18n="recTitle">What to focus on:</p>
-                    <p class="quick-fit__recommend-text" data-i18n="recDefault">
-                      Choose an option above — I’ll highlight the most relevant systems.
-                    </p>
-                  </div>
-                </form>
-              </section>-->
-
-              <!-- Quick Fit Block (EN/RU/PL/UA) -->
-              <section class="quick-fit post-quick" aria-labelledby="quick-fit-title" role="note" data-quick-fit>
-                <header class="quick-fit__header">
-                  <h3 class="quick-fit__title post-quick__title" id="quick-fit-title" data-i18n="title">Short on time?</h3>
-                  <p class="quick-fit__lead post-quick__text" data-i18n="lead">
-                    Most teams don’t evaluate all options equally. They narrow the list down by context:
-                  </p>
-                </header>
-
-                <form class="quick-fit__form" aria-describedby="quick-fit-hint">
-                  <fieldset class="quick-fit__fieldset">
-                    <legend class="quick-fit__legend" data-i18n="legend">Pick what sounds closest:</legend>
-
-                    <!-- ✅ This wrapper is the only structural change -->
-                    <div class="quick-fit__options">
-                      <label class="quick-fit__option">
-                        <input type="radio" name="quickFit" value="smb-stable-no-dev" />
-                        <span data-i18n="opt1">SMB · stable processes · no in-house dev</span>
-                      </label>
-
-                      <label class="quick-fit__option">
-                        <input type="radio" name="quickFit" value="smb-changing-small-dev" />
-                        <span data-i18n="opt2">SMB · changing processes · small dev team</span>
-                      </label>
-
-                      <label class="quick-fit__option">
-                        <input type="radio" name="quickFit" value="enterprise-standardized" />
-                        <span data-i18n="opt3">Enterprise · standardized processes</span>
-                      </label>
-
-                      <label class="quick-fit__option">
-                        <input type="radio" name="quickFit" value="enterprise-evolving-platform" />
-                        <span data-i18n="opt4">Enterprise · evolving logic · platform-first approach</span>
-                      </label>
-                    </div>
-                  </fieldset>
-
-                  <div class="quick-fit__recommend" aria-live="polite">
-                    <p class="quick-fit__recommend-title" data-i18n="recTitle">What to focus on:</p>
-                    <p class="quick-fit__recommend-text" data-i18n="recDefault">
-                      Choose an option above — I’ll highlight the most relevant systems.
-                    </p>
-                  </div>
-
-                  <p class="quick-fit__hint" id="quick-fit-hint" data-i18n="hint">
-                    If you recognize yourself in one of these, only a small subset of systems in this article usually applies.
-                  </p>
-
-                  <div class="quick-fit__map" role="group" aria-label="Quick map">
-                    <p class="quick-fit__map-title" data-i18n="mapTitle">Jump to:</p>
-                    <ul class="quick-fit__map-list">
-                      <li>
-                        <a class="quick-fit__link" href="#classic-erps" data-map="classic" data-i18n="map1">
-                          Classic ERPs (Odoo, ERPNext, Dolibarr, metasfresh)
-                        </a>
-                      </li>
-                      <li>
-                        <a class="quick-fit__link" href="#platform-first" data-map="platform" data-i18n="map2">
-                          Platform-first (lsFusion, Tryton, OFBiz, Openbravo)
-                        </a>
-                      </li>
-                      <li>
-                        <a class="quick-fit__link" href="#internal-tools" data-map="tools" data-i18n="map3">
-                          Low-code & internal tools (ToolJet, NocoBase, Budibase, Retool)
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </form>
-              </section>
-
-              <h2 id="classic-erps">Classic ERPs: still alive, but no longer universal</h2>
-                <h3 data-erp="odoo">Odoo (Community Edition)</h3>
-                <p>
-                Odoo remains the most recognizable open-source ERP platform.
-                It still works very well as an “entry point”:
-                accounting, sales, inventory, basic workflows — everything is available out of the box.
-                </p>
-                <p>
-                The problems usually start not at launch, but one or two years later.
-                When the business outgrows standard scenarios, Odoo becomes
-                a product you effectively maintain yourself:
-                custom modules, complex upgrades, and dependency on the ecosystem.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> you need a fast start and relatively standard processes.<br>
-                <strong>Poor fit if:</strong> business logic changes frequently and ERP must evolve rather than freeze.<br>
-                <strong>Links:</strong>
-                <a href="https://www.odoo.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/odoo/odoo" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
-
-                <h3 data-erp="erpnext">ERPNext</h3>
-                <p>
-                ERPNext is often chosen by teams looking for a coherent,
-                well-structured ERP without enterprise-level excess.
-                It enforces discipline: if your processes fit the model,
-                the system behaves predictably and reliably.
-                </p>
-                <p>
-                The price of that predictability is flexibility.
-                ERPNext does not like being constantly bent to new operating models.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> the business is ready to standardize.<br>
-                <strong>Poor fit if:</strong> processes are unstable and change frequently.<br>
-                <strong>Links:</strong>
-                <a href="https://erpnext.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/frappe/erpnext" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
-
-                <hr>
-
-                <h3 data-erp="dolibarr">Dolibarr</h3>
-                <p>
-                Dolibarr represents the lightweight end of open-source ERP.
-                It is often chosen by small businesses that need basic CRM,
-                invoicing, and inventory without operational complexity.
-                </p>
-                <p>
-                Its main strength is simplicity rather than architectural flexibility.
-                Dolibarr works best when processes are clear and unlikely to change often.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> simplicity matters more than extensibility.<br>
-                <strong>Poor fit if:</strong> ERP is expected to evolve into a platform.<br>
-                <strong>Links:</strong>
-                <a href="https://www.dolibarr.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/Dolibarr/dolibarr" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
-
-                <hr>
-
-                <h3 data-erp="metasfresh">metasfresh</h3>
-                <p>
-                metasfresh focuses on operational workflows such as logistics,
-                procurement, and production planning.
-                It is less generic than many ERPs, but strong in its core domains.
-                </p>
-                <p>
-                Teams usually adopt metasfresh when operational control matters
-                more than broad functional coverage.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> supply chain and operations are central.<br>
-                <strong>Poor fit if:</strong> you need a generic business platform.<br>
-                <strong>Links:</strong>
-                <a href="https://metasfresh.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/metasfresh/metasfresh" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
+              </header>
 
 
-                <hr>
+           <section class="post-content">
+            <h2 id="toc-open-source-meaning">Why “open-source ERP” no longer means one single thing</h2>
+            <p>
+              If you read most articles about open-source ERP, it may seem that the world is still divided
+              into “off-the-shelf systems” and “custom development”.
+              In practice, by 2024–2025 almost nobody thinks this way anymore.
+            </p>
+            <p>
+              Companies are no longer looking for an ERP as a product.  
+              They are looking for <em>a way to assemble and maintain their business systems</em>
+              in an environment of constant change: processes, teams, integrations — and now AI.
+            </p>
+            <p>
+              That’s why this list deliberately mixes ERPs, platforms, and low-code tools —
+              this is exactly how they coexist in real companies today.
+            </p>
 
-                <h2 id="platform-first">Platform-first ERP: when ERP is the result, not the product</h2>
-                <h3 data-erp="lsfusion">MyCompany (lsFusion)</h3>
-                <p>
-                More and more teams are realizing that ERP as a “boxed product”
-                does not survive real life very well: changing processes, new channels,
-                automation, and AI.
-                </p>
-                <p>
-                MyCompany is an example of a platform-first approach.
-                Formally it is an ERP, but in essence it is a way to describe business logic
-                so that it can evolve without rewriting the system.
-                </p>
-                <p>
-                This becomes especially important in an AI-driven context.
-                Declarative, transparent logic is easier to analyze,
-                explain, and automate — both for humans and AI tools.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> ERP must grow and transform together with the business.<br>
-                <strong>Poor fit if:</strong> you want a “set it and forget it” ERP.<br>
-                <strong>Links:</strong>
-                <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a> 
-                </p>
+            <h2 id="classic-erps">Classic ERPs: still alive, but no longer universal</h2>
 
-                <h3 data-erp="tryton">Tryton</h3>
-                <p>
-                Tryton is less popular, but architecturally very clean.
-                It is often chosen by teams that want full control over the data model
-                and are not afraid to write code.
-                </p>
-                <p>
-                It is not a fast start, but a solid foundation for long-lived systems.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> you have an engineering team and a long-term horizon.<br>
-                <strong>Poor fit if:</strong> you need ERP “yesterday”.<br>
-                <strong>Links:</strong>
-                <a href="https://www.tryton.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/tryton/tryton" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
+            <h3 data-erp="odoo">Odoo (Community Edition)</h3>
+            <p>
+              Odoo remains the most recognizable open-source ERP platform.
+              It still works very well as an “entry point”:
+              accounting, sales, inventory, basic workflows — everything is available out of the box.
+            </p>
+            <p>
+              The problems usually start not at launch, but one or two years later.
+              When the business outgrows standard scenarios, Odoo becomes
+              a product you effectively maintain yourself:
+              custom modules, complex upgrades, and dependency on the ecosystem.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> you need a fast start and relatively standard processes.<br>
+              <strong>Poor fit if:</strong> business logic changes frequently and ERP must evolve rather than freeze.<br>
+              <strong>Links:</strong>
+              <a href="https://www.odoo.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/odoo/odoo" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-               <h3 data-erp="ofbiz">Apache OFBiz</h3>
-                <p>
-                OFBiz is rarely used as a ready-made ERP.
-                More often it serves as a foundation for building custom business systems.
-                </p>
-                <p>
-                It offers freedom, but requires a mature team and architectural discipline.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> ERP is part of your own internal platform.<br>
-                <strong>Poor fit if:</strong> you lack development resources.<br>
-                <strong>Links:</strong>
-                <a href="https://ofbiz.apache.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/apache/ofbiz-framework" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
+            <h3 data-erp="erpnext">ERPNext</h3>
+            <p>
+              ERPNext is often chosen by teams looking for a coherent,
+              well-structured ERP without enterprise-level excess.
+              It enforces discipline: if your processes fit the model,
+              the system behaves predictably and reliably.
+            </p>
+            <p>
+              The price of that predictability is flexibility.
+              ERPNext does not like being constantly bent to new operating models.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> the business is ready to standardize.<br>
+              <strong>Poor fit if:</strong> processes are unstable and change frequently.<br>
+              <strong>Links:</strong>
+              <a href="https://erpnext.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/frappe/erpnext" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <hr>
+            <hr>
 
-                <h3 data-erp="openbravo">Openbravo</h3>
-                <p>
-                Openbravo is often used as an ERP core rather than a full suite.
-                It commonly serves as a backend foundation for retail
-                and distributed enterprise systems.
-                </p>
-                <p>
-                In practice, Openbravo is embedded into larger stacks
-                instead of being used as a standalone product.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> ERP is part of a broader enterprise architecture.<br>
-                <strong>Poor fit if:</strong> you expect a ready-made system out of the box.<br>
-                <strong>Links:</strong>
-                <a href="https://www.openbravo.com/" target="_blank" rel="noopener noreferrer">Site</a>
-                </p>
+            <h3 data-erp="dolibarr">Dolibarr</h3>
+            <p>
+              Dolibarr represents the lightweight end of open-source ERP.
+              It is often chosen by small businesses that need basic CRM,
+              invoicing, and inventory without operational complexity.
+            </p>
+            <p>
+              Its main strength is simplicity rather than architectural flexibility.
+              Dolibarr works best when processes are clear and unlikely to change often.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> simplicity matters more than extensibility.<br>
+              <strong>Poor fit if:</strong> ERP is expected to evolve into a platform.<br>
+              <strong>Links:</strong>
+              <a href="https://www.dolibarr.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/Dolibarr/dolibarr" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
+            <hr>
 
-                <hr>
+            <h3 data-erp="metasfresh">metasfresh</h3>
+            <p>
+              metasfresh focuses on operational workflows such as logistics,
+              procurement, and production planning.
+              It is less generic than many ERPs, but strong in its core domains.
+            </p>
+            <p>
+              Teams usually adopt metasfresh when operational control matters
+              more than broad functional coverage.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> supply chain and operations are central.<br>
+              <strong>Poor fit if:</strong> you need a generic business platform.<br>
+              <strong>Links:</strong>
+              <a href="https://metasfresh.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/metasfresh/metasfresh" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <h2 id="internal-tools">Low-code and internal tools: how ERP is built in practice</h2>
+            <hr>
 
-                <h3 data-erp="tooljet">ToolJet</h3>
-                <p>
-                ToolJet is a good example of how companies actually build
-                “ERP-like” systems today.
-                Not a single monolith, but a set of internal interfaces
-                connected to data and services.
-                </p>
-                <p>
-                It is not ERP in the classical sense,
-                but this is often what a modern business operating system looks like.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> ERP is a collection of internal tools.<br>
-                <strong>Poor fit if:</strong> you need a single monolithic accounting core.<br>
-                <strong>Links:</strong>
-                <a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
+            <h2 id="platform-first">Platform-first ERP: when ERP is the result, not the product</h2>
 
-                <h3 data-erp="nocobase">NocoBase</h3>
-                <p>
-                NocoBase appears in similar scenarios to ToolJet,
-                but with a stronger focus on extensibility and plugins.
-                </p>
-                <p>
-                It is chosen when ERP is an ecosystem of internal applications,
-                not a single system.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> you need a low-code layer on top of data.<br>
-                <strong>Poor fit if:</strong> you are looking for a ready-made ERP suite.<br>
-                <strong>Links:</strong>
-                <a href="https://www.nocobase.com/" target="_blank"rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
+            <h3 data-erp="lsfusion">MyCompany (lsFusion)</h3>
+            <p>
+              More and more teams are realizing that ERP as a “boxed product”
+              does not survive real life very well: changing processes, new channels,
+              automation, and AI.
+            </p>
+            <p>
+              MyCompany is an example of a platform-first approach.
+              Formally it is an ERP, but in essence it is a way to describe business logic
+              so that it can evolve without rewriting the system.
+            </p>
+            <p>
+              This becomes especially important in an AI-driven context.
+              Declarative, transparent logic is easier to analyze,
+              explain, and automate — both for humans and AI tools.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> ERP must grow and transform together with the business.<br>
+              <strong>Poor fit if:</strong> you want a “set it and forget it” ERP.<br>
+              <strong>Links:</strong>
+              <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a> 
+            </p>
 
-                <h3 data-erp="budibase">Budibase</h3>
-                <p>
-                Budibase occupies a similar niche — rapid creation
-                of internal admin panels and operational interfaces.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> you need to build interfaces for teams quickly.<br>
-                <strong>Poor fit if:</strong> complex business logic must live in the core.<br>
-                <strong>Links:</strong>
-                <a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </p>
+            <h3 data-erp="tryton">Tryton</h3>
+            <p>
+              Tryton is less popular, but architecturally very clean.
+              It is often chosen by teams that want full control over the data model
+              and are not afraid to write code.
+            </p>
+            <p>
+              It is not a fast start, but a solid foundation for long-lived systems.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> you have an engineering team and a long-term horizon.<br>
+              <strong>Poor fit if:</strong> you need ERP “yesterday”.<br>
+              <strong>Links:</strong>
+              <a href="https://www.tryton.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/tryton/tryton" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <hr>
+            <h3 data-erp="ofbiz">Apache OFBiz</h3>
+            <p>
+              OFBiz is rarely used as a ready-made ERP.
+              More often it serves as a foundation for building custom business systems.
+            </p>
+            <p>
+              It offers freedom, but requires a mature team and architectural discipline.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> ERP is part of your own internal platform.<br>
+              <strong>Poor fit if:</strong> you lack development resources.<br>
+              <strong>Links:</strong>
+              <a href="https://ofbiz.apache.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/apache/ofbiz-framework" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <h3 data-erp="retool">Retool</h3>
-                <p>
-                Retool is not an ERP, but it reflects how many companies
-                actually build internal business systems today:
-                custom interfaces on top of databases and APIs.
-                </p>
-                <p>
-                It is often used alongside ERPs and platforms
-                as an operational layer rather than a replacement.
-                </p>
-                <p>
-                <strong>Good fit if:</strong> ERP is a collection of internal tools.<br>
-                <strong>Poor fit if:</strong> accounting must live inside the same system.<br>
-                <strong>Links:</strong>
-                <a href="https://retool.com/" target="_blank" rel="noopener noreferrer">Site</a>
-                </p>
-                <hr>
+            <hr>
 
-                <h2>How choices were made in 2025</h2>
-                <ol>
-                <li><strong>If you need fast results:</strong> a ready-made ERP.</li>
-                <li><strong>If ERP is a living organism:</strong> a platform-first approach.</li>
-                <li><strong>If ERP is a toolbox:</strong> low-code and internal tools.</li>
-                </ol>
+            <h3 data-erp="openbravo">Openbravo</h3>
+            <p>
+              Openbravo is often used as an ERP core rather than a full suite.
+              It commonly serves as a backend foundation for retail
+              and distributed enterprise systems.
+            </p>
+            <p>
+              In practice, Openbravo is embedded into larger stacks
+              instead of being used as a standalone product.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> ERP is part of a broader enterprise architecture.<br>
+              <strong>Poor fit if:</strong> you expect a ready-made system out of the box.<br>
+              <strong>Links:</strong>
+              <a href="https://www.openbravo.com/" target="_blank" rel="noopener noreferrer">Site</a>
+            </p>
 
-                <p>
-                In reality, many companies use a <em>combination</em> of all three.
-                And this is the main trend of recent years.
-                </p>
+            <hr>
 
-                <hr>
+            <h2 id="internal-tools">Low-code and internal tools: how ERP is built in practice</h2>
 
-                <h2>Conclusion: how to choose in 2026 (without illusions)</h2>
+            <h3 data-erp="tooljet">ToolJet</h3>
+            <p>
+              ToolJet is a good example of how companies actually build
+              “ERP-like” systems today.
+              Not a single monolith, but a set of internal interfaces
+              connected to data and services.
+            </p>
+            <p>
+              It is not ERP in the classical sense,
+              but this is often what a modern business operating system looks like.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> ERP is a collection of internal tools.<br>
+              <strong>Poor fit if:</strong> you need a single monolithic accounting core.<br>
+              <strong>Links:</strong>
+              <a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <p>
-                The key mistake when choosing ERP in 2025
-                was believing that there is one “correct” system
-                that will solve everything once and for all.
-                </p>
+            <h3 data-erp="nocobase">NocoBase</h3>
+            <p>
+              NocoBase appears in similar scenarios to ToolJet,
+              but with a stronger focus on extensibility and plugins.
+            </p>
+            <p>
+              It is chosen when ERP is an ecosystem of internal applications,
+              not a single system.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> you need a low-code layer on top of data.<br>
+              <strong>Poor fit if:</strong> you are looking for a ready-made ERP suite.<br>
+              <strong>Links:</strong>
+              <a href="https://www.nocobase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <p>
-                Reality is different: modern companies build
-                <strong>a business systems architecture</strong>,
-                where ERP is not a product, but a layer of logic and data.
-                </p>
+            <h3 data-erp="budibase">Budibase</h3>
+            <p>
+              Budibase occupies a similar niche — rapid creation
+              of internal admin panels and operational interfaces.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> you need to build interfaces for teams quickly.<br>
+              <strong>Poor fit if:</strong> complex business logic must live in the core.<br>
+              <strong>Links:</strong>
+              <a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
+              <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
 
-                <ol>
-                <li>
+            <hr>
+
+            <h3 data-erp="retool">Retool</h3>
+            <p>
+              Retool is not an ERP, but it reflects how many companies
+              actually build internal business systems today:
+              custom interfaces on top of databases and APIs.
+            </p>
+            <p>
+              It is often used alongside ERPs and platforms
+              as an operational layer rather than a replacement.
+            </p>
+            <p>
+              <strong>Good fit if:</strong> ERP is a collection of internal tools.<br>
+              <strong>Poor fit if:</strong> accounting must live inside the same system.<br>
+              <strong>Links:</strong>
+              <a href="https://retool.com/" target="_blank" rel="noopener noreferrer">Site</a>
+            </p>
+
+            <hr>
+
+            <h2 id="toc-choices-2025">How choices were made in 2025</h2>
+
+            <ol>
+              <li><strong>If you need fast results:</strong> a ready-made ERP.</li>
+              <li><strong>If ERP is a living organism:</strong> a platform-first approach.</li>
+              <li><strong>If ERP is a toolbox:</strong> low-code and internal tools.</li>
+            </ol>
+
+            <p>
+              In reality, many companies use a <em>combination</em> of all three.
+              And this is the main trend of recent years.
+            </p>
+
+            <hr>
+
+            <h2 id="toc-conclusion-2026">Conclusion: how to choose in 2026 (without illusions)</h2>
+
+            <p>
+              The key mistake when choosing ERP in 2025
+              was believing that there is one “correct” system
+              that will solve everything once and for all.
+            </p>
+
+            <p>
+              Reality is different: modern companies build
+              <strong>a business systems architecture</strong>,
+              where ERP is not a product, but a layer of logic and data.
+            </p>
+
+            <ol>
+              <li>
                 <strong>If you need fast results right now</strong><br>
                 Choose a ready-made ERP and <em>consciously limit customization</em>.
                 This is a decision about speed, not perfect process alignment.
-                </li>
+              </li>
 
-                <li>
+              <li>
                 <strong>If the business changes constantly</strong><br>
                 Look for a platform-first approach.
                 It is critical that business logic is
                 <em>declarative, readable, and explainable</em> —
                 not only for developers, but also for AI tools,
                 which increasingly participate in analysis, automation, and system support.
-                </li>
+              </li>
 
-                <li>
+              <li>
                 <strong>If ERP in practice is a set of internal tools</strong><br>
                 Low-code and internal tools are no longer “temporary solutions”,
                 but a full-fledged operational layer.
                 They allow new needs to be addressed quickly
                 without rewriting the system core.
-                </li>
-                </ol>
+              </li>
+            </ol>
 
-                <p><strong>Important:</strong></p>
-                  <p>
-                    <strong>Avoid mixing all three approaches.</strong><br>
-                    Choose one as the <em>core</em>, and use the others only as supporting layers.
-                  </p>
+            <p><strong>Important:</strong></p>
 
-                  <p>
-                    <strong>Pay attention to the readability and formalization of business logic.</strong><br>
-                    What cannot be clearly described cannot be reliably automated — neither manually nor with AI.
-                  </p>
-                <h3>What an owner should understand before choosing</h3>
-                <ul>
-                <li>How often do key business processes change?</li>
-                <li>Should the system <em>explain</em> its decisions to humans and AI?</li>
-                <li>Is the business ready to live inside someone else’s model — or develop its own?</li>
-                <li>Is ERP just an accounting tool, or the foundation of operational management?</li>
-                </ul>
+            <p>
+              <strong>Avoid mixing all three approaches.</strong><br>
+              Choose one as the <em>core</em>, and use the others only as supporting layers.
+            </p>
 
-                <p>
-                The answers to these questions matter more than any feature list.
-                They determine whether the system
-                will support business growth — or slow it down.
-                </p>
-              </section>
+            <p>
+              <strong>Pay attention to the readability and formalization of business logic.</strong><br>
+              What cannot be clearly described cannot be reliably automated — neither manually nor with AI.
+            </p>
+
+            <h3>What an owner should understand before choosing</h3>
+            <ul>
+              <li>How often do key business processes change?</li>
+              <li>Should the system <em>explain</em> its decisions to humans and AI?</li>
+              <li>Is the business ready to live inside someone else’s model — or develop its own?</li>
+              <li>Is ERP just an accounting tool, or the foundation of operational management?</li>
+            </ul>
+
+            <p>
+              The answers to these questions matter more than any feature list.
+              They determine whether the system
+              will support business growth — or slow it down.
+            </p>
+
+          </section>
 
 
             <!-- FOOTER (tags + meta + Views) -->
