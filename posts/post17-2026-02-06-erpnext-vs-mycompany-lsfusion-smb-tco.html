@@ -45,7 +45,7 @@
     "@type": "BlogPosting",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://ru.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html"
+      "@id": "https://en.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html"
     },
     "headline": "ERPNext vs MyCompany (lsFusion) for SMB: Unique processes, code, and the real cost of change",
     "description": "Both ERPNext and MyCompany (lsFusion) are free to start. A deep architectural comparison of ERPNext and MyCompany (lsFusion) through a real retail replenishment process. Lines of code, design philosophy and long-term implications for CTOs.",
@@ -67,7 +67,7 @@
   </script>
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://ru.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">
+  <link rel="canonical" href="https://en.devlab.blog/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -119,451 +119,530 @@
               </h1>
 
               <p class="hero-text">
-                A neutral architectural deep dive comparing ERPNext and MyCompany (lsFusion) using a realistic retail replenishment process and real code structure.
+                An architectural deep dive comparing ERPNext and MyCompany using a simple retail replenishment process based on real code structure.
               </p>
             </header>
 
            <section class="post-content">
 
-<h2>1. Why Retail Replenishment Is a Proper ERP Stress Test</h2>
+            <h2>1. Why Retail Replenishment Is a Good ERP Stress Test</h2>
 
-<p>
-ERP demos are easy. Real operations are not.
-</p>
+              <p>
+              ERP demos are beautiful. Real operations are not.
+              </p>
 
-<p>
-Retail replenishment is one of the first processes where ERP systems stop being “forms and documents” and start being <strong>decision engines</strong>. It forces the platform to handle:
-</p>
+              <p>
+              Retail replenishment is one of the first processes where ERP systems stop being “forms and documents” and start being <strong>decision engines</strong>. It forces the platform to handle:
+              </p>
 
-<ul>
-<li>Time-series sales data</li>
-<li>Forecast adjustments (seasonality, promotions)</li>
-<li>Supplier constraints (lead time, MOQ, pack size)</li>
-<li>Multi-warehouse logic</li>
-<li>Automatic document generation</li>
-<li>Human approval workflows</li>
-<li>Explainability of system decisions</li>
-</ul>
+              <ul>
+                <li>Time-series sales data</li>
+                <li>Forecast adjustments (seasonality, promotions)</li>
+                <li>Supplier constraints (lead time, MOQ, pack size)</li>
+                <li>Multi-warehouse logic</li>
+                <li>Automatic document generation</li>
+                <li>Human approval workflows</li>
+                <li>Explainability of system decisions</li>
+              </ul>
 
-<p>
-This makes it an ideal comparison case for ERPNext and MyCompany (built on the lsFusion platform).
-</p>
+              <p>
+              This makes it an ideal comparison case for ERPNext and MyCompany.
+              </p>
 
-<p>
-The goal of this article is not marketing.
-It is to answer a practical CTO-level question:
-</p>
+              <p>
+              The goal of this article is not marketing. It is to answer a practical CTO-level question:
+              </p>
 
-<blockquote>
-How much real engineering effort does it take to implement a non-trivial retail process?
-</blockquote>
+              <blockquote>
+              How much engineering effort does it take to implement a real retail process?
+              </blockquote>
 
-<p>
-And yes — we will count lines of code.
-</p>
+              <p>
+              And yes — we will count lines of code.
+              </p>
 
-<figure>
-  <img src="/img/posts/erpnext-vs-mycompany/retail-replenishment-overview.webp" alt="Retail replenishment process overview diagram" loading="lazy">
-</figure>
+            <!-- HERO IMAGE (single) -->
+            <figure class="post-hero">
+              <img src="/img/erpnextvsmycompany.png" alt="Retail replenishment process overview diagram" loading="lazy">
+            </figure>
 
-<hr>
+            <hr>
 
-<h2>2. Business Specification (Realistic, Not a Toy)</h2>
+            <h2>2. Business Specification (Practical, Not Imaginary)</h2>
 
-<h3>Scenario</h3>
+            <h3>Scenario</h3>
 
-<ul>
-<li>15 retail stores</li>
-<li>1 central warehouse</li>
-<li>4 main suppliers</li>
-<li>Daily POS sales</li>
-<li>Weekly promotions</li>
-<li>Mixed transfer / purchase strategy</li>
-</ul>
+            <ul>
+              <li>15 retail stores</li>
+              <li>1 central warehouse</li>
+              <li>4 main suppliers</li>
+              <li>Daily POS sales</li>
+              <li>Weekly promotions</li>
+              <li>Mixed transfer / purchase strategy</li>
+            </ul>
 
-<h3>Requirements</h3>
+            <h3>Requirements</h3>
 
-<p>Every night (02:00 AM):</p>
+            <p>Every night (02:00 AM):</p>
 
-<p>For each SKU per store:</p>
+            <p>For each SKU per store:</p>
 
-<ol>
-<li>Calculate average daily sales (last 28 days)</li>
-<li>Adjust with promotion factor (if active)</li>
-<li>Multiply by supplier lead time</li>
-<li>Subtract:
-  <ul>
-    <li>Current stock</li>
-    <li>Incoming purchase orders</li>
-    <li>Incoming transfers</li>
-  </ul>
-</li>
-<li>Apply:
-  <ul>
-    <li>MOQ (minimum order quantity)</li>
-    <li>Pack size rounding</li>
-  </ul>
-</li>
-<li>If deficit:
-  <ul>
-    <li>Prefer transfer from warehouse if available</li>
-    <li>Otherwise suggest Purchase Order</li>
-  </ul>
-</li>
-<li>Create draft documents</li>
-<li>Log explanation</li>
-<li>Provide UI screen:
-  <ul>
-    <li>View suggestions</li>
-    <li>Approve</li>
-    <li>Reject</li>
-    <li>Recalculate</li>
-  </ul>
-</li>
-</ol>
+            <ol>
+              <li>Calculate average daily sales (last 28 days)</li>
+              <li>Adjust with a promotion factor (if active)</li>
+              <li>Multiply by supplier lead time</li>
+              <li>Subtract:
+                <ul>
+                  <li>Current stock</li>
+                  <li>Incoming purchase orders</li>
+                  <li>Incoming transfers</li>
+                </ul>
+              </li>
+              <li>Apply:
+                <ul>
+                  <li>MOQ (minimum order quantity)</li>
+                  <li>Pack-size rounding</li>
+                </ul>
+              </li>
+              <li>If there is a deficit:
+                <ul>
+                  <li>Prefer a transfer from the central warehouse (if available)</li>
+                  <li>Otherwise suggest a Purchase Order</li>
+                </ul>
+              </li>
+              <li>Create draft documents</li>
+              <li>Log an explanation (why this quantity)</li>
+              <li>Provide a UI screen:
+                <ul>
+                  <li>View suggestions</li>
+                  <li>Approve</li>
+                  <li>Reject</li>
+                  <li>Recalculate</li>
+                </ul>
+              </li>
+            </ol>
 
-<p><strong>Explainability example:</strong></p>
+            <p><strong>Explainability example:</strong></p>
 
-<blockquote>
-“Calculated need: 94 units (ADS 4.7 × 14 days – 32 stock – 40 incoming). Rounded to 96 due to pack size 12.”
-</blockquote>
+            <blockquote>
+            “Calculated need: 94 units (ADS 4.7 × 14 days – 32 stock – 40 incoming). Rounded to 96 due to pack size 12.”
+            </blockquote>
 
-<hr>
+            <hr>
 
-<h2>3. ERPNext Implementation</h2>
+            <h2>3. ERPNext Implementation</h2>
 
-<figure>
-  <img src="/img/posts/erpnext-vs-mycompany/erpnext-architecture.webp" alt="ERPNext architecture and customization flow" loading="lazy">
-</figure>
+            <div class="img-carousel" aria-label="ERPNext images carousel">
+              <div class="img-track">
+                <figure class="img-slide">
+                  <img src="/img/erpnext1.webp" alt="ERPNext architecture and customization flow (1)" loading="lazy">
+                </figure>
+                <figure class="img-slide">
+                  <img src="/img/erpnext2.webp" alt="ERPNext architecture and customization flow (2)" loading="lazy">
+                </figure>
+                <figure class="img-slide">
+                  <img src="/img/erpnext3.webp" alt="ERPNext architecture and customization flow (3)" loading="lazy">
+                </figure>
+                <figure class="img-slide">
+                  <img src="/img/erpnext4.webp" alt="ERPNext architecture and customization flow (4)" loading="lazy">
+                </figure>
+              </div>
+              <div class="img-dots" aria-hidden="true">
+                <span class="img-dot"></span><span class="img-dot"></span><span class="img-dot"></span><span class="img-dot"></span>
+              </div>
+            </div>
 
-<p>
-ERPNext is built on the Frappe Framework (Python backend, JS frontend).
-</p>
+            <p>
+            ERPNext is built on the Frappe Framework (Python backend, JavaScript frontend).
+            </p>
 
-<p>
-It already supports:
-</p>
+            <p>
+            It already supports:
+            </p>
 
-<ul>
-<li>Stock</li>
-<li>Reorder level</li>
-<li>Material Requests</li>
-<li>Purchase Orders</li>
-<li>Stock Transfers</li>
-</ul>
+            <ul>
+              <li>Stock</li>
+              <li>Reorder levels</li>
+              <li>Material Requests</li>
+              <li>Purchase Orders</li>
+              <li>Stock Transfers</li>
+            </ul>
 
-<p>
-But the required business logic exceeds built-in reorder functionality.
-</p>
+            <p>
+            But once you add promotions, multi-store rules, MOQ/pack rounding, “buy vs transfer” logic, and explainability,
+            you quickly go beyond the built-in reorder functionality.
+            </p>
 
-<h3>3.1 Architectural Approach</h3>
+            <h3>3.1 Architectural Approach</h3>
 
-<p>Typical implementation:</p>
+            <p>Typical implementation:</p>
 
-<ul>
-<li>Custom DocType: Replenishment Rule</li>
-<li>Scheduled Python job</li>
-<li>Custom server-side report</li>
-<li>Client Script for UI actions</li>
-<li>Hooks for automation</li>
-</ul>
+            <ul>
+              <li>Custom DocType: Replenishment Rule</li>
+              <li>Scheduled Python job</li>
+              <li>Custom server-side report</li>
+              <li>Client-side UI actions</li>
+              <li>Hooks for automation and wiring</li>
+            </ul>
 
-<h3>3.2 Data Model Extension</h3>
+            <h3>3.2 Data Model Extension</h3>
 
-<pre><code>{
-  "doctype": "Replenishment Rule",
-  "fields": [
-    {"fieldname": "item", "fieldtype": "Link", "options": "Item"},
-    {"fieldname": "warehouse", "fieldtype": "Link", "options": "Warehouse"},
-    {"fieldname": "lead_time_days", "fieldtype": "Int"},
-    {"fieldname": "promotion_factor", "fieldtype": "Float"},
-    {"fieldname": "moq", "fieldtype": "Int"},
-    {"fieldname": "pack_size", "fieldtype": "Int"}
-  ]
-}</code></pre>
+            <pre class="code-block code-enterprise" data-lang="JSON"><code>{
+              "doctype": "Replenishment Rule",
+              "fields": [
+                { "fieldname": "item", "fieldtype": "Link", "options": "Item" },
+                { "fieldname": "warehouse", "fieldtype": "Link", "options": "Warehouse" },
+                { "fieldname": "lead_time_days", "fieldtype": "Int" },
+                { "fieldname": "promotion_factor", "fieldtype": "Float" },
+                { "fieldname": "moq", "fieldtype": "Int" },
+                { "fieldname": "pack_size", "fieldtype": "Int" }
+              ]
+            }</code></pre>
 
-<p>
-~120–180 LOC including metadata.
-</p>
+            <p>
+            Typical footprint: <strong>~120–180 LOC</strong> including metadata.
+            </p>
 
-<h3>3.3 Scheduled Job (Core Logic)</h3>
+            <h3>3.3 Scheduled Job (Core Logic)</h3>
 
-<pre><code># app/replenishment/scheduler.py
+            <pre class="code-block code-enterprise" data-lang="Python"><code># app/replenishment/scheduler.py
 
-import frappe
-from frappe.utils import nowdate, add_days
+            import frappe
 
-def nightly_replenishment():
-    rules = frappe.get_all("Replenishment Rule", fields="*")
 
-    for rule in rules:
-        avg_sales = calculate_average_sales(rule.item, rule.warehouse)
-        adjusted_sales = avg_sales * (rule.promotion_factor or 1)
+            def nightly_replenishment():
+                rules = frappe.get_all("Replenishment Rule", fields="*")
 
-        required_qty = adjusted_sales * rule.lead_time_days
+                for rule in rules:
+                    avg_sales = calculate_average_sales(rule.item, rule.warehouse)
+                    adjusted_sales = avg_sales * (rule.promotion_factor or 1)
 
-        current_stock = get_stock(rule.item, rule.warehouse)
-        incoming = get_incoming(rule.item, rule.warehouse)
+                    required_qty = adjusted_sales * rule.lead_time_days
 
-        deficit = required_qty - current_stock - incoming
+                    current_stock = get_stock(rule.item, rule.warehouse)
+                    incoming = get_incoming(rule.item, rule.warehouse)
 
-        if deficit > 0:
-            rounded_qty = round_to_pack(deficit, rule.pack_size, rule.moq)
-            create_suggestion(rule, rounded_qty)
-</code></pre>
+                    deficit = required_qty - current_stock - incoming
 
-<p>
-Helper functions (stock queries, SQL joins, report generation, rounding, document creation) add another ~180–300 LOC.
-</p>
+                    if deficit > 0:
+                        rounded_qty = round_to_pack(deficit, rule.pack_size, rule.moq)
+                        create_suggestion(rule, rounded_qty)
+            </code></pre>
 
-<h3>3.4 Suggestion Report</h3>
+            <p>
+            Helper functions (stock queries, SQL joins, report generation, rounding, document creation, idempotency, logging)
+            typically add another <strong>~180–300 LOC</strong>.
+            </p>
 
-<pre><code>def execute(filters=None):
-    columns = [...]
-    data = frappe.db.sql("""
-        SELECT item, warehouse, suggested_qty, explanation
-        FROM `tabReplenishment Suggestion`
-        WHERE status = 'Draft'
-    """, as_dict=True)
-    return columns, data
-</code></pre>
+            <h3>3.4 Suggestion Report</h3>
 
-<p>
-~70–120 LOC.
-</p>
+            <pre class="code-block code-enterprise" data-lang="SQL"><code>SELECT
+                item,
+                warehouse,
+                suggested_qty,
+                explanation
+            FROM `tabReplenishment Suggestion`
+            WHERE status = 'Draft';
+            </code></pre>
 
-<h3>3.5 Client-Side Approve Action</h3>
+            <p>
+            Typical footprint: <strong>~70–120 LOC</strong>.
+            </p>
 
-<pre><code>frappe.ui.form.on('Replenishment Suggestion', {
-    approve: function(frm) {
-        frappe.call({
-            method: "app.replenishment.approve",
-            args: { name: frm.doc.name },
-            callback: function(r) {
-                frm.reload_doc();
+            <h3>3.5 Client-Side Approve Action</h3>
+
+            <pre class="code-block code-enterprise" data-lang="JavaScript"><code>frappe.ui.form.on("Replenishment Suggestion", {
+                approve(frm) {
+                    frappe.call({
+                        method: "app.replenishment.approve",
+                        args: { name: frm.doc.name },
+                        callback() {
+                            frm.reload_doc();
+                        }
+                    });
+                }
+            });
+            </code></pre>
+
+            <p>
+            Typical footprint: <strong>~40–80 LOC</strong>.
+            </p>
+
+            <h3>3.6 ERPNext LOC Summary</h3>
+
+            <div class="dev-table-wrap">
+              <table class="dev-table">
+                <tr><th>Component</th><th>LOC (approx.)</th></tr>
+                <tr><td>Python core logic</td><td>250–400</td></tr>
+                <tr><td>Reports</td><td>70–120</td></tr>
+                <tr><td>Client JS</td><td>40–80</td></tr>
+                <tr><td>Metadata JSON</td><td>120–200</td></tr>
+                <tr><td><strong>Total (repo LOC)</strong></td><td><strong>480–800</strong></td></tr>
+              </table>
+            </div>
+
+            <p><strong>Logic-only LOC:</strong> ~320–600</p>
+
+            <hr>
+
+            <h2>4. MyCompany Implementation (lsFusion)</h2>
+
+            <div class="img-carousel" aria-label="MyCompany images carousel">
+              <div class="img-track">
+                <figure class="img-slide">
+                  <img src="/img/myCompany1.webp" alt="Declarative business logic in lsFusion (1)" loading="lazy">
+                </figure>
+                <figure class="img-slide">
+                  <img src="/img/myCompany2.webp" alt="Declarative business logic in lsFusion (2)" loading="lazy">
+                </figure>
+                <figure class="img-slide">
+                  <img src="/img/myCompany3.webp" alt="Declarative business logic in lsFusion (3)" loading="lazy">
+                </figure>
+                <figure class="img-slide">
+                  <img src="/img/myCompany4.webp" alt="Declarative business logic in lsFusion (4)" loading="lazy">
+                </figure>
+              </div>
+              <div class="img-dots" aria-hidden="true">
+                <span class="img-dot"></span><span class="img-dot"></span><span class="img-dot"></span><span class="img-dot"></span>
+              </div>
+            </div>
+
+            <p>
+            MyCompany is built on lsFusion, a declarative business logic platform.
+            </p>
+
+            <p>
+            Instead of writing procedural jobs, you define:
+            </p>
+
+            <ul>
+              <li>Data properties</li>
+              <li>Calculated expressions</li>
+              <li>Actions</li>
+              <li>Forms</li>
+            </ul>
+
+            <h3>4.1 Data Definition</h3>
+
+            <pre class="code-block code-enterprise" data-lang="lsFusion"><code>CLASS Item;
+            CLASS Warehouse;
+            CLASS Rule;
+
+            item            = DATA Item (Rule);
+            warehouse       = DATA Warehouse (Rule);
+            leadTime        = DATA INTEGER (Rule);
+            promotionFactor = DATA NUMERIC[10,2] (Rule);
+            moq             = DATA INTEGER (Rule);
+            packSize        = DATA INTEGER (Rule);
+            </code></pre>
+
+            <h3>4.2 Calculated Properties</h3>
+
+            <pre class="code-block code-enterprise" data-lang="lsFusion"><code>avgSales(Item i, Warehouse w) =
+                SUM quantity(Sale s)
+                WHERE s.item = i
+                  AND s.warehouse = w
+                  AND s.date >= currentDate() - 28
+                / 28;
+
+            requiredQty(Rule r) =
+                avgSales(item(r), warehouse(r))
+                * promotionFactor(r)
+                * leadTime(r);
+
+            deficit(Rule r) =
+                requiredQty(r)
+                - currentStock(item(r), warehouse(r))
+                - incoming(item(r), warehouse(r));
+            </code></pre>
+
+            <h3>4.3 Rounding Logic</h3>
+
+            <pre class="code-block code-enterprise" data-lang="lsFusion"><code>roundedQty(Rule r) =
+                MAX(
+                    moq(r),
+                    CEIL(deficit(r) / packSize(r)) * packSize(r)
+                )
+                IF deficit(r) > 0;
+            </code></pre>
+
+            <h3>4.4 Action</h3>
+
+            <pre class="code-block code-enterprise" data-lang="lsFusion"><code>generateSuggestions() {
+                FOR r IN Rule DO {
+                    IF deficit(r) > 0 THEN
+                        NEW Suggestion {
+                            rule        = r;
+                            quantity    = roundedQty(r);
+                            explanation =
+                                "ADS × LT – stock – incoming = " + deficit(r);
+                        };
+                }
             }
-        });
-    }
-});
-</code></pre>
+            </code></pre>
 
-<p>
-~40–80 LOC.
-</p>
+            <h3>4.5 UI</h3>
 
-<h3>3.6 ERPNext LOC Summary</h3>
+            <pre class="code-block code-enterprise" data-lang="lsFusion"><code>FORM suggestions
+                OBJECTS s = Suggestion
+                PROPERTIES s.rule, s.quantity, s.explanation;
+            </code></pre>
 
-<table>
-<tr><th>Component</th><th>LOC (approx)</th></tr>
-<tr><td>Python core logic</td><td>250–400</td></tr>
-<tr><td>Reports</td><td>70–120</td></tr>
-<tr><td>Client JS</td><td>40–80</td></tr>
-<tr><td>Metadata JSON</td><td>120–200</td></tr>
-<tr><td><strong>Total (repo LOC)</strong></td><td><strong>480–800</strong></td></tr>
-</table>
+            <h3>4.6 MyCompany LOC Summary</h3>
 
-<p><strong>Logic-only LOC:</strong> ~320–600</p>
+            <div class="dev-table-wrap">
+              <table class="dev-table">
+                <tr><th>Component</th><th>LOC (approx.)</th></tr>
+                <tr><td>Data definitions</td><td>~25</td></tr>
+                <tr><td>Business logic (properties)</td><td>~60–90</td></tr>
+                <tr><td>Rounding</td><td>~10</td></tr>
+                <tr><td>Actions</td><td>~30–40</td></tr>
+                <tr><td>UI</td><td>~20–30</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>~145–195</strong></td></tr>
+              </table>
+            </div>
 
-<hr>
+            <hr>
 
-<h2>4. MyCompany (lsFusion) Implementation</h2>
+            <h2>5. Side-by-Side Comparison</h2>
 
-<figure>
-  <img src="/img/posts/erpnext-vs-mycompany/lsfusion-logic.webp" alt="Declarative business logic in lsFusion" loading="lazy">
-</figure>
+            <div class="dev-table-wrap">
+              <table class="dev-table">
+                <tr><th>Metric</th><th>ERPNext</th><th>MyCompany</th></tr>
+                <tr><td>Logic paradigm</td><td>Procedural (Python + glue)</td><td>Declarative (properties + actions)</td></tr>
+                <tr><td>Job scheduling</td><td>Explicit scheduled job + wiring</td><td>Action-oriented model (often less glue)</td></tr>
+                <tr><td>UI wiring</td><td>Frequently needs client-side scripting</td><td>Declarative forms</td></tr>
+                <tr><td>LOC (logic-only)</td><td>~320–600</td><td>~100–150</td></tr>
+                <tr><td>LOC (full repo)</td><td>~480–800</td><td>~145–200</td></tr>
+              </table>
+            </div>
 
-<p>
-MyCompany is built on lsFusion, a declarative business logic platform.
-</p>
+            <hr>
 
-<p>
-Instead of writing procedural jobs, you define:
-</p>
+            <h2>6. Architectural Implications</h2>
 
-<ul>
-<li>Data properties</li>
-<li>Calculated expressions</li>
-<li>Actions</li>
-<li>Forms</li>
-</ul>
+            <p>
+            ERPNext extensions often spread logic across <strong>Python</strong>, <strong>JavaScript</strong>, and <strong>metadata</strong>.
+            MyCompany tends to centralize business rules as a <strong>declarative model</strong>.
+            </p>
 
-<h3>4.1 Data Definition</h3>
+            <p>
+            More lines of code usually mean:
+            </p>
 
-<pre><code>CLASS Item;
-CLASS Warehouse;
-CLASS Rule;
+            <ul>
+              <li>higher cognitive load</li>
+              <li>more integration glue</li>
+              <li>more surface area for regressions</li>
+            </ul>
 
-item = DATA Item (Rule);
-warehouse = DATA Warehouse (Rule);
-leadTime = DATA INTEGER (Rule);
-promotionFactor = DATA NUMERIC[10,2] (Rule);
-moq = DATA INTEGER (Rule);
-packSize = DATA INTEGER (Rule);
-</code></pre>
+            <p>
+            This does not automatically make one platform “better”. It tells you what kind of change cost you are buying.
+            </p>
 
-<h3>4.2 Calculated Properties</h3>
+            <hr>
 
-<pre><code>avgSales(Item i, Warehouse w) =
-    SUM quantity(Sale s)
-    WHERE s.item = i AND s.warehouse = w
-    AND s.date >= currentDate() - 28
-    / 28;
+            <h2>7. When Each Platform Wins</h2>
 
-requiredQty(Rule r) =
-    avgSales(item(r), warehouse(r))
-    * promotionFactor(r)
-    * leadTime(r);
+            <h3>Choose ERPNext if:</h3>
+            <ul>
+              <li>You need a broad ERP quickly (accounting + procurement + stock) and you want a large ecosystem.</li>
+              <li>Your replenishment rules are relatively standard and change slowly.</li>
+              <li>You prefer Python and community familiarity over a modeling-first paradigm.</li>
+            </ul>
 
-deficit(Rule r) =
-    requiredQty(r)
-    - currentStock(item(r), warehouse(r))
-    - incoming(item(r), warehouse(r));
-</code></pre>
+            <h3>Choose MyCompany if:</h3>
+            <ul>
+              <li>Your competitive advantage is in custom business rules and fast iterations.</li>
+              <li>You expect frequent rule changes and want the system to stay explainable.</li>
+              <li>You want ERP as a constructor: a model you evolve, not a product you patch.</li>
+            </ul>
 
-<h3>4.3 Rounding Logic</h3>
+            <hr>
 
-<pre><code>roundedQty(Rule r) =
-    MAX(moq(r),
-        CEIL(deficit(r) / packSize(r)) * packSize(r)
-    )
-    IF deficit(r) > 0;
-</code></pre>
+            <h2>8. Conclusion</h2>
 
-<h3>4.4 Action</h3>
+            <p>
+            Counting lines of code is not everything.
+            But in complex business processes, LOC correlates with cognitive load — and cognitive load correlates with long-term maintenance cost.
+            </p>
 
-<pre><code>generateSuggestions() {
-    FOR r IN Rule DO {
-        IF deficit(r) > 0 THEN
-            NEW Suggestion {
-                rule = r;
-                quantity = roundedQty(r);
-                explanation =
-                    'ADS × LT – stock – incoming = ' + deficit(r);
-            };
-    }
-}
-</code></pre>
+            <p>
+            In this replenishment scenario:
+            </p>
 
-<h3>4.5 UI</h3>
+            <ul>
+              <li>ERPNext typically requires <strong>~2–4× more custom code</strong>.</li>
+              <li>MyCompany often expresses the same rules in a smaller, more centralized logic surface.</li>
+            </ul>
 
-<pre><code>FORM suggestions
-    OBJECTS s = Suggestion
-    PROPERTIES s.rule, s.quantity, s.explanation;
-</code></pre>
+            <h3>AI-assisted engineering economics (why LOC increasingly matters)</h3>
 
-<h3>4.6 MyCompany LOC Summary</h3>
+            <p>
+            There is also a modern dimension that cannot be ignored: the amount and structure of code influences how efficiently AI tools can assist,
+            refactor, and generate extensions.
+            </p>
 
-<table>
-<tr><th>Component</th><th>LOC (approx)</th></tr>
-<tr><td>Data definitions</td><td>25</td></tr>
-<tr><td>Business logic</td><td>60–90</td></tr>
-<tr><td>Rounding</td><td>10</td></tr>
-<tr><td>Actions</td><td>30–40</td></tr>
-<tr><td>UI</td><td>20–30</td></tr>
-<tr><td><strong>Total</strong></td><td><strong>145–195</strong></td></tr>
-</table>
+            <ul>
+              <li><strong>Context cost:</strong> more files and glue layers usually increase the context needed for correct AI assistance — and raise inference cost.</li>
+              <li><strong>Verification cost:</strong> fragmented procedural logic often requires more test scaffolding and runtime checks.</li>
+              <li><strong>Refactoring cost:</strong> more coupling points make safe automated refactors harder (for humans and AI).</li>
+              <li><strong>Knowledge capture cost:</strong> scattered logic increases documentation, prompting effort, and supervision time.</li>
+            </ul>
 
-<hr>
+            <p>
+            In other words, LOC is not only a proxy for human maintenance. It is increasingly a proxy for <strong>AI-assisted evolution cost</strong>.
+            </p>
 
-<h2>5. Side-by-Side Comparison</h2>
+            <hr>
 
-<table>
-<tr><th>Metric</th><th>ERPNext</th><th>MyCompany</th></tr>
-<tr><td>Logic paradigm</td><td>Procedural (Python)</td><td>Declarative</td></tr>
-<tr><td>Job scheduling</td><td>Explicit</td><td>Built-in action</td></tr>
-<tr><td>UI wiring</td><td>JS required</td><td>Declarative</td></tr>
-<tr><td>LOC (logic-only)</td><td>320–600</td><td>100–150</td></tr>
-<tr><td>LOC (full repo)</td><td>480–800</td><td>145–200</td></tr>
-</table>
+            <h2>Appendix A: Git diff simulation (how you would measure this honestly)</h2>
 
-<hr>
+            <p>
+            If you want the “how many lines” comparison to be defensible, measure it using a real repository diff and a LOC tool (for example <code>cloc</code>)
+            with transparent inclusion rules. Below is a simulated but structurally realistic example.
+            </p>
 
-<h2>6. Architectural Implications</h2>
+            <h3>ERPNext (Frappe app) — simulated diff</h3>
 
-<p>
-ERPNext spreads logic across Python, JS and metadata.
-MyCompany centralizes rules declaratively.
-</p>
+            <pre class="code-block code-enterprise" data-lang="Terminal"><code>$ git diff --stat
 
-<p>
-More lines of code typically mean:
-</p>
+            app/replenishment/hooks.py                                              |  34 +++++++
+            app/replenishment/scheduler.py                                          | 140 +++++++++++++++++++++
+            app/replenishment/api.py                                                |  88 +++++++++++++
+            app/replenishment/utils/sales.py                                        |  74 ++++++++++++
+            app/replenishment/utils/stock.py                                        |  92 +++++++++++++++
+            app/replenishment/utils/rounding.py                                     |  38 ++++++++
+            app/replenishment/doctype/replenishment_rule/replenishment_rule.json    | 165 +++++++++++++++++++++++++
+            app/replenishment/doctype/replenishment_suggestion/replenishment_suggestion.json | 142 +++++++++++++++++++++++
+            app/replenishment/report/replenishment_suggestions/replenishment_suggestions.py |  76 +++++++++++++
+            app/replenishment/report/replenishment_suggestions/replenishment_suggestions.js |  58 ++++++++++
+            app/replenishment/public/js/replenishment_suggestion_form.js            |  62 +++++++++++
+            12 files changed, 971 insertions(+)
+            </code></pre>
 
-<ul>
-<li>Higher cognitive load</li>
-<li>More integration glue</li>
-<li>More surface for regression</li>
-</ul>
+            <p>
+            Typical interpretation:
+            </p>
+            <ul>
+              <li><strong>Logic-only LOC</strong> = scheduler + utils + API + report Python + minimal JS (~320–600)</li>
+              <li><strong>Total repo LOC</strong> includes metadata JSON (~480–900+ depending on UI/report fixtures)</li>
+            </ul>
 
-<hr>
+            <h3>MyCompany (lsFusion module) — simulated diff</h3>
 
-<h2>7. When Each Platform Wins</h2>
+            <pre class="code-block code-enterprise" data-lang="Terminal"><code>$ git diff --stat
 
-<p><strong>Choose ERPNext if:</strong></p>
-<ul>
-<li>You need full ERP immediately</li>
-<li>Your logic is relatively standard</li>
-<li>You want ecosystem over elegance</li>
-</ul>
+            modules/replenishment/Replenishment.lsf        | 182 +++++++++++++++++++++++++++
+            modules/replenishment/ReplenishmentForms.lsf   |  54 ++++++++
+            modules/replenishment/ReplenishmentDocs.lsf    |  31 ++++
+            3 files changed, 267 insertions(+)
+            </code></pre>
 
-<p><strong>Choose MyCompany if:</strong></p>
-<ul>
-<li>Your competitive advantage is in custom logic</li>
-<li>You expect frequent rule changes</li>
-<li>You want ERP as a constructor, not a product</li>
-</ul>
-
-<hr>
-
-<h2>8. Conclusion</h2>
-
-<p>
-Counting lines of code is not everything.
-</p>
-
-<p>
-But in complex business processes:
-</p>
-
-<blockquote>
-LOC correlates with cognitive load.  
-Cognitive load correlates with long-term maintenance cost.
-</blockquote>
-
-<p>
-In this replenishment scenario:
-</p>
-
-<ul>
-<li>ERPNext required ~2–4× more code.</li>
-<li>MyCompany expressed business rules more compactly.</li>
-</ul>
-
-<p>
-The difference is not about Python vs another language.
-It is about procedural extension vs declarative modeling.
-</p>
-
-<p>
-There is also a modern dimension that cannot be ignored:
-the amount and structure of code directly influence how efficiently AI tools can learn,
-assist, refactor and generate extensions. Larger procedural surfaces increase AI training
-cost, context complexity and long-term operational expense.
-More compact declarative logic reduces both human and AI maintenance overhead.
-</p>
-
-<p>
-For CTOs and architects, the question is simple:
-</p>
-
-<blockquote>
-Are you extending an ERP?  
-Or are you modeling a business system?
-</blockquote>
-
-<p>
-That decision determines how your next five years of maintenance — and AI-assisted evolution — will feel.
-</p>
+            <p>
+            The discipline that makes LOC comparisons meaningful:
+            same specification, same measurement method, transparent inclusion rules.
+            </p>
 
 </section>
           </article>
