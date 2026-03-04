@@ -125,7 +125,25 @@
 
            <section class="post-content">
 
-            <h2>1. Why Retail Replenishment Is a Good ERP Stress Test</h2>
+            <div class="callout">
+              <strong>Article structure</strong>
+              <nav class="post-toc">
+                <li><a class="post-read" href="#stress-test">Why Retail Replenishment is a Stress Test</a></li>
+                <li><a class="post-read" href="#business-spec">Business Specification</a></li>
+                <li><a class="post-read" href="#erpnext-impl">ERPNext Implementation</a></li>
+                <li><a class="post-read" href="#mycompany-impl">MyCompany Implementation</a></li>
+                <li><a class="post-read" href="#comparison">Side-by-Side Comparison</a></li>
+                <li><a class="post-read" href="#architecture">Architectural Implications</a></li>
+                <li><a class="post-read" href="#ai-impact">AI-assisted Engineering Economics</a></li>
+                <li><a class="post-read" href="#recommendation">When Each Platform Wins</a></li>
+                <li><a class="post-read" href="#conclusion">Conclusion</a></li>
+                <li><a class="post-read" href="#git-diff">Appendix: Git Diff Simulation</a></li>
+                <li><a class="post-read" href="#feedback">Quick Feedback</a></li>
+                <li><a class="post-read" href="#related-posts">Related Posts</a></li>
+              </nav>
+            </div>
+
+            <h2 id="stress-test">1. Why Retail Replenishment Is a Good ERP Stress Test</h2>
 
               <p>
               ERP demos are beautiful. Real operations are not.
@@ -168,7 +186,7 @@
 
             <hr>
 
-            <h2>2. Business Specification (Practical, Not Imaginary)</h2>
+            <h2 id="business-spec">2. Business Specification (Practical, Not Imaginary)</h2>
 
             <h3>Scenario</h3>
 
@@ -230,7 +248,7 @@
 
             <hr>
 
-            <h2>3. ERPNext Implementation</h2>
+            <h2 id="erpnext-impl">3. ERPNext Implementation</h2>
 
             <div class="img-carousel" aria-label="ERPNext images carousel">
               <div class="img-track">
@@ -392,7 +410,7 @@
 
             <hr>
 
-            <h2>4. MyCompany Implementation</h2>
+            <h2 id="mycompany-impl">4. MyCompany Implementation</h2>
 
             <div class="img-carousel" aria-label="MyCompany images carousel">
               <div class="img-track">
@@ -514,145 +532,140 @@
 
             <hr>
 
-            <h2>5. Side-by-Side Comparison</h2>
+           <h2 id="comparison">5. Side-by-Side Comparison</h2>
 
-            <div class="dev-table-wrap">
-              <table class="dev-table">
-                <tr><th>Metric</th><th>ERPNext</th><th>MyCompany</th></tr>
-                <tr><td>Logic paradigm</td><td>Procedural (Python + glue)</td><td>Declarative (properties + actions)</td></tr>
-                <tr><td>Job scheduling</td><td>Explicit scheduled job + wiring</td><td>Action-oriented model (often less glue)</td></tr>
-                <tr><td>UI wiring</td><td>Frequently needs client-side scripting</td><td>Declarative forms</td></tr>
-                <tr><td>LOC (logic-only)</td><td>~320–600</td><td>~100–150</td></tr>
-                <tr><td>LOC (full repo)</td><td>~480–800</td><td>~145–200</td></tr>
-              </table>
-            </div>
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <tr><th>Metric</th><th>ERPNext</th><th>MyCompany</th></tr>
+                  <tr><td>Logic paradigm</td><td>Procedural (Python + glue)</td><td>Declarative (properties + actions)</td></tr>
+                  <tr><td>Job scheduling</td><td>Explicit scheduled job + wiring</td><td>Action-oriented model (often less glue)</td></tr>
+                  <tr><td>UI wiring</td><td>Frequently needs client-side scripting</td><td>Declarative forms</td></tr>
+                  <tr><td>LOC (logic-only)</td><td>~320–600</td><td>~100–150</td></tr>
+                  <tr><td>LOC (full repo)</td><td>~480–800</td><td>~145–200</td></tr>
+                </table>
+              </div>
 
-            <hr>
+              <hr>
 
-            <h2>6. Architectural Implications</h2>
+              <h2 id="architecture">6. Architectural Implications</h2>
 
-            <p>
-            ERPNext extensions often spread logic across <strong>Python</strong>, <strong>JavaScript</strong>, and <strong>metadata</strong>.
-            MyCompany tends to centralize business rules as a <strong>declarative model</strong>.
-            </p>
+              <p>
+              ERPNext extensions often spread logic across <strong>Python</strong>, <strong>JavaScript</strong>, and <strong>metadata</strong>.
+              MyCompany tends to centralize business rules as a <strong>declarative model</strong>.
+              </p>
 
-            <p>
-            More lines of code usually mean:
-            </p>
+              <p>More lines of code usually mean:</p>
 
-            <ul>
-              <li>higher cognitive load</li>
-              <li>more integration glue</li>
-              <li>more surface area for regressions</li>
-            </ul>
+              <ul>
+                <li>higher cognitive load</li>
+                <li>more integration glue</li>
+                <li>more surface area for regressions</li>
+              </ul>
 
-            <p>
-            This does not automatically make one platform “better”. It tells you what kind of change cost you are buying.
-            </p>
+              <p>
+              This does not automatically make one platform “better”. It tells you what kind of change cost you are buying.
+              </p>
 
-            <hr>
+              <hr>
 
-            <h2>7. When Each Platform Wins</h2>
+              <h2 id="ai-impact">7. AI-assisted engineering economics</h2>
 
-            <h3>Choose ERPNext if:</h3>
-            <ul>
-              <li>You need a broad ERP quickly (accounting + procurement + stock) and you want a large ecosystem.</li>
-              <li>Your replenishment rules are relatively standard and change slowly.</li>
-              <li>You prefer Python and community familiarity over a modeling-first paradigm.</li>
-            </ul>
+              <p>
+              There is also a modern dimension that cannot be ignored: the amount and structure of code influences how efficiently AI tools can assist,
+              refactor, and generate extensions.
+              </p>
 
-            <h3>Choose MyCompany if:</h3>
-            <ul>
-              <li>Your competitive advantage is in custom business rules and fast iterations.</li>
-              <li>You expect frequent rule changes and want the system to stay explainable.</li>
-              <li>You want ERP as a constructor: a model you evolve, not a product you patch.</li>
-            </ul>
+              <ul>
+                <li><strong>Context cost:</strong> more files and glue layers usually increase the context needed for correct AI assistance — and raise inference cost.</li>
+                <li><strong>Verification cost:</strong> fragmented procedural logic often requires more test scaffolding and runtime checks.</li>
+                <li><strong>Refactoring cost:</strong> more coupling points make safe automated refactors harder (for humans and AI).</li>
+                <li><strong>Knowledge capture cost:</strong> scattered logic increases documentation, prompting effort, and supervision time.</li>
+              </ul>
 
-            <hr>
+              <p>
+              In other words, LOC is not only a proxy for human maintenance. It is increasingly a proxy for <strong>AI-assisted evolution cost</strong>.
+              </p>
 
-            <h2>8. Conclusion</h2>
+              <hr>
 
-            <p>
-            Counting lines of code is not everything.
-            But in complex business processes, LOC correlates with cognitive load — and cognitive load correlates with long-term maintenance cost.
-            </p>
+              <h2 id="recommendation">8. When Each Platform Wins</h2>
 
-            <p>
-            In this replenishment scenario:
-            </p>
+              <h3>Choose ERPNext if:</h3>
+              <ul>
+                <li>You need a broad ERP quickly (accounting + procurement + stock) and you want a large ecosystem.</li>
+                <li>Your replenishment rules are relatively standard and change slowly.</li>
+                <li>You prefer Python and community familiarity over a modeling-first paradigm.</li>
+              </ul>
 
-            <ul>
-              <li>ERPNext typically requires <strong>~2–4× more custom code</strong>.</li>
-              <li>MyCompany often expresses the same rules in a smaller, more centralized logic surface.</li>
-            </ul>
+              <h3>Choose MyCompany if:</h3>
+              <ul>
+                <li>Your competitive advantage is in custom business rules and fast iterations.</li>
+                <li>You expect frequent rule changes and want the system to stay explainable.</li>
+                <li>You want ERP as a constructor: a model you evolve, not a product you patch.</li>
+              </ul>
 
-            <h3>AI-assisted engineering economics (why LOC increasingly matters)</h3>
+              <hr>
 
-            <p>
-            There is also a modern dimension that cannot be ignored: the amount and structure of code influences how efficiently AI tools can assist,
-            refactor, and generate extensions.
-            </p>
+              <h2 id="conclusion">9. Conclusion</h2>
 
-            <ul>
-              <li><strong>Context cost:</strong> more files and glue layers usually increase the context needed for correct AI assistance — and raise inference cost.</li>
-              <li><strong>Verification cost:</strong> fragmented procedural logic often requires more test scaffolding and runtime checks.</li>
-              <li><strong>Refactoring cost:</strong> more coupling points make safe automated refactors harder (for humans and AI).</li>
-              <li><strong>Knowledge capture cost:</strong> scattered logic increases documentation, prompting effort, and supervision time.</li>
-            </ul>
+              <p>
+              Counting lines of code is not everything.
+              But in complex business processes, LOC correlates with cognitive load — and cognitive load correlates with long-term maintenance cost.
+              </p>
 
-            <p>
-            In other words, LOC is not only a proxy for human maintenance. It is increasingly a proxy for <strong>AI-assisted evolution cost</strong>.
-            </p>
+              <p>In this replenishment scenario:</p>
 
-            <hr>
+              <ul>
+                <li>ERPNext typically requires <strong>~2–4× more custom code</strong>.</li>
+                <li>MyCompany often expresses the same rules in a smaller, more centralized logic surface.</li>
+              </ul>
 
-            <h2>Appendix A: Git diff simulation (how you would measure this honestly)</h2>
+              <hr>
 
-            <p>
-            If you want the “how many lines” comparison to be defensible, measure it using a real repository diff and a LOC tool (for example <code>cloc</code>)
-            with transparent inclusion rules. Below is a simulated but structurally realistic example.
-            </p>
+              <h2 id="git-diff">Appendix A: Git diff simulation (how you would measure this honestly)</h2>
 
-            <h3>ERPNext (Frappe app) — simulated diff</h3>
+              <p>
+              If you want the “how many lines” comparison to be defensible, measure it using a real repository diff and a LOC tool (for example <code>cloc</code>)
+              with transparent inclusion rules. Below is a simulated but structurally realistic example.
+              </p>
 
-            <pre class="code-block code-enterprise" data-lang="Terminal"><code>$ git diff --stat
+              <h3>ERPNext (Frappe app) — simulated diff</h3>
 
-            app/replenishment/hooks.py                                              |  34 +++++++
-            app/replenishment/scheduler.py                                          | 140 +++++++++++++++++++++
-            app/replenishment/api.py                                                |  88 +++++++++++++
-            app/replenishment/utils/sales.py                                        |  74 ++++++++++++
-            app/replenishment/utils/stock.py                                        |  92 +++++++++++++++
-            app/replenishment/utils/rounding.py                                     |  38 ++++++++
-            app/replenishment/doctype/replenishment_rule/replenishment_rule.json    | 165 +++++++++++++++++++++++++
-            app/replenishment/doctype/replenishment_suggestion/replenishment_suggestion.json | 142 +++++++++++++++++++++++
-            app/replenishment/report/replenishment_suggestions/replenishment_suggestions.py |  76 +++++++++++++
-            app/replenishment/report/replenishment_suggestions/replenishment_suggestions.js |  58 ++++++++++
-            app/replenishment/public/js/replenishment_suggestion_form.js            |  62 +++++++++++
-            12 files changed, 971 insertions(+)
-            </code></pre>
+              <pre class="code-block code-enterprise" data-lang="Terminal"><code>$ git diff --stat
 
-            <p>
-            Typical interpretation:
-            </p>
-            <ul>
-              <li><strong>Logic-only LOC</strong> = scheduler + utils + API + report Python + minimal JS (~320–600)</li>
-              <li><strong>Total repo LOC</strong> includes metadata JSON (~480–900+ depending on UI/report fixtures)</li>
-            </ul>
+              app/replenishment/hooks.py                                              |  34 +++++++
+              app/replenishment/scheduler.py                                          | 140 +++++++++++++++++++++
+              app/replenishment/api.py                                                |  88 +++++++++++++
+              app/replenishment/utils/sales.py                                        |  74 ++++++++++++
+              app/replenishment/utils/stock.py                                        |  92 +++++++++++++++
+              app/replenishment/utils/rounding.py                                     |  38 ++++++++
+              app/replenishment/doctype/replenishment_rule/replenishment_rule.json    | 165 +++++++++++++++++++++++++
+              app/replenishment/doctype/replenishment_suggestion/replenishment_suggestion.json | 142 +++++++++++++++++++++++
+              app/replenishment/report/replenishment_suggestions/replenishment_suggestions.py |  76 +++++++++++++
+              app/replenishment/report/replenishment_suggestions/replenishment_suggestions.js |  58 ++++++++++
+              app/replenishment/public/js/replenishment_suggestion_form.js            |  62 +++++++++++
+              12 files changed, 971 insertions(+)
+              </code></pre>
 
-            <h3>MyCompany (lsFusion module) — simulated diff</h3>
+              <p>Typical interpretation:</p>
+              <ul>
+                <li><strong>Logic-only LOC</strong> = scheduler + utils + API + report Python + minimal JS (~320–600)</li>
+                <li><strong>Total repo LOC</strong> includes metadata JSON (~480–900+ depending on UI/report fixtures)</li>
+              </ul>
 
-            <pre class="code-block code-enterprise" data-lang="Terminal"><code>$ git diff --stat
+              <h3>MyCompany (lsFusion module) — simulated diff</h3>
 
-            modules/replenishment/Replenishment.lsf        | 182 +++++++++++++++++++++++++++
-            modules/replenishment/ReplenishmentForms.lsf   |  54 ++++++++
-            modules/replenishment/ReplenishmentDocs.lsf    |  31 ++++
-            3 files changed, 267 insertions(+)
-            </code></pre>
+              <pre class="code-block code-enterprise" data-lang="Terminal"><code>$ git diff --stat
 
-            <p>
-            The discipline that makes LOC comparisons meaningful:
-            same specification, same measurement method, transparent inclusion rules.
-            </p>
+              modules/replenishment/Replenishment.lsf        | 182 +++++++++++++++++++++++++++
+              modules/replenishment/ReplenishmentForms.lsf   |  54 ++++++++
+              modules/replenishment/ReplenishmentDocs.lsf    |  31 ++++
+              3 files changed, 267 insertions(+)
+              </code></pre>
+
+              <p>
+              The discipline that makes LOC comparisons meaningful: same specification, same measurement method, transparent inclusion rules.
+              </p>
 
             <h2 id="feedback">Quick feedback</h2>
               <div class="callout">
