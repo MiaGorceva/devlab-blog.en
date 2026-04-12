@@ -5,20 +5,19 @@
   <title>{{PAGE_TITLE}} – DevLab Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="{{META_DESCRIPTION}}"
-  />
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
   <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
 
-
+  <!-- Consent default: MUST be before GTM -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
     gtag('consent','default',{
       analytics_storage:'denied',
       ad_storage:'denied',
@@ -32,30 +31,10 @@
   <!-- Main blog styles -->
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
 
-  <!-- Main blog scripts (year + search + views counter) -->
+  <!-- Main blog scripts -->
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-
-  // Default: analytics OFF until user accepts
-  gtag('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted'
-  });
-</script>
-
-
-   <!-- {{POST_SLUG}} → post№-____-_____-______-______
-            {{POST_ID}} → тот же, совпадающий со столбцом post_id в таблице Views) -->
-
-
-  <!-- Structured data for search engines -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,25 +65,27 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://en.devlab.blog/posts/{{POST_SLUG}}.html">
 
-   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTZDV4K6');
+  </script>
   <!-- End Google Tag Manager -->
-
-    
 </head>
 
 <body class="post-page">
-  
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+            height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+  </noscript>
   <!-- End Google Tag Manager (noscript) -->
+
   <div class="page">
-    <!-- HEADER -->
     <header>
       <div class="wrapper">
         <nav class="nav">
@@ -143,18 +124,15 @@
       </div>
     </header>
 
-    <!-- MAIN -->
     <main>
       <div class="wrapper">
         <div class="main-grid">
-          <!-- ARTICLE -->
           <article id="{{POST_ID}}">
-            <!-- {{POST_SLUG}} → post№-____-_____-______-______
-            {{POST_ID}} → тот же, совпадающий со столбцом post_id в таблице Views) -->
             <div class="section-title">
               <span>Article</span>
               <small><a class="back" href="/">← Back to all posts</a></small>
             </div>
+
             <header>
               <div class="post-meta">
                 <span>{{CATEGORY_LABEL}}</span>
@@ -164,38 +142,30 @@
                 <span>{{META_BADGE}}</span>
               </div>
 
-              <h1 class="hero-title">
-                {{POST_TITLE}}
-              </h1>
+              <h1 class="hero-title">{{POST_TITLE}}</h1>
 
-              <p class="hero-text">
-                {{POST_SUBTITLE}}
-              </p>
+              <p class="hero-text">{{POST_SUBTITLE}}</p>
 
-              <!-- HERO IMAGE (optional) -->
               <figure class="post-hero">
                 <img
                   src="{{HERO_IMAGE_URL}}"
                   alt="{{HERO_IMAGE_ALT}}"
+                  loading="eager"
+                  decoding="async"
                 >
               </figure>
             </header>
 
-            <!-- ARTICLE BODY -->
             <section class="post-content">
-              <!-- TODO: тут твой контент -->
               <h2>Section heading</h2>
               <p>First paragraph...</p>
             </section>
 
-            <!-- FOOTER (tags + meta + Views) -->
             <footer class="post-footer-extended">
               <div class="post-footer-meta">
                 <div class="post-meta-tags">
-                  <!-- теги меняешь по посту -->
                   <span class="post-tag">Low-code</span>
                   <span class="post-tag">Automation</span>
-                  <!-- ... -->
                 </div>
 
                 <div class="post-meta-secondary">
@@ -208,11 +178,11 @@
               </div>
             </footer>
 
-            <!-- Inline newsletter (опционально можно убрать) -->
             <section class="sidebar-block">
               <p class="sidebar-text">
                 No spam – just occasional notes on ERP design, automation experiments and new posts.
               </p>
+
               <form class="newsletter-form"
                     action="https://formsubmit.co/info@devlab.blog"
                     method="POST">
@@ -230,70 +200,51 @@
               </form>
 
               <h2 id="feedback">Quick feedback</h2>
-                <div class="callout">
-                  <strong>Was this useful?</strong>
-                  <p>
-                    A quick signal helps us prioritize follow-ups.
-                  </p>
+              <div class="callout">
+                <strong>Was this useful?</strong>
+                <p>A quick signal helps us prioritize follow-ups.</p>
 
-                  <div class="hero-actions">
-                    <button class="btn btn-primary" type="button" data-vote="like">
-                      👍 Helpful <span class="count" data-count="like">—</span>
-                    </button>
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Helpful <span class="count" data-count="like">—</span>
+                  </button>
 
-                    <button class="btn btn-outline" type="button" data-vote="dislike">
-                      👎 Not really <span class="count" data-count="dislike">—</span>
-                    </button>
-                  </div>
-
-                  <p class="sidebar-text">
-                    No comments, no accounts.
-                  </p>
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Not really <span class="count" data-count="dislike">—</span>
+                  </button>
                 </div>
 
+                <p class="sidebar-text">No comments, no accounts.</p>
+              </div>
 
               <h2 id="related-posts">Related posts</h2>
-
-                <div class="callout">
-                  <strong>Keep exploring:</strong>
-                  <p>
-                    More practical notes about .....
-                  </p>
-
-                  <ul>
-                    <li>
-                      <a href="/posts/post....">
-                       ..... ↗
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/posts/post...">
-                        .... ↗
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>More practical notes about ....</p>
+                <ul>
+                  <li><a href="/posts/post....">..... ↗</a></li>
+                  <li><a href="/posts/post...">.... ↗</a></li>
+                </ul>
+              </div>
             </section>
 
             <div class="post-nav-links">
-              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>  
-              <a class="back" href="/#categories" style="margin-right: 0;"> Browse all categories →</a>
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Browse all categories →</a>
             </div>
-          
           </article>
 
-          <!-- SIDEBAR -->
-        <aside class="sidebar">
-          <section class="sidebar-block">
-            <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
-            <p class="sidebar-text">
-              Have a question or an idea for a future article?
-              <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
-                Send us an email →
-              </a>
-            </p>
-          </section>
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+                  Send us an email →
+                </a>
+              </p>
+            </section>
+
             <section class="sidebar-block">
               <h3 class="sidebar-title">About this blog</h3>
               <p class="sidebar-text">
@@ -319,7 +270,6 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="wrapper footer-grid">
         <div>
