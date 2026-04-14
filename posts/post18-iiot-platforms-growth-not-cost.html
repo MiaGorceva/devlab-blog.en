@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{PAGE_TITLE}} – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/{{POST_SLUG}}.html"
+    },
+    "headline": "{{POST_TITLE}}",
+    "description": "{{META_DESCRIPTION}}",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "{{DATE_PUBLISHED_ISO}}",
+    "dateModified": "{{DATE_MODIFIED_ISO}}"
+  }
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://en.devlab.blog/posts/{{POST_SLUG}}.html">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTZDV4K6');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+            height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<!-- ================== READY DEVLAB POST ================== -->
+<!-- POST SLUG: post№-iiot-platforms-growth-not-cost -->
+<!-- POST ID: post-iiot-platforms-growth-not-cost -->
+
+<section class="post-content">
+
+<h2>Industrial IoT: точка роста или чёрная дыра бюджета?</h2>
+
+<p>
+Большинство внедрений Industrial IoT умирают не из-за технологий.
+Они умирают из-за неправильного вопроса.
+</p>
+
+<p>
+Не «какую платформу выбрать», а:
+<strong>мы вообще понимаем, как эта платформа будет зарабатывать деньги?</strong>
+</p>
+
+<p>
+Потому что в реальности рынок делится на две категории:
+</p>
+
+<ul>
+<li>IIoT как <strong>витрина для отчётов</strong></li>
+<li>IIoT как <strong>инструмент роста бизнеса</strong></li>
+</ul>
+
+<p>
+И это — две разные вселенные.
+</p>
+
+<hr>
+
+<h2>Пример из реального бизнеса</h2>
+
+<p>
+Два предприятия, одинаковые вводные:
+</p>
+
+<ul>
+<li>100+ единиц оборудования</li>
+<li>проблемы с простоем</li>
+<li>нет прозрачности данных</li>
+</ul>
+
+<h3>Компания A — “мы внедрили IoT”</h3>
+
+<ul>
+<li>взяли крупную платформу (дорогую)</li>
+<li>подключили датчики</li>
+<li>сделали красивые дашборды</li>
+</ul>
+
+<p><strong>Результат:</strong></p>
+
+<ul>
+<li>+0% к выручке</li>
+<li>+100k€/год затрат</li>
+<li>отчёты стали красивее</li>
+</ul>
+
+<h3>Компания B — “мы строим систему управления”</h3>
+
+<ul>
+<li>выбрали гибкую платформу</li>
+<li>сразу связали с бизнес-логикой</li>
+<li>автоматизировали реакции (не просто мониторинг)</li>
+</ul>
+
+<p><strong>Результат:</strong></p>
+
+<ul>
+<li>-18% простоев</li>
+<li>+12% производительности</li>
+<li>ROI &lt; 12 месяцев</li>
+</ul>
+
+<p>
+Разница?
+</p>
+
+<p><strong>Не в датчиках. Не в облаке. Не в UI.</strong></p>
+
+<p>
+Разница в том, что во втором случае IoT — это <strong>часть системы принятия решений</strong>.
+</p>
+
+<hr>
+
+<h2>Где ломаются 80% IIoT проектов</h2>
+
+<ul>
+<li>платформа = data collector</li>
+<li>нет связи с ERP / процессами</li>
+<li>нет автоматических действий</li>
+<li>всё заканчивается на “посмотреть график”</li>
+</ul>
+
+<p>
+Если твоя система заканчивается на графике — это не IIoT.
+Это дорогой Excel.
+</p>
+
+<hr>
+
+<h2>Сравнение платформ: кто про рост, а кто про “собрали данные”</h2>
+
+<p>
+Разберём реальные платформы, которые часто выбирают бизнесы:
+</p>
+
+<h3>1. :contentReference[oaicite:0]{index=0}</h3>
+
+<p><strong>Позиционирование:</strong> enterprise IoT от Siemens</p>
+
+<p><strong>Плюсы:</strong></p>
+<ul>
+<li>интеграция с оборудованием Siemens</li>
+<li>масштабируемость</li>
+<li>enterprise-ready</li>
+</ul>
+
+<p><strong>Минусы:</strong></p>
+<ul>
+<li>дорогая лицензия</li>
+<li>медленная кастомизация</li>
+<li>часто = data platform, а не business platform</li>
+</ul>
+
+<p><strong>Вывод:</strong><br>
+хорошо для корпораций, плохо для быстрого ROI
+</p>
+
+<hr>
+
+<h3>2. :contentReference[oaicite:1]{index=1}</h3>
+
+<p><strong>Позиционирование:</strong> платформа для разработки IoT решений</p>
+
+<p><strong>Плюсы:</strong></p>
+<ul>
+<li>мощный toolkit</li>
+<li>быстрая разработка прототипов</li>
+<li>AR/VR интеграции</li>
+</ul>
+
+<p><strong>Минусы:</strong></p>
+<ul>
+<li>требует сильной команды</li>
+<li>сложно масштабировать без архитектуры</li>
+<li>часто превращается в “вечную разработку”</li>
+</ul>
+
+<p><strong>Вывод:</strong><br>
+отлично для разработки, но не всегда для бизнеса
+</p>
+
+<hr>
+
+<h3>3. :contentReference[oaicite:2]{index=2}</h3>
+
+<p><strong>Позиционирование:</strong> инфраструктура для IoT</p>
+
+<p><strong>Плюсы:</strong></p>
+<ul>
+<li>гибкость</li>
+<li>масштаб</li>
+<li>экосистема AWS</li>
+</ul>
+
+<p><strong>Минусы:</strong></p>
+<ul>
+<li>это не платформа — это конструктор</li>
+<li>всё нужно собирать самому</li>
+<li>бизнес-логика отсутствует</li>
+</ul>
+
+<p><strong>Вывод:</strong><br>
+идеально для DevOps, не для директоров производства
+</p>
+
+<hr>
+
+<h3>4. :contentReference[oaicite:3]{index=3}</h3>
+
+<p><strong>Позиционирование:</strong> open-source IoT платформа</p>
+
+<p><strong>Плюсы:</strong></p>
+<ul>
+<li>быстрое внедрение</li>
+<li>low-code элементы</li>
+<li>дешевле enterprise решений</li>
+</ul>
+
+<p><strong>Минусы:</strong></p>
+<ul>
+<li>ограниченная бизнес-логика</li>
+<li>сложности при сложных сценариях</li>
+<li>не всегда enterprise-ready</li>
+</ul>
+
+<p><strong>Вывод:</strong><br>
+хороший старт, но потолок достигается быстро
+</p>
+
+<hr>
+
+<h3>5. MITE (IoT как система управления)</h3>
+
+<p><strong>Позиционирование:</strong> IIoT + бизнес-логика + автоматизация</p>
+
+<p><strong>Ключевая идея:</strong></p>
+
+<p>
+данные без действий = мусор  
+действия без логики = хаос  
+логика + данные = прибыль
+</p>
+
+<p><strong>Плюсы:</strong></p>
+<ul>
+<li>встроенная бизнес-логика</li>
+<li>интеграция с процессами (не только датчики)</li>
+<li>быстрое получение ROI</li>
+</ul>
+
+<p><strong>Минусы:</strong></p>
+<ul>
+<li>требует правильной постановки задач</li>
+<li>не “plug & play” для галочки</li>
+</ul>
+
+<p><strong>Вывод:</strong><br>
+подходит тем, кто хочет результат, а не витрину
+</p>
+
+<hr>
+
+<h2>Главная ошибка: выбирать платформу как IT-решение</h2>
+
+<p>
+IIoT — это не IT.
+</p>
+
+<p>
+Это:
+</p>
+
+<ul>
+<li>операционная эффективность</li>
+<li>управление рисками</li>
+<li>деньги</li>
+</ul>
+
+<p>
+Если ты выбираешь платформу по критериям:
+</p>
+
+<ul>
+<li>“поддерживает MQTT”</li>
+<li>“есть дашборды”</li>
+<li>“интеграция с облаком”</li>
+</ul>
+
+<p>
+— ты уже проиграл.
+</p>
+
+<hr>
+
+<h2>Как выбирать IIoT платформу правильно</h2>
+
+<p>Задай 5 вопросов:</p>
+
+<ol>
+<li>Как система влияет на выручку?</li>
+<li>Какие процессы она автоматизирует?</li>
+<li>Есть ли действия, а не только данные?</li>
+<li>Как быстро достигается ROI?</li>
+<li>Можно ли встроить в бизнес-логику?</li>
+</ol>
+
+<p>
+Если нет ответа — это не платформа роста.
+</p>
+
+<hr>
+
+<h2>Вывод</h2>
+
+<p>
+Industrial IoT — это не про датчики.
+</p>
+
+<p>
+Это про контроль, скорость реакции и управление бизнесом.
+</p>
+
+<p>
+И в 2025+ выигрывают не те, у кого больше данных,
+а те, кто <strong>быстрее превращает данные в действия</strong>.
+</p>
+
+<p>
+Все остальные просто рисуют красивые графики.
+</p>
+
+</section>
+
+</body>
+</html>
