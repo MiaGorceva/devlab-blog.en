@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en"> 
-  <head> 
-    <meta charset="UTF-8" /> 
-    <title>Почему Industrial IoT разочаровывает бизнес — и когда он действительно становится точкой роста – DevLab Blog</title> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Why Industrial IoT Disappoints Business — and When It Becomes a Real Growth Point – DevLab Blog</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Почему Industrial IoT часто разочаровывает бизнес, чем IoT-платформа роста отличается от центра затрат и какие подходы помогают превратить данные в автоматизацию решений, снижение ручной нагрузки и реальный ROI." />
-    <meta name="keywords" content="Industrial IoT, IIoT, IoT платформа, IoT для бизнеса, цифровизация производства, автоматизация производства, IIoT платформа, промышленный интернет вещей, ROI IoT, IoT и бизнес-эффект, мониторинг оборудования, предиктивное обслуживание, автоматизация решений, IoT платформа для производства, ThingsBoard, AWS IoT Core, ThingWorx, Siemens Insights Hub, MindSphere, MITE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Why Industrial IoT often disappoints businesses, how a growth-oriented IoT platform differs from a cost center, and what it takes to turn data into automation, faster decisions, lower manual workload, and measurable ROI." />
+  <meta name="keywords" content="Industrial IoT, IIoT, IoT platform, IoT for business, industrial digitalization, manufacturing automation, industrial internet of things, IoT ROI, business value of IoT, equipment monitoring, predictive maintenance, automation of decisions, ThingsBoard, AWS IoT Core, ThingWorx, Siemens Insights Hub, MindSphere, MITE" />
 
-    <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg"> 
-    <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png"> 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png"> 
-    
-      <script>
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent','default',{
@@ -25,610 +25,637 @@
     });
   </script>
 
-    <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css"> 
-    <script src="https://uk.devlab.blog/js/script.js" defer></script> 
-    <script type="application/ld+json"> { 
-      "@context": "https://schema.org", "@type": "BlogPosting", "mainEntityOfPage":
-       { "@type": "WebPage", "@id": "https://en.devlab.blog/posts/post18-iiot-platforms-growth-not-cost.html" }, 
-       "headline": "Почему Industrial IoT разочаровывает бизнес — и когда он действительно становится точкой роста", 
-       "description": "Почему компании разочаровываются в Industrial IoT, почему IoT нельзя покупать как коробочный продукт и какие платформы действительно помогают превратить данные в точку роста, а не в центр затрат.", 
-       "author": { "@type": "Organization", "name": "DevLab Blog" }, 
-       "publisher": { "@type": "Organization", "name": "DevLab", "logo": { "@type": "ImageObject", 
-       "url": "https://uk.devlab.blog/img/devlab-logo.svg" } }, 
-       "datePublished": "2026-04-18", "dateModified": "2026-04-18" } </script>
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post18-iiot-platforms-growth-not-cost.html"
+    },
+    "headline": "Why Industrial IoT Disappoints Business — and When It Becomes a Real Growth Point",
+    "description": "Why companies get disappointed with Industrial IoT, why IoT cannot be bought like a boxed product, and which platform approach can actually turn data into growth rather than ongoing cost.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2026-04-18",
+    "dateModified": "2026-04-18"
+  }
+  </script>
 
-      <link rel="canonical" href="https://en.devlab.blog/posts/post18-iiot-platforms-growth-not-cost.html"> 
-      
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
-      })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script> 
-      
- </head> 
+  <link rel="canonical" href="https://en.devlab.blog/posts/post18-iiot-platforms-growth-not-cost.html">
+
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTZDV4K6');
+  </script>
+</head>
+
 <body class="post-page">
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
-            height="0" width="0"
+            height="0"
+            width="0"
             style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager noscript) -->
 
-<!-- ================== READY DEVLAB POST ================== -->
-<!-- POST SLUG: post№-iiot-platforms-growth-not-cost -->
-<!-- POST ID: post-iiot-platforms-growth-not-cost -->
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
 
-<div class="page">
-<header>
-  <div class="wrapper">
-    <nav class="nav">
-      <div class="nav-group">
-        <div class="nav-links">
-          <a href="/#posts">Posts</a>
-          <a href="/#categories">Categories</a>
-          <a href="/#about">About</a>
-          <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
-        </div>
-        <div class="nav-lang">
-          <a href="https://en.devlab.blog/">EN</a>
-          <a href="https://pl.devlab.blog/">PL</a>
-          <a href="https://ru.devlab.blog/" class="active">RU</a>
-          <a href="https://uk.devlab.blog/">UA</a>
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <article id="post18-iiot-platforms-growth-not-cost">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a class="back" href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Industrial IoT</span>
+                <span>&middot;</span>
+                <span>Approx. 11 min read</span>
+                <span>&middot;</span>
+                <span>Strategy &amp; Platforms</span>
+              </div>
+
+              <h1 class="hero-title">
+                Why Industrial IoT Disappoints Business —<br>
+                and When It Becomes a <span>Real Growth Point</span>
+              </h1>
+
+              <p class="hero-text">
+                Most companies do not get disappointed with IoT because sensors are bad,
+                the cloud is too expensive, or the integrator failed to finish the job.
+                The reason is deeper: IoT is too often bought like a finished product,
+                while in real business it only works as a constantly evolving system for finding efficiency.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="post18-iiot-platforms-growth-not-cost.webp"
+                  alt="Industrial IoT as a growth platform rather than a cost center"
+                  loading="eager"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+              <div class="post-quick">
+                <p class="post-quick__title">Short version</p>
+                <p class="post-quick__text">
+                  Industrial IoT almost never pays off as a one-time implementation project.
+                  It starts working only when the platform allows the business to continuously add new scenarios,
+                  change reaction logic, automate recurring decisions, and keep discovering new efficiency gains
+                  in data that has already been collected.
+                </p>
+              </div>
+
+              <div class="callout">
+                <strong>Main point</strong>
+                <p>
+                  The most expensive mistake in the IIoT market is to believe that once sensors are connected,
+                  dashboards are configured, and equipment is integrated, the job is done.
+                  In reality, that is the moment the real work begins.
+                </p>
+                <p>
+                  If the platform cannot support constant change without heavy projects,
+                  the company gets not a growth instrument, but another digital obligation:
+                  maintain it, pay for it, and explain why there is “a lot of data but not much value.”
+                </p>
+              </div>
+
+              <h2>Why disappointment with IoT has become systemic</h2>
+
+              <p>
+                Almost every IIoT project looks convincing at the start.
+                There are connected devices. There is telemetry. There are interfaces.
+                There are notifications, reports, nice dashboards, and sometimes even predictive models.
+              </p>
+
+              <p>
+                But after 6–12 months the business usually starts asking much harder questions:
+                why has the operational workload not gone down, why are there not fewer manual decisions,
+                why are incidents still handled in chats, calls, and spreadsheets,
+                and why, after all the investment, the system helps people “see” more often than it helps them actually “manage.”
+              </p>
+
+              <p>
+                That is the point of disappointment.
+                Not technological, but managerial.
+              </p>
+
+              <div class="callout">
+                <strong>IoT rarely fails as a technology.</strong>
+                <p>
+                  Much more often, it fails as an expectation model.
+                  Companies buy it as a product, but then try to use it as an operating system
+                  that has to live with the business, change with it, and constantly adapt
+                  to new constraints, goals, and bottlenecks.
+                </p>
+              </div>
+
+              <h2>The main reason: IoT cannot be bought like a boxed product</h2>
+
+              <p>
+                Most enterprise systems have a familiar implementation logic.
+                ERP is introduced as a structured process.
+                CRM is introduced as a sales tool.
+                MES is introduced as a production system with formalized control loops.
+              </p>
+
+              <p>
+                Industrial IoT works differently.
+                It does not exist in isolation.
+                It lives at the intersection of physical equipment, data, processes, people,
+                reactions, exceptions, service scenarios, and business goals.
+              </p>
+
+              <p>
+                This leads to one simple conclusion:
+                the value of IoT does not sit inside the platform “by itself.”
+                It only appears when the company keeps answering the same strategic questions again and again:
+              </p>
+
+              <ul>
+                <li>which signals actually affect money;</li>
+                <li>which deviations should not just be detected, but automatically closed;</li>
+                <li>which scenarios can no longer stay on manual support;</li>
+                <li>which decisions should be made without waiting for a person.</li>
+              </ul>
+
+              <p>
+                If the platform cannot quickly translate those questions into new system logic,
+                IoT stops being a development engine and turns into infrastructure overhead.
+              </p>
+
+              <h2>Why companies feel this more sharply now</h2>
+
+              <p>
+                A few years ago, IoT was often sold as a story about efficiency,
+                digitalization, and visibility.
+                Today, that is no longer enough.
+              </p>
+
+              <p>
+                The real driver of automation is different now:
+                systems need to operate in conditions where there are not enough people,
+                while the number of events, signals, and dependencies keeps growing.
+              </p>
+
+              <ul>
+                <li><strong>Fewer people.</strong> The shortage of qualified operators, technicians, and engineers makes manual reaction less and less scalable.</li>
+                <li><strong>More signals.</strong> Every new sensor increases the event flow, but does not increase the number of hours in the operations team.</li>
+                <li><strong>Higher cost of delay.</strong> Even short deviations in complex industrial or infrastructure systems quickly become money.</li>
+              </ul>
+
+              <p>
+                That is why the question sounds different today.
+                Not “how do we collect more data,” but “how do we make the system take more useful decisions
+                with less dependence on scarce human resources.”
+              </p>
+
+              <div class="callout">
+                <strong>The new KPI for IIoT</strong>
+                <p>
+                  Not the number of connected devices and not the volume of telemetry,
+                  but the number of decisions the system helps make faster
+                  or makes without direct human involvement.
+                </p>
+              </div>
+
+              <h2>Why monitoring alone almost never delivers real ROI</h2>
+
+              <p>
+                Most projects have a chain that is too short:
+                signal → visualization → human.
+                That is often where the whole “smart” layer ends.
+              </p>
+
+              <p>
+                Data arrives. Charts are built. Alerts are triggered.
+                But then manual work begins:
+                someone must see the issue, interpret it, compare it with context,
+                decide whether it is critical, align the response, create a task,
+                notify the right team, verify execution, and remember the cause.
+              </p>
+
+              <p>
+                That is the hidden cost of classical IoT.
+                Formally, the system works.
+                But a significant share of the meaning still remains in people’s heads, not in the platform.
+              </p>
+
+              <p>
+                As a result, many companies get not automation, but simply a more expensive and more modern layer of observation.
+              </p>
+
+              <h2>Where money is really lost</h2>
+
+              <p>
+                In practice, the biggest losses rarely come from one dramatic failure.
+                More often, they are spread across many recurring small deviations
+                that seem tolerable individually, but together blur margin every single day.
+              </p>
+
+              <ul>
+                <li>short unplanned stops that nobody analyzes systematically;</li>
+                <li>equipment operating in modes that are not alarming, but already inefficient;</li>
+                <li>extra service dispatches caused by weak prioritization;</li>
+                <li>manual coordination between operations, production, and service teams;</li>
+                <li>late detection of component degradation, when the issue is already expensive instead of early;</li>
+                <li>data that exists in the system but is not embedded into the logic of daily decisions.</li>
+              </ul>
+
+              <p>
+                That is why IoT, when limited to data collection and observation, almost always underdelivers
+                against business expectations.
+                It captures consequences, but too rarely changes system behavior before those consequences become cost.
+              </p>
+
+              <h2>What separates a growth platform from a cost platform</h2>
+
+              <p>
+                The difference is not beautiful interfaces and not the number of marketing phrases about AI.
+                The difference is how the platform behaves after the first implementation.
+              </p>
+
+              <p>
+                A platform becomes a source of cost when every change means:
+              </p>
+
+              <ul>
+                <li>a new mini-project;</li>
+                <li>a new development queue;</li>
+                <li>dependence on an external team;</li>
+                <li>complex rework even for small logic changes;</li>
+                <li>months of waiting between an idea and its validation in a real process.</li>
+              </ul>
+
+              <p>
+                A platform becomes a growth point when the company can, independently or with a minimal cycle of change:
+              </p>
+
+              <ul>
+                <li>add new reaction rules;</li>
+                <li>build new scenarios on top of already collected data;</li>
+                <li>link events to specific actions, roles, and processes;</li>
+                <li>test hypotheses quickly and keep only the ones that create real effect;</li>
+                <li>move operational knowledge out of people’s heads and into platform logic.</li>
+              </ul>
+
+              <div class="callout">
+                <strong>The key shift</strong>
+                <p>
+                  Industrial IoT starts paying off not when a business installs a “monitoring system,”
+                  but when the platform becomes an environment for continuously finding new meaning in data.
+                </p>
+                <p>
+                  In other words, it does not just show a signal,
+                  it helps the business find one more area every month
+                  where manual work can be reduced, reaction can be accelerated,
+                  losses can be cut, or controllability can be improved.
+                </p>
+              </div>
+
+              <h2>Comparing platforms: what they actually give the business</h2>
+
+              <p>
+                What follows is not a “ranking,” but a practical frame.
+                The key issue is not which platform is stronger “in general,”
+                but what role it plays in the architecture and how quickly
+                it allows data to be turned into real operational action.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Platform</th>
+                      <th>What it does well</th>
+                      <th>Where the limitation appears</th>
+                      <th>Typical role in business</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong><a href="https://aws.amazon.com/iot-core/" target="_blank" rel="noopener">AWS IoT Core</a></strong><br>
+                        <span class="muted">managed infrastructure</span>
+                      </td>
+                      <td>
+                        A reliable cloud foundation, secure two-way device communication with AWS,
+                        rules engine, scalability, and deep integration with the AWS ecosystem.
+                      </td>
+                      <td>
+                        It is a strong infrastructure layer, but not a ready-made operating model.
+                        Business value still has to be built on top of it.
+                      </td>
+                      <td>Foundation for custom solutions and backend platform</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong><a href="https://www.ptc.com/en/products/thingworx" target="_blank" rel="noopener">PTC ThingWorx</a></strong><br>
+                        <span class="muted">industrial application platform</span>
+                      </td>
+                      <td>
+                        Flexibility for building IIoT solutions, strong where a capable team
+                        and a clear development architecture already exist.
+                      </td>
+                      <td>
+                        With weak business framing it can easily turn into a long development cycle
+                        where the platform is being built longer than the business is willing to wait for results.
+                      </td>
+                      <td>Development platform for custom IIoT scenarios</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong><a href="https://www.siemens.com/en-us/products/insights-hub/" target="_blank" rel="noopener">Siemens Insights Hub</a></strong><br>
+                        <span class="muted">formerly MindSphere</span>
+                      </td>
+                      <td>
+                        Strong enterprise approach, focus on equipment and process data,
+                        continuous improvement, and integration within the Siemens ecosystem.
+                      </td>
+                      <td>
+                        For some companies it may be too heavy and inertial
+                        when very fast scenario adaptation and fast time-to-value are needed.
+                      </td>
+                      <td>Enterprise platform for industrial analytics and improvement</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong><a href="https://thingsboard.io/" target="_blank" rel="noopener">ThingsBoard</a></strong><br>
+                        <span class="muted">open-source IoT platform</span>
+                      </td>
+                      <td>
+                        Fast start, open-source model, data collection, processing,
+                        visualization, and device management out of the box.
+                      </td>
+                      <td>
+                        In complex and rapidly changing scenarios it may require additional architectural layers
+                        and a growing amount of internal expertise.
+                      </td>
+                      <td>Starter platform, pilots, fast IoT loops</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>MITE</strong><br>
+                        <span class="muted">logic-first operating platform</span>
+                      </td>
+                      <td>
+                        Stronger where the goal is to move from “data exists”
+                        to “the system changes process behavior”:
+                        signal → logic → reaction → business effect.
+                      </td>
+                      <td>
+                        It requires mature goal-setting:
+                        not just “connect the sensors,”
+                        but define from the start which processes and decisions must improve.
+                      </td>
+                      <td>Operating platform for continuous logic and effect development</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="sidebar-text">
+                Important: the comparison above looks at platforms through the lens of their role in real business,
+                not through the length of the feature list. For many companies the key question is not
+                “which platform is more powerful,” but “which platform turns signals into useful action faster.”
+              </p>
+
+              <h2>An honest conclusion about the market</h2>
+
+              <p>
+                The closer a platform is to pure infrastructure, the more freedom it gives the architect,
+                but the further it usually is from immediate business results.
+                The closer a platform is to operating logic, the higher the chance of getting faster impact,
+                but the more important it is to define clearly what the business actually wants to change.
+              </p>
+
+              <p>
+                That is why there is no universal “best solution” here.
+                There is only the right question:
+                do you need a platform that merely collects and routes data,
+                or a platform that helps continuously reshape processes
+                and reduce dependence on manual decisions?
+              </p>
+
+              <div class="callout">
+                <strong>Working IIoT is not a one-time implementation.</strong>
+                <p>
+                  It is a management loop in which data is constantly reinterpreted,
+                  scenarios are refined, reactions are automated,
+                  and the platform itself becomes an instrument of cumulative growth,
+                  not cumulative maintenance cost.
+                </p>
+              </div>
+
+              <h2>How to understand whether a platform makes business sense</h2>
+
+              <p>
+                There is a simple test.
+                Remove the dashboards, the beautiful screens, and the AI language from the presentation.
+                Then ask:
+              </p>
+
+              <ul>
+                <li>which decisions will this system help us make faster this quarter;</li>
+                <li>which manual actions will it allow us to reduce or remove;</li>
+                <li>which recurring losses will it reduce systematically rather than manually;</li>
+                <li>how quickly will we be able to add new logic without launching a major project;</li>
+                <li>will the system be smarter and more useful in a year, or simply more expensive to maintain?</li>
+              </ul>
+
+              <p>
+                If there are no clear answers to those questions,
+                then what you are looking at is most likely not a growth point,
+                but just another technology layer that someone will later need to justify.
+              </p>
+
+              <h2>Conclusion</h2>
+
+              <p>
+                Industrial IoT does not disappoint business because the idea is weak.
+                It disappoints when people expect it to behave like a boxed product:
+                implement it once, and the value is fixed forever.
+              </p>
+
+              <p>
+                In reality, the opposite is true.
+                The power of IoT lies in continuous change.
+                In the platform’s ability to open up new areas of efficiency every month,
+                turn signals into decisions, and turn decisions into repeatable system actions.
+              </p>
+
+              <p>
+                And only if the platform truly allows this to happen quickly,
+                without heavy inertia and without permanent dependence on an external project,
+                Industrial IoT stops being a cost line —
+                and becomes a real growth point.
+              </p>
+
+              <div class="badge-row">
+                <span class="badge"><a href="https://aws.amazon.com/iot-core/" target="_blank" rel="noopener">AWS IoT Core</a></span>
+                <span class="badge"><a href="https://www.ptc.com/en/products/thingworx" target="_blank" rel="noopener">ThingWorx</a></span>
+                <span class="badge"><a href="https://www.siemens.com/en-us/products/insights-hub/" target="_blank" rel="noopener">Insights Hub</a></span>
+                <span class="badge"><a href="https://thingsboard.io/" target="_blank" rel="noopener">ThingsBoard</a></span>
+              </div>
+            </section>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">Industrial IoT</span>
+                  <span class="post-tag">Automation</span>
+                  <span class="post-tag">Platforms</span>
+                  <span class="post-tag">Strategy</span>
+                  <span class="post-tag">Digital Transformation</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Published: April 18, 2026</span>
+                  <span>·</span>
+                  <span>Approx. 11 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                No spam — just occasional notes on ERP design, automation experiments, and new posts.
+              </p>
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://uk.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Your email address" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                <p class="newsletter-note">
+                  You will receive a confirmation email.<br>
+                  Securely powered by FormSubmit.
+                </p>
+              </form>
+            </section>
+          </article>
+
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this article</h3>
+              <p class="sidebar-text">
+                This piece looks at Industrial IoT not as a dashboard problem,
+                but as an operating model problem: why business gets disappointed,
+                where ROI gets lost, and what separates a platform of growth
+                from a platform of maintenance costs.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">Key takeaway</h3>
+              <p class="sidebar-text">
+                If IoT cannot evolve with the business, absorb new logic quickly,
+                and reduce dependence on manual decisions, it will almost inevitably become a cost center.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to browse other posts or explore by category:
+              </p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse categories</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
         </div>
       </div>
+    </main>
 
-      <div class="nav-cta">
-        <a href="/#posts" class="btn btn-outline">Browse posts</a>
-        <a href="/#about" class="btn btn-primary">What is this?</a>
-      </div>
-
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class="wrapper">
-    <div class="main-grid">
-      <article id="post-iiot-growth-not-cost">
-        <div class="section-title">
-          <span>Article</span>
-          <small><a class="back" href="/">← Back to all posts</a></small>
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notes on open-source ERP, modular architectures, and automation experiments.
+          </p>
         </div>
-
-        <header>
-          <div class="post-meta">
-            <span>Industrial IoT</span>
-            <span>&middot;</span>
-            <span>Approx. 11 min read</span>
-            <span>&middot;</span>
-            <span>Strategy &amp; Platforms</span>
-          </div>
-
-          <h1 class="hero-title">
-            Почему Industrial IoT разочаровывает бизнес —<br>
-            и когда он действительно становится <span>точкой роста</span>
-          </h1>
-
-          <p class="hero-text">
-            Большинство компаний разочаровываются в IoT не потому, что датчики плохие,
-            облако дорогое или интеграторы что-то не довели. Причина глубже:
-            IoT слишком часто пытаются купить как законченное решение, хотя в реальном
-            бизнесе он работает только как постоянно развивающаяся система поиска эффективности.
-          </p>
-
-          <figure class="post-hero">
-            <img
-              src="post18-iiot-platforms-growth-not-cost.html.png"
-              alt="Industrial IoT as a growth platform rather than a cost center"
-              loading="eager"
-            >
-          </figure>
-        </header>
-
-        <section class="post-content">
-
-          <div class="post-quick">
-            <p class="post-quick__title">Если коротко</p>
-            <p class="post-quick__text">
-              Industrial IoT почти никогда не окупается как “проект внедрения”.
-              Он начинает работать только тогда, когда платформа позволяет бизнесу
-              постоянно добавлять новые сценарии, менять логику реакции, автоматизировать
-              повторяющиеся решения и искать новые точки эффективности в уже собранных данных.
-            </p>
-          </div>
-
-          <div class="lead-block">
-            <span class="section-kicker">Main idea</span>
-            <p>
-              Самая дорогая ошибка на рынке IIoT — думать, что после подключения датчиков,
-              настройки дашбордов и интеграции с оборудованием задача закрыта.
-              На самом деле в этот момент она только начинается.
-            </p>
-            <p>
-              Если платформа не поддерживает постоянные изменения без тяжёлых проектов,
-              компания получает не инструмент развития, а ещё одну цифровую обязанность:
-              поддерживать, оплачивать, объяснять, почему “данных много, а пользы мало”.
-            </p>
-          </div>
-
-          <h2>Почему разочарование в IoT стало системным</h2>
-
-          <p>
-            Практически любой IIoT-проект на старте выглядит убедительно.
-            Есть подключённые устройства. Есть телеметрия. Есть интерфейсы.
-            Есть уведомления, отчёты, красивые панели, иногда даже предиктивные модели.
-          </p>
-
-          <p>
-            Но через 6–12 месяцев бизнес почти всегда начинает задавать более жёсткие вопросы:
-            почему операционная нагрузка не снизилась, почему ручных решений меньше не стало,
-            почему инциденты по-прежнему разбираются в чатах, звонках и таблицах,
-            и почему после всех инвестиций система чаще помогает “видеть”, чем реально “управлять”.
-          </p>
-
-          <p>
-            Это и есть точка разочарования.
-            Не технологическая, а управленческая.
-          </p>
-
-          <div class="callout">
-            <strong>IoT редко проваливается как технология.</strong>
-            <p>
-              Гораздо чаще он проваливается как модель ожиданий.
-              Компании покупают его как продукт, а использовать пытаются как операционную систему,
-              которая должна жить вместе с бизнесом, меняться вместе с ним и постоянно адаптироваться
-              под новые ограничения, цели и узкие места.
-            </p>
-          </div>
-
-          <h2>Главная причина: IoT нельзя покупать как коробочный продукт</h2>
-
-          <p>
-            У большинства корпоративных систем есть понятная логика внедрения.
-            ERP внедряется как структурированный процесс.
-            CRM внедряется как инструмент продаж.
-            MES внедряется как производственная система с формализованными контурами.
-          </p>
-
-          <p>
-            Industrial IoT устроен иначе.
-            Он не существует в изоляции.
-            Он живёт на пересечении физического оборудования, данных, процессов, персонала,
-            реакций, исключений, сервисных сценариев и бизнес-целей.
-          </p>
-
-          <p>
-            Это означает простую вещь:
-            ценность IoT не находится в платформе “сама по себе”.
-            Она возникает только тогда, когда компания снова и снова отвечает на вопросы:
-          </p>
-
-          <ul>
-            <li>какие сигналы действительно влияют на деньги;</li>
-            <li>какие отклонения нужно не просто фиксировать, а закрывать автоматически;</li>
-            <li>какие сценарии больше нельзя оставлять на ручное сопровождение;</li>
-            <li>какие решения должны приниматься без ожидания человека.</li>
-          </ul>
-
-          <p>
-            Если платформа не позволяет быстро переводить эти вопросы в новую логику системы,
-            IoT перестаёт быть развитием и превращается в инфраструктурную нагрузку.
-          </p>
-
-          <h2>Почему компании особенно остро чувствуют это сейчас</h2>
-
-          <p>
-            Ещё несколько лет назад IoT часто продавался как история про эффективность,
-            цифровизацию и прозрачность.
-            Сегодня этого недостаточно.
-          </p>
-
-          <p>
-            Реальный драйвер автоматизации уже другой:
-            системам нужно работать в условиях, где людей не хватает,
-            а количество событий, сигналов и зависимостей продолжает расти.
-          </p>
-
-          <div class="metric-grid">
-            <div class="metric-card">
-              <strong>Меньше людей</strong>
-              <span>Дефицит квалифицированных операторов, техников и инженеров делает ручную реакцию всё менее масштабируемой.</span>
-            </div>
-            <div class="metric-card">
-              <strong>Больше сигналов</strong>
-              <span>Каждый новый датчик увеличивает поток событий, но не увеличивает количество часов у команды эксплуатации.</span>
-            </div>
-            <div class="metric-card">
-              <strong>Выше цена задержки</strong>
-              <span>Даже короткие отклонения в сложных производственных и инфраструктурных системах быстро становятся деньгами.</span>
-            </div>
-          </div>
-
-          <p>
-            Именно поэтому вопрос сегодня звучит иначе.
-            Не “как собрать больше данных”, а “как сделать так, чтобы система принимала больше полезных решений
-            с меньшей зависимостью от дефицитного человеческого ресурса”.
-          </p>
-
-          <div class="callout">
-            <strong>Новый KPI для IIoT</strong>
-            <p>
-              Не количество подключённых устройств и не объём телеметрии,
-              а число решений, которые система помогает принимать быстрее
-              или принимает без прямого участия человека.
-            </p>
-          </div>
-
-          <h2>Почему мониторинг почти никогда не даёт настоящего ROI</h2>
-
-          <p>
-            У большинства проектов слишком короткая архитектурная цепочка:
-            сигнал → визуализация → человек.
-            На этой схеме часто заканчивается весь “умный” слой.
-          </p>
-
-          <p>
-            Данные появляются. Графики строятся. Алерты приходят.
-            Но дальше начинается ручной труд:
-            кто-то должен увидеть проблему, интерпретировать её, сравнить с контекстом,
-            решить, критично это или нет, согласовать реакцию, создать задачу,
-            уведомить нужную команду, проверить исполнение и не забыть о причине.
-          </p>
-
-          <p>
-            Это и есть скрытая стоимость классического IoT.
-            Формально система работает.
-            Но значимая часть смысла всё равно остаётся в головах людей, а не в платформе.
-          </p>
-
-          <p>
-            Поэтому компании часто получают не автоматизацию, а просто более дорогой и более современный слой наблюдения.
-          </p>
-
-          <h2>Где в реальности теряются деньги</h2>
-
-          <p>
-            На практике крупнейшие потери редко выглядят как один драматичный сбой.
-            Чаще всего они распределены по множеству повторяющихся мелких отклонений,
-            которые по отдельности терпимы, а вместе размывают маржу каждый день.
-          </p>
-
-          <ul>
-            <li>кратковременные незапланированные остановки, которые никто системно не разбирает;</li>
-            <li>работа оборудования в режимах, которые не аварийны, но уже неэффективны;</li>
-            <li>лишние выезды сервисных команд из-за слабой приоритизации;</li>
-            <li>ручная координация между эксплуатацией, производством и сервисом;</li>
-            <li>позднее выявление деградации узлов, когда проблема уже дорогая, а не ранняя;</li>
-            <li>данные, которые есть в системе, но не встроены в логику ежедневных решений.</li>
-          </ul>
-
-          <p>
-            Именно поэтому IoT, замкнутый на сборе и наблюдении, почти всегда проигрывает ожиданиям бизнеса.
-            Он фиксирует последствия, но слишком редко меняет поведение системы до того,
-            как последствия становятся затратами.
-          </p>
-
-          <h2>Что отличает платформу роста от платформы затрат</h2>
-
-          <p>
-            Разница между ними не в красивых интерфейсах и не в количестве маркетинговых слов про AI.
-            Разница в том, как платформа ведёт себя после первого внедрения.
-          </p>
-
-          <p>
-            Платформа становится источником затрат, когда каждое изменение означает:
-          </p>
-
-          <ul>
-            <li>новый мини-проект;</li>
-            <li>новую очередь на разработку;</li>
-            <li>зависимость от внешней команды;</li>
-            <li>сложную доработку даже для небольшой логики;</li>
-            <li>месяцы ожидания между идеей и её проверкой на реальном процессе.</li>
-          </ul>
-
-          <p>
-            Платформа становится точкой роста, когда компания может сама или с минимальным циклом изменений:
-          </p>
-
-          <ul>
-            <li>добавлять новые правила реакции;</li>
-            <li>строить новые сценарии на уже собранных данных;</li>
-            <li>связывать события с конкретными действиями, ролями и процессами;</li>
-            <li>быстро проверять гипотезы и оставлять только те, что реально дают эффект;</li>
-            <li>переводить операционное знание из “голов людей” в “логику платформы”.</li>
-          </ul>
-
-          <div class="lead-block">
-            <span class="section-kicker">Critical shift</span>
-            <p>
-              Industrial IoT начинает окупаться не тогда, когда бизнес поставил “систему мониторинга”,
-              а тогда, когда платформа становится средой постоянного поиска новых смыслов в данных.
-            </p>
-            <p>
-              То есть не просто показывает сигнал, а помогает каждый месяц находить ещё один участок,
-              где можно уменьшить ручной труд, ускорить реакцию, сократить потери или улучшить управляемость.
-            </p>
-          </div>
-
-          <h2>Сравнение платформ: что они дают бизнесу на практике</h2>
-
-          <p>
-            Ниже — не “рейтинг”, а практическая рамка.
-            Важно не то, какая платформа сильнее “вообще”,
-            а какую роль она играет в архитектуре и насколько быстро позволяет
-            превращать данные в реальные операционные действия.
-          </p>
-
-          <div class="dev-table-wrap">
-            <table class="dev-table">
-              <thead>
-                <tr>
-                  <th>Платформа</th>
-                  <th>Что хорошо умеет</th>
-                  <th>Где возникает ограничение</th>
-                  <th>Типичная роль в бизнесе</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <strong><a href="https://aws.amazon.com/iot-core/" target="_blank" rel="noopener">AWS IoT Core</a></strong><br>
-                    <span class="muted">managed infrastructure</span>
-                  </td>
-                  <td>
-                    Надёжная облачная база, защищённая двусторонняя связь устройств с AWS,
-                    rules engine, масштаб и интеграция с экосистемой AWS.
-                  </td>
-                  <td>
-                    Это сильный инфраструктурный слой, но не готовая операционная модель.
-                    Бизнес-ценность нужно собирать поверх него.
-                  </td>
-                  <td>Основа для кастомных решений и backend-платформа</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong><a href="https://www.ptc.com/en/products/thingworx" target="_blank" rel="noopener">PTC ThingWorx</a></strong><br>
-                    <span class="muted">industrial application platform</span>
-                  </td>
-                  <td>
-                    Гибкость для построения IIoT-решений, хороший инструмент там,
-                    где есть сильная команда и понятная архитектура развития.
-                  </td>
-                  <td>
-                    При слабой постановке задач легко превращается в длинный цикл разработки,
-                    где платформа строится дольше, чем бизнес готов ждать эффект.
-                  </td>
-                  <td>Платформа разработки и кастомных IIoT-сценариев</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong><a href="https://www.siemens.com/en-us/products/insights-hub/" target="_blank" rel="noopener">Siemens Insights Hub</a></strong><br>
-                    <span class="muted">formerly MindSphere</span>
-                  </td>
-                  <td>
-                    Сильный enterprise-подход, фокус на данных оборудования и процессов,
-                    continuous improvement, интеграция в экосистему Siemens.
-                  </td>
-                  <td>
-                    Для части компаний может оказаться слишком тяжёлым и инерционным,
-                    если нужна очень быстрая адаптация сценариев и быстрый time-to-value.
-                  </td>
-                  <td>Корпоративная платформа для промышленного анализа и улучшений</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong><a href="https://thingsboard.io/" target="_blank" rel="noopener">ThingsBoard</a></strong><br>
-                    <span class="muted">open-source IoT platform</span>
-                  </td>
-                  <td>
-                    Быстрый старт, open-source модель, data collection, processing,
-                    visualization и device management из коробки.
-                  </td>
-                  <td>
-                    На сложных и быстро меняющихся сценариях может потребовать
-                    дополнительной архитектурной надстройки и роста собственной экспертизы.
-                  </td>
-                  <td>Стартовая платформа, пилоты, быстрые IoT-контуры</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>MITE</strong><br>
-                    <span class="muted">logic-first operational platform</span>
-                  </td>
-                  <td>
-                    Сильнее там, где нужен переход от “данные есть” к “система меняет поведение процесса”:
-                    сигнал → логика → реакция → бизнес-эффект.
-                  </td>
-                  <td>
-                    Требует зрелой постановки целей: не “подключить датчики”,
-                    а сразу понимать, какие процессы и решения должны стать лучше.
-                  </td>
-                  <td>Операционная платформа для постоянного развития логики и эффектов</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p class="article-note">
-            Важно: сравнение выше смотрит на платформы через призму роли в реальном бизнесе,
-            а не через длину feature list. Для многих компаний вопрос не “какая платформа мощнее”,
-            а “какая платформа быстрее превращает сигналы в полезные действия”.
-          </p>
-
-          <h2>Честный вывод по рынку</h2>
-
-          <p>
-            Чем ближе платформа к чистой инфраструктуре, тем больше свободы она даёт архитектору,
-            но тем дальше она от немедленного бизнес-результата.
-            Чем ближе платформа к операционной логике, тем выше шанс быстрее получить эффект,
-            но тем важнее изначально правильно сформулировать, что именно бизнес хочет менять.
-          </p>
-
-          <p>
-            Поэтому универсального “лучшего решения” здесь нет.
-            Есть только правильный вопрос:
-            нужна ли вам платформа, которая просто собирает и маршрутизирует данные,
-            или платформа, которая помогает постоянно менять процессы и снижать зависимость от ручных решений.
-          </p>
-
-          <div class="callout">
-            <strong>Работающий IIoT — это не разовое внедрение.</strong>
-            <p>
-              Это управленческий контур, в котором данные постоянно переосмысляются,
-              сценарии уточняются, реакции автоматизируются, а сама платформа
-              становится инструментом накопительного роста, а не накопительных расходов.
-            </p>
-          </div>
-
-          <h2>Как понять, есть ли у платформы смысл для бизнеса</h2>
-
-          <p>
-            Есть простой тест.
-            Уберите из презентации дашборды, красивые экраны и слова про AI.
-            После этого спросите:
-          </p>
-
-          <ul>
-            <li>какие решения эта система поможет принимать быстрее уже в этом квартале;</li>
-            <li>какие ручные действия она позволит убрать или сократить;</li>
-            <li>какие повторяющиеся потери она сможет уменьшать системно, а не вручную;</li>
-            <li>насколько быстро мы сможем добавить новую логику без большого проекта;</li>
-            <li>станет ли система через год умнее и полезнее, или просто дороже в поддержке.</li>
-          </ul>
-
-          <p>
-            Если на эти вопросы нет внятных ответов,
-            значит перед вами, скорее всего, не точка роста,
-            а просто очередной технологический слой, который придётся оправдывать.
-          </p>
-
-          <h2>Вывод</h2>
-
-          <p>
-            Industrial IoT разочаровывает бизнес не потому, что идея плохая.
-            Он разочаровывает тогда, когда от него ждут поведения коробочного продукта:
-            внедрили один раз — и ценность зафиксировалась.
-          </p>
-
-          <p>
-            В реальности всё наоборот.
-            Сила IoT — в постоянных изменениях.
-            В способности платформы каждый месяц открывать новые участки эффективности,
-            переводить сигналы в решения, а решения — в повторяемую систему действий.
-          </p>
-
-          <p>
-            И только если платформа действительно позволяет это делать быстро,
-            без тяжелой инерции и без постоянной зависимости от внешнего проекта,
-            Industrial IoT перестаёт быть статьёй затрат —
-            и становится точкой роста.
-          </p>
-
-          <div class="hero-links">
-            <a href="https://aws.amazon.com/iot-core/" target="_blank" rel="noopener">AWS IoT Core</a>
-            <a href="https://www.ptc.com/en/products/thingworx" target="_blank" rel="noopener">ThingWorx</a>
-            <a href="https://www.siemens.com/en-us/products/insights-hub/" target="_blank" rel="noopener">Insights Hub</a>
-            <a href="https://thingsboard.io/" target="_blank" rel="noopener">ThingsBoard</a>
-          </div>
-
-        </section>
-
-        <footer class="post-footer-extended">
-          <div class="post-footer-meta">
-            <div class="post-meta-tags">
-              <span class="post-tag">Industrial IoT</span>
-              <span class="post-tag">Automation</span>
-              <span class="post-tag">Platforms</span>
-              <span class="post-tag">Strategy</span>
-              <span class="post-tag">Digital Transformation</span>
-            </div>
-
-            <div class="post-meta-secondary">
-              <span>Published: April 18, 2026</span>
-              <span>·</span>
-              <span>Approx. 11 min read</span>
-              <span>·</span>
-              <span class="post-views">Views: <span class="count">—</span></span>
-            </div>
-          </div>
-        </footer>
-
-        <section class="sidebar-block">
-          <p class="sidebar-text">
-            No spam – just occasional notes on ERP design, automation experiments and new posts.
-          </p>
-          <form class="newsletter-form"
-                action="https://formsubmit.co/info@devlab.blog"
-                method="POST">
-            <input type="hidden" name="_next" value="https://uk.devlab.blog/thank-you.html">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="_honey" style="display:none">
-
-            <input type="email" name="email" class="field" placeholder="Your email address" required>
-            <button class="btn btn-primary" type="submit">Subscribe</button>
-
-            <p class="newsletter-note">
-              You will receive a confirmation email.<br>
-              Powered securely via FormSubmit.
-            </p>
-          </form>
-        </section>
-      </article>
-
-      <aside class="sidebar">
-        <section class="sidebar-block">
-          <h3 class="sidebar-title">About this article</h3>
-          <p class="sidebar-text">
-            This piece looks at Industrial IoT not as a dashboard problem, but as an operating model problem:
-            why businesses get disappointed, where ROI gets lost, and what separates a platform of growth
-            from a platform of maintenance costs.
-          </p>
-        </section>
-
-        <section class="sidebar-block">
-          <h3 class="sidebar-title">Key takeaway</h3>
-          <p class="sidebar-text">
-            If IoT cannot evolve with the business, absorb new logic quickly and reduce dependence
-            on manual decisions, it will almost always degrade into a cost center.
-          </p>
-        </section>
-
-        <section class="sidebar-block">
-          <h3 class="sidebar-title">More to explore</h3>
-          <p class="sidebar-text">
-            Go back to the main page to see other posts, or browse by category:
-          </p>
-          <ul>
-            <li><a href="/">All blog posts</a></li>
-            <li><a href="/#categories">Browse by category</a></li>
-            <li><a href="https://devlab.blog" target="_blank" rel="noopener">DevLab main site</a></li>
-          </ul>
-        </section>
-      </aside>
-    </div>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="wrapper footer-grid">
-    <div>
-      <div class="footer-links">
-        <a href="/">Posts</a>
-        <a href="/#categories">Categories</a>
-        <a href="/#about">About</a>
-        <a href="https://devlab.blog" target="_blank" rel="noopener">Main site</a>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
       </div>
-      <p class="footer-meta">
-        DevLab Blog – notes on open-source ERP, modular architectures and automation experiments.
-      </p>
-    </div>
-    <div class="footer-meta">
-      <p>&copy; <span id="year"></span> DevLab Blog</p>
-    </div>
+    </footer>
   </div>
-</footer>
-</body></html>
+</body>
+</html>
