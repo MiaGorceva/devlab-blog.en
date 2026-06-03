@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IoT for business: where it earns money and where it burns budgets – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Where the Internet of Things actually pays off at the scale of a network of sites, a vehicle fleet, or production — and where it burns the budget: value mechanisms, 2026 trends, causes of failure, and a platform comparison from monitoring to decision-making (TagoIO, Datacake, Akenza, MITE, Tractian, Fracttal)." />
+  <meta name="keywords" content="IoT, IIoT, industrial IoT, MITE, lsFusion, ThingsBoard, Tractian, Fracttal, Datacake, TagoIO, Akenza, predictive maintenance, business logic, digital dispatcher" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post18-iot-for-business.html"
+    },
+    "headline": "IoT for business: where it earns money and where it burns budgets",
+    "description": "Where the Internet of Things actually pays off at the scale of a network of sites, a vehicle fleet, or production — and where it burns the budget: value mechanisms, 2026 trends, causes of failure, and a platform comparison from monitoring to decision-making.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2026-05-30",
+    "dateModified": "2026-05-30"
+  }
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://en.devlab.blog/posts/post18-iot-for-business.html">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTZDV4K6');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+            height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <article id="post-iot-for-business">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a class="back" href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>IIoT · Industrial automation</span>
+                <span>&middot;</span>
+                <span>Approx. 12 min read</span>
+                <span>&middot;</span>
+                <span>Market analysis 2026</span>
+              </div>
+
+              <h1 class="hero-title">IoT for business: where it earns money and where it burns budgets</h1>
+
+              <p class="hero-text">The line between profit and loss runs not where the sensors are installed, but where the system stops being an alarm and becomes a dispatcher. We break it down — and compare the affordable platforms.</p>
+
+              <figure class="post-hero">
+                <img
+                  src="/img/post18-iot-for-business.webp"
+                  alt="IoT system dispatcher panel with readings across a network of sites"
+                  loading="eager"
+                  decoding="async"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+
+              <!-- TL;DR -->
+              <div class="post-quick">
+                <p class="post-quick__title">In short</p>
+                <p class="post-quick__text">
+                  The technology is ready and affordable at the scale of a site network. 72% of IoT projects never reach production — not because of the hardware, but because the system stays an alarm instead of becoming a dispatcher. Platforms split in two: monitoring (you think) and decision-making (the system thinks). The class matters more than the brand.
+                </p>
+              </div>
+
+              <!-- Table of contents -->
+              <nav class="post-toc sidebar-block" aria-label="Contents">
+                <h3 class="sidebar-title">Contents</h3>
+                <ol>
+                  <li class="has-children">
+                    <a class="post-read" href="#part-1">Why this is about money, not sensors</a>
+                    <ol>
+                      <li><a class="post-read" href="#mech-downtime">Cutting downtime</a></li>
+                      <li><a class="post-read" href="#mech-resources">Resource optimization</a></li>
+                      <li><a class="post-read" href="#mech-quality">Quality and compliance</a></li>
+                      <li><a class="post-read" href="#mech-remote">Managing distributed assets</a></li>
+                    </ol>
+                  </li>
+                  <li class="has-children">
+                    <a class="post-read" href="#part-2">How it works technically</a>
+                    <ol>
+                      <li><a class="post-read" href="#layer-1">Sensors and controllers</a></li>
+                      <li><a class="post-read" href="#layer-2">Connectivity</a></li>
+                      <li><a class="post-read" href="#layer-3">Platform and data</a></li>
+                      <li><a class="post-read" href="#layer-4">Decision and action</a></li>
+                    </ol>
+                  </li>
+                  <li><a class="post-read" href="#part-3">Examples with decision-making</a></li>
+                  <li><a class="post-read" href="#part-4">2026 trends</a></li>
+                  <li><a class="post-read" href="#part-5">Where the money burns</a></li>
+                  <li class="has-children">
+                    <a class="post-read" href="#part-6">Platform comparison</a>
+                    <ol>
+                      <li><a class="post-read" href="#class-1">Class 1. Monitoring</a></li>
+                      <li><a class="post-read" href="#class-2">Class 2. Decision-making</a></li>
+                      <li><a class="post-read" href="#how-to-choose">How to choose</a></li>
+                    </ol>
+                  </li>
+                  <li><a class="post-read" href="#part-7">Pre-launch checklist</a></li>
+                </ol>
+              </nav>
+
+              <!-- ============== Part 1 ============== -->
+              <h2 id="part-1">Why this is about money, not sensors</h2>
+
+              <p>The global IoT market crossed $860 billion in 2026 — this is mature infrastructure now. Ten years ago, a project at the level of "a network of sites in real time with decision-making" meant million-dollar rollouts and a team of integrators. Today, a mid-sized company gets the same outcome an order of magnitude cheaper — thanks to industrial no-code platforms, affordable SIM plans for thousands of devices, and off-the-shelf business-logic engines.</p>
+
+              <p>And yet the uncomfortable truth still holds: <strong>most IoT projects never reach production.</strong> Various estimates put the failure rate at 70–75% — initiatives get stuck in pilot or close without paying back. The main cause is not the hardware, but a mismatch between the technology and the business outcome. Teams get carried away by capabilities instead of focusing on a concrete operational problem with a clear return.</p>
+
+              <p>IoT creates value through four basic mechanisms. A healthy project should explicitly rely on at least one of them.</p>
+
+              <h3 id="mech-downtime">Cutting unplanned downtime</h3>
+              <p>The most mature area in terms of return. An hour of downtime on a production line costs around $125,000 at the median, and across a distributed fleet (dozens of production sites, thousands of vehicles, hundreds of retail locations) the combined losses from unplanned stoppages run into millions a year. Vibration, temperature and current sensors on critical assets catch degradation before failure — and 95% of companies that deployed predictive maintenance report a positive return, with one in four paying back the investment in the first year.</p>
+
+              <h3 id="mech-resources">Real-time resource optimization</h3>
+              <p>Energy, fuel, water, inventory across dozens of sites and hundreds of points. IoT turns "blind" processes into managed ones: you can see where a resource is leaking on a specific asset and act immediately — not at the end of the monthly report, when the money is already gone. At network scale, 1–2% of saved energy or fuel is a meaningful P&amp;L line.</p>
+
+              <h3 id="mech-quality">Quality and compliance</h3>
+              <p>Continuous monitoring of parameters along the whole chain — cold chain to the last mile, humidity at distribution centers, emissions and production conditions. Here IoT defends revenue: it reduces the risk of recalls, regulatory fines and contract claims. For pharma, food production and logistics operators, this is often not an "improvement" but a condition for keeping a license or a contract with a chain client.</p>
+
+              <h3 id="mech-remote">Managing distributed assets</h3>
+              <p>The most underrated benefit for companies with geographically dispersed sites. Being able to see the state of dozens of points, objects or vehicles from a single center in real time cuts field staff, response time and dependence on manual reporting from below. One dispatcher with the entire network in front of them replaces dozens of phone calls and field trips — and makes decisions based on data rather than on hearsay.</p>
+
+              <hr>
+
+              <!-- ============== Part 2 ============== -->
+              <h2 id="part-2">How it works technically — no fluff</h2>
+              <p>To understand where projects break, you need to see the entire chain. IoT architecture has five layers, and weakness in any of them kills the whole project.</p>
+
+              <h3 id="layer-1">Layer 1. Sensors and controllers</h3>
+              <p>Physical sensors (temperature, vibration, humidity, current, flow, pressure, leak, geolocation) and a controller — an industrial PLC, IoT gateway or embedded module — that polls them. This is where decisions get made that are hard and expensive to redo at network scale: sensor type, sampling rate, power source, mounting method, connectivity protocol. The underrated "field side" is fleet maintenance (batteries, replacements, calibration) and mounting quality, without which the data becomes garbage.</p>
+
+              <h3 id="layer-2">Layer 2. Connectivity</h3>
+              <p>There is no "best" protocol — only the one that fits the task. The key trade-off is between range, power consumption and bandwidth.</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Technology</th>
+                      <th>Range</th>
+                      <th>Power</th>
+                      <th>Where it fits</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Modbus / Profibus / OPC UA</strong></td>
+                      <td>Single site</td>
+                      <td>Mains</td>
+                      <td>Production, PLC layer</td>
+                    </tr>
+                    <tr>
+                      <td><strong>BLE / Zigbee</strong></td>
+                      <td>Tens of meters</td>
+                      <td>Very low</td>
+                      <td>Indoor, battery-powered sensors</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Wi-Fi</strong></td>
+                      <td>Within a building</td>
+                      <td>High</td>
+                      <td>Sites with existing network, video telemetry</td>
+                    </tr>
+                    <tr>
+                      <td><strong>LoRaWAN</strong></td>
+                      <td>Kilometers</td>
+                      <td>Very low</td>
+                      <td>Remote assets, agriculture, utilities</td>
+                    </tr>
+                    <tr>
+                      <td><strong>NB-IoT / LTE-M</strong></td>
+                      <td>Cellular coverage</td>
+                      <td>Low</td>
+                      <td>Transport, scattered sites</td>
+                    </tr>
+                    <tr>
+                      <td><strong>5G / RedCap</strong></td>
+                      <td>Local</td>
+                      <td>Medium</td>
+                      <td>Robotics, machine vision</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>A real project almost always combines several technologies: different groups of devices live in different conditions.</p>
+
+              <h3 id="layer-3">Layer 3. Platform and data</h3>
+              <p>This is where raw telemetry becomes managed data: device onboarding and provisioning, normalization, time-series storage, analytics, digital twins. This is the heart of the system, and the choice here is what most often determines whether the project pays back. Platforms differ sharply by the level of "brain": some just show data, others make decisions — detailed comparison in Part 6.</p>
+
+              <h3 id="layer-4">Layer 4. Decision and action</h3>
+              <p>The most underrated and most valuable part. This is where the line runs between two completely different systems. The first is an <strong>alarm:</strong> sensor triggers → SMS arrives. Useful but primitive: the human still has to think what to do. The second is a <strong>dispatcher:</strong> the system correlates the data with context (work orders, crew schedules, weather, inventory, regulations) and produces a ready-made decision, not just an alert.</p>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  Value ladder
+                  <span class="diagram-hint">from notification to decision</span>
+                </div>
+                <ol>
+                  <li><strong>Notify.</strong> "Concrete poured at 2:00 p.m., temperature dropping." A human takes it from there.</li>
+                  <li><strong>Interpret.</strong> "At the current temperature and humidity, the concrete will reach formwork-removal strength in 3 days, not 2." The system has added context.</li>
+                  <li><strong>Decide and propose action.</strong> "Move crew №2 to Thursday, send them to site B on Tuesday, move equipment from site A there as well — here is the updated plan." The system has thought for the dispatcher.</li>
+                </ol>
+              </div>
+
+              <p>It is precisely the third step that pays back many times more than the first. And importantly: the brain here is not necessarily "artificial intelligence" — more often it is ordinary rules and formulas on top of several data sources. <strong>If the system only sends SMS and does not help decide — you have built an expensive alarm, not a dispatcher.</strong></p>
+
+              <hr>
+
+              <!-- ============== Part 3 ============== -->
+              <h2 id="part-3">What actually works: examples with decision-making</h2>
+              <p>No abstractions — typical scenarios for contracting, logistics, manufacturing and chain operators. For each one I show two levels: simple (alarm) and smart (dispatcher). The second level pays back noticeably better.</p>
+
+              <h3>Construction and contracting: planning crews and equipment</h3>
+              <p><strong>Alarm:</strong> temperature and humidity sensors in the concrete show the strength-gain curve.</p>
+              <p><strong>Dispatcher:</strong> the system takes this data, the weather forecast for the coming days and the current work orders — and rebuilds the plan in real time: when the formwork can actually come off, which day to push the crew to, where to redirect idle equipment. The night got colder — the readiness forecast shifted itself, and the updated plan is on the site manager's desk by morning. Drawing on the history of past pours in similar conditions, the system refines the forecast more accurately than any standard. And here is an important fork: obvious things (curing watering during hot weather) the system does itself, while ambiguous things (whether to shift the whole work chain) it offers to the site manager as options with consequences. One saved day of crew idleness pays for the whole system.</p>
+
+              <h3>Logistics and fleet: matching vehicles to jobs</h3>
+              <p><strong>Alarm:</strong> trackers show where each vehicle is.</p>
+              <p><strong>Dispatcher:</strong> the system correlates vehicle location and load with the work-order queue and proposes optimal assignment — which vehicle to send to which job, accounting for route, fuel and deadlines. Fewer empty runs and missed delivery windows.</p>
+
+              <h3>Chain retail: cold chain and energy monitoring</h3>
+              <p><strong>Alarm:</strong> sensors on store refrigeration units send an alert when temperature goes out of range.</p>
+              <p><strong>Dispatcher:</strong> the system knows for each store in the network — the product mix in each unit, its expiry dates, shift schedules and service contracts — and on failure it does not just scream but produces a decision: which store to relocate stock from first, which items to mark down through POS, which service job to dispatch today by priority. At network scale — tens of thousands of dollars per month saved on write-offs plus automated compliance with chain clients.</p>
+
+              <h3>Commercial real estate and facility management</h3>
+              <p><strong>Alarm:</strong> leak, temperature, CO₂ and motion sensors across dozens of properties in the portfolio send alerts.</p>
+              <p><strong>Dispatcher:</strong> the system sees field-crew loads, tenant SLAs and the nature of each incident, and produces a prioritized job queue: which property and which technician to close first so the SLA is not breached. Minus a manual dispatcher, minus night phone-rounds, minus contractual-breach penalties.</p>
+
+              <h3>Agriculture and greenhouses</h3>
+              <p><strong>Alarm:</strong> soil-humidity and temperature sensors switch on irrigation by threshold.</p>
+              <p><strong>Dispatcher:</strong> the system factors in rainfall forecasts and does not water before precipitation, tunes ventilation to the daily forecast and computes a fertilization recipe — how much and which fertilizer to apply given the current growth phase, soil composition and weather, rather than "as usual". By comparing yield to past seasons, the system sees which regimes actually worked and adjusts recommendations year over year. Irrigation it handles itself, while costlier decisions (changing the fertilization recipe across the whole field) it presents to the agronomist with reasoning.</p>
+
+              <p><em>The common pattern across successful cases:</em> the system does not just signal — it helps decide by correlating telemetry with business context; a narrow measurable scope; and starting small — one or two sites, not the entire fleet at once.</p>
+
+              <hr>
+
+              <!-- ============== Part 4 ============== -->
+              <h2 id="part-4">2026 trends</h2>
+
+              <h3>No-code for business users</h3>
+              <p>A strong shift: configuring processes, dashboards and rules is increasingly done by production and operations teams themselves, without IT development. This removes the classic bottleneck — the integrator queue — and sharply speeds up any changes. What used to require a months-long project cycle today gets configured by Ops in days.</p>
+
+              <h3>From notifications to decisions</h3>
+              <p>The main substantive shift: the emphasis moves from "show the data" and even from "send the alarm" to "tell me what to do". Systems of 2026 increasingly don't just stay quiet when everything is fine and write on failure — they correlate telemetry with business context (orders, schedules, weather, inventory) and produce a ready decision. This "brain" is assembled from ordinary rules, models and inexpensive AI services on top of the company's data — without the multi-million custom development of the previous decade.</p>
+
+              <h3>Ready-made industrial kits</h3>
+              <p>The plug-and-play segment for industry is growing: sensors arrive with pre-installed connectivity, certificates and a platform binding. This removes the most painful barrier to scaling — provisioning hundreds and thousands of devices — and sharply shortens time to production.</p>
+
+              <h3>Digital twins go mainstream</h3>
+              <p>The market for digital twins in manufacturing is estimated at around $47 billion in 2026. A virtual copy of an asset or line lets you model "what if" without risk to real production, and test dispatcher decisions before applying them.</p>
+
+              <h3>Realism instead of hype</h3>
+              <p>The market has grown up: inflated forecasts have been revised, focus has shifted to projects with a clear and fast payback. Budgets go where there is proven ROI and concrete operational metrics, not where there is "innovation for innovation's sake".</p>
+
+              <hr>
+
+              <!-- ============== Part 5 ============== -->
+              <h2 id="part-5">Where the money burns: anatomy of a loss point</h2>
+              <p>The loss point is more often not a "bad platform" but very specific mistakes. In descending order of frequency:</p>
+
+              <h3>1. Pilot purgatory — stuck in the pilot</h3>
+              <p>About 72% of initiatives never get beyond the pilot. A solution put together "on a knee" for dozens of devices falls apart for thousands: the network chokes, traffic and storage costs explode, manual processes stop coping. Gartner notes separately that about 30% of projects fail specifically due to scalability problems.</p>
+              <p><strong>How not to fall in:</strong> design for production from day one and give the pilot clear exit criteria tied to business metrics.</p>
+
+              <h3>2. Stopped at the alarm</h3>
+              <p>The system sends alerts, but a human still has to think. Better than nothing, but the main return is at the next step, when the system correlates data with context and proposes a decision. An expensive alarm pays back slowly; a dispatcher that saves hours of manual planning and resource downtime pays back fast.</p>
+
+              <h3>3. Security as an afterthought</h3>
+              <p>About 84% of companies that deployed IoT have encountered security incidents; ~56% of devices are vulnerable due to outdated OS, and 43% of enterprises lack adequate infrastructure protection. At the scale of a thousands-of-devices network, security not built into the architecture from day one (provisioning, identity management, encryption, OTA updates, safe decommissioning) is not "tech debt" but a direct risk of stopping the project at production rollout.</p>
+
+              <h3>4. Data fragmentation</h3>
+              <p>The data needed for a working solution is scattered across systems, shops and formats. In matrix organizations there is also the approvals problem: rolling out a pilot at one site can take 3–12 months, and scaling to dozens of plants — years. This kills the economics.</p>
+
+              <h3>5. Blurry goals</h3>
+              <p>Deployment "to use the technology" instead of solving a specific problem produces vague goals and no success criteria. The contrast is striking: projects with clear metrics succeed in ~54% of cases vs ~12% without them; sustained top-management support delivers ~68% vs ~11%.</p>
+
+              <hr>
+
+              <!-- ============== Part 6 ============== -->
+              <h2 id="part-6">Platform comparison: from monitoring to decision-making</h2>
+              <p>An important caveat first: there is no "best" platform — only one that fits the task and budget. But there is one criterion that splits the market in two and matters more than the rest — the <strong>level of "brain".</strong> Some platforms show data and send alerts (you think), others correlate data with context and propose decisions (the system thinks). That is precisely the line between an alarm and a dispatcher. Specs and prices are a snapshot of early 2026; some vendors do not publish prices openly — check with them directly.</p>
+
+              <h3 id="class-1">Class 1. Monitoring and dashboards — you think</h3>
+              <p>Fast and inexpensive: collect data from distributed assets, draw charts, get notifications. The "what to do" logic you build yourself or via their API. This is often enough for storage-condition monitoring, equipment telemetry, basic energy monitoring — wherever the response to an alert is obvious to a human.</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Platform</th>
+                      <th>Strength</th>
+                      <th>Weakness</th>
+                      <th>When to pick</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>TagoIO</strong></td>
+                      <td>Free tier forever; easiest no-code entry; high marks for support</td>
+                      <td>The "brain" is on you; cost grows with data volume</td>
+                      <td>Cheap start with dashboards and alerts</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Datacake</strong></td>
+                      <td>White-label web dashboards; strong LoRaWAN/NB-IoT; no-code</td>
+                      <td>Pay-per-device; this is a monitoring layer, not decisions</td>
+                      <td>LoRaWAN sensors, web portal for the client</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Akenza</strong></td>
+                      <td>Start from $0; LoRaWAN/Sigfox/NB-IoT; white-label for resale</td>
+                      <td>Built for buildings and cities, not production</td>
+                      <td>Smart buildings, IoT-as-a-service</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 id="class-2">Class 2. Predictions and recommendations — the system thinks</h3>
+              <p>This is where the "brain" lives: the platform doesn't just show data — it forecasts, computes and proposes action — rebuild the plan, shift the crew, order a spare part. More expensive than Class 1, but this is no longer charts — it is a dispatcher. An honest caveat: for the system to truly advise, sensors alone are not enough — it needs history, regulations and operational context. Without those the "brain" either errs or stays silent.</p>
+
+              <div class="callout">
+                <strong>MITE — a platform with business logic as its core</strong>
+                <p>An industrial IIoT platform that connects assets, models business logic and turns data into decisions. Built on the declarative lsFusion engine, where chains like "sensor + work order + weather + regulation → plan" are described as a model. The engine itself recomputes dependent values in real time on input changes, supports the split "decides itself / offers options to the human", and integrates with PLC, Modbus, OPC UA, MQTT, LoRaWAN. Prices are not public — request them from the vendor. Its strength unfolds on non-trivial tasks; it is overkill for "sensor → SMS".</p>
+              </div>
+
+              <div class="callout">
+                <strong>Tractian — plug-and-play predictive maintenance powered by AI</strong>
+                <p>An end-to-end ecosystem for predictive maintenance: ready industrial sensors + software + AI out of the box. Catches failures weeks ahead, with claimed up to 7× ROI in the first year and a 43% drop in unplanned downtime. ISO 27001 and SOC 2 certified. Narrow focus: "rebuild the crew plan" is not its job, unlike MITE.</p>
+              </div>
+
+              <div class="callout">
+                <strong>Fracttal One — CMMS with predictive maintenance</strong>
+                <p>A cloud maintenance-management system focused on work orders: mobile access, asset history, predictive maintenance on IoT data, spare-parts inventory with reorder alerts, an open API, integrations with ERP and SCADA. Setup is rather for technically savvy teams — not always plug-and-play.</p>
+              </div>
+
+              <h3 id="how-to-choose">How to choose</h3>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Your task</th>
+                      <th>Class</th>
+                      <th>Where to look</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>See data cheaply and get alerts</td>
+                      <td>Monitoring</td>
+                      <td>TagoIO, Datacake</td>
+                    </tr>
+                    <tr>
+                      <td>Smart buildings, resale as a service</td>
+                      <td>Monitoring</td>
+                      <td>Akenza</td>
+                    </tr>
+                    <tr>
+                      <td>A complex plan with many factors (construction, agro, logistics)</td>
+                      <td>Decisions</td>
+                      <td>MITE</td>
+                    </tr>
+                    <tr>
+                      <td>Keep equipment from breaking down</td>
+                      <td>Decisions</td>
+                      <td>Tractian</td>
+                    </tr>
+                    <tr>
+                      <td>Maintenance, work orders, parts at the core</td>
+                      <td>Decisions</td>
+                      <td>Fracttal</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout">
+                <strong>The main thing when choosing</strong>
+                <p>Answer honestly first which class you actually need. If "what to do" is obvious to a human within a second — don't overpay for a "brain"; take cheap monitoring. But if the value is precisely the system recomputing the plan, forecasting and offering options — a Class 1 platform will force you to build that brain yourself, and the "cheap" choice will end up more expensive. Total cost should be computed for the real number of points, and for platforms without an open price list ask for a quote before the start, not after the pilot.</p>
+              </div>
+
+              <hr>
+
+              <!-- ============== Part 7 ============== -->
+              <h2 id="part-7">Pre-launch checklist</h2>
+              <p>Before allocating a budget, run the project through these questions. If you have no clear answer to any of them — that is a potential loss point.</p>
+
+              <ol class="steps">
+                <li><strong>What specific problem are we solving and how will we measure the effect in money?</strong> Metrics and a baseline — before the start, not "along the way".</li>
+                <li><strong>What will the system propose to do when a sensor triggers?</strong> Not just "who gets the alert", but what decision it will suggest by correlating data with orders, schedule and weather — and where it decides itself versus offers options to the human.</li>
+                <li><strong>What is the total cost of ownership at the target network scale?</strong> Subscription, connectivity, fleet maintenance, integration with ERP/CRM/CMMS — not the pilot price.</li>
+                <li><strong>Who owns security across the device lifecycle?</strong> Provisioning, key rotation, OTA updates, safe decommissioning — designed into the architecture, or "later"?</li>
+                <li><strong>Is the solution designed for production, not the pilot?</strong> Will the architecture handle the move from one site to dozens and a hundredfold growth in device count?</li>
+                <li><strong>Who at top-management level owns the project through to production?</strong> Losing the sponsor in the first six months is a common cause of project death.</li>
+                <li><strong>Can we take our data out and switch platforms?</strong> Assess the "cost of exit" before entry.</li>
+              </ol>
+
+              <hr>
+
+              <!-- ============== Conclusion ============== -->
+              <h2 id="conclusion">Conclusion: the technology is ready. Discipline is not</h2>
+              <p>IoT in 2026 is mature infrastructure with proven economics in the right hands, and a predictable way to lose money in the wrong ones. The difference between the two is almost never the choice of platform. It is in discipline: start with an operational problem, not a sensor; carry data through to a decision rather than stopping at a dashboard; design in security and integration with ERP/CRM/CMMS from day one; compute total cost at the target network scale, not at the pilot.</p>
+
+              <p><em>The technology is ready. The cost of mistakes at network scale is not. The difference, as before, is in execution.</em></p>
+
+            </section>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">IIoT</span>
+                  <span class="post-tag">Industrial automation</span>
+                  <span class="post-tag">Business logic</span>
+                  <span class="post-tag">Predictive</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Published: 30 May 2026</span>
+                  <span>·</span>
+                  <span>Approx. 12 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                No spam — just occasional notes on ERP design, automation experiments and new posts.
+              </p>
+
+              <form class="newsletter-form"
+                    action="https://formsubmit.co/info@devlab.blog"
+                    method="POST">
+                <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <input type="email" name="email" class="field" placeholder="Your email address" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                <p class="newsletter-note">
+                  You will receive a confirmation email.<br>
+                  Powered securely via FormSubmit.
+                </p>
+              </form>
+
+              <h2 id="feedback">Quick feedback</h2>
+              <div class="callout">
+                <strong>Was this useful?</strong>
+                <p>A quick signal helps us prioritize follow-ups.</p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Helpful <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Not really <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">No comments, no accounts.</p>
+              </div>
+
+              <h2 id="related-posts">Related posts</h2>
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>More practical notes on low-code, ERP architectures and automation.</p>
+                <ul>
+                  <li><a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">ERP that doesn’t break from changes: architecture breakdown (and comparison with 1C / SAP / Dynamics / Odoo) ↗</a></li>
+                  <li><a href="/posts/post13-open-source-erp-low-code.html"> Top open-source ERP &amp; low-code business systems teams actually use ↗</a></li>
+                </ul>
+              </div>
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Browse all categories →</a>
+            </div>
+          </article>
+
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+                  Send us an email →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code automation.
+                We write about architectural patterns, integration strategies and real-world implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
