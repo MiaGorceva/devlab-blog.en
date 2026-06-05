@@ -1,19 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>KSeF in 2026: deadlines, the 10,000 PLN threshold and a practical checklist – DevLab Blog</title>
+  <title>KSeF 2026: complete guide — FA(3), ZAW-FA, penalties up to 100% VAT, error codes and checklist – DevLab Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="A practical guide to KSeF in 2026: key deadlines, how the 10,000 PLN monthly exception works until the end of 2026, typical post-go-live issues, and a preparation checklist (processes, data, ERP/integrations)."
+    content="In-depth guide to KSeF 2026: deadlines, FA(3), ZAW-FA(3), authentication methods, typical error codes with fixes, the 10,000 zł threshold, penalties up to 100% VAT from 2027, correction invoices and a 30/60/90-day checklist."
   />
+  <meta name="keywords" content="KSeF, KSeF 2026, KSeF 2.0, FA(3), ZAW-FA, ZAW-FA 3, faktura korygująca, e-faktura Polska, KSeF kary, KSeF limit 10000, KSeF błędy, KSeF kody błędów, automatyzacja faktur" />
 
   <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
   <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
-  
-   <script>
+
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent','default',{
@@ -29,22 +31,6 @@
   <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
   <script src="https://uk.devlab.blog/js/script.js" defer></script>
 
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-
-  // Default: analytics OFF until user accepts
-  gtag('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted'
-  });
-</script>
-
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,8 +39,8 @@
       "@type": "WebPage",
       "@id": "https://en.devlab.blog/posts/post14-ksef-2026-limit-10000-checklist.html"
     },
-    "headline": "KSeF in 2026: deadlines, the 10,000 PLN threshold and a practical checklist",
-    "description": "A practical guide to KSeF in 2026: key deadlines, how the 10,000 PLN monthly exception works until the end of 2026, typical post-go-live issues, and a preparation checklist (processes, data, ERP/integrations).",
+    "headline": "KSeF 2026: complete guide — FA(3), ZAW-FA, penalties up to 100% VAT, error codes and checklist",
+    "description": "In-depth guide to KSeF 2026: deadlines, FA(3), ZAW-FA(3), authentication methods, typical error codes with fixes, the 10,000 zł threshold, penalties up to 100% VAT from 2027, correction invoices and a 30/60/90-day checklist.",
     "author": { "@type": "Organization", "name": "DevLab Blog" },
     "publisher": {
       "@type": "Organization",
@@ -62,7 +48,7 @@
       "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
     },
     "datePublished": "2026-01-06",
-    "dateModified": "2026-01-06"
+    "dateModified": "2026-06-04"
   }
   </script>
 
@@ -89,7 +75,7 @@
             </div>
             <div class="nav-meta">
               <div class="nav-meta-title">DevLab Blog</div>
-              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation</div>
             </div>
           </a>
 
@@ -130,374 +116,803 @@
 
             <header>
               <div class="post-meta">
-                <span>Poland / KSeF</span>
+                <span>Poland · KSeF · Compliance</span>
                 <span>&middot;</span>
-                <span>Approx. 10 min read</span>
+                <span>Approx. 18 min read</span>
                 <span>&middot;</span>
-                <span>Fresh: Jan 6, 2026</span>
+                <span>Updated: 4 June 2026</span>
               </div>
 
               <h1 class="hero-title">
-                KSeF in 2026: deadlines, the 10,000 PLN threshold and a practical checklist
+                KSeF 2026: the complete guide — FA(3), ZAW-FA, penalties up to 100% VAT, error codes and checklist
               </h1>
 
               <p class="hero-text">
-                Straight to the point: what changes in 2026, how the 10,000 PLN monthly exception works until the end of 2026,
-                and what to prepare in your processes and data so KSeF doesn’t turn into manual chaos after a couple of months.
+                Everything you need to know about KSeF in one place: when and for whom, how to file ZAW-FA(3) correctly,
+                authentication methods, real error codes with fixes, the 10,000 zł threshold, penalties from 2027
+                and how correction invoices differ. No fluff — just what actually breaks in practice.
               </p>
 
               <figure class="post-hero">
                 <img
                   src="https://uk.devlab.blog/img/post14-ksef-2026-limit-10000-checklist.webp"
-                  alt="KSeF 2026: deadlines, 10,000 PLN threshold, preparation checklist"
+                  alt="KSeF 2026: guide to FA(3), ZAW-FA, penalties, error codes and preparation checklist"
                 >
               </figure>
             </header>
 
             <section class="post-content">
 
-
-                  <h2 id="intro">Introduction</h2>
-
-                  <p>
-                    <strong>KSeF (Krajowy System e-Faktur)</strong> is not just a “new electronic invoice format”.
-                    From 2026 it becomes a mandatory invoicing backbone in Poland — changing processes, roles, and data requirements.
-                  </p>
-
-                  <p>
-                    Most issues don’t appear on day one. They show up a few months later —
-                    when it turns out the data is incomplete, processes are fragmented, and manual exceptions stop working.
-                  </p>
-
-                  <p>
-                    This article is a practical explanation of what changes in 2026, who must connect to KSeF and when,
-                    how the 10,000 PLN threshold works, and what you actually need to prepare — without marketing fluff.
-                  </p>
-
-                  <div class="post-toc" aria-label="Table of contents">
-                    <div class="post-toc__title">In this article</div>
-                    <ul class="post-toc__list">
-                      <li><a href="#deadlines">When KSeF becomes mandatory: key dates</a></li>
-                      <li><a href="#limit-10000">10,000 PLN exception until the end of 2026: how it works</a></li>
-                      <li><a href="#ksef-20">KSeF 2.0: what teams often miss</a></li>
-                      <li><a href="#checklist">Practical preparation checklist</a></li>
-                      <li><a href="#mistakes">Typical mistakes after go-live</a></li>
-                      <li><a href="#plan-30-60-90">30 / 60 / 90 day implementation plan</a></li>
-                      <li><a href="#automation">Automation around KSeF: free / open-source options</a></li>
-                      <li><a href="#conclusion">Conclusion</a></li>
-                      <li><a href="#sources">Official sources</a></li>
-                    </ul>
-                  </div>
-
-                  <hr>
-
-                  <h2 id="deadlines">When KSeF becomes mandatory: key dates</h2>
-
-                  <p>
-                    Mandatory KSeF adoption is introduced in phases:
-                  </p>
-
-                  <ul>
-                    <li><strong>from 1 February 2026</strong> — companies whose 2024 turnover exceeded <strong>200 million PLN</strong> (incl. VAT)</li>
-                    <li><strong>from 1 April 2026</strong> — all other VAT taxpayers</li>
-                  </ul>
-
-                  <p>
-                    In practice: even if your “go-live” is April, you still need to prepare earlier —
-                    because you will have to <em>receive</em> and process invoices from counterparties who start using KSeF before you.
-                  </p>
-
-                  <hr>
-
-                  <h2 id="limit-10000">10,000 PLN exception until the end of 2026 — how it really works</h2>
-
-                  <p>
-                    Until <strong>31 December 2026</strong>, it is allowed to issue invoices outside KSeF (paper or “regular” electronic),
-                    if the total amount of such invoices <strong>in a given month</strong> does not exceed <strong>10,000 PLN incl. VAT</strong>.
-                  </p>
-
-                  <p><strong>What’s important:</strong></p>
-                  <ul>
-                    <li>the limit is calculated <strong>monthly</strong>, not annually;</li>
-                    <li>once the monthly threshold is exceeded, further issuance outside KSeF becomes problematic (you must switch to KSeF);</li>
-                    <li>the exception applies to <strong>issuing</strong>, but it does <strong>not</strong> remove the need to understand how to <strong>receive</strong> and process documents.</li>
-                  </ul>
-
-                  <p>
-                    Practical takeaway: even smaller companies benefit from defining access, roles, and handling scenarios early —
-                    otherwise the “relief” turns into fragile manual workarounds that don’t scale.
-                  </p>
-
-                  <hr>
-
-                  <h2 id="ksef-20">KSeF 2.0: what teams often miss</h2>
-
-                  <h3 id="ksef-not-only-api">1) It’s not only about API integration</h3>
-                  <p>
-                    Alongside KSeF come governance rules: access and permissions, accountability for errors,
-                    handling rejections, corrections, data controls, and links to reporting (e.g., JPK).
-                    Many teams implement “technical sending” but don’t answer the real question:
-                    <em>who owns the end-to-end process</em>.
-                  </p>
-
-                  <h3 id="ksef-attachments">2) Invoices with attachments are a separate process</h3>
-                  <p>
-                    If invoices have attachments (specs, calculations, technical files),
-                    plan this as a separate scenario: timelines, rules, storage, and operational handling.
-                    Otherwise a “small detail” starts breaking invoice deadlines and internal SLAs.
-                  </p>
-
-                  <hr>
-
-                  <h2 id="checklist">Practical preparation checklist for KSeF</h2>
-
-                  <h3 id="checklist-process">Processes and responsibilities (finance / accounting)</h3>
-                  <ul>
-                    <li>Which invoice types do you actually use (B2B, B2C, corrections, advances)?</li>
-                    <li>At what point is an invoice considered legally issued?</li>
-                    <li>Who owns access, roles, signing/sending, and handling rejected invoices?</li>
-                    <li>How many real-world exceptions exist (not “as per policy”)?</li>
-                  </ul>
-
-                  <h3 id="checklist-data">Data and systems (ERP / IT / integrations)</h3>
-                  <ul>
-                    <li>How complete and consistent is your master data: NIP, addresses, payment terms, VAT rates?</li>
-                    <li>How many systems actually generate invoices?</li>
-                    <li>Do you have an outbound queue, retries, logging, and status monitoring?</li>
-                    <li>How will you handle attachments (if any)?</li>
-                  </ul>
-
-                  <hr>
-
-                  <h2 id="mistakes">Typical mistakes that show up after go-live</h2>
-                  <ul>
-                    <li>“Everything is in the ERP” — but some invoices turn out to be manual.</li>
-                    <li>No end-to-end process owner (errors get lost “between departments”).</li>
-                    <li>Corrections and exceptions were not tested.</li>
-                    <li>Focus only on sending; receiving and handling incoming documents is postponed.</li>
-                  </ul>
-
-                  <hr>
-
-                  <h2 id="plan-30-60-90">30 / 60 / 90 day implementation plan</h2>
-
-                  <h3 id="plan-0-30">0–30 days — see the real picture</h3>
-                  <ul>
-                    <li>Complete list of invoice sources</li>
-                    <li>Audit of data and master records</li>
-                    <li>Assign an end-to-end process owner</li>
-                  </ul>
-
-                  <h3 id="plan-31-60">31–60 days — build a working skeleton</h3>
-                  <ul>
-                    <li>Basic KSeF integration</li>
-                    <li>Configure roles and access</li>
-                    <li>Test non-standard scenarios</li>
-                  </ul>
-
-                  <h3 id="plan-ksef">61–90 days — stabilization</h3>
-                  <ul>
-                    <li>Procedures for errors and rejections</li>
-                    <li>Metrics for rejections and delays</li>
-                    <li>Readiness for attachments and peak loads</li>
-                  </ul>
-
-                  <hr>
-
-                  <h2 id="automation">Automation around KSeF: free / open-source options</h2>
-
-                  <p>
-                    KSeF covers the legal e-invoicing channel, but it does not solve operational tasks:
-                    data validation, outbound queues, retry logic, monitoring, internal UIs for manual review,
-                    role-based routing, and exception control.
-                  </p>
-
-                  <p>
-                    That’s why teams often use low-code / internal tools platforms — to quickly build an “operational layer” around KSeF
-                    without expensive custom development.
-                  </p>
-
-                  <h3 id="automation-open-source">Open-source / free options suitable for the “operational layer”</h3>
-                  <ul>
-                    <li>
-                      <strong>Appsmith (open-source)</strong> — internal dashboards, manual error handling, status control.
-                      <br>
-                      <a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                      <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                    <li>
-                      <strong>ToolJet (open-source)</strong> — quick internal UIs over API/DB, great for monitoring and operations.
-                      <br>
-                      <a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                      <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                    <li>
-                      <strong>MyCompany (lsFusion) (open-source)</strong> — platform-first approach with declarative business logic,
-                      useful when processes evolve and change control matters.
-                      <br>
-                      <a href="https://mycompany.lsfusion.org/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                      <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a> 
-                    </li>
-                    <li>
-                      <strong>Budibase (community/open-source)</strong> — admin tools, internal apps, simple workflows.
-                      <br>
-                      <a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                      <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                    <li>
-                      <strong>NocoBase (open-source)</strong> — extensible low-code with plugins, CRUD apps + processes.
-                      <br>
-                      <a href="https://www.nocobase.com/" target="_blank" rel="noopener noreferrer">Site</a> ·
-                      <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </li>
-                  </ul>
-
-                  <p>
-                    These tools don’t “replace KSeF”, but they make the process resilient:
-                    fewer manual exceptions, more transparency, faster reaction to errors and changing requirements.
-                  </p>
-
-                  <hr>
-
-                  <h2 id="conclusion">Conclusion</h2>
-
-                  <p>
-                    KSeF is an operational project, not an “XML format”. The smoothest transitions happen when companies prepare early:
-                    clean up data, assign responsibility, and build an end-to-end invoice handling process.
-                  </p>
-
-                  <p><strong>Why automation is actually necessary (even with “low volumes”)</strong></p>
-                  <ul>
-                    <li>
-                      <strong>Because exceptions multiply.</strong> The first weeks may look fine, then “non-standard” cases appear:
-                      corrections, advances, mixed data sources, invoices with attachments, manual invoices, returns, VAT mismatches.
-                      Without an operational layer this becomes chat + Excel + “ask accounting”.
-                    </li>
-                    <li>
-                      <strong>Because you need visibility, not guesswork.</strong> You must know what was sent, accepted, rejected,
-                      where it’s stuck, who should react, and how long it takes. Monitoring + queue + alerts usually create more value
-                      than “another integration”.
-                    </li>
-                    <li>
-                      <strong>Because it reduces late risk and compliance exposure.</strong> Failures are often about data and process, not APIs:
-                      wrong counterparty, incomplete address, inconsistent masters, duplicate documents.
-                      Pre-send validations and predictable error handling cut operational risk dramatically.
-                    </li>
-                    <li>
-                      <strong>Because it lets you scale without hiring people for manual control.</strong> Growth, a new branch,
-                      a new ERP module, or a new document type breaks manual schemes first.
-                      Automation is about resilience and controlled change.
-                    </li>
-                  </ul>
-
-                  <hr>
-
-                  <h2 id="sources">Official sources</h2>
-                  <ul>
-                    <li>
-                      <a href="https://ksef.podatki.gov.pl/" target="_blank" rel="noopener noreferrer">KSeF on podatki.gov.pl</a>
-                    </li>
-                    <li>
-                      <a href="https://www.gov.pl/web/finanse/krajowy-system-e-faktur-ksef" target="_blank" rel="noopener noreferrer">
-                        KSeF on gov.pl (Ministry of Finance)
-                      </a>
-                    </li>
-                  </ul>
-                   <h2 id="feedback">Quick feedback</h2>
-              <div class="callout">
-                <strong>Was this useful?</strong>
-                <p>
-                  A quick signal helps us prioritize follow-ups.
-                </p>
-
-                <div class="hero-actions">
-                  <button class="btn btn-primary" type="button" data-vote="like">
-                    👍 Helpful <span class="count" data-count="like">—</span>
-                  </button>
-
-                  <button class="btn btn-outline" type="button" data-vote="dislike">
-                    👎 Not really <span class="count" data-count="dislike">—</span>
-                  </button>
-                </div>
-
-                <p class="sidebar-text">
-                  No comments, no accounts.
+              <!-- TL;DR -->
+              <div class="post-quick">
+                <p class="post-quick__title">In short (60 seconds)</p>
+                <p class="post-quick__text">
+                  <strong>Deadlines.</strong> KSeF is mandatory from 1 February 2026 for turnover &gt;200M zł, from 1 April for the remaining VAT payers, and from 1 January 2027 for micro-entrepreneurs.
+                  <strong>Penalties.</strong> 2026 is a grace year with no financial sanctions. From 2027 — up to 100% of VAT for an invoice issued outside KSeF, up to 18.7% of the total for invoices without VAT, and a separate 500 zł penalty for errors in SAF-T (in force since March 2026).
+                  <strong>Access.</strong> ZAW-FA(3) from 1 February 2026 (replacing ZAW-FA(2)). Submit via e-Urząd Skarbowy or e-Doręczenia — <em>not via ePUAP</em>.
+                  <strong>10,000 zł exemption.</strong> Until end of 2026, calculated per calendar month including VAT.
+                  <strong>Where it hurts most.</strong> Not the API — the data: NIPs with dashes, VAT rates as numbers instead of codes, BOM marker in UTF-8 XML, unaligned reference data.
                 </p>
               </div>
 
+              <h2 id="intro">Why this isn't "just another KSeF overview"</h2>
 
-            <h2 id="related-posts">Related posts</h2>
+              <p>
+                <strong>KSeF (Krajowy System e-Faktur)</strong> is a <em>clearance model</em> for e-invoices.
+                An invoice does not legally exist until the central system of the Polish Ministry of Finance has accepted and validated it.
+                No paper, no PDF over email, no Excel sheets. Only a structured XML following the FA(3) schema — otherwise the document does not exist.
+              </p>
 
-              <div class="callout">
-                <strong>Keep exploring:</strong>
-                <p>
-                  More practical notes about KSeF and operational automation.
-                </p>
+              <p>
+                Most KSeF overviews stop at "deadlines + 10,000 zł + general advice."
+                That was enough in 2024. In 2026, with the system already live and companies meeting reality head-on,
+                the question is different: <strong>how do I keep this from breaking my accounting in the third month?</strong> General overviews don't answer that.
+              </p>
 
-                <ul>
-                  <li>
-                    <a href="/posts/post15-ksef-after-go-live-15-issues.html">
-                       KSeF after go-live: 15 issues that show up after 2–3 months (and how to avoid invoicing chaos) ↗
-                    </a>
-                  </li>
-                   <li>
-                    <a href="/posts/post12-ksef-low-code.html">
-                       KSeF + low-code: how Polish businesses can prepare for e-invoices with minimal cost ↗
-                    </a>
-                  </li>
+              <p>This article is about what actually hurts:</p>
+
+              <ul>
+                <li>How to file ZAW-FA(3) correctly and why ePUAP no longer works</li>
+                <li>Which authentication methods exist and when to pick which (with real prices)</li>
+                <li>How FA(3) differs from the previous FA(2) and what breaks during migration</li>
+                <li>Specific KSeF error codes — with examples and fixes, not "contact support"</li>
+                <li>Correction invoices (faktura korygująca) in KSeF — a separate trap</li>
+                <li>Special cases: B2C, zero-rated exports, split payment, barter</li>
+                <li>Paid solutions (Comarch, Symfonia, Sage, Enova) vs open-source — an honest comparison</li>
+              </ul>
+
+              <div class="post-toc" aria-label="Contents">
+                <div class="post-toc__title">In this article</div>
+                <ul class="post-toc__list">
+                  <li><a href="#deadlines">Key dates 2026–2027</a></li>
+                  <li><a href="#penalties">Penalties: why 2026 is not a "free year"</a></li>
+                  <li><a href="#limit-10000">The 10,000 zł threshold: 3 common misunderstandings</a></li>
+                  <li><a href="#zaw-fa">ZAW-FA(3): how to get access without losing 3 weeks</a></li>
+                  <li><a href="#auth">Authentication methods: when to pick which</a></li>
+                  <li><a href="#fa3">FA(3) vs FA(2): what changed and what breaks</a></li>
+                  <li><a href="#errors">KSeF error codes with fixes (real-world)</a></li>
+                  <li><a href="#korekta">Correction invoices: a separate trap</a></li>
+                  <li><a href="#special-cases">Special cases: B2C, exports, split payment</a></li>
+                  <li><a href="#missed">5 KSeF 2.0 changes that get missed in planning</a></li>
+                  <li><a href="#7-traps">7 traps that surface in the third month</a></li>
+                  <li><a href="#comparison">Paid solutions vs open-source: an honest comparison</a></li>
+                  <li><a href="#checklist">30 / 60 / 90-day checklist</a></li>
+                  <li><a href="#conclusion">Conclusion: what to do this week</a></li>
+                  <li><a href="#sources">Official sources</a></li>
                 </ul>
               </div>
 
-          </section>
+              <hr>
 
-          <div class="post-nav-links">
-            <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>  
-            <a class="back" href="/#categories" style="margin-right: 0;"> Browse all categories →</a>
-          </div>
+              <h2 id="deadlines">Key dates 2026–2027</h2>
 
-          <footer class="post-footer-extended">
-            <div class="post-footer-meta">
-              <div class="post-meta-tags">
-                <span class="post-tag">KSeF</span>
-                <span class="post-tag">Poland</span>
-                <span class="post-tag">VAT</span>
-                <span class="post-tag">E-invoicing</span>
-                <span class="post-tag">Automation</span>
+              <p>Remember these six dates — the entire transition strategy is built around them:</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Date</th><th>What happens</th><th>Who is affected</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>1 Jan 2026</strong></td>
+                      <td>ePUAP no longer delivers ZAW-FA</td>
+                      <td>Everyone — switch to e-US or e-Doręczenia</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 Feb 2026</strong></td>
+                      <td>KSeF mandatory; FA(3) replaces FA(2); ZAW-FA(3) in force</td>
+                      <td>Large taxpayers: 2024 turnover &gt; <strong>200M zł</strong> (incl. VAT). <em>Receiving — for everyone</em></td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 Mar 2026</strong></td>
+                      <td>500 zł penalty for KSeF designation errors in SAF-T</td>
+                      <td>Everyone filing JPK_VAT</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 Apr 2026</strong></td>
+                      <td>KSeF mandatory for everyone else</td>
+                      <td>SMBs, sole proprietorships (JDG), both active and exempt VAT payers</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 Aug 2026</strong></td>
+                      <td>KSeF ID in bank transfers (especially split payment)</td>
+                      <td>Everyone — for matching payments to invoices</td>
+                    </tr>
+                    <tr>
+                      <td><strong>1 Jan 2027</strong></td>
+                      <td>Penalties in force; micro-entrepreneurs also obligated</td>
+                      <td>Everyone, no exceptions</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
-              <div class="post-meta-secondary">
-                <span>Published: Jan 6, 2026</span>
-                <span>·</span>
-                <span>Approx. 10 min read</span>
-                <span>·</span>
-                <span class="post-views">Views: <span class="count">—</span></span>
+              <div class="callout">
+                <strong>A very important detail that often gets missed.</strong>
+                <p>
+                  From 1 February 2026, <em>receiving</em> KSeF invoices is mandatory for <strong>everyone</strong>, regardless of business size.
+                  Issuing is phased — receiving is not. This means even a micro-business in February 2026
+                  can already receive a KSeF invoice from a large supplier — and must know what to do with it.
+                </p>
               </div>
-            </div>
-          </footer>
 
-          <section class="sidebar-block">
-            <p class="sidebar-text">
-              No spam — just occasional notes on ERP design, automation experiments, and new posts.
-            </p>
-            <form class="newsletter-form"
-                  action="https://formsubmit.co/info@devlab.blog"
-                  method="POST">
-              <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="text" name="_honey" style="display:none">
+              <hr>
 
-              <input type="email" name="email" class="field" placeholder="Your email address" required>
-              <button class="btn btn-primary" type="submit">Subscribe</button>
+              <h2 id="penalties">Penalties: why 2026 is not a "free year"</h2>
 
-              <p class="newsletter-note">
-                You will receive a confirmation email.<br>
-                Powered securely via FormSubmit.
+              <p>
+                The Polish Ministry of Finance has made 2026 an adaptation period — <strong>no financial penalties for KSeF violations are imposed throughout 2026</strong>.
+                Sounds like a gift. It is not — it is a trap for anyone who takes it literally.
               </p>
-            </form>
-          </section>
 
+              <p>From 1 January 2027, the sanctions under Article 106ni of the VAT Act apply:</p>
+
+              <ul>
+                <li><strong>Up to 100% of the VAT amount</strong> on an invoice issued outside KSeF (for invoices that should have gone through KSeF).</li>
+                <li><strong>Up to 18.7% of the invoice total</strong> — if there is no VAT (zero-rated exports, EU services, etc.).</li>
+                <li><strong>500 zł per error</strong> — in force since March 2026 for incorrect KSeF designations in SAF-T (JPK_VAT) files. This is not "from 2027" — it is now.</li>
+              </ul>
+
+              <p>
+                The Polish Ministry of Finance has stated that maximum sanctions <strong>will not be applied automatically</strong> —
+                each case will be considered individually. Good news, but only for those
+                who can document a good-faith effort to comply. For everyone else, "100% of VAT" is the realistic benchmark.
+              </p>
+
+              <p>
+                <strong>A simple example.</strong> An invoice for 100,000 zł net + 23,000 zł VAT, issued outside KSeF in 2027,
+                can cost an additional <strong>23,000 zł in penalties</strong>. One such invoice — and the savings
+                from "we'll implement it later" are gone.
+              </p>
+
+              <div class="callout">
+                <strong>The hidden 2026 risk: not the fine, but loss of VAT deduction.</strong>
+                <p>
+                  Even in grace year 2026, an invoice that should have gone through KSeF but was issued outside it
+                  risks being <em>rejected for VAT-deduction purposes</em> by the buyer.
+                  No penalty — but the client refuses to pay until you redo the document.
+                  Financially, the effect is the same.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="limit-10000">The 10,000 zł threshold: 3 common misunderstandings</h2>
+
+              <p>
+                Until 31 December 2026, a <em>transitional relaxation</em> applies: you can issue invoices outside KSeF
+                (paper or ordinary electronic) if the total of such invoices in a <strong>given calendar month</strong>
+                does not exceed <strong>10,000 zł incl. VAT</strong>.
+                <strong>Important caveat:</strong> sources interpret this rule inconsistently. One reading treats it as a general relief
+                for all VAT payers; a stricter reading limits it to micro-entrepreneurs with an additional condition
+                (single invoice no greater than 450 zł). Verify your case with a tax advisor before relying on it. Three common mistakes:
+              </p>
+
+              <h3>Mistake #1. "It's an annual limit"</h3>
+              <p>
+                No. The limit resets monthly. 10,000 in January, another 10,000 in February — but each month stands alone.
+                A year is 12 separate limits, not 120,000 zł combined.
+              </p>
+
+              <h3>Mistake #2. "We'll pay the fine if we exceed it"</h3>
+              <p>
+                No fine in 2026, but as soon as you exceed the limit in a given month,
+                <strong>all subsequent invoices that month must go through KSeF</strong>. If they're issued outside KSeF,
+                the buyer has the right to refuse the invoice and withhold payment until they receive a KSeF version.
+                From 2027, a fine is added on top.
+              </p>
+
+              <h3>Mistake #3. "The exemption covers the whole process"</h3>
+              <p>
+                The exemption only applies to <em>issuing</em>. <strong>Receiving and processing</strong> KSeF invoices
+                from suppliers is something you still have to set up — even if you only issue 5,000 zł per month.
+                This is the most common trap for small businesses.
+              </p>
+
+              <hr>
+
+              <h2 id="zaw-fa">ZAW-FA(3): how to get access without losing 3 weeks</h2>
+
+              <p>
+                <strong>ZAW-FA</strong> is the form through which a legal entity appoints a <em>super-administrator</em>
+                who will have owner-level rights in KSeF (granting and revoking permissions of other users).
+                From 1 February 2026 a new version applies: <strong>ZAW-FA(3)</strong>, replacing ZAW-FA(2).
+              </p>
+
+              <h3>What changed in ZAW-FA(3)</h3>
+              <ul>
+                <li>The list of identifying data for the proxy and principal has been clarified</li>
+                <li>The process for the general proxy (attorney/legal counsel) and UKO (użytkownik konta organizacji) was adjusted</li>
+                <li>Interactive PDF — less chance of missing a required field</li>
+              </ul>
+
+              <h3>How to file ZAW-FA(3) — and why ePUAP is no longer an option</h3>
+
+              <p><strong>From 1 January 2026, a ZAW-FA submitted via ePUAP is not considered delivered to the tax office.</strong> This is not a bug — it is a deliberate change. The alternatives:</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Channel</th><th>Duration</th><th>Comment</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>e-Urząd Skarbowy</strong> (e-US)</td>
+                      <td>1–3 days</td>
+                      <td>Fastest channel. Interactive form with online validation</td>
+                    </tr>
+                    <tr>
+                      <td><strong>e-Doręczenia</strong></td>
+                      <td>2–7 days</td>
+                      <td>An alternative for those who already have an e-Doręczenia account</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Paper (in person or by mail)</strong></td>
+                      <td>2–3 weeks</td>
+                      <td>Q1 2026 — government offices overloaded, real timelines may be longer</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Alternative to ZAW-FA: a qualified electronic seal with NIP</h3>
+              <p>
+                If your company already has a <strong>qualified electronic seal</strong> bearing its NIP — you don't need to file ZAW-FA.
+                Logging in with the seal automatically grants owner-level rights in KSeF. Faster, but it has a price tag:
+                <strong>~1,000–3,000 zł per year</strong> for the certificate. Often the best fit for mid-sized businesses
+                that don't want to depend on paper procedures.
+              </p>
+
+              <div class="callout">
+                <strong>Practical advice.</strong>
+                <p>
+                  File ZAW-FA(3) <em>as early as you can</em>. If your deadline is 1 April, don't wait until March:
+                  tax offices are overloaded in Q1 2026, and the paper channel can take 3+ weeks.
+                  If your deadline is 1 February and you haven't filed yet, e-US gets it done in 1–3 days (works right now).
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="auth">Authentication methods: when to pick which</h2>
+
+              <p>Legal entities (not individuals) can authenticate in KSeF in three ways. Each has its own use case:</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Method</th><th>Cost</th><th>When it fits</th><th>Limitations</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Qualified seal</strong> (with NIP)</td>
+                      <td>1,000–3,000 zł/year</td>
+                      <td>Mid-sized business, continuous use; ZAW-FA not required</td>
+                      <td>Annual renewal; tied to a specific organization</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Token</strong></td>
+                      <td>0 zł</td>
+                      <td>API integration, testing, simple scenarios</td>
+                      <td><strong>Available only through the end of 2026</strong> — slated for retirement afterwards</td>
+                    </tr>
+                    <tr>
+                      <td><strong>KSeF certificate</strong></td>
+                      <td>0 zł (generated for free)</td>
+                      <td>Long-term API integration, ERP/accounting systems</td>
+                      <td>Requires setup on the system side, periodic renewal</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                For most companies the logic is: <strong>if you're ERP-integrated</strong> — take the KSeF certificate and configure it through your ERP vendor.
+                <strong>If you're just a bookkeeper with a laptop</strong> — the qualified seal gives the least friction.
+                <strong>Token is for testing only</strong>: it will go away, don't build production processes on it.
+              </p>
+
+              <hr>
+
+              <h2 id="fa3">FA(3) vs FA(2): what changed and what breaks</h2>
+
+              <p>
+                From 1 February 2026 the invoice format in KSeF is <strong>FA(3)</strong>.
+                The previous FA(2) structure is no longer accepted.
+                If your ERP hasn't been updated for FA(3), invoices will be rejected — no exceptions.
+              </p>
+
+              <h3>What's new in FA(3)</h3>
+              <ul>
+                <li><strong>An expanded set of optional fields</strong> — for specific transactions (e.g. foreign-currency services, factoring constraints).</li>
+                <li><strong>Refined rules for GTU codes</strong> (Grupowanie Towarów i Usług) — mandatory for certain product/service categories.</li>
+                <li><strong>Stricter rules for invoices mixing different VAT rates</strong> in a single document.</li>
+                <li><strong>Improved support for correction invoices</strong> (see the section below).</li>
+              </ul>
+
+              <h3>What breaks during FA(2) → FA(3) migration</h3>
+              <p>
+                The most common failure: the ERP vendor says "we support FA(3)" — and it turns out only the <em>XML generator</em> is ready.
+                Reference data (GTU codes, VAT rates as letter codes, NIP formats) is still old, and KSeF rejects every other invoice.
+                Don't ask the vendor "do you support FA(3)?" (everyone says yes). Ask specifically: "<em>which FA(3) fields map from which ERP fields?</em>"
+                If the answer is fuzzy — you're in trouble.
+              </p>
+
+              <hr>
+
+              <h2 id="errors">KSeF error codes with fixes (real-world experience)</h2>
+
+              <p>
+                This is the most useful section for those already in production. Below — typical errors companies hit in the early months of KSeF, with concrete fixes:
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Error</th><th>Symptom</th><th>Fix</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Invalid NIP</strong></td>
+                      <td>NIP with dashes, spaces, "PL" prefix, or 9 digits instead of 10</td>
+                      <td>Just 10 digits, no separators: <code>1234567890</code>, not <code>PL123-456-78-90</code>. The PL prefix goes into a separate VAT-EU field. For EU counterparties — country code (DE, CZ, FR) in a separate field</td>
+                    </tr>
+                    <tr>
+                      <td><strong>VAT rate as a number</strong></td>
+                      <td>Sent <code>23</code> instead of a coded value</td>
+                      <td>KSeF only accepts values from a fixed list: <code>23</code>, <code>8</code>, <code>5</code>, <code>0</code>, <code>zw</code> (exempt), <code>np</code> (not applicable), <code>oo</code> (reverse charge). ERPs select from a dropdown — this error mostly shows up in custom API integrations</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Incomplete address</strong></td>
+                      <td>One of the 5 required elements is missing</td>
+                      <td>Check that all of them are sent: street, number, postal code, city, country code. KSeF does not "accept and warn" — it rejects</td>
+                    </tr>
+                    <tr>
+                      <td><strong>BOM marker in UTF-8 XML</strong></td>
+                      <td>XML validation fails with no visible problem in the file</td>
+                      <td>An invisible 3-byte prefix at the file's start. Notepad++: Encoding → UTF-8 (without BOM). VS Code: click "UTF-8 with BOM" at the bottom → "Save with Encoding" → "UTF-8"</td>
+                    </tr>
+                    <tr>
+                      <td><strong>CDATA sections</strong></td>
+                      <td>Invoice accepted, but appears blank or garbled in the MF portal</td>
+                      <td>CDATA is formally valid XML, but the Ministry's systems can't render it correctly. Don't use CDATA — escape special characters properly with <code>&amp;amp;</code>, <code>&amp;lt;</code>, etc.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Missing GTU code</strong></td>
+                      <td>Rejection for categories that require GTU</td>
+                      <td>GTU codes are mandatory for alcohol, fuel, electronics, pharmaceuticals, waste and others. Check which codes apply to your product range in the Ministry of Finance GTU reference</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Document duplicate</strong></td>
+                      <td>Resent after a timeout or error</td>
+                      <td>Implement an <em>idempotency key</em> in your integration — KSeF does not update documents, it rejects duplicates. If you got a timeout, don't blindly resend — check status through the API</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout">
+                <strong>A real-world note.</strong>
+                <p>
+                  According to accountants who have gone through the first months of mandatory KSeF, rejection rates in the early weeks are <strong>significant</strong> —
+                  especially for non-standard transactions: foreign currency, mixed VAT rates, industry-specific quirks.
+                  The exact percentage depends heavily on how clean your data is.
+                  The point: it's not an API problem — it's a <em>data</em> problem in your reference tables and ERP.
+                  Cleaning data <em>before</em> first launch saves weeks of chaos afterwards.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="korekta">Correction invoices (faktura korygująca): a separate trap</h2>
+
+              <p>
+                A correction invoice is not "the same invoice, only fixed". In KSeF it's a separate document type
+                with its own rules — rules that aren't taken seriously enough during planning. And they break almost every implementation.
+              </p>
+
+              <h3>What makes a KSeF correction different</h3>
+              <ul>
+                <li><strong>Linked to the original through KSeF ID</strong>, not document number. If the original was issued outside KSeF (e.g. in January 2026 still on the old FA(2)) — how do you correct it? That's a separate process.</li>
+                <li><strong>The correction reason</strong> must come from a fixed list of causes (product return, price error, post-factum discount, etc.). "Other" is not supported.</li>
+                <li><strong>Zero- or negative-value corrections</strong> have their own format that many ERPs can't generate out of the box.</li>
+                <li><strong>Correcting a correction</strong> is a separate scenario that often isn't tested. Bookkeepers are used to "throw out the wrong one and issue a new one"; in KSeF you can't do that.</li>
+              </ul>
+
+              <h3>Why this hurts</h3>
+              <p>
+                In a typical company, corrections are <em>roughly</em> 5–15% of total document volume (varies by industry).
+                If the correction process isn't set up, those 5–15% drop into manual handling.
+                <em>Worked example:</em> at 1,000 invoices per month, that's 50–150 manual cases, each taking 15–30 minutes —
+                <strong>20–75 working hours per month</strong>. At your volume the numbers differ, but the logic is the same:
+                an untested correction process = an entire headcount dedicated to manual work.
+              </p>
+
+              <hr>
+
+              <h2 id="special-cases">Special cases: B2C, exports, split payment</h2>
+
+              <h3>B2C — KSeF is voluntary</h3>
+              <p>
+                <strong>B2C transactions (sales to end consumers) remain outside the KSeF mandate.</strong> This is its own story
+                with its own rules: cash registers, buyer's NIP, consumer invoice requests. KSeF here is optional —
+                you can issue, but you don't have to. No mandatory implementation date is scheduled for B2C.
+              </p>
+
+              <h3>Zero-rated exports</h3>
+              <p>
+                Exports outside the EU and certain intra-EU operations — VAT rate <code>0</code> or <code>oo</code> (reverse charge).
+                The "100% of VAT" penalty doesn't apply here (VAT is zero), but the alternative does: <strong>up to 18.7% of the total</strong>.
+                On a 500,000 zł export, that's 93,500 zł of potential penalty.
+              </p>
+
+              <h3>Split payment (MPP)</h3>
+              <p>
+                Split payment is a special payment mechanism for certain categories (metals, fuel, electronics, etc.) where VAT
+                is transferred to a separate VAT account of the buyer. <strong>From 1 August 2026, an MPP bank transfer must include the KSeF ID</strong> —
+                otherwise the bank may refuse the transfer. Major Polish banks are rolling out support for this field,
+                but progress varies — <em>check directly with your bank-client (Bankowość)</em> whether the payment template has a KSeF ID field.
+                If not, that's a separate risk worth closing before August.
+              </p>
+
+              <h3>Barter and offsets</h3>
+              <p>
+                Barter (offset) in KSeF is recorded as two separate invoices linked through compensation documents.
+                Not as a single "zero" invoice. This is a common mistake — caught by audit, not by KSeF.
+              </p>
+
+              <hr>
+
+              <h2 id="missed">5 KSeF 2.0 changes that get missed in planning</h2>
+
+              <h3>1. KSeF ID in bank transfers (from 1 August 2026)</h3>
+              <p>
+                Bank transfer details must carry the KSeF invoice identifier.
+                If your accounting system doesn't pass the ID into the payment instruction, the client can't match the payment to the invoice —
+                and reconciliation turns into chaos. Especially critical for split payment.
+              </p>
+
+              <h3>2. "Offline24" mode — now permanent</h3>
+              <p>
+                In a force-majeure (no internet, KSeF unavailable) you can issue an invoice offline and submit it the next day.
+                For routine use you need a <strong>special authorization</strong> (from 1 November 2025).
+                If you plan offline as a norm — start the procedure early.
+              </p>
+
+              <h3>3. QR code on paper / PDF copies</h3>
+              <p>
+                If you print an e-invoice for a client, the printed copy must carry a QR code in the standard format.
+                This isn't "just add an image" — it's a required element. It affects print templates across every ERP/CRM.
+              </p>
+
+              <h3>4. Invoices with attachments — a separate process</h3>
+              <p>
+                If you attach specifications, acceptance documents or technical descriptions to invoices, this is a separate scenario
+                with its own rules for storage, deadlines and operational handling. It breaks issuance timelines and internal SLAs if you didn't plan for it.
+              </p>
+
+              <h3>5. 10-year retention in KSeF</h3>
+              <p>
+                All invoices that went through KSeF are kept by the Polish Ministry of Finance for <strong>10 years</strong> —
+                longer than the standard VAT statute of limitations. Archive access works through the API —
+                make sure your audit and review processes account for this.
+              </p>
+
+              <hr>
+
+              <h2 id="7-traps">7 traps that surface in the third month</h2>
+
+              <ol>
+                <li>
+                  <strong>"Everything's in the ERP" — turns out it isn't.</strong>
+                  The accounting team occasionally issued "manual" invoices through Word/Excel — for corrections, advances, non-standard clients.
+                  In KSeF that channel disappears. Every invoice must go through one system.
+                </li>
+                <li>
+                  <strong>No end-to-end process owner.</strong>
+                  IT owns the integration, accounting owns the data, legal owns ZAW-FA. When an invoice is rejected, nobody responds. Errors "between departments."
+                </li>
+                <li>
+                  <strong>Corrections aren't tested.</strong>
+                  The standard case is easy. Correction invoices, returns, advance payments, mixed-VAT-rate cases — that's where KSeF rejects.
+                </li>
+                <li>
+                  <strong>Misaligned reference data.</strong>
+                  Client NIP in the ERP has no separators, in CRM has dashes, in billing has a PL prefix. Fine on 100 invoices. A disaster on 10,000.
+                </li>
+                <li>
+                  <strong>Receiving is ignored.</strong>
+                  Everyone prepared to "send." Almost nobody prepared to "receive." What does your team member do with a KSeF invoice at 6:30 p.m. on a Friday?
+                </li>
+                <li>
+                  <strong>Payments don't match invoices.</strong>
+                  From August 2026 the KSeF ID must be in the bank transfer. If the bank-client doesn't pass the ID, accounting hand-matches every payment to every invoice.
+                </li>
+                <li>
+                  <strong>No status monitoring.</strong>
+                  How many sent, how many rejected, how many in queue, who responds? If you learn about a problem from the client, you've already lost.
+                </li>
+              </ol>
+
+              <p>
+                <strong>6 of 7 traps are not about API or XML.</strong> They're about process, ownership and data.
+                Integration is 20% of the work. The other 80% is the operational layer around it.
+              </p>
+
+              <hr>
+
+              <h2 id="comparison">Paid solutions vs open-source: an honest comparison</h2>
+
+              <p>
+                If you don't have an internal dev team, the simplest path is a ready-made paid solution.
+                If you do — open-source gives more flexibility at a lower subscription cost.
+                <em>Prices below are indicative ranges as of early 2026; check current tariffs and bundles with the vendors:</em>
+              </p>
+
+              <h3>Paid (commercial)</h3>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Solution</th><th>Price (approx.)</th><th>Strength</th><th>Weakness</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Comarch ERP / Optima</strong></td>
+                      <td>From 500 zł/month depending on modules</td>
+                      <td>Full-featured ERP with a KSeF module, large partner network, deep localization</td>
+                      <td>Hard to adapt to non-standard processes without a partner</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Symfonia ERP</strong></td>
+                      <td>From 400 zł/month</td>
+                      <td>Classic Polish solution familiar to bookkeepers, solid SAF-T integration</td>
+                      <td>Less flexibility; API for non-standard cases is limited</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Sage (SAP Business One / Sage 50)</strong></td>
+                      <td>From 600 zł/month</td>
+                      <td>International platform, KSeF bolted on through a local module</td>
+                      <td>KSeF feels like an "extra layer," not native; some scenarios need rework</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Enova365</strong></td>
+                      <td>From 350 zł/month</td>
+                      <td>Low entry barrier, intuitive UI, KSeF module out of the box</td>
+                      <td>May lack depth for mid-sized+ companies</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Turnkey implementation</strong></td>
+                      <td>3,000–15,000 zł one-off</td>
+                      <td>Integrator does everything, you get a working system</td>
+                      <td>Dependency on the integrator; changes also go through them, paid</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Open-source: the "operational layer" around KSeF</h3>
+
+              <p>
+                Open-source tools don't replace your accounting system. They cover <strong>what the official solutions ignore</strong>:
+                monitoring, routing of rejected invoices, manual handling of exceptions, custom logic, interfaces for the people
+                who work with invoices every day.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Tool</th><th>What it covers</th><th>Links</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>MyCompany (lsFusion)</strong></td>
+                      <td>A declarative ERP platform where KSeF is part of the overall business logic. Real-time recalculation, change control, full Polish UI (toggles with one click). For those who want not "a KSeF module attached to an ERP" but an ERP built around their own processes</td>
+                      <td><a href="https://mycompany.lsfusion.org/en/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Appsmith</strong></td>
+                      <td>Internal panels for manual KSeF error handling, status monitoring, retries</td>
+                      <td><a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>ToolJet</strong></td>
+                      <td>Fast internal interfaces on top of APIs/databases — for monitoring and operations</td>
+                      <td><a href="https://www.tooljet.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/tooljet/tooljet" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>n8n</strong></td>
+                      <td>Workflow automation: routing of rejected invoices, Slack/Teams alerts, escalations</td>
+                      <td><a href="https://n8n.io/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Budibase</strong></td>
+                      <td>Admin interfaces, simple workflows</td>
+                      <td><a href="https://budibase.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/Budibase/budibase" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>NocoBase</strong></td>
+                      <td>Extensible low-code platform with plugins</td>
+                      <td><a href="https://www.nocobase.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/nocobase/nocobase" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>How to choose: a decision matrix</h3>
+
+              <ul>
+                <li><strong>Small business (up to 100 invoices/month), no IT team</strong> → Enova365 or Symfonia + a bookkeeper</li>
+                <li><strong>Mid-sized business (100–1,000 invoices/month), standard processes</strong> → Comarch or Symfonia + a qualified seal</li>
+                <li><strong>Mid+ business with non-standard processes</strong> → MyCompany (lsFusion) + in-house team or partner</li>
+                <li><strong>Any size needing flexibility</strong> → paid ERP + an open-source layer (Appsmith / n8n) for monitoring</li>
+                <li><strong>Large business, complex integration</strong> → SAP / Comarch Enterprise + custom development</li>
+              </ul>
+
+              <hr>
+
+              <h2 id="checklist">30 / 60 / 90-day checklist</h2>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  Implementation ladder
+                  <span class="diagram-hint">from "see" to "stabilize"</span>
+                </div>
+                <ol>
+                  <li>
+                    <strong>0–30 days — see the real picture.</strong>
+                    Full list of invoice sources (including "manual" ones). Audit of data and reference tables (NIP, addresses, VAT rates, GTU).
+                    File ZAW-FA(3) through e-US or obtain a qualified seal. Appoint a process owner.
+                    Inventory all the non-standard scenarios that actually occur in real life.
+                  </li>
+                  <li>
+                    <strong>31–60 days — assemble a working skeleton.</strong>
+                    Basic integration with the KSeF API (test sandbox). Set up roles and permissions.
+                    Mandatory tests: correction invoices, advance payments, mixed-VAT-rate cases, exports.
+                    First submissions to production.
+                  </li>
+                  <li>
+                    <strong>61–90 days — stabilization and monitoring.</strong>
+                    Procedures for handling rejections with error codes. A monitoring dashboard (Appsmith / ToolJet / built into the ERP).
+                    Metrics: % rejected, time to react, manual fixes. Readiness for attachments, KSeF ID in transfers,
+                    QR codes on printed copies.
+                  </li>
+                </ol>
+              </div>
+
+              <hr>
+
+              <h2 id="conclusion">Conclusion: what to do this week</h2>
+
+              <p>
+                KSeF is an <strong>operational project</strong>, not "an XML format." Only those who tidy up their data in advance,
+                pin down ownership, and build a managed end-to-end process get through the transition without pain.
+              </p>
+
+              <p>If you don't have a plan yet, do these three things <em>this week</em>:</p>
+
+              <ol class="steps">
+                <li>
+                  <strong>File ZAW-FA(3) through e-US</strong> (or start the process of getting a qualified seal).
+                  Not via ePUAP — it no longer works as of 1 January 2026.
+                </li>
+                <li>
+                  <strong>Find the "shadow" issuing channels.</strong> Is anyone in your company issuing invoices outside the main system?
+                  That is the biggest risk. Until you close that channel, KSeF won't work cleanly.
+                </li>
+                <li>
+                  <strong>Ask your ERP vendor three specific questions:</strong> (1) which FA(3) fields map from which ERP fields,
+                  (2) how they pass the KSeF ID into bank transfers, (3) what the procedure is for rejected invoices.
+                  If the answers are fuzzy — you're going to have a problem. Look for an alternative.
+                </li>
+              </ol>
+
+              <div class="callout">
+                <strong>Why automation is genuinely needed — even at low volumes</strong>
+                <ul>
+                  <li><strong>Exceptions multiply.</strong> The first weeks are quiet; then come corrections, advances, returns, invoices with attachments. Without an operational layer this quickly becomes chat + Excel + "ask accounting."</li>
+                  <li><strong>You need visibility.</strong> How much sent, how much accepted, how much rejected, where it's stuck. Monitoring + queue + alerts give more value than yet another integration.</li>
+                  <li><strong>It lowers compliance risk.</strong> Problems are more often in data than in the API. Auto-checks <em>before</em> sending substantially cut the risk of a 2027 fine.</li>
+                  <li><strong>It lets you scale.</strong> Growth, a new branch, a new document type — these are the things that break manual schemes fastest.</li>
+                </ul>
+              </div>
+
+              <hr>
+
+              <h2 id="sources">Official sources</h2>
+              <ul>
+                <li><a href="https://ksef.podatki.gov.pl/" target="_blank" rel="noopener noreferrer">KSeF on podatki.gov.pl — official portal</a></li>
+                <li><a href="https://www.gov.pl/web/finanse/krajowy-system-e-faktur-ksef" target="_blank" rel="noopener noreferrer">KSeF on gov.pl — Polish Ministry of Finance</a></li>
+                <li><a href="https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/struktura-logiczna-fa-3/" target="_blank" rel="noopener noreferrer">FA(3) logical structure — specification</a></li>
+                <li><a href="https://ksef.podatki.gov.pl/wyjasnienia/formularz-zaw-fa-3-dostepny-w-e-us/" target="_blank" rel="noopener noreferrer">ZAW-FA(3) in e-Urząd Skarbowy</a></li>
+              </ul>
+
+              <h2 id="related-posts">Related posts</h2>
+
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>If you care about the practical consequences of KSeF, exceptions and automation — more on DevLab Blog:</p>
+                <ul>
+                  <li><a href="/posts/post15-ksef-after-go-live-15-issues.html">KSeF after go-live: 15 issues that surface in months 2–3 ↗</a></li>
+                  <li><a href="/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">ERPNext vs MyCompany: retail replenishment as a stress test ↗</a></li>
+                  <li><a href="/posts/post18-iot-for-business.html">IoT for business: where it earns money and where it burns budgets ↗</a></li>
+                </ul>
+              </div>
+
+              <footer class="post-footer-extended">
+                <div class="post-footer-meta">
+                  <div class="post-meta-tags">
+                    <span class="post-tag">KSeF</span>
+                    <span class="post-tag">Poland</span>
+                    <span class="post-tag">VAT</span>
+                    <span class="post-tag">FA(3)</span>
+                    <span class="post-tag">ZAW-FA</span>
+                    <span class="post-tag">E-invoicing</span>
+                    <span class="post-tag">Compliance</span>
+                  </div>
+
+                  <div class="post-meta-secondary">
+                    <span>Published: 6 Jan 2026</span>
+                    <span>·</span>
+                    <span>Updated: 4 June 2026</span>
+                    <span>·</span>
+                    <span>Approx. 18 min read</span>
+                    <span>·</span>
+                    <span class="post-views">Views: <span class="count">—</span></span>
+                  </div>
+                </div>
+              </footer>
+
+              <section class="sidebar-block">
+                <p class="sidebar-text">
+                  No spam — just occasional notes on KSeF, ERP, automation and new posts.
+                </p>
+                <form class="newsletter-form"
+                      action="https://formsubmit.co/info@devlab.blog"
+                      method="POST">
+                  <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="text" name="_honey" style="display:none">
+
+                  <input type="email" name="email" class="field" placeholder="Your email address" required>
+                  <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                  <p class="newsletter-note">
+                    You will receive a confirmation email.<br>
+                    Powered securely via FormSubmit.
+                  </p>
+                </form>
+              </section>
+
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Categories →</a>
+            </div>
           </article>
-          <!-- SIDEBAR -->
+
           <aside class="sidebar">
             <section class="sidebar-block">
               <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
@@ -512,48 +927,45 @@
             <section class="sidebar-block">
               <h3 class="sidebar-title">About this blog</h3>
               <p class="sidebar-text">
-                DevLab Blog explores open-source ERP, modular architectures and low-code automation —
-                with a focus on practical, real-world implementations.
+                DevLab Blog covers open-source ERP, modular architectures and low-code automation —
+                with a focus on practical implementation and real-world cases.
               </p>
             </section>
 
             <section class="sidebar-block">
               <h3 class="sidebar-title">More to explore</h3>
-              <p class="sidebar-text">
-                Go back to the main page to see other posts or browse by category:
-              </p>
+              <p class="sidebar-text">Go back to the main page or browse by category:</p>
               <ul>
                 <li><a href="/">All blog posts</a></li>
-                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="/#categories">Categories</a></li>
                 <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
               </ul>
             </section>
           </aside>
-          </div>
-          </div>
-          </main>
 
-          <!-- FOOTER -->
-          <footer class="site-footer">
-            <div class="wrapper footer-grid">
-              <div>
-                <div class="footer-links">
-                  <a href="/">Posts</a>
-                  <a href="/#categories">Categories</a>
-                  <a href="/#about">About</a>
-                  <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
-                </div>
-                <p class="footer-meta">
-                  DevLab Blog — notes on open-source ERP, modular architectures and automation experiments.
-                </p>
-              </div>
-              <div class="footer-meta">
-                <p>&copy; <span id="year"></span> DevLab Blog</p>
-              </div>
-            </div>
-          </footer>
-
+        </div>
       </div>
-   </body>
-</html>
+    </main>
 
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
