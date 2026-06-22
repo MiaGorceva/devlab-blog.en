@@ -119,7 +119,7 @@
               </h1>
 
               <p class="hero-text">
-                An architectural deep dive comparing ERPNext and MyCompany using a simple retail replenishment process based on real code structure.
+                Two ERPs, both free to download. Then you ask one to reorder stock the way <em>your</em> business actually does it — and the bill arrives. Not in licenses, in engineering hours. We rebuilt the same retail replenishment process in ERPNext and in MyCompany, counted the code, and watched where each one fights back.
               </p>
             </header>
 
@@ -150,33 +150,33 @@
               </p>
 
               <p>
-              Retail replenishment is one of the first processes where ERP systems stop being “forms and documents” and start being <strong>decision engines</strong>. It forces the platform to handle:
+              Replenishment is where the prettiness ends. It is one of the first processes that stops being forms-and-documents and becomes a <strong>decision engine</strong> — the system has to think, not just store. To do it for real, a platform has to juggle:
               </p>
 
               <ul>
-                <li>Time-series sales data</li>
-                <li>Forecast adjustments (seasonality, promotions)</li>
-                <li>Supplier constraints (lead time, MOQ, pack size)</li>
-                <li>Multi-warehouse logic</li>
-                <li>Automatic document generation</li>
-                <li>Human approval workflows</li>
-                <li>Explainability of system decisions</li>
+                <li>sales as a time series, not a single number</li>
+                <li>forecasts that bend for seasonality and promotions</li>
+                <li>supplier reality: lead time, MOQ, pack size</li>
+                <li>multiple warehouses</li>
+                <li>documents that generate themselves</li>
+                <li>a human who can still say “not that supplier this week”</li>
+                <li>and an answer to “why did the system order <em>that</em>?”</li>
               </ul>
 
               <p>
-              This makes it an ideal comparison case for ERPNext and MyCompany.
+              That mix is what makes it a fair fight. Anyone can model an invoice. Replenishment forces both platforms to show how they cope with rules that keep changing.
               </p>
 
               <p>
-              The goal of this article is not marketing. It is to answer a practical CTO-level question:
+              This is not a marketing piece. It answers the one question a CTO asks before committing:
               </p>
 
               <blockquote>
-              How much engineering effort does it take to implement a real retail process?
+              How much effort does it take to build a real retail process — and to keep changing it?
               </blockquote>
 
               <p>
-              And yes — we will count lines of code.
+              So we counted the lines of code. Both ways.
               </p>
 
             <!-- HERO IMAGE (single) -->
@@ -571,8 +571,7 @@
               <h2 id="ai-impact">7. AI-assisted engineering economics</h2>
 
               <p>
-              There is also a modern dimension that cannot be ignored: the amount and structure of code influences how efficiently AI tools can assist,
-              refactor, and generate extensions.
+              There is a newer angle, too. The amount and shape of your code now decides how well AI tools can help — assist, refactor, generate extensions. The sprawl that slows a human slows the model the same way.
               </p>
 
               <ul>
@@ -628,8 +627,7 @@
               <h2 id="conclusion">9. Conclusion</h2>
 
               <p>
-              Counting lines of code is not everything.
-              But in complex business processes, LOC correlates with cognitive load — and cognitive load correlates with long-term maintenance cost.
+              Lines of code are not the whole story. But on a process this gnarly, they track cognitive load — and cognitive load is what you keep paying for, month after month, long after the license was free.
               </p>
 
               <p>In this replenishment scenario:</p>
