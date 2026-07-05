@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JPK_CIT 2026: the structured accounting-books obligation — JPK_KR_PD, JPK_ST_KR, timeline and prep – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A practical guide to JPK_CIT: what it is, the JPK_KR_PD and JPK_ST_KR structures, the phased 2025–2027 timeline, first submission with the annual CIT return, tax markers, chart-of-accounts mapping, ties to KSeF and JPK_VAT, and a preparation checklist."
+  />
+  <meta name="keywords" content="JPK_CIT, JPK_KR_PD, JPK_ST_KR, accounting books, CIT, structured books, JPK, tax capital group, tax markers, chart of accounts, KSeF, JPK_VAT, accounting automation" />
+
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post19-jpk-cit-2026-obowiazek.html"
+    },
+    "headline": "JPK_CIT 2026: the structured accounting-books obligation — JPK_KR_PD, JPK_ST_KR, timeline and preparation",
+    "description": "A practical guide to JPK_CIT: the JPK_KR_PD and JPK_ST_KR structures, the phased 2025–2027 timeline, first submission with the annual CIT return, tax markers, chart-of-accounts mapping, ties to KSeF and JPK_VAT, and a preparation checklist.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
+    },
+    "datePublished": "2026-07-04",
+    "dateModified": "2026-07-04"
+  }
+  </script>
+
+  <link rel="canonical" href="https://en.devlab.blog/posts/post19-jpk-cit-2026-obowiazek.html">
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is JPK_CIT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JPK_CIT is the obligation to keep accounting books using software and submit them to the tax authority in a structured format. It consists of two logical structures: JPK_KR_PD (accounting books with tax data) and JPK_ST_KR (the register of fixed assets and intangible assets). The obligation was introduced by an amendment to the Polish CIT Act."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does JPK_CIT start and who is affected first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The rollout is phased. For a tax year starting after 31 December 2024 it covers the largest CIT payers first (revenue above EUR 50 million) and tax capital groups. For a tax year starting after 31 December 2025 the remaining CIT payers obliged to submit JPK_VAT join in. For a tax year starting after 31 December 2026 the obligation covers the remaining CIT payers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When is JPK_CIT submitted for the first time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JPK_CIT is submitted once a year, together with the annual CIT return — by the end of the third month after the tax year ends. For a year matching the calendar year this usually means the end of March. But the books must be kept in the required structure throughout the year, not only assembled at submission time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does JPK_CIT connect to KSeF and JPK_VAT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JPK_CIT does not stand alone. The book data must be consistent with JPK_VAT and with invoices that pass through KSeF. A mismatch between revenue in the books and sales reported in JPK_VAT, or between a booked invoice and its KSeF counterpart, is the most common trigger for an audit. Cleaning up the source data before the first submission is essential."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="post-page">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+
+          <article id="post19-jpk-cit-2026-obowiazek">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Poland · JPK_CIT · Compliance</span>
+                <span>&middot;</span>
+                <span>Approx. 14 min read</span>
+                <span>&middot;</span>
+                <span>Published: 4 July 2026</span>
+              </div>
+
+              <h1 class="hero-title">
+                JPK_CIT 2026: the end of "the books are our business" — what changes and how to get ready
+              </h1>
+
+              <p class="hero-text">
+                The tax office stops asking for the result and starts reading the whole ledger. JPK_CIT is the obligation to submit
+                your accounting books in a structured format — account by account, entry by entry. Who, from when, in which structure,
+                and what actually goes sideways in practice. No fluff.
+              </p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post19-jpk-cit-2026-obowiazek.webp"
+                  alt="JPK_CIT 2026: the JPK_KR_PD and JPK_ST_KR structures, the phased timeline, and preparing accounting books"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+
+              <!-- TL;DR -->
+              <div class="post-quick">
+                <p class="post-quick__title">In short (60 seconds)</p>
+                <p class="post-quick__text">
+                  <strong>What it is.</strong> The obligation to keep and submit accounting books in a structured format: the <strong>JPK_KR_PD</strong> structure (books with tax data) and <strong>JPK_ST_KR</strong> (fixed assets and intangibles). Introduced by an amendment to the Polish CIT Act.
+                  <strong>Timeline.</strong> Phased: for a year starting after 31 Dec 2024 — the largest CIT payers (revenue &gt;EUR 50M) and tax capital groups; for a year after 31 Dec 2025 — other CIT payers who file JPK_VAT; for a year after 31 Dec 2026 — the rest.
+                  <strong>Deadline.</strong> First submission with the annual CIT return — by the end of the third month after the tax year ends.
+                  <strong>Where it hurts.</strong> Not the XML, the data: mapping accounts to the standard, tax markers, counterparty identification, consistency with KSeF and JPK_VAT.
+                </p>
+              </div>
+
+              <h2 id="intro">What actually changes</h2>
+
+              <p>
+                Until now, your accounting books were the company's private kitchen. The tax office saw the result: the CIT return, the declarations,
+                a JPK file on request. Exactly how each operation was booked — which account, what description, on which source document — stayed inside
+                the company until an audit came along and asked for an extract.
+              </p>
+
+              <p>
+                <strong>JPK_CIT flips that logic.</strong> Now the company itself, once a year, sends the authority the <em>whole</em> ledger in a
+                machine-readable format — with accounts tagged against a standard, tax markers on every relevant line, identified counterparties, and a
+                separate register of fixed assets. Not the result. Not a sample. The ledger.
+              </p>
+
+              <p>What this means in practice for the accounting team:</p>
+
+              <ul>
+                <li>The chart of accounts must be mapped to the standard layout the structure expects — "for us that's account 731-2" no longer cuts it.</li>
+                <li>Every entry with tax significance must carry the right <strong>tax marker</strong> (e.g. non-deductible cost, exempt revenue).</li>
+                <li>Counterparties must be identified with verifiable data — a NIP in a single consistent format, not "Kowalski Trading Co."</li>
+                <li>Fixed assets and intangibles go in a separate <strong>JPK_ST_KR</strong> structure — with dates, values, depreciation.</li>
+                <li>The data must <em>reconcile</em> with what you already sent in JPK_VAT and what went through KSeF.</li>
+              </ul>
+
+              <div class="post-toc" aria-label="Contents">
+                <div class="post-toc__title">In this article</div>
+                <ul class="post-toc__list">
+                  <li><a href="#czym-jest">What JPK_CIT is: JPK_KR_PD and JPK_ST_KR</a></li>
+                  <li><a href="#harmonogram">Timeline: who and from when</a></li>
+                  <li><a href="#termin">Deadline: when the first submission is due</a></li>
+                  <li><a href="#dane">What the books must contain</a></li>
+                  <li><a href="#powiazania">Ties to KSeF and JPK_VAT</a></li>
+                  <li><a href="#ryzyka">7 places where it goes sideways</a></li>
+                  <li><a href="#checklist">Preparation checklist</a></li>
+                  <li><a href="#narzedzia">Tools: off-the-shelf vs open-source</a></li>
+                  <li><a href="#wniosek">Conclusion: what to do now</a></li>
+                  <li><a href="#faq">FAQ</a></li>
+                  <li><a href="#sources">Official sources</a></li>
+                </ul>
+              </div>
+
+              <hr>
+
+              <h2 id="czym-jest">What JPK_CIT is: two structures, one obligation</h2>
+
+              <p>
+                "JPK_CIT" is the informal name for an obligation that in practice consists of <strong>two separate logical structures</strong>.
+                Worth separating them right away, because confusing the two is the first source of chaos during rollout.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Structure</th><th>What it contains</th><th>The point</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>JPK_KR_PD</strong></td>
+                      <td>Accounting books extended with tax data: postings to accounts, tax markers, links to source documents, counterparty details</td>
+                      <td>This is the "meat" of the obligation — the full picture of postings from a tax angle</td>
+                    </tr>
+                    <tr>
+                      <td><strong>JPK_ST_KR</strong></td>
+                      <td>The register of fixed assets and intangible assets: initial value, date put into use, depreciation method and rate, value changes</td>
+                      <td>A separate fixed-asset register — routinely underestimated in planning</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                The obligation was introduced by an <strong>amendment to the Polish CIT Act</strong> — books are to be kept using software and submitted
+                to the tax authorities in a structured form. "JPK_CIT" is convenient in conversation, but in technical documentation always work with the
+                structure names: they define which fields, and in which format, your system must generate.
+              </p>
+
+              <div class="callout">
+                <strong>A common misconception.</strong>
+                <p>
+                  JPK_CIT is not "another once-a-year declaration to file." It is a requirement to <em>keep the books</em> in a defined structure
+                  throughout the year. If you book "the old way" for eleven months and then try to convert it into JPK_KR_PD in December, you'll be
+                  missing the markers, descriptions and identifiers nobody entered along the way. The submission structure is a consequence, not a cause.
+                  The cause is how you book.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="harmonogram">Timeline: who and from when</h2>
+
+              <p>
+                The obligation phases in depending on your tax year and which group of taxpayers you belong to. The key wording is "for a tax year
+                <em>starting after</em>" a given date — don't confuse it with the calendar year of the submission.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Tax year starting after</th><th>Who it covers</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>31 December 2024</strong></td>
+                      <td>The largest CIT payers — prior-year revenue <strong>above EUR 50 million</strong> — and <strong>tax capital groups</strong> (PGK)</td>
+                    </tr>
+                    <tr>
+                      <td><strong>31 December 2025</strong></td>
+                      <td>Other CIT payers <strong>obliged to submit JPK_VAT</strong></td>
+                    </tr>
+                    <tr>
+                      <td><strong>31 December 2026</strong></td>
+                      <td>The remaining CIT payers (the closing group)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                In other words: if you're a large taxpayer or operate within a tax capital group, the obligation already applies to you for the year that
+                started in 2025. Mid-sized companies filing JPK_VAT join a year later. Everyone else, a year after that. But note:
+                <strong>preparation starts long before the first submission</strong>, because the books must be kept in the new structure from day one of the year in scope.
+              </p>
+
+              <div class="callout">
+                <strong>Practical advice for the "second wave".</strong>
+                <p>
+                  If your obligation starts for a year beginning after 31 Dec 2025, it means you must keep the books in the structure <em>from January 2026</em> —
+                  not from when you submit in 2027. Companies that miss this discover, in the first quarter of the following year, that the entire previous
+                  year has to be re-mapped in the books, retroactively. That is the most expensive scenario.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="termin">Deadline: when the first submission is due</h2>
+
+              <p>
+                Unlike JPK_VAT (monthly), JPK_CIT is submitted <strong>once a year</strong> — together with the annual CIT return.
+                The deadline is <strong>the end of the third month after the tax year ends</strong>.
+              </p>
+
+              <p>
+                For a company whose tax year matches the calendar year, that usually means the end of March the following year. If your year is shifted
+                (say, 1 July to 30 June), you count three months from your own closing date. The submission itself is a formality — the challenge is that the
+                books, <em>throughout the year</em>, are kept in a way you can generate as JPK_KR_PD and JPK_ST_KR in a single move.
+              </p>
+
+              <hr>
+
+              <h2 id="dane">What the books must contain</h2>
+
+              <p>
+                This is the section that decides success. The structure requires data that many companies don't record in the required form today:
+              </p>
+
+              <h3>Accounts tagged against the standard</h3>
+              <p>
+                Your company chart of accounts must be <strong>mapped</strong> to the layout the structure expects. This doesn't mean abandoning your own
+                numbering — but every account needs an assigned counterpart in the standard. The most common trap: "legacy" accounts, in use for years,
+                that nobody can cleanly classify anymore.
+              </p>
+
+              <h3>Tax markers</h3>
+              <p>
+                Entries with tax significance must carry the right marker — e.g. a non-deductible cost, exempt revenue, temporary differences. It's information
+                the accounting team already knows "in their head," but it has to reach the entry in a machine-readable way. Without it, JPK_KR_PD is incomplete.
+              </p>
+
+              <h3>Counterparty identification</h3>
+              <p>
+                The counterparty in an entry must be identified with verifiable data — above all a NIP in a consistent format. "Shop on the corner," "Advance —
+                Kowalski," "Various" — such descriptions pass in internal bookkeeping, but in the structure they're a signal of trouble.
+              </p>
+
+              <h3>Fixed assets and intangibles (JPK_ST_KR)</h3>
+              <p>
+                A separate structure with data on the fixed-asset base: initial value, date put into use, depreciation method and rate, value adjustments,
+                disposals. Many companies keep the fixed-asset register in a separate module or spreadsheet that <em>isn't tied</em> to the general ledger.
+                That's the first candidate for a mismatch.
+              </p>
+
+              <hr>
+
+              <h2 id="powiazania">Ties to KSeF and JPK_VAT: consistency or an audit</h2>
+
+              <p>
+                JPK_CIT doesn't live in isolation. It's the third piece of the puzzle alongside JPK_VAT and KSeF — and the tax office receives all three and can cross-check them.
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Revenue in the books vs sales in JPK_VAT.</strong> If revenue reported in JPK_KR_PD doesn't match the sales reported in JPK_VAT
+                  (after adjusting for VAT/CIT differences), that's a ready-made reason for questions.
+                </li>
+                <li>
+                  <strong>A booked invoice vs its KSeF counterpart.</strong> Once a sales or purchase invoice passes through KSeF, it has an identifier.
+                  The entry in the books that relates to that invoice should be traceable back to it. A gap here is the cleanest possible audit signal.
+                </li>
+                <li>
+                  <strong>Corrections.</strong> A correction invoice changes the VAT, the CIT base, and the book entry. If you correct these three layers
+                  inconsistently or in different periods, the data drifts apart — and an audit spots the difference immediately.
+                </li>
+              </ul>
+
+              <div class="callout">
+                <strong>The point.</strong>
+                <p>
+                  The biggest JPK_CIT risk isn't "we won't send the file." It's <em>we send a file that doesn't match what we already sent</em>.
+                  Three reporting systems — KSeF, JPK_VAT, JPK_CIT — must tell the same story. Getting the source data in order
+                  <em>before</em> you generate the first JPK_KR_PD matters more than the submission tool itself.
+                </p>
+              </div>
+
+              <hr>
+
+              <h2 id="ryzyka">7 places where it goes sideways</h2>
+
+              <ol>
+                <li>
+                  <strong>Account mapping done "just barely."</strong>
+                  The standard was assigned only to accounts active in the current year. Old accounts, technical accounts, accrual accounts — skipped.
+                  It surfaces on the first unusual operation.
+                </li>
+                <li>
+                  <strong>No markers along the way.</strong>
+                  The accounting team knows the tax classification "from memory" but doesn't record it at booking time. At year-end you have to tag
+                  thousands of entries by hand — or guess.
+                </li>
+                <li>
+                  <strong>Fixed-asset register outside the ledger.</strong>
+                  Fixed assets kept in a separate spreadsheet/module, never reconciled to the general ledger. JPK_ST_KR reveals a gap no one had seen before.
+                </li>
+                <li>
+                  <strong>Counterparties with no NIP or with "NIPs in various formats."</strong>
+                  No separators in the ERP, dashes in the CRM, a PL prefix in the ledger of receivables. To an audit it looks like three different counterparties.
+                </li>
+                <li>
+                  <strong>Drift from JPK_VAT.</strong>
+                  CIT revenue and VAT sales computed independently, with no reconciliation of the differences. Cross-checking the files exposes the gap.
+                </li>
+                <li>
+                  <strong>Corrections in different periods.</strong>
+                  A VAT correction booked in a different month than the CIT correction. It may be formally correct — but it needs a clear trail explaining why.
+                </li>
+                <li>
+                  <strong>No process owner.</strong>
+                  Accounting owns the entries, IT owns the submission, the tax advisor owns the markers. When the file doesn't reconcile, nobody knows whose problem it is.
+                </li>
+              </ol>
+
+              <p>
+                <strong>6 of the 7 traps aren't technical.</strong> They're data and process. Generating the XML is easy.
+                The hard part is making the data inside that XML consistent, complete, and aligned with the other reports.
+              </p>
+
+              <hr>
+
+              <h2 id="checklist">Preparation checklist</h2>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  The road to the first submission
+                  <span class="diagram-hint">from "tidy up" to "generate"</span>
+                </div>
+                <ol>
+                  <li>
+                    <strong>Pin down your start date.</strong>
+                    Check which wave of the timeline you belong to and from which tax year you must keep the books in the structure.
+                    Remember: it's the start of the year in scope that counts, not the submission deadline.
+                  </li>
+                  <li>
+                    <strong>Map the chart of accounts to the standard.</strong>
+                    All accounts, not just the active ones. Catch the "orphan" and technical accounts. Document the mapping.
+                  </li>
+                  <li>
+                    <strong>Build tax markers into the booking process.</strong>
+                    So they arise as you go, not by hand in December. It's a change in how people work, not just in the system.
+                  </li>
+                  <li>
+                    <strong>Clean up counterparties.</strong>
+                    Consistent NIP format, deduplication, retiring "Various" entries. Align the data with what's in KSeF and JPK_VAT.
+                  </li>
+                  <li>
+                    <strong>Tie the fixed-asset register to the ledger.</strong>
+                    JPK_ST_KR must match the general ledger on value and depreciation. Reconcile the balances.
+                  </li>
+                  <li>
+                    <strong>Test generation and consistency.</strong>
+                    Generate a trial JPK_KR_PD and JPK_ST_KR from working data and cross-check them with JPK_VAT for the same period. Catch the gaps before the office does.
+                  </li>
+                  <li>
+                    <strong>Appoint an end-to-end process owner.</strong>
+                    One person/role responsible for data, markers, submission and consistency all playing together.
+                  </li>
+                </ol>
+              </div>
+
+              <hr>
+
+              <h2 id="narzedzia">Tools: off-the-shelf vs open-source</h2>
+
+              <p>
+                Most accounting systems on the Polish market are adding or announcing a JPK_CIT module. If you don't have a dev team, that's the simplest path.
+                If you do, an open-source layer gives flexibility where the packaged modules go quiet: consistency checks, reconciliation across
+                JPK_CIT / JPK_VAT / KSeF, exception handling. <em>Check scope and maturity directly with vendors — JPK_CIT support is still maturing.</em>
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Tool</th><th>What it covers</th><th>Links</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>MyCompany (lsFusion)</strong></td>
+                      <td>A declarative ERP platform where the books, VAT and fixed assets are one data model. Easier to keep JPK_CIT / JPK_VAT / KSeF consistent, because the data isn't scattered across modules. Full Polish localization</td>
+                      <td><a href="https://mycompany.lsfusion.org/en/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/lsfusion-solutions/mycompany" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Appsmith</strong></td>
+                      <td>Internal panels for reconciling data, catching drift between reports, handling exceptions manually</td>
+                      <td><a href="https://www.appsmith.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/appsmithorg/appsmith" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Metabase</strong></td>
+                      <td>Control dashboards: CIT revenue vs VAT sales, fixed-asset balances vs the ledger, gaps in markers</td>
+                      <td><a href="https://www.metabase.com/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/metabase/metabase" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>n8n</strong></td>
+                      <td>Automation: alerts on mismatches, deadline reminders, routing cases to the process owner</td>
+                      <td><a href="https://n8n.io/" target="_blank" rel="noopener noreferrer">Site</a> · <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">GitHub</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <hr>
+
+              <h2 id="wniosek">Conclusion: what to do now</h2>
+
+              <p>
+                JPK_CIT is a <strong>data project</strong>, not "a new file to send." Companies that treat it as a year-end formality will discover, in the
+                first quarter, that the whole previous year has to be tidied up in the books, retroactively. Those who put the books in order in advance send
+                JPK_KR_PD in a single move.
+              </p>
+
+              <p>Three things worth doing <em>this month</em>:</p>
+
+              <ol class="steps">
+                <li>
+                  <strong>Pin down your wave and start date.</strong> Check from which tax year you must keep the books in the structure —
+                  it's often earlier than you think, because it's the start of the year that counts, not the submission deadline.
+                </li>
+                <li>
+                  <strong>Audit the source data.</strong> Account mapping, tax markers, counterparty NIP format, consistency between the fixed-asset
+                  register and the ledger. That's 80% of the work — and what decides whether the file reconciles.
+                </li>
+                <li>
+                  <strong>Cross-check with JPK_VAT.</strong> Generate a working JPK_KR_PD and compare it with JPK_VAT for the same period.
+                  Every difference you find now is a difference the tax office won't.
+                </li>
+              </ol>
+
+              <hr>
+
+              <h2 id="faq">FAQ</h2>
+
+              <h3>What is JPK_CIT?</h3>
+              <p>
+                It's the obligation to keep accounting books using software and submit them to the tax authorities in a structured format. It consists of
+                two structures: <strong>JPK_KR_PD</strong> (books with tax data) and <strong>JPK_ST_KR</strong> (fixed assets and intangibles). The obligation
+                was introduced by an amendment to the Polish CIT Act.
+              </p>
+
+              <h3>When does it start and who is affected first?</h3>
+              <p>
+                Phased. For a tax year starting after 31 Dec 2024 — the largest CIT payers (revenue &gt;EUR 50M) and tax capital groups.
+                For a year after 31 Dec 2025 — other CIT payers who file JPK_VAT. For a year after 31 Dec 2026 — the remaining CIT payers.
+              </p>
+
+              <h3>When is it submitted for the first time?</h3>
+              <p>
+                Once a year, together with the annual CIT return — by the end of the third month after the tax year ends. For a year matching the calendar
+                year, that's usually the end of March. But the books must be kept in the structure throughout the year, not only assembled at submission time.
+              </p>
+
+              <h3>How does JPK_CIT connect to KSeF and JPK_VAT?</h3>
+              <p>
+                The book data must be consistent with JPK_VAT and with invoices from KSeF. A mismatch between revenue in the books and sales in JPK_VAT,
+                or between a booked invoice and its KSeF counterpart, is the most common trigger for an audit. Cleaning up the source data before the first submission is essential.
+              </p>
+
+              <hr>
+
+              <h2 id="sources">Official sources</h2>
+              <ul>
+                <li><a href="https://www.podatki.gov.pl/cit/jpk-cit/" target="_blank" rel="noopener noreferrer">JPK_CIT on podatki.gov.pl — official portal</a></li>
+                <li><a href="https://www.gov.pl/web/finanse" target="_blank" rel="noopener noreferrer">Polish Ministry of Finance — gov.pl</a></li>
+                <li><a href="https://www.podatki.gov.pl/jednolity-plik-kontrolny/" target="_blank" rel="noopener noreferrer">Standard Audit File (JPK) — general information</a></li>
+              </ul>
+
+              <h2 id="feedback">Quick feedback</h2>
+              <div class="callout">
+                <strong>Was this useful?</strong>
+                <p>A quick signal helps us prioritize follow-ups.</p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Helpful <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Not really <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">No comments, no accounts.</p>
+              </div>
+
+              <h2 id="related-posts">Related posts</h2>
+
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>JPK_CIT connects to KSeF and JPK_VAT — more practice on DevLab Blog:</p>
+                <ul>
+                  <li><a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF 2026: the complete guide — FA(3), ZAW-FA, penalties and checklist ↗</a></li>
+                  <li><a href="/posts/post15-ksef-after-go-live-15-issues.html">KSeF after go-live: 15 issues that surface in months 2–3 ↗</a></li>
+                  <li><a href="/posts/post12-ksef-low-code.html">KSeF in 2026: deadlines, the 10,000 zł threshold and practical preparation ↗</a></li>
+                </ul>
+              </div>
+
+              <footer class="post-footer-extended">
+                <div class="post-footer-meta">
+                  <div class="post-meta-tags">
+                    <span class="post-tag">JPK_CIT</span>
+                    <span class="post-tag">JPK_KR_PD</span>
+                    <span class="post-tag">JPK_ST_KR</span>
+                    <span class="post-tag">CIT</span>
+                    <span class="post-tag">Poland</span>
+                    <span class="post-tag">Compliance</span>
+                  </div>
+
+                  <div class="post-meta-secondary">
+                    <span>Published: 4 July 2026</span>
+                    <span>·</span>
+                    <span>Approx. 14 min read</span>
+                    <span>·</span>
+                    <span class="post-views">Views: <span class="count">—</span></span>
+                  </div>
+                </div>
+              </footer>
+
+              <section class="sidebar-block">
+                <p class="sidebar-text">
+                  No spam — just occasional notes on JPK_CIT, KSeF, ERP and automation, and new posts.
+                </p>
+                <form class="newsletter-form"
+                      action="https://formsubmit.co/info@devlab.blog"
+                      method="POST">
+                  <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="text" name="_honey" style="display:none">
+
+                  <input type="email" name="email" class="field" placeholder="Your email address" required>
+                  <button class="btn btn-primary" type="submit">Subscribe</button>
+
+                  <p class="newsletter-note">
+                    You will receive a confirmation email.<br>
+                    Powered securely via FormSubmit.
+                  </p>
+                </form>
+              </section>
+
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Categories →</a>
+            </div>
+          </article>
+
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+                  Send us an email →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog covers open-source ERP, modular architectures and low-code automation —
+                with a focus on practical implementation and real-world cases.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">Go back to the main page or browse by category:</p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Categories</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
