@@ -50,7 +50,7 @@
       "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
     },
     "datePublished": "2026-01-06",
-    "dateModified": "2026-06-04"
+    "dateModified": "2026-07-31"
   }
   </script>
 
@@ -155,7 +155,7 @@
                 <span>&middot;</span>
                 <span>Approx. 18 min read</span>
                 <span>&middot;</span>
-                <span>Updated: 4 June 2026</span>
+                <span>Updated: 31 July 2026</span>
               </div>
 
               <h1 class="hero-title">
@@ -219,6 +219,7 @@
               <div class="post-toc" aria-label="Contents">
                 <div class="post-toc__title">In this article</div>
                 <ul class="post-toc__list">
+                  <li><a href="#update-2026-07">July 2026 update: half a year after go-live</a></li>
                   <li><a href="#deadlines">Key dates 2026–2027</a></li>
                   <li><a href="#penalties">Penalties: why 2026 is not a "free year"</a></li>
                   <li><a href="#limit-10000">The 10,000 zł threshold: 3 common misunderstandings</a></li>
@@ -235,6 +236,67 @@
                   <li><a href="#conclusion">Conclusion: what to do this week</a></li>
                   <li><a href="#sources">Official sources</a></li>
                 </ul>
+              </div>
+
+              <hr>
+
+              <h2 id="update-2026-07">July 2026 update: half a year after go-live — what actually shows up</h2>
+
+              <p>
+                KSeF has been mandatory for the largest taxpayers since 1 February 2026, and the rest of businesses joined on 1 April.
+                After a few months in production a clear pattern has emerged — and it isn't the one most companies expected.
+              </p>
+
+              <ul>
+                <li><strong>The pain is in the data, not the API.</strong> The companies that sailed through weren't the ones with the best integration, but the ones that had cleaned their dictionaries first (tax IDs, VAT rates, GTU codes, addresses). Integration is ~20% of the work; the rest is data quality and process.</li>
+                <li><strong>"Receiving" caught small firms off guard.</strong> Everyone prepared to issue invoices — but receiving KSeF invoices has been required since February, regardless of company size. A micro-business "with time until 2027" was still getting KSeF invoices from large suppliers from day one.</li>
+                <li><strong>Corrections are the quiet time sink.</strong> Not the XML and not the API — correction invoices turned out to be the most common source of manual work in months 3–4.</li>
+              </ul>
+
+              <p><strong>What being unprepared really costs (illustrative model)</strong></p>
+
+              <p>
+                There is no single "price of KSeF" — the cost hides in the manual handling of exceptions. The model below assumes ~10% corrections,
+                ~20 minutes per manual case, at 60 zł/h (~€13). It's an <em>illustrative estimate</em>, not measured data — your numbers will differ.
+              </p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Invoices / mo.</th><th>Corrections (~10%)</th><th>Hours / mo.</th><th>Cost / mo.</th><th>Per year</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>200</strong></td><td>~20</td><td>~7 h</td><td>~400 zł</td><td>~4,800 zł</td></tr>
+                    <tr><td><strong>1,000</strong></td><td>~100</td><td>~33 h</td><td>~2,000 zł</td><td>~24,000 zł</td></tr>
+                    <tr><td><strong>5,000</strong></td><td>~500</td><td>~165 h</td><td>~10,000 zł</td><td>~120,000 zł</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                The direction holds at any scale: <strong>an untested corrections process turns into a full-time job</strong>.
+                That's why an operational layer — monitoring, routing of rejected invoices, pre-submission self-checks — pays off faster than it looks.
+                We broke down the real first-months problems in a separate piece:
+                <a href="/posts/post15-ksef-after-go-live-15-issues.html">KSeF after go-live: 15 problems that appear in months 2–3 ↗</a>.
+              </p>
+
+              <div class="callout">
+                <strong>60-second readiness check.</strong>
+                <p>Answer honestly "yes / no". Every "no" is an open risk before your go-live date:</p>
+                <ul>
+                  <li>ZAW-FA(3) submitted (via e-US, not ePUAP) <em>or</em> a qualified seal with tax ID</li>
+                  <li>I know which FA(3) fields map to which fields in my ERP</li>
+                  <li><strong>Correction</strong> invoices tested (not just ordinary ones)</li>
+                  <li><strong>Receiving</strong> of KSeF invoices from suppliers configured</li>
+                  <li>"Shadow" channels closed (Word / Excel / manual invoices)</li>
+                  <li>A process owner assigned (who reacts to a rejected invoice at 6:30 pm on Friday)</li>
+                  <li>A plan for the KSeF ID in bank transfers (from 1 August 2026)</li>
+                </ul>
+                <p>
+                  <strong>3+ "no"?</strong> Start with the <a href="#checklist">30 / 60 / 90-day checklist</a> below.
+                  And if you're looking for a platform where KSeF is part of the business logic rather than a bolted-on module —
+                  see <a href="/posts/post12-ksef-low-code.html">KSeF on a low-code platform (MyCompany / lsFusion) ↗</a>.
+                </p>
               </div>
 
               <hr>
@@ -929,7 +991,7 @@
                   <div class="post-meta-secondary">
                     <span>Published: 6 Jan 2026</span>
                     <span>·</span>
-                    <span>Updated: 4 June 2026</span>
+                    <span>Updated: 31 July 2026</span>
                     <span>·</span>
                     <span>Approx. 18 min read</span>
                     <span>·</span>
