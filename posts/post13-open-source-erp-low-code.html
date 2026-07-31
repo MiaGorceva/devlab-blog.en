@@ -77,7 +77,7 @@
       }
     },
     "datePublished": "2025-12-15",
-    "dateModified": "2025-12-15",
+    "dateModified": "2026-07-31",
     "inLanguage": "en"
   }
   </script>
@@ -269,6 +269,42 @@
             <!-- ARTICLE BODY -->
 
             <section class="post-content">
+
+              <div class="callout">
+                <strong>Mid-2026 update — what changed, and a 30-second pick.</strong>
+                <p>
+                  Two shifts have reshaped the open-source ERP decision since this guide first went out.
+                  AI-assisted development quietly lowered the cost of <em>extending</em> a system — so "build on a platform"
+                  now beats "buy and fight the upgrades" more often than it did in 2024. And e-invoicing mandates such as
+                  Poland's <a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF ↗</a> turned "where do my business
+                  rules live?" into a compliance question, not just an architecture one.
+                </p>
+              </div>
+
+              <p><strong>A 30-second pick — where to start, by situation:</strong></p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>If you are…</th><th>Start with</th><th>Why</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>SMB, mostly standard processes</td><td>A packaged open-source ERP (ERPNext, Odoo Community)</td><td>Breadth out of the box; you're not paying to reinvent standard flows</td></tr>
+                    <tr><td>A process that keeps changing</td><td>A platform-first / declarative ERP (lsFusion)</td><td>Rules live in one model, so change stays cheap — see the <a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">architecture breakdown ↗</a></td></tr>
+                    <tr><td>Mostly after dashboards &amp; internal tools</td><td>A low-code layer (Appsmith, ToolJet, Budibase)</td><td>Not an ERP replacement — an operations layer over what you already run</td></tr>
+                    <tr><td>EU / Poland, under e-invoicing pressure</td><td>A system that holds rules centrally + a KSeF path</td><td>Compliance is a moving rule set, not a one-off — <a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF guide ↗</a></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                The rest of this guide is the honest long version behind that table — 12 systems, their trade-offs,
+                and the mistakes that surface in year two. For a code-level head-to-head, see
+                <a href="/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">ERPNext vs MyCompany (lsFusion) ↗</a>.
+              </p>
+
+              <hr>
+
               <h2 id="toc-open-source-meaning">Why “open-source ERP” no longer means one single thing</h2>
               <p>
                 If you read most articles about open-source ERP, it may seem that the world is still divided
@@ -682,6 +718,8 @@
 
                 <div class="post-meta-secondary">
                   <span>Published: Dec 15, 2025</span>
+                  <span>·</span>
+                  <span>Updated: Jul 31, 2026</span>
                   <span>·</span>
                   <span>Approx. 14 min read</span>
                   <span>·</span>
