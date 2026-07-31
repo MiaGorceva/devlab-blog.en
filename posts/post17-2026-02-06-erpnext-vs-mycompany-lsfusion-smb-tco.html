@@ -63,7 +63,7 @@
       }
     },
     "datePublished": "2026-02-06",
-    "dateModified": "2026-02-06"
+    "dateModified": "2026-07-31"
   }
   </script>
 
@@ -143,6 +143,40 @@
                   <li><a class="post-read" href="#related-posts">Related Posts</a></li>
               </ol></nav>
             </div>
+
+              <div class="callout">
+                <strong>2026 verdict at a glance — before the deep dive.</strong>
+                <p>
+                  This piece pits ERPNext against MyCompany (lsFusion) on a real retail-replenishment task — with code and the honest cost of change.
+                  Since it first went out, AI-assisted development has only sharpened the point: the platform whose rules are compact and declarative
+                  is the one an AI (and your own team) can actually maintain.
+                </p>
+              </div>
+
+              <p><strong>ERPNext vs MyCompany — the short version:</strong></p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>Dimension</th><th>ERPNext</th><th>MyCompany (lsFusion)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Best fit</td><td>Processes close to the standard model</td><td>Unique, evolving processes</td></tr>
+                    <tr><td>Cost of a rule change</td><td>Rises as you bend it off-model</td><td>Described once, in one place</td></tr>
+                    <tr><td>Code for the same task</td><td>More glue across models and hooks</td><td>Less — declarative, one formalism</td></tr>
+                    <tr><td>Out-of-the-box breadth</td><td>High — a packaged ERP</td><td>Lower — you build on a platform</td></tr>
+                    <tr><td>Wins when…</td><td>You're ready to standardize</td><td>Fit-to-process and cheap change matter most</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                The rest is the honest long version — business spec, both implementations with code, a side-by-side, and a git-diff you can measure yourself.
+                Related: the <a href="/posts/post13-open-source-erp-low-code.html">open-source ERP landscape ↗</a> and why architecture decides the
+                <a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">cost of change ↗</a>.
+              </p>
+
+              <hr>
 
             <h2 id="stress-test">1. Why Retail Replenishment Is a Good ERP Stress Test</h2>
 
