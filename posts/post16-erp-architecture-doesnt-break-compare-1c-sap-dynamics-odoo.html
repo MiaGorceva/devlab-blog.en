@@ -54,7 +54,7 @@
       "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
     },
     "datePublished": "2026-01-22",
-    "dateModified": "2026-01-22"
+    "dateModified": "2026-07-31"
   }
   </script>
 
@@ -160,6 +160,42 @@
               </header>
 
             <!-- ===================================================== -->
+              <div class="callout">
+                <strong>2026 update — the one-table verdict, then the long honest version.</strong>
+                <p>
+                  Two things sharpened this comparison since it first went out. AI-assisted development made <em>readable, declarative</em>
+                  logic far more valuable — an AI can only help with rules it can actually see. And e-invoicing mandates like Poland's
+                  <a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF ↗</a> turned "how expensive is a rule change?" into a live
+                  compliance question, not a theoretical one.
+                </p>
+              </div>
+
+              <p><strong>Where each ERP turns into a brake — in one line:</strong></p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr><th>System</th><th>The architectural brake</th><th>Cost of a non-standard rule change</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>1C</strong></td><td>Logic split across configuration and code; strong regional lock-in</td><td>Predictable inside its model, expensive the moment you leave it</td></tr>
+                    <tr><td><strong>SAP</strong></td><td>Depth and rigor, but change moves through heavy layers and governance</td><td>High — consultants and process are part of every change</td></tr>
+                    <tr><td><strong>Dynamics</strong></td><td>Extension model plus a cloud update cadence you don't control</td><td>Medium–high; customizations fight the update train</td></tr>
+                    <tr><td><strong>Odoo</strong></td><td>One rule spreads across models, computed fields, views and cron jobs</td><td>Rises with every customization — the annual "upgrade tax"</td></tr>
+                    <tr><td><strong>Declarative (lsFusion)</strong></td><td>Data, calculations and control live in one model</td><td>Described once, in one place — a cost you can actually predict</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                That's the verdict. The rest of this piece is the evidence behind it — data model, query layer, execution, forms, language and physical model —
+                plus the exact test to run in a demo. Related: the <a href="/posts/post13-open-source-erp-low-code.html">open-source ERP landscape ↗</a>,
+                a code-level <a href="/posts/post17-2026-02-06-erpnext-vs-mycompany-lsfusion-smb-tco.html">ERPNext vs MyCompany comparison ↗</a>, and an
+                <a href="/posts/post20-odoo-honest-guide.html">honest look at Odoo ↗</a>.
+              </p>
+
+              <hr>
+
            <nav class="post-toc" id="toc">
             <h2>Contents</h2>
             <ol>
@@ -2043,6 +2079,8 @@
 
                 <div class="post-meta-secondary">
                   <span>Published: 22 Jan 2026</span>
+                  <span>·</span>
+                  <span>Updated: Jul 31, 2026</span>
                   <span>·</span>
                   <span>About 10–12 min read</span>
                   <span>·</span>
