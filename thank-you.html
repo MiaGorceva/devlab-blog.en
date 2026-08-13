@@ -22,6 +22,21 @@
     });
   </script>
 
+  <script>
+    // Inherit the consent the visitor already granted on the blog (localStorage key set by script.js).
+    // Without this, thank-you keeps consent 'denied' (no banner here) and the pageview/conversion is suppressed.
+    try {
+      if (localStorage.getItem('dl_consent_v1') === 'analytics') {
+        gtag('consent','update',{
+          analytics_storage:'granted',
+          ad_storage:'granted',
+          ad_user_data:'granted',
+          ad_personalization:'granted'
+        });
+      }
+    } catch (e) {}
+  </script>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
