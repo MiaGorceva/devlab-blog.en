@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Free KSeF invoicing software: what are your options (government & open-source) – DevLab Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Can you issue KSeF invoices for free? An honest look at the free options: the government Aplikacja Podatnika KSeF, e-mikrofirma and open-source solutions — who they fit and where their limits are."
+  />
+
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied',
+    ad_personalization:'denied', functionality_storage:'granted', security_storage:'granted'
+  });
+</script>
+
+  <link rel="preconnect" href="https://uk.devlab.blog">
+  <link rel="dns-prefetch" href="https://uk.devlab.blog">
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Free KSeF invoicing software: what are your options (government & open-source)",
+    "description": "Can you issue KSeF invoices for free? An honest look at free options: Aplikacja Podatnika KSeF, e-mikrofirma and open-source solutions.",
+    "author": { "@type": "Organization", "name": "DevLab Blog" },
+    "publisher": { "@type": "Organization", "name": "DevLab", "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" } },
+    "mainEntityOfPage": "https://en.devlab.blog/posts/post22-darmowy-program-do-faktur-ksef.html",
+    "datePublished": "2026-09-18",
+    "dateModified": "2026-09-18"
+  }
+  </script>
+  <link rel="canonical" href="https://en.devlab.blog/posts/post22-darmowy-program-do-faktur-ksef.html">
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WTZDV4K6');</script>
+</head>
+
+<body class="post-page">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <article>
+            <div class="section-title">
+              <span>Article</span>
+              <small><a href="/">← Back to all articles</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>Regulation · KSeF</span>
+                <span>&middot;</span>
+                <span>About 8 min read</span>
+              </div>
+              <h1 class="hero-title">
+                Free KSeF invoicing software: what are your options
+              </h1>
+              <p class="hero-text">
+                With KSeF, vendors started selling paid "e-invoicing modules." But before you pay for one —
+                it's worth knowing that you can issue a KSeF invoice <strong>for free</strong>. Here's an honest
+                overview of the free routes: government tools, their limits, and open-source solutions for
+                companies that have outgrown the government app.
+              </p>
+              <figure class="post-hero">
+                <img src="https://uk.devlab.blog/img/post12-ksef-low-code-poland.webp" alt="Free KSeF invoicing software options in Poland">
+              </figure>
+            </header>
+
+            <section class="post-content">
+              <h2>1. Do you really need paid KSeF software?</h2>
+              <p>
+                KSeF (Krajowy System e-Faktur) is Poland's national platform for issuing and receiving structured
+                XML invoices. Access to KSeF itself is free — provided by the Ministry of Finance. What can cost
+                money are the <em>programs</em> that add their own interface, integrations and automation on top.
+              </p>
+              <p>
+                For many companies — especially micro and small ones — the free tools are plenty. Below we show
+                when that's the case, and when it's worth reaching for something more (also for free).
+              </p>
+              <p class="callout">
+                Need the legal context — deadlines, the 10,000 PLN exemption, penalties and error codes? We covered
+                it separately: <a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF in 2026: timeline and practical preparation ↗</a>.
+              </p>
+
+              <h2>2. Free government tools</h2>
+              <p>
+                The Ministry of Finance provides several free ways to issue KSeF invoices — with no licence fee:
+              </p>
+              <ul>
+                <li>
+                  <strong>Aplikacja Podatnika KSeF</strong> — the official free app (web and mobile) for issuing,
+                  receiving and viewing invoices. Log in via Profil Zaufany, among others. Good to start with and
+                  for a low document volume.
+                </li>
+                <li>
+                  <strong>e-mikrofirma</strong> (inside e-Urząd Skarbowy) — a free tool aimed at the smallest firms,
+                  tied to settlements and records.
+                </li>
+                <li>
+                  <strong>KSeF API</strong> — a free integration interface if you want to connect KSeF to your own
+                  system. It's not a "program" in itself, but a gateway to automation.
+                </li>
+              </ul>
+              <p>
+                If you issue a handful to a dozen invoices a month and don't need integration with a warehouse or
+                accounting — <strong>the government app will most likely be enough, and you'll pay nothing.</strong>
+              </p>
+
+              <h2>3. Where free government tools end</h2>
+              <p>The MF tools are great to start, but they have limits. They start to hurt when:</p>
+              <ul>
+                <li>you issue many invoices and manual entry eats real time;</li>
+                <li>you need invoices based on orders, warehouse, contracts or e-commerce — not "from scratch";</li>
+                <li>you handle corrections, prepayments and statuses in bulk, not one by one;</li>
+                <li>you want an invoice created automatically after an event in your system;</li>
+                <li>you need your own approval flows, roles and reporting.</li>
+              </ul>
+              <p>
+                That's usually when the "invoicing program" question appears. And it's worth knowing that the
+                alternative to paid packages isn't only the government app — there are also
+                <strong>free open-source solutions</strong> that combine the convenience of a program with a zero licence fee.
+              </p>
+
+              <h2>4. Open-source options: free, but with integration</h2>
+              <p>
+                Open-source software can be used without licence fees — on your own or with a partner. For KSeF we
+                care about solutions that can:
+              </p>
+              <ul>
+                <li>generate a structured invoice and send it to KSeF;</li>
+                <li>receive confirmations and track statuses and errors;</li>
+                <li>connect invoices with the rest of the company — sales, warehouse, accounting;</li>
+                <li>grow with the company, without swapping systems every year.</li>
+              </ul>
+              <p>
+                These are built today on declarative low-code platforms (e.g. the lsFusion class), where logic is
+                described by rules and the technical KSeF integration is hidden in connectors — so adapting to MF
+                schema changes takes hours, not weeks.
+              </p>
+
+              <div class="callout">
+                <strong>A few real open-source options — with pros and cons (optional, no strings attached):</strong>
+                <ul>
+                  <li>
+                    <a href="https://demo.lsfusion.org/mycompany" target="_blank" rel="noopener noreferrer">MyCompany</a>
+                    — a free open-source ERP (Apache-2.0) on the lsFusion platform.
+                    <br><strong>Pro:</strong> it's a full ERP — invoices linked to sales, warehouse and accounting, process automation; the public demo includes invoice issuing.
+                    <strong>Con:</strong> as a platform it usually needs configuration for your processes (yourself or with a partner) — a higher entry bar than a simple invoicing app.
+                  </li>
+                  <li>
+                    <a href="https://www.dolibarr.org" target="_blank" rel="noopener noreferrer">Dolibarr</a>
+                    — a mature open-source ERP/CRM with a large community.
+                    <br><strong>Pro:</strong> plenty of ready modules, proven in thousands of firms.
+                    <strong>Con:</strong> a dated interface in places; Polish KSeF support is usually via third-party modules, not out of the box.
+                  </li>
+                  <li>
+                    <a href="https://www.invoiceninja.com" target="_blank" rel="noopener noreferrer">Invoice Ninja</a>
+                    — a lightweight open-source invoicing app.
+                    <br><strong>Pro:</strong> simple and fast to start, focused on invoices and payments.
+                    <strong>Con:</strong> not a full ERP — no deep warehouse/production integration; no KSeF-specific features.
+                  </li>
+                </ul>
+                <p class="sidebar-text">
+                  KSeF support varies between tools — worth checking each one. These are just examples; the choice depends on your company's scale and processes.
+                </p>
+              </div>
+
+              <h2>5. How to choose — a short checklist</h2>
+              <ul>
+                <li><strong>Few invoices, simple?</strong> → the free Aplikacja Podatnika KSeF.</li>
+                <li><strong>Smallest firm, tied to settlements?</strong> → e-mikrofirma.</li>
+                <li><strong>Many invoices, warehouse/ERP integration, automation?</strong> → a program (paid or open-source).</li>
+                <li><strong>Want to avoid a licence fee but still integrate?</strong> → open-source solutions.</li>
+                <li><strong>Have your own system?</strong> → integrate via KSeF API.</li>
+              </ul>
+
+              <h2>6. Summary</h2>
+              <p>
+                "Free KSeF invoicing software" is no myth. Many companies will be fine with the free government
+                tools, and where integration and automation are needed — open-source helps without licence fees.
+                Before signing up for a paid module, check whether the free path already solves it at your scale.
+              </p>
+            </section>
+
+             <h2 id="feedback">Quick feedback</h2>
+              <div class="callout">
+                <strong>Was this helpful?</strong>
+                <p>A short signal helps us prioritise the next topics.</p>
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">👍 Helpful <span class="count" data-count="like">—</span></button>
+                  <button class="btn btn-outline" type="button" data-vote="dislike">👎 Not really <span class="count" data-count="dislike">—</span></button>
+                </div>
+                <p class="sidebar-text">No comments, no accounts.</p>
+              </div>
+
+            <h2 id="related-posts">Related posts</h2>
+              <div class="callout">
+                <strong>Browse further:</strong>
+                <p>More practical notes on KSeF and e-invoicing.</p>
+                <ul>
+                  <li><a href="/posts/post23-jak-wystawic-fakture-ksef.html">How to issue a KSeF invoice — step by step ↗</a></li>
+                  <li><a href="/posts/post14-ksef-2026-limit-10000-checklist.html">KSeF in 2026: timeline, 10,000 PLN exemption and preparation ↗</a></li>
+                  <li><a href="/posts/post12-ksef-low-code.html">KSeF + low-code: preparing for e-invoicing at minimal cost ↗</a></li>
+                </ul>
+              </div>
+
+          <div class="post-nav-links">
+            <a class="post-read" href="/#posts" >← Back to all posts</a>
+            <a class="post-read" href="/#categories" > Browse all categories →</a>
+          </div>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">KSeF</span>
+                  <span class="post-tag">E-invoicing</span>
+                  <span class="post-tag">Invoices</span>
+                  <span class="post-tag">Open-source</span>
+                  <span class="post-tag">Poland</span>
+                </div>
+                <div class="post-meta-secondary">
+                  <span>Published: Sep 18, 2026</span>
+                  <span>·</span>
+                  <span>About 8 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+        <section class="sidebar-block">
+            <p class="sidebar-text">
+              No spam – just occasional notes on ERP design, automation experiments and new articles.
+            </p>
+            <form class="newsletter-form" action="https://formsubmit.co/info@devlab.blog" method="POST">
+              <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
+              <input type="email" name="email" class="field" placeholder="Your email address" required>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+              <p class="newsletter-note">You'll get a confirmation email.<br>Securely via FormSubmit.</p>
+            </form>
+          </section>
+
+          </article>
+
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20idea%20for%20DevLab%20Blog">Write to us →</a>
+              </p>
+            </section>
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About the blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP, declarative platforms and low-code automation:
+                how to adapt systems to requirements like KSeF without turning IT into an endless project.
+              </p>
+            </section>
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <ul class="sidebar-list">
+                <li><a href="/">All blog articles</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+          </div>
+          <p class="footer-meta">DevLab Blog – notes on open-source ERP, low-code and automation in real companies.</p>
+        </div>
+        <div class="footer-meta"><p>&copy; <span id="year"></span> DevLab Blog</p></div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
