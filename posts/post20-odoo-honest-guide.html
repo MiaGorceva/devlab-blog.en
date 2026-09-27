@@ -54,7 +54,7 @@
       "logo": { "@type": "ImageObject", "url": "https://uk.devlab.blog/img/devlab-logo.svg" }
     },
     "datePublished": "2026-07-24",
-    "dateModified": "2026-07-24"
+    "dateModified": "2026-09-27"
   }
   </script>
 
@@ -206,6 +206,16 @@
         including the architectural one most reviews skip.
       </p>
     </div>
+
+    <div class="callout" role="note">
+      <strong>TL;DR — the 30-second version</strong>
+      <ul>
+        <li>Odoo's real price isn't the license. It's the first time the business asks you to change a rule.</li>
+        <li>There are <em>two</em> Odoos — Community vs Enterprise. Half the internet's hot takes are just arguing about which one they used.</li>
+        <li>Its superpower: breadth-for-the-price and a believable pilot in days. Its weak spot: keeping your customizations alive through a new version every year.</li>
+        <li>Excellent fit for a mostly <em>standard</em> process. If your edge is a process that keeps changing, a declarative low-code platform is the cheaper answer over the life of the system.</li>
+      </ul>
+    </div>
   </section>
 
   <hr>
@@ -320,6 +330,20 @@
       reserved" is no longer an edit — it's a small project touching model, form, report
       and background job, verified by hand.
     </p>
+
+    <div class="callout" role="note">
+      <strong>A Tuesday in month eight</strong>
+      <p>
+        Sales asks for something that sounds trivial: "give distributors an extra 3% once
+        their yearly volume passes a threshold." In Odoo that one sentence quietly lands in
+        four places — a computed field on the order, a change to the pricelist model, a SQL
+        view feeding the sales report, and a nightly cron that recomputes running totals.
+        Every edit is reasonable on its own. Together they turn a one-line request into a
+        half-day job with a QA pass — and next year's upgrade now has to carry all four.
+        That's not Odoo being bad. That's a single rule living in four places instead of one.
+      </p>
+    </div>
+
     <p>
       That's the honest test for any ERP, Odoo included: ask to see <em>one</em> rule and
       <em>every</em> place it's implemented. If the answer is "code plus a computed field
@@ -359,11 +383,38 @@
     <p>
       Buyers usually compare Odoo against SAP Business One or 1C. The short version:
     </p>
-    <ul>
-      <li><strong>Odoo</strong> — widest feature breadth per dollar, fastest pilot, friendliest to in-house tinkering. Weakest on painless upgrades and on holding a non-standard rule in one place.</li>
-      <li><strong>SAP Business One</strong> — deeper financial rigor and a mature partner ecosystem, heavier and pricier, less fun to customize. The "no one got fired for buying it" option for mid-market.</li>
-      <li><strong>1C</strong> — extremely strong where its regional accounting and localization are the requirement; a different world outside those markets. Powerful, but its own architectural limits show up the moment business rules change — a topic we cover in our <a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">ERP architecture breakdown</a>.</li>
-    </ul>
+    <div style="overflow-x:auto; margin: 10px 0 6px;">
+    <table class="dev-table">
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Strongest at</th>
+          <th>Weakest at</th>
+          <th>Pick it when…</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Odoo</strong></td>
+          <td>Feature breadth per dollar; a believable pilot in days; friendly to in-house tinkering.</td>
+          <td>Painless yearly upgrades; holding a non-standard rule in one place.</td>
+          <td>You need broad, connected functionality on a mostly standard process.</td>
+        </tr>
+        <tr>
+          <td><strong>SAP Business One</strong></td>
+          <td>Financial rigor; mature partner ecosystem; mid-market credibility.</td>
+          <td>Heavier and pricier; the least fun to customize.</td>
+          <td>You want deep certified financials — the "no one got fired for buying it" option.</td>
+        </tr>
+        <tr>
+          <td><strong>1C</strong></td>
+          <td>Regional accounting &amp; localization, where that's the actual requirement.</td>
+          <td>A different world outside those markets; its architecture strains the moment rules change (see our <a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">ERP architecture breakdown</a>).</td>
+          <td>Regional compliance is the whole point of the project.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
     <p>
       There is no winner in the abstract. There's only a winner for <em>your</em>
       constraint: breadth-per-dollar (Odoo), financial depth (SAP), or regional
@@ -474,6 +525,8 @@
                 </div>
                 <div class="post-meta-secondary">
                   <span>Published: 24 Jul 2026</span>
+                  <span>·</span>
+                  <span>Updated: 27 Sep 2026</span>
                   <span>·</span>
                   <span>About 10–12 min read</span>
                   <span>·</span>
