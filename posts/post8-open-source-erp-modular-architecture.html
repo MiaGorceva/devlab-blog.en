@@ -231,11 +231,13 @@
               No spam – just occasional notes on ERP design, automation experiments and new posts.
             </p>
             <form class="newsletter-form"
-                  action="https://formsubmit.co/info@devlab.blog"
+                  action="https://api.web3forms.com/submit"
                   method="POST">
-              <input type="hidden" name="_next" value="https://en.devlab.blog/thank-you.html">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="text" name="_honey" style="display:none">
+              <input type="hidden" name="redirect" value="https://en.devlab.blog/thank-you.html">
+              <input type="hidden" name="access_key" value="23f75e67-9fc1-4df4-8b68-7f025191d1a3">
+              <input type="hidden" name="from_name" value="DevLab Blog">
+              <input type="hidden" name="subject" value="New DevLab newsletter subscription">
+              <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
 
               <input type="email" name="email" class="field" placeholder="Your email address" required>
               <button class="btn btn-primary" type="submit">Subscribe</button>
