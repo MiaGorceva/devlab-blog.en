@@ -463,22 +463,12 @@
               <p class="sidebar-text">
                 No spam – just occasional notes on ERP design, automation experiments and new posts.
               </p>
-              <form class="newsletter-form"
-                    action="https://api.web3forms.com/submit"
-                    method="POST">
-                <input type="hidden" name="redirect" value="https://en.devlab.blog/thank-you.html">
-                <input type="hidden" name="access_key" value="23f75e67-9fc1-4df4-8b68-7f025191d1a3">
-                <input type="hidden" name="from_name" value="DevLab Blog">
-                <input type="hidden" name="subject" value="New DevLab newsletter subscription">
-                <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
-
-                <input type="email" name="email" class="field" placeholder="Your email address" required>
+              <form class="newsletter-form" action="https://assets.mailerlite.com/jsonp/2679655/forms/200577209364121282/subscribe" method="POST">
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="anticsrf" value="true">
+                <input type="email" name="fields[email]" class="field" placeholder="Your email" required>
                 <button class="btn btn-primary" type="submit">Subscribe</button>
-
-                <p class="newsletter-note">
-                  You will receive a confirmation email.<br>
-                  Powered securely via Web3Forms.
-                </p>
+                <p class="newsletter-note">You&rsquo;ll receive a confirmation email to opt in.<br>Powered by MailerLite.</p>
               </form>
 
               <h2 id="feedback">Quick feedback</h2>
@@ -551,5 +541,24 @@
     </footer>
   </div>
 
+<script data-ml="ml-newsletter-handler">
+(function(){
+  document.querySelectorAll('form.newsletter-form').forEach(function(f){
+    if (f.dataset.mlBound) return; f.dataset.mlBound = '1';
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = f.querySelector('button[type=submit]');
+      if (btn) btn.disabled = true;
+      fetch(f.action, {method:'POST', body:new URLSearchParams(new FormData(f))})
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (d && d.success) { window.location.href = location.origin + '/thank-you.html'; }
+          else { if (btn) btn.disabled = false; alert('Subscription error \u2014 please try again.'); }
+        })
+        .catch(function(){ if (btn) btn.disabled = false; alert('Network error \u2014 please try again.'); });
+    });
+  });
+})();
+</script>
 </body>
 </html>
