@@ -6,8 +6,8 @@
   <title>IoT for business: where it earns money and where it burns budgets – DevLab Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Where the Internet of Things actually pays off at the scale of a network of sites, a vehicle fleet, or production — and where it burns the budget: value mechanisms, 2026 trends, causes of failure, and a platform comparison from monitoring to decision-making (TagoIO, Datacake, Akenza, MITE, Tractian, Fracttal)." />
-  <meta name="keywords" content="IoT, IIoT, industrial IoT, MITE, lsFusion, ThingsBoard, Tractian, Fracttal, Datacake, TagoIO, Akenza, predictive maintenance, business logic, digital dispatcher" />
+  <meta name="description" content="Where the Internet of Things actually pays off at the scale of a network of sites, a vehicle fleet, or production — and where it burns the budget: value mechanisms, 2026 trends, a platform comparison from monitoring to decision-making (TagoIO, Datacake, Akenza, MITE, Tractian, Fracttal), open-source options (ThingsBoard, Node-RED, Grafana, Home Assistant), and why real value is the full chain IoT → mobile app → ERP, not the dashboard in the middle." />
+  <meta name="keywords" content="IoT, IIoT, industrial IoT, IoT ERP integration, IoT mobile app, open source IoT platform, MITE, lsFusion, ThingsBoard, Node-RED, Grafana, Home Assistant, Tractian, Fracttal, Datacake, TagoIO, Akenza, predictive maintenance, business logic, digital dispatcher" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
@@ -45,7 +45,7 @@
       "@id": "https://en.devlab.blog/posts/post18-iot-for-business.html"
     },
     "headline": "IoT for business: where it earns money and where it burns budgets",
-    "description": "Where the Internet of Things actually pays off at the scale of a network of sites, a vehicle fleet, or production — and where it burns the budget: value mechanisms, 2026 trends, causes of failure, and a platform comparison from monitoring to decision-making.",
+    "description": "Where IoT actually pays off and where it burns budget: value mechanisms, 2026 trends, a platform comparison from monitoring to decision-making, open-source options (ThingsBoard, Node-RED, Grafana, Home Assistant), and why the real value is the full chain IoT → mobile app → ERP, not the dashboard in the middle.",
     "author": {
       "@type": "Organization",
       "name": "DevLab Blog"
@@ -59,7 +59,7 @@
       }
     },
     "datePublished": "2026-05-30",
-    "dateModified": "2026-05-30"
+    "dateModified": "2026-10-26"
   }
   </script>
 
@@ -141,11 +141,13 @@
                 <span>Approx. 12 min read</span>
                 <span>&middot;</span>
                 <span>Market analysis 2026</span>
+                <span>&middot;</span>
+                <span>Updated 26 Oct 2026</span>
               </div>
 
               <h1 class="hero-title">IoT for business: where it earns money and where it burns budgets</h1>
 
-              <p class="hero-text">The line between profit and loss runs not where the sensors are installed, but where the system stops being an alarm and becomes a dispatcher. We break it down — and compare the affordable platforms.</p>
+              <p class="hero-text">The line between profit and loss runs not where the sensors are installed, but where the system stops being an alarm and becomes a dispatcher. We break it down, compare the platforms — managed and open-source — and show why the real value lives in the full chain IoT → mobile app → ERP, not the dashboard in the middle.</p>
 
               <figure class="post-hero">
                 <img
@@ -163,7 +165,7 @@
               <div class="post-quick">
                 <p class="post-quick__title">In short</p>
                 <p class="post-quick__text">
-                  The technology is ready and affordable at the scale of a site network. 72% of IoT projects never reach production — not because of the hardware, but because the system stays an alarm instead of becoming a dispatcher. Platforms split in two: monitoring (you think) and decision-making (the system thinks). The class matters more than the brand.
+                  The technology is ready and affordable at the scale of a site network. 72% of IoT projects never reach production — not because of the hardware, but because the system stays an alarm instead of becoming a dispatcher. Platforms split in two: monitoring (you think) and decision-making (the system thinks); a third axis is managed cloud vs open-source you host yourself. But the real value isn’t any single platform — it’s the full chain <strong>IoT → mobile app → ERP</strong>, where the dashboard is only the middle.
                 </p>
               </div>
 
@@ -197,6 +199,7 @@
                     <ol>
                       <li><a class="post-read" href="#class-1">Class 1. Monitoring</a></li>
                       <li><a class="post-read" href="#class-2">Class 2. Decision-making</a></li>
+                      <li><a class="post-read" href="#open-source">Open-source &amp; self-hosted</a></li>
                       <li><a class="post-read" href="#how-to-choose">How to choose</a></li>
                     </ol>
                   </li>
@@ -440,6 +443,55 @@
                 <p>A cloud maintenance-management system focused on work orders: mobile access, asset history, predictive maintenance on IoT data, spare-parts inventory with reorder alerts, an open API, integrations with ERP and SCADA. Setup is rather for technically savvy teams — not always plug-and-play.</p>
               </div>
 
+              <h3 id="open-source">The third axis: open-source &amp; self-hosted — you own the stack</h3>
+              <p>Beyond price and "brain level" there is a third choice: a managed vendor cloud versus open-source you host yourself. Open-source trades a licence bill for an ops bill — no per-device fee, full control and your data on your own servers, but hosting, scaling, security and updates become your job. These tools cut across both classes above.</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Platform</th>
+                      <th>Strength</th>
+                      <th>Weakness</th>
+                      <th>When to pick</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong><a href="https://thingsboard.io/" target="_blank" rel="noopener noreferrer nofollow">ThingsBoard</a></strong> (Community)</td>
+                      <td>Full stack: device management, rule engine, dashboards; self-host, no per-device fee</td>
+                      <td>You run it — hosting, scaling, security, updates are yours; advanced features are paid (PE)</td>
+                      <td>You want control and no per-device pricing, and have DevOps</td>
+                    </tr>
+                    <tr>
+                      <td><strong><a href="https://nodered.org/" target="_blank" rel="noopener noreferrer nofollow">Node-RED</a></strong></td>
+                      <td>Visual flow wiring; glues any protocol or API; huge community</td>
+                      <td>Not a platform — no multi-tenant, auth or dashboards out of the box; you assemble the rest</td>
+                      <td>Fast prototyping and gluing devices to logic</td>
+                    </tr>
+                    <tr>
+                      <td><strong><a href="https://grafana.com/" target="_blank" rel="noopener noreferrer nofollow">Grafana</a></strong></td>
+                      <td>Best-in-class dashboards and alerting; open-source</td>
+                      <td>Visualisation only — no device management, no decisions</td>
+                      <td>You already store telemetry (InfluxDB/Timescale) and need great charts</td>
+                    </tr>
+                    <tr>
+                      <td><strong><a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer nofollow">Home Assistant</a></strong></td>
+                      <td>Rich device integrations; local-first; free</td>
+                      <td>Built for homes and buildings, not industrial production</td>
+                      <td>Facilities / building automation with local control</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>The honest catch: a "free platform" still leaves unbuilt the two parts that actually create business value — the <strong>mobile app</strong> your field team acts in, and the <strong>ERP</strong> where the money-logic lives. You bolt those on yourself, and the integration bill quietly replaces the licence bill.</p>
+
+              <div class="callout">
+                <strong>The real stack isn't one platform — it's IoT → mobile app → ERP</strong>
+                <p>A dashboard is the middle of the story, not the end. Value appears when the chain closes: a sensor reading reaches a <strong>mobile app</strong> where the technician or driver acts on it in the field, and flows into the <strong>ERP</strong> where the business logic lives — reorder the part, open the work order, bill the client, reshape the plan. Stitch three vendors (an IoT platform + a mobile app + an ERP) and you pay in integrations and sync bugs. <strong>Platform-first systems describe the whole chain as one model:</strong> on the declarative lsFusion engine (which powers <a href="https://mite.club/" target="_blank" rel="noopener noreferrer">MITE</a>), the same logic generates the IoT ingest, the mobile app and the ERP forms — so "sensor + order + regulation → plan" is one description, not three integrations. That's the difference between buying a dashboard and owning the loop.</p>
+              </div>
+
               <h3 id="how-to-choose">How to choose</h3>
 
               <div class="dev-table-wrap">
@@ -465,7 +517,7 @@
                     <tr>
                       <td>A complex plan with many factors (construction, agro, logistics)</td>
                       <td>Decisions</td>
-                       <td><strong><a href="https://mite.club/" target="_blank">Akenza</a></strong></td>
+                       <td><strong><a href="https://mite.club/" target="_blank" rel="noopener noreferrer">MITE</a></strong></td>
                     </tr>
                     <tr>
                       <td>Keep equipment from breaking down</td>
