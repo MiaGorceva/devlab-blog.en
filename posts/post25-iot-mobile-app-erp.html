@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>From sensor to action: why IoT needs a mobile app and an ERP, not another dashboard – DevLab Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Most IoT projects stall because the data dies in a dashboard nobody acts on. Real value appears only when a reading becomes a task on someone's phone and a record in the ERP. How to wire the sensor → mobile app → ERP loop as one data model instead of three brittle integrations — with a cold-chain walkthrough end to end." />
+  <meta name="keywords" content="IoT, IIoT, IoT ERP integration, IoT mobile app, sensor to ERP, field service app, IoT architecture, one data model, lsFusion, MITE, IoT dashboard, work order automation, cold chain, predictive maintenance" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="https://uk.devlab.blog/img/devlab-logo.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="https://uk.devlab.blog/img/devlab-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://uk.devlab.blog/img/devlab-favicon-180.png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      functionality_storage:'granted',
+      security_storage:'granted'
+    });
+  </script>
+
+  <!-- Main blog styles -->
+  <link rel="preconnect" href="https://uk.devlab.blog">
+  <link rel="dns-prefetch" href="https://uk.devlab.blog">
+  <link rel="stylesheet" href="https://uk.devlab.blog/style/devlab-style.css">
+
+  <!-- Main blog scripts -->
+  <script src="https://uk.devlab.blog/js/script.js" defer></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://en.devlab.blog/posts/post25-iot-mobile-app-erp.html"
+    },
+    "headline": "From sensor to action: why IoT needs a mobile app and an ERP, not another dashboard",
+    "description": "Most IoT projects stall because the data dies in a dashboard nobody acts on. Value appears only when a reading becomes a task on a phone and a record in the ERP — and why the sensor → mobile app → ERP loop works best as one data model, not three integrations.",
+    "author": {
+      "@type": "Organization",
+      "name": "DevLab Blog"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevLab",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk.devlab.blog/img/devlab-logo.svg"
+      }
+    },
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02"
+  }
+  </script>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://en.devlab.blog/posts/post25-iot-mobile-app-erp.html">
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTZDV4K6');
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="post-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTZDV4K6"
+            height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <header>
+      <div class="wrapper">
+        <nav class="nav">
+          <a href="/" class="nav-brand">
+            <div class="nav-logo" aria-hidden="true">
+              <img src="https://uk.devlab.blog/img/devlab-logo.svg" alt="DevLab Blog logo">
+            </div>
+            <div class="nav-meta">
+              <div class="nav-meta-title">DevLab Blog</div>
+              <div class="nav-meta-sub">Open-source ERP &amp; automation notes</div>
+            </div>
+          </a>
+
+          <div class="nav-group">
+            <div class="nav-links">
+              <a href="/#posts">Posts</a>
+              <a href="/#categories">Categories</a>
+              <a href="/#about">About</a>
+              <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+            </div>
+            <div class="nav-lang">
+              <a href="https://en.devlab.blog/" class="active">EN</a>
+              <a href="https://pl.devlab.blog/">PL</a>
+              <a href="https://ru.devlab.blog/">RU</a>
+              <a href="https://uk.devlab.blog/">UA</a>
+            </div>
+          </div>
+
+          <div class="nav-cta">
+            <a href="/#posts" class="btn btn-outline">Browse posts</a>
+            <a href="/#about" class="btn btn-primary">What is this?</a>
+          </div>
+
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="main-grid">
+          <article id="post-iot-mobile-app-erp">
+            <div class="section-title">
+              <span>Article</span>
+              <small><a class="back" href="/">← Back to all posts</a></small>
+            </div>
+
+            <header>
+              <div class="post-meta">
+                <span>IIoT · Architecture</span>
+                <span>&middot;</span>
+                <span>Approx. 9 min read</span>
+                <span>&middot;</span>
+                <span>Integration patterns 2026</span>
+                <span>&middot;</span>
+                <span>Published 2 Nov 2026</span>
+              </div>
+
+              <h1 class="hero-title">From sensor to action: why IoT needs a mobile app and an ERP, not another dashboard</h1>
+
+              <p class="hero-text">A dashboard shows you a problem. It never fixes one. The projects that pay back are the ones that close the loop — a reading becomes a task on a technician's phone and a record in the ERP. Here is why the <strong>sensor → mobile app → ERP</strong> chain is the real product, and why it works best as one data model rather than three vendors glued together.</p>
+
+              <figure class="post-hero">
+                <img
+                  src="https://uk.devlab.blog/img/post18-iiot-platforms-growth-not-cost.webp"
+                  alt="Sensor reading turning into a task on a phone and a record in an ERP — the IoT action loop"
+                  loading="eager"
+                  decoding="async"
+                >
+              </figure>
+            </header>
+
+            <section class="post-content">
+
+              <!-- TL;DR -->
+              <div class="post-quick">
+                <p class="post-quick__title">In short</p>
+                <p class="post-quick__text">
+                  IoT pilots don't die from bad sensors — they die in the dashboard, where data is <em>seen</em> but never <em>acted on</em>. The value only appears when the loop closes: a reading reaches a <strong>mobile app</strong> where a field worker does something, and lands in an <strong>ERP</strong> where it becomes a work order, a write-off, a reorder or a compliance record. The architecture decision that decides your integration bill is whether that loop is <strong>three glued vendors</strong> or <strong>one data model</strong>.
+                </p>
+              </div>
+
+              <!-- Table of contents -->
+              <nav class="post-toc sidebar-block" aria-label="Contents">
+                <h3 class="sidebar-title">Contents</h3>
+                <ol>
+                  <li><a class="post-read" href="#part-1">The dashboard graveyard</a></li>
+                  <li><a class="post-read" href="#part-2">The loop that actually works</a></li>
+                  <li class="has-children">
+                    <a class="post-read" href="#part-3">The three layers</a>
+                    <ol>
+                      <li><a class="post-read" href="#layer-sensor">Sensor — what</a></li>
+                      <li><a class="post-read" href="#layer-mobile">Mobile — who does what now</a></li>
+                      <li><a class="post-read" href="#layer-erp">ERP — what it costs, what to plan</a></li>
+                    </ol>
+                  </li>
+                  <li><a class="post-read" href="#part-4">One model vs three integrations</a></li>
+                  <li><a class="post-read" href="#part-5">Walkthrough: a cold-chain excursion</a></li>
+                  <li><a class="post-read" href="#part-6">Checklist: dashboard or loop?</a></li>
+                </ol>
+              </nav>
+
+              <!-- ============== Part 1 ============== -->
+              <h2 id="part-1">The dashboard graveyard</h2>
+
+              <p>Walk into most companies that "did IoT" and you will find the same artefact: a screen on a wall, full of gauges and green dots, that nobody has looked at in weeks. The sensors work. The data flows. The charts are, frankly, beautiful. And nothing changed in how the business runs.</p>
+
+              <p>This is the quiet way IoT projects fail. Not with a hardware fault — with a dashboard that answers a question nobody was asking. Around 70–75% of initiatives never make it to steady production, and the most common reason is not technical: the system <strong>reports</strong> a state instead of <strong>driving</strong> an action. A dashboard moves the work of deciding and doing onto a human who is already busy — so it mostly doesn't get done.</p>
+
+              <p>The test is brutal and simple. Pick any reading your system shows. Ask: <em>when this number goes wrong, what happens next — automatically?</em> If the honest answer is "someone notices, eventually, and then starts making phone calls," you don't have an IoT product. You have an expensive thermometer with a web page.</p>
+
+              <div class="callout">
+                <strong>The reframing that matters</strong>
+                <p>A dashboard is a <em>noun</em> — a thing you look at. The value is in a <em>verb</em> — something that happens. The whole job of an IoT project is to turn the noun into the verb: reading → decision → action → record. The dashboard is at most a side effect of a loop that is already running on its own.</p>
+              </div>
+
+              <hr>
+
+              <!-- ============== Part 2 ============== -->
+              <h2 id="part-2">The loop that actually works</h2>
+
+              <p>Every IoT project that pays back runs the same four-step loop. Miss any step and you are back to the wall screen.</p>
+
+              <div class="diagram-card">
+                <div class="diagram-title">
+                  The action loop
+                  <span class="diagram-hint">sense → decide → act → record</span>
+                </div>
+                <ol>
+                  <li><strong>Sense.</strong> A sensor reports a value — temperature, vibration, location, level. This is the part everyone gets right.</li>
+                  <li><strong>Decide.</strong> The value is compared with context — a threshold, a schedule, a regulation, an open order — and becomes a judgement: this is fine / this needs a human / this needs a human <em>now</em>.</li>
+                  <li><strong>Act.</strong> A specific person gets a specific instruction in the place they already work — their phone — and does something physical in the world.</li>
+                  <li><strong>Record.</strong> What happened flows back into the system of record — the ERP — as a work order, a write-off, a reorder, a signed compliance entry. The loop can now learn and bill.</li>
+                </ol>
+              </div>
+
+              <p>Notice where the two halves live. <strong>Sense</strong> and <strong>decide</strong> are the IoT platform's job — the dashboard's home turf. <strong>Act</strong> happens on a <strong>mobile app</strong>, because the people who fix things are on their feet, not at a desk. <strong>Record</strong> happens in the <strong>ERP</strong>, because that is where the money, the assets and the obligations already live. A dashboard covers one step out of four — which is exactly why, on its own, it changes nothing.</p>
+
+              <hr>
+
+              <!-- ============== Part 3 ============== -->
+              <h2 id="part-3">The three layers — what each one is actually for</h2>
+              <p>Each layer has a distinct job. The mistake is building one of them brilliantly and treating the other two as "we'll figure it out later." Later is where the project dies.</p>
+
+              <h3 id="layer-sensor">The sensor says <em>what</em></h3>
+              <p>This layer answers one question: what is the state of the physical world right now? A number plus a rule — "4&nbsp;°C, limit is 8&nbsp;°C" — is all it owes you. It is also the layer teams over-invest in: more sensors, higher sampling rates, prettier charts. But a reading has no value until something consumes it. A temperature that is 3 degrees too high is trivia until it becomes a decision. Get this layer <em>good enough</em> and reliable, then spend your real energy downstream.</p>
+
+              <h3 id="layer-mobile">The mobile app turns it into <em>who does what, now</em></h3>
+              <p>This is the layer that is almost always missing — and it is where behaviour actually changes. The people who act on physical problems are technicians, drivers, store staff, agronomists, line operators. They are mobile by definition. A problem that arrives as an email to an office inbox is a problem that waits; a problem that arrives as a task on the phone in someone's pocket is a problem that gets handled.</p>
+              <p>A useful field app does a few unglamorous things extremely well: it pushes <strong>one clear task</strong> ("Unit&nbsp;3 at Store&nbsp;12 is over temperature — check and confirm"), it works <strong>offline</strong> in a chiller aisle or a basement with no signal, it lets the worker attach a <strong>photo</strong> and a one-tap confirmation, and it sends the outcome back the moment there is a connection. That is the difference between data that is seen and work that is done.</p>
+
+              <h3 id="layer-erp">The ERP turns it into <em>what it costs and what to plan</em></h3>
+              <p>The reading and the fix are events. The ERP is where they become <em>business facts</em>: an asset with a service history, a work order with a cost, stock that was written off, a part that needs reordering, a compliance record an auditor will accept. Without this layer you can fix the fridge, but you cannot bill the client, prove the cold chain held, or notice that the same unit has now failed three times this quarter and should be replaced.</p>
+              <p>This is also the layer that <strong>closes the loop</strong>: the history it accumulates is what lets the "decide" step get smarter — thresholds tuned to a real failure pattern, maintenance scheduled before a breakdown instead of after. A dashboard forgets everything the moment you look away. An ERP remembers, and remembering is what turns alerts into foresight.</p>
+
+              <hr>
+
+              <!-- ============== Part 4 ============== -->
+              <h2 id="part-4">One data model vs three integrations</h2>
+
+              <p>So you need all three layers. The architecture question is how you get them — and it is the question that quietly sets your real budget. There are two roads.</p>
+
+              <p><strong>Road one: glue three vendors.</strong> An IoT platform for ingest and dashboards, a mobile app platform (or a bespoke app) for the field, and an ERP for the records. Each is fine in isolation. The cost is in the seams: three data models that must be kept in sync, three vendors' release cycles, three places a single new field has to be added, and an integration layer that someone has to own forever. The licence bill you avoided on an open-source platform comes back, with interest, as a sync-bug bill.</p>
+
+              <p><strong>Road two: describe the whole loop as one model.</strong> The sensor rule, the task that fires, the mobile form the worker fills, and the ERP record it writes are not three systems speaking over APIs — they are one description of one process. Change the process once and all three surfaces follow. This is what <em>platform-first</em> means, and it is the opposite of the dashboard-first habit.</p>
+
+              <div class="dev-table-wrap">
+                <table class="dev-table">
+                  <thead>
+                    <tr>
+                      <th>What you need</th>
+                      <th>Three glued vendors</th>
+                      <th>One data model</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sensor ingest &amp; rules</td>
+                      <td>IoT platform A</td>
+                      <td>Part of the model</td>
+                    </tr>
+                    <tr>
+                      <td>Field mobile app</td>
+                      <td>Platform B (or custom build)</td>
+                      <td>Generated from the model</td>
+                    </tr>
+                    <tr>
+                      <td>Records, cost, compliance</td>
+                      <td>ERP C</td>
+                      <td>Generated from the model</td>
+                    </tr>
+                    <tr>
+                      <td>Add one field end to end</td>
+                      <td>Edit in 3 places + redeploy 3 systems</td>
+                      <td>Edit once, all surfaces follow</td>
+                    </tr>
+                    <tr>
+                      <td>A value goes out of sync</td>
+                      <td>Whose bug is it? Debug the seams</td>
+                      <td>No seam — one source of truth</td>
+                    </tr>
+                    <tr>
+                      <td>Who owns the integration</td>
+                      <td>You, forever</td>
+                      <td>Nobody — there isn't one</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout">
+                <strong><a href="https://mite.club/" target="_blank" rel="noopener noreferrer">MITE — the loop as one model, not three integrations</a></strong>
+                <p>This is the whole idea behind <a href="https://mite.club/" target="_blank" rel="noopener noreferrer">MITE</a>. It is built on the declarative lsFusion engine, where "sensor + threshold + open order + regulation → task → record" is written as a single model. From that one description the platform generates the IoT ingest, the field mobile app and the ERP forms — and recomputes dependent values in real time when an input changes. There is no integration layer between the three, because there are not three systems: there is one. You stop buying a dashboard and start owning the loop. Pricing isn't public — request it from the vendor; and if your need genuinely is "sensor → SMS", this is more than you need.</p>
+              </div>
+
+              <p>Neither road is automatically right. If your IoT need is one narrow thing — a handful of sensors and an obvious human response — three cheap tools glued loosely may be perfectly sensible. The one-model road earns its keep when the loop is non-trivial and <em>changes often</em>: that is when editing one description instead of three systems stops being an elegance argument and starts being the whole budget.</p>
+
+              <hr>
+
+              <!-- ============== Part 5 ============== -->
+              <h2 id="part-5">Walkthrough: a cold-chain excursion, end to end</h2>
+              <p>Abstractions are easy to nod along to. Here is the same loop as one concrete story — a refrigerated unit in a retail store drifting out of range.</p>
+
+              <ol class="steps">
+                <li><strong>Sense.</strong> The temperature probe in Unit&nbsp;3 at Store&nbsp;12 reads 9&nbsp;°C. The limit is 8&nbsp;°C. The reading has been climbing for twenty minutes — not a door left open, a real drift.</li>
+                <li><strong>Decide.</strong> The system doesn't just cross a threshold and scream. It checks context: this unit holds dairy and chilled ready-meals; the next service window is Thursday; the shift supervisor is on until 22:00. Verdict — a human is needed now, and it knows which human.</li>
+                <li><strong>Act (mobile).</strong> A task lands on the supervisor's phone: <em>"Unit&nbsp;3 over temperature — inspect and confirm action."</em> She walks over, finds the condenser iced up, moves the perishable stock to Unit&nbsp;5, snaps a photo, taps "stock relocated, service needed." She is offline in the aisle; it syncs when she's back at the front.</li>
+                <li><strong>Record (ERP).</strong> The ERP opens a service work order for the condenser, flags the relocated items, marks down the two trays that crossed the safe window through POS, and writes a timestamped cold-chain log entry the chain's auditor will accept. The unit's failure history now shows its third fault this quarter — so the maintenance plan proposes replacement, not another repair.</li>
+              </ol>
+
+              <p>Count the places a plain dashboard would have stopped: at step one, with a red tile nobody was watching. Everything after — the right person, the right action, the write-off, the audit record, the replace-not-repair insight — is the part that pays for the project. And every step after the first happened somewhere that is <em>not</em> a dashboard.</p>
+
+              <hr>
+
+              <!-- ============== Part 6 ============== -->
+              <h2 id="part-6">Checklist: is your IoT a dashboard or a loop?</h2>
+              <p>Run your project — or the one a vendor is pitching you — through these. A "no" is a place the loop is broken.</p>
+
+              <ol class="steps">
+                <li><strong>When a reading goes wrong, does a specific person get a specific task — automatically?</strong> Or does it rely on someone happening to watch a screen?</li>
+                <li><strong>Does that task arrive where the work happens — on a phone, offline-capable?</strong> Or in an inbox back at the office?</li>
+                <li><strong>Does the outcome land in your system of record?</strong> Can you later prove what happened, bill for it, and audit it — without re-typing anything?</li>
+                <li><strong>Does the system get smarter from its own history?</strong> Does a repeating fault change the plan, or does every alert start from zero?</li>
+                <li><strong>To add one new field across sensor, app and record — how many systems do you edit?</strong> One is cheap to evolve; three is where change quietly stops happening.</li>
+                <li><strong>Who owns the integration between the layers?</strong> If the answer is "us, forever," price that in before you start.</li>
+              </ol>
+
+              <div class="callout">
+                <strong>The one-line version</strong>
+                <p>Don't ask "what will the dashboard show?" Ask "when the number goes wrong, who does what, and where does it get written down?" If you can answer that cleanly, you're building a loop. If you can't, you're buying a wall screen — however pretty the charts. The platforms worth your money are the ones that treat the sensor, the phone and the ERP as one thing, because the value was never in any single layer. It was always in the loop closing.</p>
+              </div>
+
+            </section>
+
+            <footer class="post-footer-extended">
+              <div class="post-footer-meta">
+                <div class="post-meta-tags">
+                  <span class="post-tag">IIoT</span>
+                  <span class="post-tag">Architecture</span>
+                  <span class="post-tag">Mobile</span>
+                  <span class="post-tag">ERP integration</span>
+                </div>
+
+                <div class="post-meta-secondary">
+                  <span>Published: 2 Nov 2026</span>
+                  <span>·</span>
+                  <span>Approx. 9 min read</span>
+                  <span>·</span>
+                  <span class="post-views">Views: <span class="count">—</span></span>
+                </div>
+              </div>
+            </footer>
+
+            <section class="sidebar-block">
+              <p class="sidebar-text">
+                No spam — just occasional notes on ERP design, automation experiments and new posts.
+              </p>
+
+              <form class="newsletter-form" action="https://assets.mailerlite.com/jsonp/2679655/forms/200577209364121282/subscribe" method="POST">
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="anticsrf" value="true">
+                <input type="email" name="fields[email]" class="field" placeholder="Your email" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+                <p class="newsletter-note">You&rsquo;ll receive a confirmation email to opt in.<br>Powered by MailerLite.</p>
+              </form>
+
+              <h2 id="feedback">Quick feedback</h2>
+              <div class="callout">
+                <strong>Was this useful?</strong>
+                <p>A quick signal helps us prioritize follow-ups.</p>
+
+                <div class="hero-actions">
+                  <button class="btn btn-primary" type="button" data-vote="like">
+                    👍 Helpful <span class="count" data-count="like">—</span>
+                  </button>
+
+                  <button class="btn btn-outline" type="button" data-vote="dislike">
+                    👎 Not really <span class="count" data-count="dislike">—</span>
+                  </button>
+                </div>
+
+                <p class="sidebar-text">No comments, no accounts.</p>
+              </div>
+
+              <h2 id="related-posts">Related posts</h2>
+              <div class="callout">
+                <strong>Keep exploring:</strong>
+                <p>More practical notes on IoT, low-code and ERP architecture.</p>
+                <ul>
+                  <li><a href="/posts/post18-iot-for-business.html">IoT for business: where it earns money and where it burns budgets ↗</a></li>
+                  <li><a href="/posts/post16-erp-architecture-doesnt-break-compare-1c-sap-dynamics-odoo.html">ERP that doesn’t break from changes: architecture breakdown ↗</a></li>
+                </ul>
+              </div>
+            </section>
+
+            <div class="post-nav-links">
+              <a class="back" href="/#posts" style="margin-left: 0;">← Back to all posts</a>
+              <a class="back" href="/#categories" style="margin-right: 0;">Browse all categories →</a>
+            </div>
+          </article>
+
+          <aside class="sidebar">
+            <section class="sidebar-block">
+              <h3 class="sidebar-title" id="topic-question-title">Suggest a topic</h3>
+              <p class="sidebar-text">
+                Have a question or an idea for a future article?
+                <a class="post-read" href="mailto:info@devlab.blog?subject=Question%20or%20topic%20idea%20for%20DevLab%20Blog">
+                  Send us an email →
+                </a>
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">About this blog</h3>
+              <p class="sidebar-text">
+                DevLab Blog focuses on open-source ERP concepts, modular business systems and low-code automation.
+                We write about architectural patterns, integration strategies and real-world implementation lessons.
+              </p>
+            </section>
+
+            <section class="sidebar-block">
+              <h3 class="sidebar-title">More to explore</h3>
+              <p class="sidebar-text">
+                Go back to the main page to see other posts, or browse by category:
+              </p>
+              <ul>
+                <li><a href="/">All blog posts</a></li>
+                <li><a href="/#categories">Browse by category</a></li>
+                <li><a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">DevLab main site</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper footer-grid">
+        <div>
+          <div class="footer-links">
+            <a href="/">Posts</a>
+            <a href="/#categories">Categories</a>
+            <a href="/#about">About</a>
+            <a href="https://devlab.blog" target="_blank" rel="noopener noreferrer">Main site</a>
+          </div>
+          <p class="footer-meta">
+            DevLab Blog — notes on open-source ERP, modular architectures and automation experiments.
+          </p>
+        </div>
+        <div class="footer-meta">
+          <p>&copy; <span id="year"></span> DevLab Blog</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+<script data-ml="ml-newsletter-handler">
+(function(){
+  document.querySelectorAll('form.newsletter-form').forEach(function(f){
+    if (f.dataset.mlBound) return; f.dataset.mlBound = '1';
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = f.querySelector('button[type=submit]');
+      if (btn) btn.disabled = true;
+      fetch(f.action, {method:'POST', body:new URLSearchParams(new FormData(f))})
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (d && d.success) { window.location.href = location.origin + '/thank-you.html'; }
+          else { if (btn) btn.disabled = false; alert('Subscription error — please try again.'); }
+        })
+        .catch(function(){ if (btn) btn.disabled = false; alert('Network error — please try again.'); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
